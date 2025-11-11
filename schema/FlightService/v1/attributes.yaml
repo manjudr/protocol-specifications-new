@@ -1,0 +1,402 @@
+openapi: 3.1.1
+info:
+  title: Flight — Air Travel Service Attributes (v1)
+  version: 1.0.0
+  x-profile-id: profiles/travel/flight/v1/flight-service
+  description: >
+    Attribute schemas for scheduled flight services (Item.attributes).
+    These attributes extend Beckn core schemas with aviation-specific details
+    required for flight discovery, selection, and booking flows.
+    Core constructs (descriptor, price, offers, orders, fulfillments, customer data)
+    continue to come from Beckn core v2 specs; this pack adds flight-specific detail only.
+
+components:
+  schemas:
+    ########################################################################
+    # ITEM.ATTRIBUTES — FlightService (aviation-specific only)
+    ########################################################################
+    FlightService:
+      type: object
+      additionalProperties: false
+      required:
+        - carrierCode
+        - marketingFlightNumber
+        - operatingCarrierCode
+        - operatingFlightNumber
+        - origin
+        - destination
+        - departureTime
+        - arrivalTime
+        - cabinClass
+      x-jsonld:
+        "@context": ./context.jsonld
+        "@type": FlightService
+      properties:
+
+        carrierCode:
+          type: string
+          pattern: "^[A-Z0-9]{2}$"
+          description: IATA/ICAO marketing carrier code associated with the published flight.
+          example: "AI"
+          x-jsonld: { "@id": carrierCode }
+
+        carrierName:
+          type: string
+          description: Marketing carrier name for display purposes.
+          example: "Air India"
+          x-jsonld: { "@id": carrierName }
+
+        marketingFlightNumber:
+          type: string
+          description: Full marketing flight number including numeric part (without carrier code if redundant).
+          example: "101"
+          x-jsonld: { "@id": marketingFlightNumber }
+
+        operatingCarrierCode:
+          type: string
+          pattern: "^[A-Z0-9]{2}$"
+          description: Operating carrier code if different from the marketing carrier (codeshare).
+          example: "UK"
+          x-jsonld: { "@id": operatingCarrierCode }
+
+        operatingCarrierName:
+          type: string
+          description: Operating carrier name where different from marketing carrier.
+          example: "Vistara"
+          x-jsonld: { "@id": operatingCarrierName }
+
+        operatingFlightNumber:
+          type: string
+          description: Operating carrier flight number.
+          example: "8501"
+          x-jsonld: { "@id": operatingFlightNumber }
+
+        flightDesignator:
+          type: string
+          description: Combined carrier + flight number for the marketed flight (e.g., AI101).
+          example: "AI101"
+          x-jsonld: { "@id": flightDesignator }
+
+        codeshare:
+          type: boolean
+          description: Indicates whether this flight is operated by a partner carrier (codeshare).
+          example: true
+          x-jsonld: { "@id": codeshare }
+
+        origin:
+          type: object
+          additionalProperties: false
+          required:
+            - airportCode
+          description: Origin airport/terminal details.
+          properties:
+            airportCode:
+              type: string
+              pattern: "^[A-Z]{3}$"
+              description: IATA airport code for the departure location.
+              example: "DEL"
+            airportName:
+              type: string
+              description: Human readable airport name.
+              example: "Indira Gandhi International Airport"
+            cityCode:
+              type: string
+              pattern: "^[A-Z]{3}$"
+              description: IATA city code if different from airport code.
+              example: "DEL"
+            cityName:
+              type: string
+              description: City served by the airport.
+              example: "New Delhi"
+            terminal:
+              type: string
+              description: Terminal from which the flight departs.
+              example: "T3"
+            gate:
+              type: string
+              description: Departure gate (if available).
+              example: "B12"
+            location:
+              allOf:
+                - $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/Location"
+                - type: object
+                  description: Optional Beckn Location object with geo/address metadata for the airport.
+          x-jsonld: { "@id": origin }
+
+        destination:
+          type: object
+          additionalProperties: false
+          required:
+            - airportCode
+          description: Destination airport/terminal details.
+          properties:
+            airportCode:
+              type: string
+              pattern: "^[A-Z]{3}$"
+              description: IATA airport code for the arrival location.
+              example: "BLR"
+            airportName:
+              type: string
+              description: Human readable airport name.
+              example: "Kempegowda International Airport"
+            cityCode:
+              type: string
+              pattern: "^[A-Z]{3}$"
+              description: IATA city code if different from airport code.
+              example: "BLR"
+            cityName:
+              type: string
+              description: City served by the airport.
+              example: "Bengaluru"
+            terminal:
+              type: string
+              description: Arrival terminal.
+              example: "T2"
+            gate:
+              type: string
+              description: Arrival gate (if available).
+              example: "A08"
+            location:
+              allOf:
+                - $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/Location"
+                - type: object
+                  description: Optional Beckn Location object with geo/address metadata for the airport.
+          x-jsonld: { "@id": destination }
+
+        departureDate:
+          type: string
+          format: date
+          description: Operating departure date (local date of departure airport).
+          example: "2025-12-05"
+          x-jsonld: { "@id": departureDate }
+
+        departureTime:
+          type: string
+          format: date-time
+          description: Scheduled departure date/time in ISO 8601 with timezone offset.
+          example: "2025-12-05T10:15:00+05:30"
+          x-jsonld: { "@id": departureTime }
+
+        arrivalDate:
+          type: string
+          format: date
+          description: Operating arrival date (local date of arrival airport).
+          example: "2025-12-05"
+          x-jsonld: { "@id": arrivalDate }
+
+        arrivalTime:
+          type: string
+          format: date-time
+          description: Scheduled arrival date/time in ISO 8601 with timezone offset.
+          example: "2025-12-05T12:45:00+05:30"
+          x-jsonld: { "@id": arrivalTime }
+
+        durationMinutes:
+          type: integer
+          minimum: 1
+          description: Planned block time in minutes between departure and arrival.
+          example: 150
+          x-jsonld: { "@id": durationMinutes }
+
+        blackoutPeriods:
+          type: array
+          items:
+            $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/TimePeriod"
+          description: Time periods where the service is unavailable (e.g., maintenance).
+          x-jsonld: { "@id": blackoutPeriods }
+
+        cabinsOffered:
+          type: array
+          items:
+            type: string
+            enum: [Economy, PremiumEconomy, Business, First]
+          description: Cabin classes sold on this flight.
+          example: ["Economy", "Business"]
+          x-jsonld: { "@id": cabinsOffered }
+
+        cabinClass:
+          type: string
+          enum: [Economy, PremiumEconomy, Business, First]
+          description: Cabin class for this particular item/offer combination.
+          example: "Business"
+          x-jsonld: { "@id": cabinClass }
+
+        fareFamily:
+          type: string
+          description: Fare family or branded fare identifier (e.g., Saver, Flex, Business Select).
+          example: "Flex"
+          x-jsonld: { "@id": fareFamily }
+
+        fareBasisCode:
+          type: string
+          description: Fare basis or booking class code (e.g., Y26NR, J2).
+          example: "J2"
+          x-jsonld: { "@id": fareBasisCode }
+
+        bookingClass:
+          type: string
+          pattern: "^[A-Z]$"
+          description: Single-letter booking class associated with the fare.
+          example: "J"
+          x-jsonld: { "@id": bookingClass }
+
+        availableSeats:
+          type: integer
+          minimum: 0
+          description: Number of seats remaining in inventory for the referenced cabin/fare.
+          example: 4
+          x-jsonld: { "@id": availableSeats }
+
+        seatPitchInches:
+          type: number
+          minimum: 0
+          description: Seat pitch (legroom) for the cabin in inches.
+          example: 38
+          x-jsonld: { "@id": seatPitchInches }
+
+        seatWidthInches:
+          type: number
+          minimum: 0
+          description: Seat width for the cabin in inches.
+          example: 21
+          x-jsonld: { "@id": seatWidthInches }
+
+        amenities:
+          type: array
+          items: { type: string }
+          description: Onboard amenities available (e.g., Wi-Fi, In-seat power, In-flight entertainment).
+          example: ["Wi-Fi", "In-seat power", "Lie-flat seats"]
+          x-jsonld: { "@id": amenities }
+
+        mealService:
+          type: string
+          enum: [None, Snacks, Meal, PremiumMeal, BuyOnBoard]
+          description: Meal service type offered in the cabin.
+          example: "Meal"
+          x-jsonld: { "@id": mealService }
+
+        specialServiceOffers:
+          type: array
+          items: { type: string }
+          description: SSR (Special Service Request) codes supported (e.g., AVML, WCHR).
+          example: ["AVML", "WCHR"]
+          x-jsonld: { "@id": specialServiceOffers }
+
+        baggageAllowance:
+          type: object
+          additionalProperties: false
+          description: Included baggage allowance for the fare/cabin.
+          properties:
+            cabinBaggage:
+              type: array
+              items:
+                type: object
+                additionalProperties: false
+                required: [pieces, weightKg]
+                properties:
+                  pieces:
+                    type: integer
+                    minimum: 0
+                    description: Number of carry-on pieces allowed.
+                  weightKg:
+                    type: number
+                    minimum: 0
+                    description: Maximum weight per carry-on piece (kg).
+                  dimensionsCm:
+                    type: string
+                    description: Linear dimensions limit (L+W+H) or size specification.
+              description: Carry-on baggage entitlements.
+            checkedBaggage:
+              type: array
+              items:
+                type: object
+                additionalProperties: false
+                required: [pieces, weightKg]
+                properties:
+                  pieces:
+                    type: integer
+                    minimum: 0
+                    description: Number of checked baggage pieces included.
+                  weightKg:
+                    type: number
+                    minimum: 0
+                    description: Maximum weight per checked baggage piece (kg).
+                  dimensionLinearCm:
+                    type: number
+                    minimum: 0
+                    description: Maximum linear dimension per checked baggage piece (cm).
+              description: Checked baggage entitlements.
+            notes:
+              type: string
+              description: Free-form notes or conditions for baggage allowances (e.g., exceptions, pooling rules).
+          x-jsonld: { "@id": baggageAllowance }
+
+        changePolicy:
+          type: string
+          description: Summary of ticket change policy (fees, deadlines).
+          example: "Changes allowed up to 2h before departure with INR 2500 fee plus fare difference."
+          x-jsonld: { "@id": changePolicy }
+
+        refundPolicy:
+          type: string
+          description: Summary of refund policy associated with the fare.
+          example: "Refundable with INR 3500 cancellation fee before departure."
+          x-jsonld: { "@id": refundPolicy }
+
+        disruptionPolicy:
+          type: string
+          description: Handling commitments for delays/cancellations (e.g., hotel, rebooking).
+          example: "Rebooking on next available flight; hotel provided for overnight delays."
+          x-jsonld: { "@id": disruptionPolicy }
+
+        aircraft:
+          type: object
+          additionalProperties: false
+          description: Operating aircraft details.
+          properties:
+            equipmentCode:
+              type: string
+              description: IATA aircraft equipment code (e.g., 77W, 320).
+              example: "789"
+            equipmentName:
+              type: string
+              description: Aircraft marketing name.
+              example: "Boeing 787-9 Dreamliner"
+            manufacturer:
+              type: string
+              description: Aircraft manufacturer (e.g., Boeing, Airbus).
+              example: "Boeing"
+            wifiOnboard:
+              type: boolean
+              description: Whether Wi-Fi is available on the aircraft.
+            seatConfiguration:
+              type: string
+              description: Seating layout, e.g., 1-2-1 in Business class.
+          x-jsonld: { "@id": aircraft }
+
+        flightStatus:
+          type: string
+          enum: [Scheduled, Delayed, Cancelled, Departed, Arrived, Diverted]
+          description: Operational status snapshot for real-time displays.
+          example: "Scheduled"
+          x-jsonld: { "@id": flightStatus }
+
+        statusLastUpdated:
+          type: string
+          format: date-time
+          description: Timestamp when the operational status was last refreshed.
+          example: "2025-12-05T08:00:00Z"
+          x-jsonld: { "@id": statusLastUpdated }
+
+        operationalNotes:
+          type: string
+          description: Additional operational notes (e.g., seasonal service, subject to DGCA approval).
+          x-jsonld: { "@id": operationalNotes }
+
+        marketingMessages:
+          type: array
+          items: { type: string }
+          description: Promotional or informational messages linked with the flight/fare.
+          example: ["Includes lounge access at DEL T3", "Earn double loyalty points on this sector"]
+          x-jsonld: { "@id": marketingMessages }
+

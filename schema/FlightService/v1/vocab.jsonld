@@ -1,0 +1,475 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "beckn": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/#",
+    "schema": "https://schema.org/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "beckn:FlightService",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Flight Service",
+      "rdfs:comment": "A scheduled passenger flight offered for booking, including carrier, route, schedule, cabin, and fare details."
+    },
+    {
+      "@id": "beckn:AirportFacility",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Airport Facility",
+      "rdfs:comment": "Information describing an airport stop, including codes, terminal, and gate details."
+    },
+    {
+      "@id": "beckn:BaggageAllowance",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Baggage Allowance",
+      "rdfs:comment": "Included baggage entitlements (carry-on and checked) attached to a flight fare."
+    },
+    {
+      "@id": "beckn:BaggageEntitlement",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Baggage Entitlement",
+      "rdfs:comment": "Specific baggage allowance entry describing pieces, weight, and dimensions."
+    },
+    {
+      "@id": "beckn:AircraftDetails",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Aircraft Details",
+      "rdfs:comment": "Information about the aircraft operating the flight, including equipment code and amenities."
+    },
+    {
+      "@id": "beckn:carrierCode",
+      "@type": "rdf:Property",
+      "rdfs:label": "Carrier code",
+      "rdfs:comment": "IATA or ICAO code of the marketing carrier.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:carrierName",
+      "@type": "rdf:Property",
+      "rdfs:label": "Carrier name",
+      "rdfs:comment": "Marketing carrier name for display purposes.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:marketingFlightNumber",
+      "@type": "rdf:Property",
+      "rdfs:label": "Marketing flight number",
+      "rdfs:comment": "Flight number published by the marketing carrier.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:operatingCarrierCode",
+      "@type": "rdf:Property",
+      "rdfs:label": "Operating carrier code",
+      "rdfs:comment": "Carrier code for the operating airline (codeshare scenarios).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:operatingCarrierName",
+      "@type": "rdf:Property",
+      "rdfs:label": "Operating carrier name",
+      "rdfs:comment": "Name of the airline operating the flight.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:operatingFlightNumber",
+      "@type": "rdf:Property",
+      "rdfs:label": "Operating flight number",
+      "rdfs:comment": "Flight number used by the operating carrier.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:flightDesignator",
+      "@type": "rdf:Property",
+      "rdfs:label": "Flight designator",
+      "rdfs:comment": "Combined carrier and flight number string (e.g., AI101).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:codeshare",
+      "@type": "rdf:Property",
+      "rdfs:label": "Codeshare indicator",
+      "rdfs:comment": "Indicates whether the flight is operated by a partner carrier.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Boolean"
+    },
+    {
+      "@id": "beckn:origin",
+      "@type": "rdf:Property",
+      "rdfs:label": "Origin",
+      "rdfs:comment": "Origin airport facility for the flight.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "beckn:AirportFacility"
+    },
+    {
+      "@id": "beckn:destination",
+      "@type": "rdf:Property",
+      "rdfs:label": "Destination",
+      "rdfs:comment": "Destination airport facility for the flight.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "beckn:AirportFacility"
+    },
+    {
+      "@id": "beckn:airportCode",
+      "@type": "rdf:Property",
+      "rdfs:label": "Airport code",
+      "rdfs:comment": "IATA airport code for the airport facility.",
+      "rdfs:domain": "beckn:AirportFacility",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:airportName",
+      "@type": "rdf:Property",
+      "rdfs:label": "Airport name",
+      "rdfs:comment": "Name of the airport.",
+      "rdfs:domain": "beckn:AirportFacility",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:cityCode",
+      "@type": "rdf:Property",
+      "rdfs:label": "City code",
+      "rdfs:comment": "IATA city code associated with the airport.",
+      "rdfs:domain": "beckn:AirportFacility",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:cityName",
+      "@type": "rdf:Property",
+      "rdfs:label": "City name",
+      "rdfs:comment": "City served by the airport.",
+      "rdfs:domain": "beckn:AirportFacility",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:terminal",
+      "@type": "rdf:Property",
+      "rdfs:label": "Terminal",
+      "rdfs:comment": "Terminal within the airport from/to which the flight operates.",
+      "rdfs:domain": "beckn:AirportFacility",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:gate",
+      "@type": "rdf:Property",
+      "rdfs:label": "Gate",
+      "rdfs:comment": "Gate assignment for the flight, when available.",
+      "rdfs:domain": "beckn:AirportFacility",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:departureDate",
+      "@type": "rdf:Property",
+      "rdfs:label": "Departure date",
+      "rdfs:comment": "Local departure date at the origin airport.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Date"
+    },
+    {
+      "@id": "beckn:departureTime",
+      "@type": "rdf:Property",
+      "rdfs:label": "Departure time",
+      "rdfs:comment": "Scheduled departure date and time (ISO 8601).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:DateTime"
+    },
+    {
+      "@id": "beckn:arrivalDate",
+      "@type": "rdf:Property",
+      "rdfs:label": "Arrival date",
+      "rdfs:comment": "Local arrival date at the destination airport.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Date"
+    },
+    {
+      "@id": "beckn:arrivalTime",
+      "@type": "rdf:Property",
+      "rdfs:label": "Arrival time",
+      "rdfs:comment": "Scheduled arrival date and time (ISO 8601).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:DateTime"
+    },
+    {
+      "@id": "beckn:durationMinutes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Duration (minutes)",
+      "rdfs:comment": "Planned block time in minutes.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:blackoutPeriods",
+      "@type": "rdf:Property",
+      "rdfs:label": "Blackout periods",
+      "rdfs:comment": "Time periods in which the service cannot be booked or operated.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:StructuredValue"
+    },
+    {
+      "@id": "beckn:cabinsOffered",
+      "@type": "rdf:Property",
+      "rdfs:label": "Cabins offered",
+      "rdfs:comment": "Cabin classes sold on the flight.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:cabinClass",
+      "@type": "rdf:Property",
+      "rdfs:label": "Cabin class",
+      "rdfs:comment": "Cabin class corresponding to the item/offer (Economy, Business, First, etc.).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:fareFamily",
+      "@type": "rdf:Property",
+      "rdfs:label": "Fare family",
+      "rdfs:comment": "Fare family or branded fare identifier.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:fareBasisCode",
+      "@type": "rdf:Property",
+      "rdfs:label": "Fare basis code",
+      "rdfs:comment": "Fare basis or booking class code for the ticket.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:bookingClass",
+      "@type": "rdf:Property",
+      "rdfs:label": "Booking class",
+      "rdfs:comment": "Single-letter booking class associated with the fare.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:availableSeats",
+      "@type": "rdf:Property",
+      "rdfs:label": "Available seats",
+      "rdfs:comment": "Number of seats remaining in the referenced cabin/fare bucket.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:seatPitchInches",
+      "@type": "rdf:Property",
+      "rdfs:label": "Seat pitch (inches)",
+      "rdfs:comment": "Seat pitch for the cabin, measured in inches.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:seatWidthInches",
+      "@type": "rdf:Property",
+      "rdfs:label": "Seat width (inches)",
+      "rdfs:comment": "Seat width for the cabin, measured in inches.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:amenities",
+      "@type": "rdf:Property",
+      "rdfs:label": "Amenities",
+      "rdfs:comment": "Onboard amenities (Wi-Fi, power, entertainment).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:mealService",
+      "@type": "rdf:Property",
+      "rdfs:label": "Meal service",
+      "rdfs:comment": "Type of meal service provided (Meal, Snacks, BuyOnBoard, etc.).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:specialServiceOffers",
+      "@type": "rdf:Property",
+      "rdfs:label": "Special service offers",
+      "rdfs:comment": "Supported special service request codes (SSR).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:baggageAllowance",
+      "@type": "rdf:Property",
+      "rdfs:label": "Baggage allowance",
+      "rdfs:comment": "Included baggage allowances for the fare.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "beckn:BaggageAllowance"
+    },
+    {
+      "@id": "beckn:cabinBaggage",
+      "@type": "rdf:Property",
+      "rdfs:label": "Cabin baggage",
+      "rdfs:comment": "Carry-on baggage entitlements.",
+      "rdfs:domain": "beckn:BaggageAllowance",
+      "schema:rangeIncludes": "beckn:BaggageEntitlement"
+    },
+    {
+      "@id": "beckn:checkedBaggage",
+      "@type": "rdf:Property",
+      "rdfs:label": "Checked baggage",
+      "rdfs:comment": "Checked baggage entitlements.",
+      "rdfs:domain": "beckn:BaggageAllowance",
+      "schema:rangeIncludes": "beckn:BaggageEntitlement"
+    },
+    {
+      "@id": "beckn:pieces",
+      "@type": "rdf:Property",
+      "rdfs:label": "Pieces",
+      "rdfs:comment": "Number of baggage pieces allowed.",
+      "rdfs:domain": "beckn:BaggageEntitlement",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:weightKg",
+      "@type": "rdf:Property",
+      "rdfs:label": "Weight (kg)",
+      "rdfs:comment": "Weight in kilograms permitted per baggage piece.",
+      "rdfs:domain": "beckn:BaggageEntitlement",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:dimensionsCm",
+      "@type": "rdf:Property",
+      "rdfs:label": "Dimensions (cm)",
+      "rdfs:comment": "Size constraints for cabin baggage (length + width + height).",
+      "rdfs:domain": "beckn:BaggageEntitlement",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:dimensionLinearCm",
+      "@type": "rdf:Property",
+      "rdfs:label": "Linear dimension (cm)",
+      "rdfs:comment": "Maximum linear dimension for checked baggage.",
+      "rdfs:domain": "beckn:BaggageEntitlement",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:notes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Notes",
+      "rdfs:comment": "Additional notes or conditions.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:changePolicy",
+      "@type": "rdf:Property",
+      "rdfs:label": "Change policy",
+      "rdfs:comment": "Summary of ticket change terms.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:refundPolicy",
+      "@type": "rdf:Property",
+      "rdfs:label": "Refund policy",
+      "rdfs:comment": "Summary of fare refundability.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:disruptionPolicy",
+      "@type": "rdf:Property",
+      "rdfs:label": "Disruption policy",
+      "rdfs:comment": "Commitments for handling disruptions (delays, cancellations).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:aircraft",
+      "@type": "rdf:Property",
+      "rdfs:label": "Aircraft",
+      "rdfs:comment": "Operating aircraft details.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "beckn:AircraftDetails"
+    },
+    {
+      "@id": "beckn:equipmentCode",
+      "@type": "rdf:Property",
+      "rdfs:label": "Equipment code",
+      "rdfs:comment": "IATA aircraft equipment code.",
+      "rdfs:domain": "beckn:AircraftDetails",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:equipmentName",
+      "@type": "rdf:Property",
+      "rdfs:label": "Equipment name",
+      "rdfs:comment": "Marketing name of the aircraft.",
+      "rdfs:domain": "beckn:AircraftDetails",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:manufacturer",
+      "@type": "rdf:Property",
+      "rdfs:label": "Manufacturer",
+      "rdfs:comment": "Aircraft manufacturer (Airbus, Boeing, etc.).",
+      "rdfs:domain": "beckn:AircraftDetails",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:wifiOnboard",
+      "@type": "rdf:Property",
+      "rdfs:label": "Wi-Fi onboard",
+      "rdfs:comment": "Indicates if Wi-Fi service is available.",
+      "rdfs:domain": "beckn:AircraftDetails",
+      "schema:rangeIncludes": "schema:Boolean"
+    },
+    {
+      "@id": "beckn:seatConfiguration",
+      "@type": "rdf:Property",
+      "rdfs:label": "Seat configuration",
+      "rdfs:comment": "Notation of seat layout (e.g., 1-2-1 in Business).",
+      "rdfs:domain": "beckn:AircraftDetails",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:flightStatus",
+      "@type": "rdf:Property",
+      "rdfs:label": "Flight status",
+      "rdfs:comment": "Operational status for the flight (Scheduled, Delayed, Cancelled, etc.).",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:statusLastUpdated",
+      "@type": "rdf:Property",
+      "rdfs:label": "Status last updated",
+      "rdfs:comment": "Timestamp of the latest status information.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:DateTime"
+    },
+    {
+      "@id": "beckn:operationalNotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Operational notes",
+      "rdfs:comment": "Extra notes pertaining to flight operations.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:marketingMessages",
+      "@type": "rdf:Property",
+      "rdfs:label": "Marketing messages",
+      "rdfs:comment": "Promotional or informational statements attached to the flight offer.",
+      "rdfs:domain": "beckn:FlightService",
+      "schema:rangeIncludes": "schema:Text"
+    }
+  ]
+}
+

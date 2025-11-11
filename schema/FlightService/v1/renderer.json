@@ -1,0 +1,6 @@
+{
+  "$comment": "Renderer configuration for flight search and detail UI components - describes how to present flight legs, fares, and timelines.",
+  "description": "Renderer configuration for Flight Service UI components",
+  "version": "1.0.0"
+}
+

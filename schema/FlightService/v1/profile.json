@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/profiles/travel/flight/v1/profile.json",
+  "title": "Flight — Air Travel Service Attribute Pack (v1)",
+  "description": "Bundle of attribute schemas for flights: Item (FlightService) with operational guidance for discovery, selection, and booking. Uses ./context.jsonld for JSON-LD mappings and ./vocab.jsonld for aviation terms.",
+  "type": "object",
+  "additionalProperties": false,
+  "$comment": "JSON-LD context: ./context.jsonld ; Flight vocab: ./vocab.jsonld",
+  "properties": {
+    "FlightService": {
+      "$ref": "./attributes.yaml#/components/schemas/FlightService"
+    }
+  },
+  "required": ["FlightService"],
+
+  "operational_hints": {
+    "indexHints": [
+      "beckn:id",
+      "beckn:descriptor.schema:name",
+      "beckn:descriptor.beckn:shortDesc",
+      "beckn:itemAttributes.carrierCode",
+      "beckn:itemAttributes.carrierName",
+      "beckn:itemAttributes.flightDesignator",
+      "beckn:itemAttributes.marketingFlightNumber",
+      "beckn:itemAttributes.operatingCarrierCode",
+      "beckn:itemAttributes.origin.airportCode",
+      "beckn:itemAttributes.destination.airportCode",
+      "beckn:itemAttributes.origin.cityCode",
+      "beckn:itemAttributes.destination.cityCode",
+      "beckn:itemAttributes.departureDate",
+      "beckn:itemAttributes.departureTime",
+      "beckn:itemAttributes.arrivalDate",
+      "beckn:itemAttributes.cabinClass",
+      "beckn:itemAttributes.fareFamily",
+      "beckn:itemAttributes.bookingClass",
+      "beckn:itemAttributes.availableSeats",
+      "beckn:itemAttributes.durationMinutes"
+    ],
+
+    "piiHints": {
+      "fields": [
+        "message.order.billing.name",
+        "message.order.billing.email",
+        "message.order.billing.phone",
+        "message.order.payments[].params.*",
+        "message.order.fulfillments[].customer.person.name",
+        "message.order.fulfillments[].customer.contact.*",
+        "beckn:orderAttributes.passengerDetails",
+        "beckn:orderAttributes.ssrRequests",
+        "beckn:orderAttributes.frequentFlyerNumbers"
+      ],
+      "treatment": "Treat as sensitive; avoid indexing, redact in logs, encrypt where stored.",
+      "notes": "Flight transactions carry PII such as passenger names, contact info, frequent flyer data, and special service requests. Discovery payloads (search/list) should remain non-PII."
+    },
+
+    "api_response_config": {
+      "description": "Recommended minimal vs. expanded field sets for flight search and detail APIs.",
+      "max_items_per_page": 500,
+      "max_offers_per_item": 20,
+      "minimal_fields": {
+        "item_attributes": [
+          "beckn:id",
+          "beckn:descriptor.schema:name",
+          "beckn:itemAttributes.carrierCode",
+          "beckn:itemAttributes.carrierName",
+          "beckn:itemAttributes.flightDesignator",
+          "beckn:itemAttributes.origin.airportCode",
+          "beckn:itemAttributes.destination.airportCode",
+          "beckn:itemAttributes.departureTime",
+          "beckn:itemAttributes.arrivalTime",
+          "beckn:itemAttributes.durationMinutes",
+          "beckn:itemAttributes.cabinClass"
+        ],
+        "offer_attributes": [
+          "beckn:id",
+          "beckn:descriptor.schema:name",
+          "beckn:price.currency",
+          "beckn:price.value",
+          "beckn:validity.end",
+          "beckn:terms.cancellation"
+        ]
+      },
+      "notes": "Use minimal field sets for aggregated search results. Expand with optional query params (e.g., include baggageAllowance, aircraft, policies) for detail screens or fare comparison views."
+    },
+
+    "discover": {
+      "supported_filters": [
+        "text_search",
+        "jsonpath_filters",
+        "geo_distance_filter",
+        "date_range_filter",
+        "duration_filter"
+      ],
+      "default_sort": [
+        "beckn:itemAttributes.departureTime.asc",
+        "beckn:offerAttributes.priceSpecification.price.asc",
+        "beckn:itemAttributes.durationMinutes.asc"
+      ]
+    }
+  }
+}
+
