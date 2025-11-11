@@ -1,0 +1,6 @@
+{
+  "$comment": "Renderer configuration for trip search and detail UI components - informs display of itinerary highlights, inclusions, and departure windows.",
+  "description": "Renderer configuration for Trip Service UI components",
+  "version": "1.0.0"
+}
+

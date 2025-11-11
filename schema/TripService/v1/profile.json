@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/profiles/travel/trip/v1/profile.json",
+  "title": "Trip — Multi-day Experience Service Attribute Pack (v1)",
+  "description": "Bundle of attribute schemas for packaged trips and tours: Item (TripService) with operational guidance for discovery, selection, and booking. Uses ./context.jsonld for JSON-LD mappings and ./vocab.jsonld for trip terminology.",
+  "type": "object",
+  "additionalProperties": false,
+  "$comment": "JSON-LD context: ./context.jsonld ; Trip vocab: ./vocab.jsonld",
+  "properties": {
+    "TripService": {
+      "$ref": "./attributes.yaml#/components/schemas/TripService"
+    }
+  },
+  "required": ["TripService"],
+
+  "operational_hints": {
+    "indexHints": [
+      "beckn:id",
+      "beckn:descriptor.schema:name",
+      "beckn:descriptor.beckn:shortDesc",
+      "beckn:itemAttributes.tripType",
+      "beckn:itemAttributes.theme",
+      "beckn:itemAttributes.regionsCovered",
+      "beckn:itemAttributes.durationDays",
+      "beckn:itemAttributes.startLocation.schema:address.addressCountry",
+      "beckn:itemAttributes.startLocation.schema:address.addressRegion",
+      "beckn:itemAttributes.highlights",
+      "beckn:itemAttributes.difficultyLevel",
+      "beckn:itemAttributes.activityPace",
+      "beckn:itemAttributes.departureWindows",
+      "beckn:itemAttributes.groupConfiguration.maximumGroupSize",
+      "beckn:itemAttributes.travelInsuranceRequired",
+      "beckn:itemAttributes.cancellationPolicy.policyType"
+    ],
+
+    "piiHints": {
+      "fields": [
+        "message.order.billing.name",
+        "message.order.billing.email",
+        "message.order.billing.phone",
+        "message.order.payments[].params.*",
+        "message.order.fulfillments[].customer.person.name",
+        "message.order.fulfillments[].customer.contact.*",
+        "beckn:orderAttributes.travellerProfiles",
+        "beckn:orderAttributes.roomingPreferences",
+        "beckn:orderAttributes.specialRequests"
+      ],
+      "treatment": "Treat as sensitive; do not index, redact in logs, encrypt at rest.",
+      "notes": "Trip bookings typically require traveller names, dates of birth, document numbers, and special requests. Keep discovery/catalog payloads free of PII."
+    },
+
+    "api_response_config": {
+      "description": "Recommended minimal vs expanded field sets for trip discovery APIs.",
+      "max_items_per_page": 200,
+      "max_offers_per_item": 10,
+      "minimal_fields": {
+        "item_attributes": [
+          "beckn:id",
+          "beckn:descriptor.schema:name",
+          "beckn:itemAttributes.tripType",
+          "beckn:itemAttributes.theme",
+          "beckn:itemAttributes.durationDays",
+          "beckn:itemAttributes.regionsCovered",
+          "beckn:itemAttributes.highlights",
+          "beckn:itemAttributes.difficultyLevel",
+          "beckn:itemAttributes.activityPace"
+        ],
+        "offer_attributes": [
+          "beckn:id",
+          "beckn:descriptor.schema:name",
+          "beckn:price.currency",
+          "beckn:price.value",
+          "beckn:validity.end",
+          "beckn:terms.cancellation"
+        ]
+      },
+      "notes": "Minimal fields serve search results. Allow clients to request expanded sections (include=itinerary, include=inclusions) for detail pages."
+    },
+
+    "discover": {
+      "supported_filters": [
+        "text_search",
+        "jsonpath_filters",
+        "geo_distance_filter",
+        "date_range_filter",
+        "duration_filter",
+        "theme_filter"
+      ],
+      "default_sort": [
+        "beckn:itemAttributes.durationDays.asc",
+        "beckn:offerAttributes.priceSpecification.price.asc",
+        "beckn:itemAttributes.startLocation.schema:address.addressRegion.asc"
+      ]
+    }
+  }
+}
+

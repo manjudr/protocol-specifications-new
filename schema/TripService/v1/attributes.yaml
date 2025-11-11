@@ -1,0 +1,395 @@
+openapi: 3.1.1
+info:
+  title: Trip — Multi-day Experience Service Attributes (v1)
+  version: 1.0.0
+  x-profile-id: profiles/travel/trip/v1/trip-service
+  description: >
+    Attribute schemas for packaged trips, tours, or multi-day experiences (Item.attributes).
+    These attributes extend Beckn core schemas with itinerary, inclusions, group configuration,
+    and planning metadata needed for discovery and booking of bundled trips.
+    Core Beckn fields (descriptor, images, price, offers, fulfillments) continue to come from
+    Beckn core v2; this pack adds trip-specific details only.
+
+components:
+  schemas:
+    ########################################################################
+    # ITEM.ATTRIBUTES — TripService (tourism-specific only)
+    ########################################################################
+    TripService:
+      type: object
+      additionalProperties: false
+      required:
+        - tripType
+        - durationDays
+        - startDateFlexible
+        - startLocation
+        - regionsCovered
+        - itinerary
+        - inclusions
+        - groupConfiguration
+      x-jsonld:
+        "@context": ./context.jsonld
+        "@type": TripService
+      properties:
+
+        tripType:
+          type: string
+          enum: [GuidedGroup, PrivateGuided, SelfGuided, Custom, Expedition, Cruise]
+          description: Trip delivery model (guided with fixed departures, private custom trip, etc.).
+          example: GuidedGroup
+          x-jsonld: { "@id": tripType }
+
+        theme:
+          type: array
+          items: { type: string }
+          description: Themes or interests (e.g., Adventure, Cultural, Wildlife, Culinary).
+          example: ["Adventure", "Cultural"]
+          x-jsonld: { "@id": theme }
+
+        durationDays:
+          type: integer
+          minimum: 1
+          description: Total duration of the trip in days.
+          example: 7
+          x-jsonld: { "@id": durationDays }
+
+        durationNights:
+          type: integer
+          minimum: 0
+          description: Number of nights included (optional when different from days).
+          example: 6
+          x-jsonld: { "@id": durationNights }
+
+        startDateFlexible:
+          type: boolean
+          description: Indicates whether trip departures are flexible (rolling) vs. fixed departure dates.
+          example: false
+          x-jsonld: { "@id": startDateFlexible }
+
+        departureWindows:
+          type: array
+          items:
+            $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/TimePeriod"
+          description: Available departure windows (used when departures are fixed or seasonal).
+          x-jsonld: { "@id": departureWindows }
+
+        startLocation:
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/Location"
+            - type: object
+              description: Meeting point or first city for the trip.
+              x-jsonld: { "@id": startLocation }
+
+        endLocation:
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/Location"
+            - type: object
+              description: Final destination or drop-off city for the trip.
+              x-jsonld: { "@id": endLocation }
+
+        regionsCovered:
+          type: array
+          items: { type: string }
+          minItems: 1
+          description: Countries, states, or regions visited during the trip.
+          example: ["IN-KA", "IN-KL"]
+          x-jsonld: { "@id": regionsCovered }
+
+        highlights:
+          type: array
+          items: { type: string }
+          description: Key highlights or signature experiences of the trip.
+          example: ["Guided trek to Chembra Peak", "Houseboat stay on Vembanad Lake"]
+          x-jsonld: { "@id": highlights }
+
+        itinerary:
+          type: array
+          minItems: 1
+          description: Day-wise or segment-wise itinerary details.
+          items:
+            type: object
+            additionalProperties: false
+            required:
+              - day
+              - title
+              - description
+            properties:
+              day:
+                type: integer
+                minimum: 1
+                description: Sequential day/segment number of the itinerary.
+              title:
+                type: string
+                description: Short title for the day or segment.
+              description:
+                type: string
+                description: Narrative or structured description of activities for the day.
+              activities:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  required:
+                    - name
+                    - activityType
+                  properties:
+                    name:
+                      type: string
+                      description: Activity name.
+                    activityType:
+                      type: string
+                      description: Classification (e.g., Trekking, Sightseeing, CulinaryWorkshop).
+                    location:
+                      allOf:
+                        - $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/Location"
+                        - type: object
+                          description: Location of the activity.
+                    startTime:
+                      type: string
+                      format: time
+                      description: Activity start time (local).
+                    endTime:
+                      type: string
+                      format: time
+                      description: Activity end time (local).
+                    included:
+                      type: boolean
+                      default: true
+                      description: Indicates if activity cost is included vs. optional add-on.
+                    notes:
+                      type: string
+                      description: Additional guidance or requirements for the activity.
+          x-jsonld: { "@id": itinerary }
+
+        inclusions:
+          type: array
+          items: { type: string }
+          description: List of services included in the base trip price (transport, meals, permits).
+          example: ["Airport transfers", "Accommodation (double occupancy)", "Daily breakfast", "Guide services"]
+          x-jsonld: { "@id": inclusions }
+
+        exclusions:
+          type: array
+          items: { type: string }
+          description: Items excluded from the base package (e.g., flights, personal expenses).
+          example: ["International airfare", "Lunch and dinner on free days"]
+          x-jsonld: { "@id": exclusions }
+
+        difficultyLevel:
+          type: string
+          enum: [Easy, Moderate, Challenging, Strenuous]
+          description: Physical difficulty level of the trip.
+          example: Moderate
+          x-jsonld: { "@id": difficultyLevel }
+
+        activityPace:
+          type: string
+          enum: [Relaxed, Balanced, Active]
+          description: Overall pace of activities.
+          example: Balanced
+          x-jsonld: { "@id": activityPace }
+
+        fitnessRequirements:
+          type: string
+          description: Fitness prerequisites or recommendations for participants.
+          example: "Able to walk 6-8 km per day with moderate elevation gain."
+          x-jsonld: { "@id": fitnessRequirements }
+
+        ageRestriction:
+          type: object
+          additionalProperties: false
+          properties:
+            minimumAge:
+              type: integer
+              minimum: 0
+              description: Minimum age allowed.
+            maximumAge:
+              type: integer
+              minimum: 0
+              description: Maximum age allowed.
+            notes:
+              type: string
+              description: Additional age-related notes.
+          description: Age constraints for participants.
+          x-jsonld: { "@id": ageRestriction }
+
+        groupConfiguration:
+          type: object
+          additionalProperties: false
+          required:
+            - minimumGroupSize
+            - maximumGroupSize
+          description: Group size rules and rooming configurations.
+          properties:
+            minimumGroupSize:
+              type: integer
+              minimum: 1
+              description: Minimum participants required to operate the trip.
+            maximumGroupSize:
+              type: integer
+              minimum: 1
+              description: Maximum participants per departure.
+            singleSupplementAvailable:
+              type: boolean
+              description: Indicates if single room supplement is available.
+            sharedRooming:
+              type: boolean
+              description: Indicates if room sharing is expected for solo travellers.
+            childPolicy:
+              type: string
+              description: Policy for children (e.g., age limits, sharing rooms with adults).
+          x-jsonld: { "@id": groupConfiguration }
+
+        sustainabilityPractices:
+          type: array
+          items: { type: string }
+          description: Sustainable or responsible tourism practices followed.
+          example: ["Plastic-free water bottles", "Community-based lodges", "Carbon offset included"]
+          x-jsonld: { "@id": sustainabilityPractices }
+
+        responsibleTravelNotes:
+          type: string
+          description: Guidance for travellers on responsible behaviour (cultural etiquette, environmental tips).
+          x-jsonld: { "@id": responsibleTravelNotes }
+
+        requiredDocuments:
+          type: array
+          items: { type: string }
+          description: Documents required (passport validity, visas, permits).
+          x-jsonld: { "@id": requiredDocuments }
+
+        travelInsuranceRequired:
+          type: boolean
+          description: Indicates if travel insurance is mandatory.
+          example: true
+          x-jsonld: { "@id": travelInsuranceRequired }
+
+        visaAssistanceIncluded:
+          type: boolean
+          description: Indicates if visa assistance services are included.
+          example: false
+          x-jsonld: { "@id": visaAssistanceIncluded }
+
+        safetyProtocols:
+          type: array
+          items: { type: string }
+          description: Safety measures or emergency preparedness plans.
+          example: ["Satellite phone on trek", "First-aid trained guide"]
+          x-jsonld: { "@id": safetyProtocols }
+
+        covidPolicy:
+          type: string
+          description: Health and hygiene guidelines related to pandemics or vaccinations.
+          x-jsonld: { "@id": covidPolicy }
+
+        cancellationPolicy:
+          type: object
+          additionalProperties: false
+          description: Summary of trip cancellation terms (detailed pricing in offers/orders).
+          properties:
+            policyType:
+              type: string
+              enum: [Flexible, Moderate, Strict, NonRefundable, Custom]
+              description: Classification of cancellation flexibility.
+            timeline:
+              type: array
+              items:
+                type: object
+                additionalProperties: false
+                required:
+                  - deadlineDaysBeforeDeparture
+                  - penaltyPercent
+                properties:
+                  deadlineDaysBeforeDeparture:
+                    type: integer
+                    minimum: 0
+                    description: Days prior to departure for the stated penalty.
+                  penaltyPercent:
+                    type: number
+                    minimum: 0
+                    maximum: 100
+                    description: Penalty percentage of total trip cost.
+                  notes:
+                    type: string
+                    description: Additional notes for this milestone.
+            notes:
+              type: string
+              description: Free-form description of cancellation policy.
+          x-jsonld: { "@id": cancellationPolicy }
+
+        paymentSchedule:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required:
+              - milestone
+              - amountPercent
+            properties:
+              milestone:
+                type: string
+                description: Payment milestone (Deposit, 60 Days Prior, On Arrival).
+              amountPercent:
+                type: number
+                minimum: 0
+                maximum: 100
+                description: Percentage of trip price due at the milestone.
+              dueOffsetDays:
+                type: integer
+                description: Days offset relative to departure (positive means before departure).
+          description: Payment plan for the trip.
+          x-jsonld: { "@id": paymentSchedule }
+
+        loyaltyEligible:
+          type: boolean
+          description: Indicates if the trip is eligible for loyalty points or rewards.
+          x-jsonld: { "@id": loyaltyEligible }
+
+        testimonials:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            properties:
+              reviewerName:
+                type: string
+                description: Reviewer or past guest name.
+              quote:
+                type: string
+                description: Testimonial statement.
+              rating:
+                type: number
+                minimum: 0
+                maximum: 5
+                description: Rating value if available.
+          description: Selected testimonials for marketing.
+          x-jsonld: { "@id": testimonials }
+
+        mediaGallery:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required:
+              - mediaType
+              - url
+            properties:
+              mediaType:
+                type: string
+                enum: [Image, Video, VirtualTour]
+                description: Type of media asset.
+              url:
+                type: string
+                format: uri
+                description: URL for the media asset.
+              caption:
+                type: string
+                description: Caption or description of the media.
+          description: Additional media assets beyond core descriptor galleries.
+          x-jsonld: { "@id": mediaGallery }
+
+        additionalNotes:
+          type: string
+          description: Miscellaneous notes or special instructions for the trip.
+          x-jsonld: { "@id": additionalNotes }
+

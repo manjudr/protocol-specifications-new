@@ -1,0 +1,430 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "beckn": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/#",
+    "schema": "https://schema.org/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "beckn:TripService",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Trip Service",
+      "rdfs:comment": "A packaged trip, tour, or multi-day experience offered for booking, including itinerary, inclusions, and group configuration."
+    },
+    {
+      "@id": "beckn:ItineraryDay",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Itinerary Day",
+      "rdfs:comment": "Day-wise itinerary segment within a trip service."
+    },
+    {
+      "@id": "beckn:TripActivity",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Trip Activity",
+      "rdfs:comment": "An activity or excursion included in an itinerary day."
+    },
+    {
+      "@id": "beckn:GroupConfiguration",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Group Configuration",
+      "rdfs:comment": "Participant group size rules, rooming options, and child policies for the trip."
+    },
+    {
+      "@id": "beckn:CancellationPolicy",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Cancellation Policy",
+      "rdfs:comment": "Summary of trip cancellation rules and penalties."
+    },
+    {
+      "@id": "beckn:CancellationMilestone",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Cancellation Milestone",
+      "rdfs:comment": "Penalty milestone within a cancellation policy."
+    },
+    {
+      "@id": "beckn:PaymentMilestone",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Payment Milestone",
+      "rdfs:comment": "Scheduled payment milestone with percentage due."
+    },
+    {
+      "@id": "beckn:tripType",
+      "@type": "rdf:Property",
+      "rdfs:label": "Trip type",
+      "rdfs:comment": "Delivery model of the trip (GuidedGroup, PrivateGuided, etc.).",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:theme",
+      "@type": "rdf:Property",
+      "rdfs:label": "Trip theme",
+      "rdfs:comment": "Themes or interest categories addressed by the trip (Adventure, Cultural, etc.).",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:durationDays",
+      "@type": "rdf:Property",
+      "rdfs:label": "Duration (days)",
+      "rdfs:comment": "Total duration of the trip in days.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:durationNights",
+      "@type": "rdf:Property",
+      "rdfs:label": "Duration (nights)",
+      "rdfs:comment": "Total nights included in the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:startDateFlexible",
+      "@type": "rdf:Property",
+      "rdfs:label": "Start date flexible",
+      "rdfs:comment": "Indicates if departures are flexible versus fixed dates.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Boolean"
+    },
+    {
+      "@id": "beckn:departureWindows",
+      "@type": "rdf:Property",
+      "rdfs:label": "Departure windows",
+      "rdfs:comment": "Time periods representing available departures.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:StructuredValue"
+    },
+    {
+      "@id": "beckn:startLocation",
+      "@type": "rdf:Property",
+      "rdfs:label": "Start location",
+      "rdfs:comment": "Starting location or meeting point of the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Place"
+    },
+    {
+      "@id": "beckn:endLocation",
+      "@type": "rdf:Property",
+      "rdfs:label": "End location",
+      "rdfs:comment": "Ending location of the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Place"
+    },
+    {
+      "@id": "beckn:regionsCovered",
+      "@type": "rdf:Property",
+      "rdfs:label": "Regions covered",
+      "rdfs:comment": "List of regions, states, or countries visited.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:highlights",
+      "@type": "rdf:Property",
+      "rdfs:label": "Trip highlights",
+      "rdfs:comment": "Key highlights or signature experiences.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:itinerary",
+      "@type": "rdf:Property",
+      "rdfs:label": "Itinerary",
+      "rdfs:comment": "Array of itinerary day entries.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "beckn:ItineraryDay"
+    },
+    {
+      "@id": "beckn:day",
+      "@type": "rdf:Property",
+      "rdfs:label": "Day number",
+      "rdfs:comment": "Sequential day number for itinerary entries.",
+      "rdfs:domain": "beckn:ItineraryDay",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:activities",
+      "@type": "rdf:Property",
+      "rdfs:label": "Activities",
+      "rdfs:comment": "Activities planned during the itinerary day.",
+      "rdfs:domain": "beckn:ItineraryDay",
+      "schema:rangeIncludes": "beckn:TripActivity"
+    },
+    {
+      "@id": "beckn:activityType",
+      "@type": "rdf:Property",
+      "rdfs:label": "Activity type",
+      "rdfs:comment": "Classification of an itinerary activity (Trekking, Sightseeing, etc.).",
+      "rdfs:domain": "beckn:TripActivity",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:included",
+      "@type": "rdf:Property",
+      "rdfs:label": "Included",
+      "rdfs:comment": "Indicates if the activity is included in the base trip price.",
+      "rdfs:domain": "beckn:TripActivity",
+      "schema:rangeIncludes": "schema:Boolean"
+    },
+    {
+      "@id": "beckn:inclusions",
+      "@type": "rdf:Property",
+      "rdfs:label": "Inclusions",
+      "rdfs:comment": "Services included in the trip price.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:exclusions",
+      "@type": "rdf:Property",
+      "rdfs:label": "Exclusions",
+      "rdfs:comment": "Services excluded from the trip price.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:difficultyLevel",
+      "@type": "rdf:Property",
+      "rdfs:label": "Difficulty level",
+      "rdfs:comment": "Physical difficulty rating of the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:activityPace",
+      "@type": "rdf:Property",
+      "rdfs:label": "Activity pace",
+      "rdfs:comment": "Overall pace of activities.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:fitnessRequirements",
+      "@type": "rdf:Property",
+      "rdfs:label": "Fitness requirements",
+      "rdfs:comment": "Fitness prerequisites or recommendations.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:ageRestriction",
+      "@type": "rdf:Property",
+      "rdfs:label": "Age restriction",
+      "rdfs:comment": "Age limits applied to participants.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:StructuredValue"
+    },
+    {
+      "@id": "beckn:minimumGroupSize",
+      "@type": "rdf:Property",
+      "rdfs:label": "Minimum group size",
+      "rdfs:comment": "Minimum participants required.",
+      "rdfs:domain": "beckn:GroupConfiguration",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:maximumGroupSize",
+      "@type": "rdf:Property",
+      "rdfs:label": "Maximum group size",
+      "rdfs:comment": "Maximum participants per departure.",
+      "rdfs:domain": "beckn:GroupConfiguration",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:singleSupplementAvailable",
+      "@type": "rdf:Property",
+      "rdfs:label": "Single supplement available",
+      "rdfs:comment": "Indicates if single room supplements are offered.",
+      "rdfs:domain": "beckn:GroupConfiguration",
+      "schema:rangeIncludes": "schema:Boolean"
+    },
+    {
+      "@id": "beckn:sharedRooming",
+      "@type": "rdf:Property",
+      "rdfs:label": "Shared rooming",
+      "rdfs:comment": "Indicates if room sharing is standard.",
+      "rdfs:domain": "beckn:GroupConfiguration",
+      "schema:rangeIncludes": "schema:Boolean"
+    },
+    {
+      "@id": "beckn:childPolicy",
+      "@type": "rdf:Property",
+      "rdfs:label": "Child policy",
+      "rdfs:comment": "Policy related to child participants.",
+      "rdfs:domain": "beckn:GroupConfiguration",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:sustainabilityPractices",
+      "@type": "rdf:Property",
+      "rdfs:label": "Sustainability practices",
+      "rdfs:comment": "Responsible or sustainable practices followed.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:responsibleTravelNotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Responsible travel notes",
+      "rdfs:comment": "Guidance for travellers on responsible behaviour.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:requiredDocuments",
+      "@type": "rdf:Property",
+      "rdfs:label": "Required documents",
+      "rdfs:comment": "Documents required to participate in the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:travelInsuranceRequired",
+      "@type": "rdf:Property",
+      "rdfs:label": "Travel insurance required",
+      "rdfs:comment": "Indicates if travel insurance is mandatory.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Boolean"
+    },
+    {
+      "@id": "beckn:visaAssistanceIncluded",
+      "@type": "rdf:Property",
+      "rdfs:label": "Visa assistance included",
+      "rdfs:comment": "Indicates if visa assistance services are provided.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Boolean"
+    },
+    {
+      "@id": "beckn:safetyProtocols",
+      "@type": "rdf:Property",
+      "rdfs:label": "Safety protocols",
+      "rdfs:comment": "Safety or emergency measures implemented.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:covidPolicy",
+      "@type": "rdf:Property",
+      "rdfs:label": "Health policy",
+      "rdfs:comment": "Covid or health-related guidelines for the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:cancellationPolicy",
+      "@type": "rdf:Property",
+      "rdfs:label": "Cancellation policy",
+      "rdfs:comment": "Cancellation policy summary for the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "beckn:CancellationPolicy"
+    },
+    {
+      "@id": "beckn:policyType",
+      "@type": "rdf:Property",
+      "rdfs:label": "Policy type",
+      "rdfs:comment": "Classification of cancellation policy flexibility.",
+      "rdfs:domain": "beckn:CancellationPolicy",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:timeline",
+      "@type": "rdf:Property",
+      "rdfs:label": "Cancellation timeline",
+      "rdfs:comment": "Penalty milestones for cancellation.",
+      "rdfs:domain": "beckn:CancellationPolicy",
+      "schema:rangeIncludes": "beckn:CancellationMilestone"
+    },
+    {
+      "@id": "beckn:deadlineDaysBeforeDeparture",
+      "@type": "rdf:Property",
+      "rdfs:label": "Deadline days before departure",
+      "rdfs:comment": "Days prior to departure for a penalty milestone.",
+      "rdfs:domain": "beckn:CancellationMilestone",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:penaltyPercent",
+      "@type": "rdf:Property",
+      "rdfs:label": "Penalty percent",
+      "rdfs:comment": "Penalty percentage applied at the milestone.",
+      "rdfs:domain": "beckn:CancellationMilestone",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:paymentSchedule",
+      "@type": "rdf:Property",
+      "rdfs:label": "Payment schedule",
+      "rdfs:comment": "Payment plan for the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "beckn:PaymentMilestone"
+    },
+    {
+      "@id": "beckn:milestone",
+      "@type": "rdf:Property",
+      "rdfs:label": "Payment milestone",
+      "rdfs:comment": "Name of the payment milestone.",
+      "rdfs:domain": "beckn:PaymentMilestone",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:amountPercent",
+      "@type": "rdf:Property",
+      "rdfs:label": "Amount percent",
+      "rdfs:comment": "Percentage of trip cost due at the milestone.",
+      "rdfs:domain": "beckn:PaymentMilestone",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:dueOffsetDays",
+      "@type": "rdf:Property",
+      "rdfs:label": "Due offset days",
+      "rdfs:comment": "Days offset relative to departure for the payment milestone.",
+      "rdfs:domain": "beckn:PaymentMilestone",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:loyaltyEligible",
+      "@type": "rdf:Property",
+      "rdfs:label": "Loyalty eligible",
+      "rdfs:comment": "Indicates whether the trip qualifies for loyalty rewards.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Boolean"
+    },
+    {
+      "@id": "beckn:testimonials",
+      "@type": "rdf:Property",
+      "rdfs:label": "Testimonials",
+      "rdfs:comment": "Testimonials from previous travellers.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:StructuredValue"
+    },
+    {
+      "@id": "beckn:mediaGallery",
+      "@type": "rdf:Property",
+      "rdfs:label": "Media gallery",
+      "rdfs:comment": "Media assets associated with the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:StructuredValue"
+    },
+    {
+      "@id": "beckn:mediaType",
+      "@type": "rdf:Property",
+      "rdfs:label": "Media type",
+      "rdfs:comment": "Type of media asset (Image, Video, VirtualTour).",
+      "rdfs:domain": "schema:StructuredValue",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:additionalNotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Additional notes",
+      "rdfs:comment": "Additional information or instructions about the trip.",
+      "rdfs:domain": "beckn:TripService",
+      "schema:rangeIncludes": "schema:Text"
+    }
+  ]
+}
