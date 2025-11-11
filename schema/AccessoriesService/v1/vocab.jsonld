@@ -1,0 +1,277 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "beckn": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AccessoriesService/v1/#",
+    "schema": "https://schema.org/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "beckn:AccessoriesService",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Accessories Service",
+      "rdfs:comment": "An accessory or add-on product offered for sale, including compatibility, materials, and usage metadata."
+    },
+    {
+      "@id": "beckn:Dimensions",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Dimensions",
+      "rdfs:comment": "Physical dimension information for an accessory."
+    },
+    {
+      "@id": "beckn:WarrantyInformation",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Warranty Information",
+      "rdfs:comment": "Warranty coverage details for an accessory."
+    },
+    {
+      "@id": "beckn:LifecycleInformation",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Lifecycle Information",
+      "rdfs:comment": "Lifecycle milestones such as launch and end-of-life dates."
+    },
+    {
+      "@id": "beckn:accessoryType",
+      "@type": "rdf:Property",
+      "rdfs:label": "Accessory type",
+      "rdfs:comment": "Category or classification of the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:compatibility",
+      "@type": "rdf:Property",
+      "rdfs:label": "Compatibility",
+      "rdfs:comment": "Devices, product lines, or standards supported by the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:compatibilityNotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Compatibility notes",
+      "rdfs:comment": "Additional guidance about compatibility limitations or requirements.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:materials",
+      "@type": "rdf:Property",
+      "rdfs:label": "Materials",
+      "rdfs:comment": "Materials used to build the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:colorOptions",
+      "@type": "rdf:Property",
+      "rdfs:label": "Color options",
+      "rdfs:comment": "Available color variants for the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:dimensions",
+      "@type": "rdf:Property",
+      "rdfs:label": "Dimensions",
+      "rdfs:comment": "Physical dimension data for the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "beckn:Dimensions"
+    },
+    {
+      "@id": "beckn:lengthMm",
+      "@type": "rdf:Property",
+      "rdfs:label": "Length (mm)",
+      "rdfs:comment": "Length of the accessory in millimetres.",
+      "rdfs:domain": "beckn:Dimensions",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:widthMm",
+      "@type": "rdf:Property",
+      "rdfs:label": "Width (mm)",
+      "rdfs:comment": "Width of the accessory in millimetres.",
+      "rdfs:domain": "beckn:Dimensions",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:heightMm",
+      "@type": "rdf:Property",
+      "rdfs:label": "Height (mm)",
+      "rdfs:comment": "Height of the accessory in millimetres.",
+      "rdfs:domain": "beckn:Dimensions",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:diameterMm",
+      "@type": "rdf:Property",
+      "rdfs:label": "Diameter (mm)",
+      "rdfs:comment": "Diameter of the accessory in millimetres.",
+      "rdfs:domain": "beckn:Dimensions",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:weightGrams",
+      "@type": "rdf:Property",
+      "rdfs:label": "Weight (grams)",
+      "rdfs:comment": "Weight of the accessory in grams.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Number"
+    },
+    {
+      "@id": "beckn:capacity",
+      "@type": "rdf:Property",
+      "rdfs:label": "Capacity",
+      "rdfs:comment": "Capacity or fitment measure relevant to the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:keyFeatures",
+      "@type": "rdf:Property",
+      "rdfs:label": "Key features",
+      "rdfs:comment": "Highlights or differentiating features of the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:usageScenarios",
+      "@type": "rdf:Property",
+      "rdfs:label": "Usage scenarios",
+      "rdfs:comment": "Recommended usage contexts for the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:includedItems",
+      "@type": "rdf:Property",
+      "rdfs:label": "Included items",
+      "rdfs:comment": "Items bundled with the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:warranty",
+      "@type": "rdf:Property",
+      "rdfs:label": "Warranty",
+      "rdfs:comment": "Warranty coverage for the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "beckn:WarrantyInformation"
+    },
+    {
+      "@id": "beckn:durationMonths",
+      "@type": "rdf:Property",
+      "rdfs:label": "Warranty duration (months)",
+      "rdfs:comment": "Duration of the warranty in months.",
+      "rdfs:domain": "beckn:WarrantyInformation",
+      "schema:rangeIncludes": "schema:Integer"
+    },
+    {
+      "@id": "beckn:coverage",
+      "@type": "rdf:Property",
+      "rdfs:label": "Warranty coverage",
+      "rdfs:comment": "Coverage details for the warranty.",
+      "rdfs:domain": "beckn:WarrantyInformation",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:serviceChannels",
+      "@type": "rdf:Property",
+      "rdfs:label": "Service channels",
+      "rdfs:comment": "Warranty service channels available to the customer.",
+      "rdfs:domain": "beckn:WarrantyInformation",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:careInstructions",
+      "@type": "rdf:Property",
+      "rdfs:label": "Care instructions",
+      "rdfs:comment": "Guidelines for maintaining the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:safetyInformation",
+      "@type": "rdf:Property",
+      "rdfs:label": "Safety information",
+      "rdfs:comment": "Safety notes or compliance statements.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:certifications",
+      "@type": "rdf:Property",
+      "rdfs:label": "Certifications",
+      "rdfs:comment": "Regulatory or sustainability certifications applicable to the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:sustainabilityNotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Sustainability notes",
+      "rdfs:comment": "Information about sustainable materials or packaging.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:lifecycle",
+      "@type": "rdf:Property",
+      "rdfs:label": "Lifecycle",
+      "rdfs:comment": "Lifecycle milestones for the accessory.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "beckn:LifecycleInformation"
+    },
+    {
+      "@id": "beckn:launchDate",
+      "@type": "rdf:Property",
+      "rdfs:label": "Launch date",
+      "rdfs:comment": "Launch date of the accessory.",
+      "rdfs:domain": "beckn:LifecycleInformation",
+      "schema:rangeIncludes": "schema:Date"
+    },
+    {
+      "@id": "beckn:endOfLifeDate",
+      "@type": "rdf:Property",
+      "rdfs:label": "End-of-life date",
+      "rdfs:comment": "Planned end-of-life or support end date.",
+      "rdfs:domain": "beckn:LifecycleInformation",
+      "schema:rangeIncludes": "schema:Date"
+    },
+    {
+      "@id": "beckn:supportNotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Support notes",
+      "rdfs:comment": "Additional notes about accessory support or firmware.",
+      "rdfs:domain": "beckn:LifecycleInformation",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:crossSellSuggestions",
+      "@type": "rdf:Property",
+      "rdfs:label": "Cross-sell suggestions",
+      "rdfs:comment": "Related accessories recommended alongside this product.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:returnPolicyNotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Return policy notes",
+      "rdfs:comment": "Accessory-specific notes relating to return policies.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:additionalNotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Additional notes",
+      "rdfs:comment": "Miscellaneous notes or marketing highlights.",
+      "rdfs:domain": "beckn:AccessoriesService",
+      "schema:rangeIncludes": "schema:Text"
+    }
+  ]
+}
+

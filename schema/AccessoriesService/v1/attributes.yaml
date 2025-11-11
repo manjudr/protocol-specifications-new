@@ -1,0 +1,210 @@
+openapi: 3.1.1
+info:
+  title: Accessories — Product Attribute Pack (v1)
+  version: 1.0.0
+  x-profile-id: profiles/retail/accessories/v1/accessories-service
+  description: >
+    Attribute schemas for accessories and add-on products (Item.attributes).
+    These attributes extend Beckn core schemas with product metadata such as compatibility,
+    materials, dimensions, warranty, and usage scenarios. Core Beckn objects supply
+    pricing, inventory, offers, orders, and fulfillments; this pack adds accessory-specific details.
+
+components:
+  schemas:
+    ########################################################################
+    # ITEM.ATTRIBUTES — AccessoriesService (retail-specific only)
+    ########################################################################
+    AccessoriesService:
+      type: object
+      additionalProperties: false
+      required:
+        - accessoryType
+        - brand
+        - compatibility
+        - materials
+        - colorOptions
+      x-jsonld:
+        "@context": ./context.jsonld
+        "@type": AccessoriesService
+      properties:
+
+        accessoryType:
+          type: string
+          description: Category or classification of the accessory (e.g., PhoneCase, ChargingAdapter, TravelPouch).
+          example: "TravelAdapter"
+          x-jsonld: { "@id": accessoryType }
+
+        brand:
+          type: string
+          description: Manufacturer or brand name.
+          example: "Nomad"
+          x-jsonld: { "@id": brand }
+
+        modelNumber:
+          type: string
+          description: Vendor-assigned model or SKU identifier.
+          example: "NA-TRVL-45W"
+          x-jsonld: { "@id": modelNumber }
+
+        compatibility:
+          type: array
+          items: { type: string }
+          description: Devices, product lines, or standards the accessory supports.
+          example: ["USB-C devices", "110-240V power outlets"]
+          x-jsonld: { "@id": compatibility }
+
+        compatibilityNotes:
+          type: string
+          description: Additional guidance about compatibility limitations or required adapters.
+          x-jsonld: { "@id": compatibilityNotes }
+
+        materials:
+          type: array
+          items: { type: string }
+          description: Primary materials used in construction (e.g., Polycarbonate, Leather, StainlessSteel).
+          example: ["Aluminum", "TPU"]
+          x-jsonld: { "@id": materials }
+
+        colorOptions:
+          type: array
+          items: { type: string }
+          description: Available color variants.
+          example: ["Matte Black", "Silver"]
+          x-jsonld: { "@id": colorOptions }
+
+        dimensions:
+          type: object
+          additionalProperties: false
+          description: Physical dimensions of the accessory.
+          properties:
+            lengthMm:
+              type: number
+              minimum: 0
+              description: Length in millimetres.
+            widthMm:
+              type: number
+              minimum: 0
+              description: Width in millimetres.
+            heightMm:
+              type: number
+              minimum: 0
+              description: Height in millimetres.
+            diameterMm:
+              type: number
+              minimum: 0
+              description: Diameter for cylindrical accessories.
+            notes:
+              type: string
+              description: Additional dimensional notes (e.g., collapsed vs expanded).
+          x-jsonld: { "@id": dimensions }
+
+        weightGrams:
+          type: number
+          minimum: 0
+          description: Weight of the accessory in grams.
+          example: 120
+          x-jsonld: { "@id": weightGrams }
+
+        capacity:
+          type: string
+          description: Applicable capacity measure (e.g., "5000mAh", "Fits 13-inch laptops").
+          x-jsonld: { "@id": capacity }
+
+        keyFeatures:
+          type: array
+          items: { type: string }
+          description: Bullet-list of differentiating features.
+          example: ["45W PD fast charging", "Foldable plug design", "Surge protection"]
+          x-jsonld: { "@id": keyFeatures }
+
+        usageScenarios:
+          type: array
+          items: { type: string }
+          description: Recommended use cases or environments (e.g., Travel, Outdoor, Office).
+          example: ["International travel", "Co-working spaces"]
+          x-jsonld: { "@id": usageScenarios }
+
+        includedItems:
+          type: array
+          items: { type: string }
+          description: List of items bundled with the accessory (e.g., adapter tips, carry pouch).
+          example: ["Universal adapter", "Carrying pouch", "Instruction manual"]
+          x-jsonld: { "@id": includedItems }
+
+        warranty:
+          type: object
+          additionalProperties: false
+          description: Warranty coverage information.
+          properties:
+            durationMonths:
+              type: integer
+              minimum: 0
+              description: Warranty duration in months.
+            coverage:
+              type: string
+              description: Summary of what the warranty covers.
+            serviceChannels:
+              type: array
+              items: { type: string }
+              description: Channels for warranty service (e.g., Walk-in, Mail-in, On-site).
+          x-jsonld: { "@id": warranty }
+
+        careInstructions:
+          type: array
+          items: { type: string }
+          description: Guidelines for maintaining or cleaning the accessory.
+          example: ["Wipe with dry cloth", "Avoid exposure to liquids"]
+          x-jsonld: { "@id": careInstructions }
+
+        safetyInformation:
+          type: array
+          items: { type: string }
+          description: Safety warnings or compliance statements (e.g., RoHS, CE).
+          example: ["Certified CE / FCC", "Do not use above 45°C"]
+          x-jsonld: { "@id": safetyInformation }
+
+        certifications:
+          type: array
+          items: { type: string }
+          description: Industry or sustainability certifications (e.g., BIS, UL, EnergyStar).
+          x-jsonld: { "@id": certifications }
+
+        sustainabilityNotes:
+          type: string
+          description: Information about sustainable materials, recycling, or packaging.
+          x-jsonld: { "@id": sustainabilityNotes }
+
+        lifecycle:
+          type: object
+          additionalProperties: false
+          description: Optional lifecycle details for the accessory.
+          properties:
+            launchDate:
+              type: string
+              format: date
+              description: Date the accessory was introduced.
+            endOfLifeDate:
+              type: string
+              format: date
+              description: Anticipated end-of-life or support sunset date.
+            supportNotes:
+              type: string
+              description: Additional notes about firmware support or replacement parts.
+          x-jsonld: { "@id": lifecycle }
+
+        crossSellSuggestions:
+          type: array
+          items: { type: string }
+          description: Related accessories or add-ons that pair well with this product.
+          x-jsonld: { "@id": crossSellSuggestions }
+
+        returnPolicyNotes:
+          type: string
+          description: Accessory-specific nuances to the standard return policy.
+          x-jsonld: { "@id": returnPolicyNotes }
+
+        additionalNotes:
+          type: string
+          description: Miscellaneous notes or marketing highlights.
+          x-jsonld: { "@id": additionalNotes }
+

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/profiles/retail/accessories/v1/profile.json",
+  "title": "Accessories — Product Attribute Pack (v1)",
+  "description": "Bundle of attribute schemas for accessories: Item (AccessoriesService) with operational guidance for discovery and merchandising. Uses ./context.jsonld for JSON-LD mappings and ./vocab.jsonld for accessory terms.",
+  "type": "object",
+  "additionalProperties": false,
+  "$comment": "JSON-LD context: ./context.jsonld ; Accessories vocab: ./vocab.jsonld",
+  "properties": {
+    "AccessoriesService": {
+      "$ref": "./attributes.yaml#/components/schemas/AccessoriesService"
+    }
+  },
+  "required": ["AccessoriesService"],
+
+  "operational_hints": {
+    "indexHints": [
+      "beckn:id",
+      "beckn:descriptor.schema:name",
+      "beckn:descriptor.beckn:shortDesc",
+      "beckn:itemAttributes.accessoryType",
+      "beckn:itemAttributes.brand",
+      "beckn:itemAttributes.modelNumber",
+      "beckn:itemAttributes.compatibility",
+      "beckn:itemAttributes.materials",
+      "beckn:itemAttributes.colorOptions",
+      "beckn:itemAttributes.keyFeatures",
+      "beckn:itemAttributes.certifications",
+      "beckn:itemAttributes.sustainabilityNotes"
+    ],
+
+    "piiHints": {
+      "fields": [
+        "message.order.billing.name",
+        "message.order.billing.email",
+        "message.order.billing.phone",
+        "message.order.payments[].params.*",
+        "message.order.fulfillments[].customer.person.name",
+        "message.order.fulfillments[].customer.contact.*"
+      ],
+      "treatment": "Treat as sensitive; restrict indexing, redact in logs, encrypt at rest.",
+      "notes": "Catalog and discovery payloads should remain free of PII. Any personalization data belongs in order/fulfillment flows."
+    },
+
+    "api_response_config": {
+      "description": "Recommended default field sets for accessories search and detail responses.",
+      "max_items_per_page": 500,
+      "max_offers_per_item": 10,
+      "minimal_fields": {
+        "item_attributes": [
+          "beckn:id",
+          "beckn:descriptor.schema:name",
+          "beckn:itemAttributes.brand",
+          "beckn:itemAttributes.accessoryType",
+          "beckn:itemAttributes.keyFeatures",
+          "beckn:itemAttributes.compatibility",
+          "beckn:itemAttributes.colorOptions"
+        ],
+        "offer_attributes": [
+          "beckn:id",
+          "beckn:descriptor.schema:name",
+          "beckn:price.currency",
+          "beckn:price.value",
+          "beckn:validity.end"
+        ]
+      },
+      "notes": "Minimal field sets support search result cards. Clients can request additional sections (dimensions, warranty, sustainability) via query flags."
+    },
+
+    "discover": {
+      "supported_filters": [
+        "text_search",
+        "jsonpath_filters",
+        "facet_filter",
+        "price_range_filter"
+      ],
+      "default_sort": [
+        "beckn:descriptor.schema:name.asc",
+        "beckn:offerAttributes.priceSpecification.price.asc",
+        "beckn:itemAttributes.brand.asc"
+      ]
+    }
+  }
+}
+

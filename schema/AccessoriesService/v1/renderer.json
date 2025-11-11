@@ -1,0 +1,6 @@
+{
+  "$comment": "Renderer configuration for accessory UI components - guides presentation of compatibility, features, and color options in client apps.",
+  "description": "Renderer configuration for Accessories Service UI components",
+  "version": "1.0.0"
+}
+
