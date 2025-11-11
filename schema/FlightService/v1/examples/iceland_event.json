@@ -180,6 +180,315 @@
                                 "Earn bonus Saga Club points during aurora season"
                             ]
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "auroraair-dl410-jfk-kef-economy",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Delta DL410 — JFK ➜ KEF (Economy)",
+                            "beckn:shortDesc": "Delta evening departure for Northern Lights seekers",
+                            "beckn:longDesc": "Delta DL410 departs New York in the evening, arriving pre-dawn in Keflavík with bundled winter gear allowances and aurora briefing materials."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.3,
+                            "beckn:ratingCount": 214
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network",
+                            "ONDC"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "auroraair-delta",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "AuroraAir Delta Desk"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "DL",
+                            "carrierName": "Delta Air Lines",
+                            "marketingFlightNumber": "410",
+                            "operatingCarrierCode": "DL",
+                            "operatingCarrierName": "Delta Air Lines",
+                            "operatingFlightNumber": "410",
+                            "flightDesignator": "DL410",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "JFK",
+                                "airportName": "John F. Kennedy International Airport",
+                                "cityCode": "NYC",
+                                "cityName": "New York",
+                                "terminal": "4",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -73.7781,
+                                            40.6413
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 4, JFK International Airport",
+                                        "addressLocality": "Queens",
+                                        "addressRegion": "NY",
+                                        "postalCode": "11430",
+                                        "addressCountry": "US"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "KEF",
+                                "airportName": "Keflavík International Airport",
+                                "cityCode": "KEF",
+                                "cityName": "Reykjavik",
+                                "terminal": "Main",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -22.6056,
+                                            63.9850
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Blikavöllur, 235 Keflavík",
+                                        "addressLocality": "Reykjanesbær",
+                                        "addressRegion": "Southern Peninsula",
+                                        "postalCode": "235",
+                                        "addressCountry": "IS"
+                                    }
+                                }
+                            },
+                            "departureDate": "2024-10-15",
+                            "departureTime": "2024-10-15T18:45:00-04:00",
+                            "arrivalDate": "2024-10-16",
+                            "arrivalTime": "2024-10-16T04:30:00+00:00",
+                            "durationMinutes": 525,
+                            "cabinsOffered": [
+                                "Economy",
+                                "PremiumEconomy"
+                            ],
+                            "cabinClass": "Economy",
+                            "fareFamily": "AuroraFlex",
+                            "fareBasisCode": "YDL4",
+                            "bookingClass": "Y",
+                            "availableSeats": 42,
+                            "seatPitchInches": 31,
+                            "seatWidthInches": 17.2,
+                            "amenities": [
+                                "Delta Studio entertainment",
+                                "In-seat power",
+                                "Aurora viewing tips",
+                                "Sleep kit"
+                            ],
+                            "mealService": "Meal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "GFML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 8,
+                                        "dimensionsCm": "55x35x25"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 23,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Additional 5kg allowance for winter gear when booked with AuroraAir packages."
+                            },
+                            "changePolicy": "Changes permitted up to 12h before departure with USD 190 fee plus fare difference.",
+                            "refundPolicy": "Refundable prior to departure with USD 220 fee.",
+                            "disruptionPolicy": "Rebooking on SkyTeam partners; hotel and transfer provided for delays >6h.",
+                            "aircraft": {
+                                "equipmentCode": "763",
+                                "equipmentName": "Boeing 767-300ER",
+                                "manufacturer": "Boeing",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "2-3-2 in Economy"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T13:26:00Z",
+                            "operationalNotes": "Arrival ahead of Iceland morning tours with express customs clearance via AuroraAir concierge.",
+                            "marketingMessages": [
+                                "SkyMiles bonus for aurora itinerary bookings",
+                                "Includes complimentary thermal water bottle"
+                            ]
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "auroraair-fi621-kef-jfk-economy",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Icelandair FI621 — KEF ➜ JFK (Economy)",
+                            "beckn:shortDesc": "Return flight with afternoon Reykjavik departure and evening JFK arrival",
+                            "beckn:longDesc": "FI621 offers a daylight departure from Keflavík after morning excursions, with winter gear allowances and onboard aurora recaps."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.5,
+                            "beckn:ratingCount": 237
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "auroraair-iceland",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "AuroraAir Iceland Desk"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "FI",
+                            "carrierName": "Icelandair",
+                            "marketingFlightNumber": "621",
+                            "operatingCarrierCode": "FI",
+                            "operatingCarrierName": "Icelandair",
+                            "operatingFlightNumber": "621",
+                            "flightDesignator": "FI621",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "KEF",
+                                "airportName": "Keflavík International Airport",
+                                "cityCode": "KEF",
+                                "cityName": "Reykjavik",
+                                "terminal": "Main",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -22.6056,
+                                            63.9850
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Blikavöllur, 235 Keflavík",
+                                        "addressLocality": "Reykjanesbær",
+                                        "addressRegion": "Southern Peninsula",
+                                        "postalCode": "235",
+                                        "addressCountry": "IS"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "JFK",
+                                "airportName": "John F. Kennedy International Airport",
+                                "cityCode": "NYC",
+                                "cityName": "New York",
+                                "terminal": "7",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -73.7781,
+                                            40.6413
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 7, JFK International Airport",
+                                        "addressLocality": "Queens",
+                                        "addressRegion": "NY",
+                                        "postalCode": "11430",
+                                        "addressCountry": "US"
+                                    }
+                                }
+                            },
+                            "departureDate": "2024-10-20",
+                            "departureTime": "2024-10-20T17:10:00+00:00",
+                            "arrivalDate": "2024-10-20",
+                            "arrivalTime": "2024-10-20T18:45:00-04:00",
+                            "durationMinutes": 575,
+                            "cabinsOffered": [
+                                "Economy",
+                                "Business"
+                            ],
+                            "cabinClass": "Economy",
+                            "fareFamily": "AuroraFlex",
+                            "fareBasisCode": "YNL46",
+                            "bookingClass": "Y",
+                            "availableSeats": 48,
+                            "seatPitchInches": 31,
+                            "seatWidthInches": 17.2,
+                            "amenities": [
+                                "In-flight entertainment",
+                                "Icelandic cuisine",
+                                "Wi-Fi",
+                                "Northern Lights recap program"
+                            ],
+                            "mealService": "Meal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "SFML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 8,
+                                        "dimensionsCm": "55x35x25"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 23,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Includes complimentary thermal blanket and souvenir photo booklet."
+                            },
+                            "changePolicy": "Changes allowed up to 24h before departure with USD 190 fee plus fare difference.",
+                            "refundPolicy": "Refundable with USD 210 fee prior to departure.",
+                            "disruptionPolicy": "Hotel vouchers in Reykjavik and New York provided for delays exceeding 6 hours.",
+                            "aircraft": {
+                                "equipmentCode": "752",
+                                "equipmentName": "Boeing 757-200",
+                                "manufacturer": "Boeing",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "3-3 in Economy"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T13:27:00Z",
+                            "operationalNotes": "Departure timed after Blue Lagoon visits to allow relaxed check-out.",
+                            "marketingMessages": [
+                                "Saga Club double tier points on return sector",
+                                "Complimentary geothermal spa care kit"
+                            ]
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -195,6 +504,70 @@
                         },
                         "beckn:items": [
                             "auroraair-fi620-jfk-kef-economy"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 850.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-09-01T00:00:00Z",
+                            "schema:endDate": "2025-03-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "auroraair-dl410-aurora-fare",
+                        "beckn:provider": "auroraair-delta",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "DL410 Aurora Flex Fare",
+                            "beckn:shortDesc": "Flexible fare with SkyMiles bonus and winter gear waiver"
+                        },
+                        "beckn:items": [
+                            "auroraair-dl410-jfk-kef-economy"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 920.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-09-01T00:00:00Z",
+                            "schema:endDate": "2025-03-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "auroraair-fi621-aurora-fare",
+                        "beckn:provider": "auroraair-iceland",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "FI621 Aurora Flex Fare",
+                            "beckn:shortDesc": "Return fare with souvenir baggage waiver and spa voucher"
+                        },
+                        "beckn:items": [
+                            "auroraair-fi621-kef-jfk-economy"
                         ],
                         "beckn:price": {
                             "currency": "USD",

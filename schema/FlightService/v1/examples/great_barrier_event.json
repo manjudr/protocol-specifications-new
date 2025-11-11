@@ -184,6 +184,320 @@
                                 "Complimentary chauffeur service in Bengaluru"
                             ]
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "flightnet-ai504-del-blr-premium",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "AI 504 — DEL ➜ BLR Premium Economy",
+                            "beckn:shortDesc": "Air India Dreamliner with premium economy FastTrack services",
+                            "beckn:longDesc": "AI 504 delivers mid-morning connectivity from Delhi to Bengaluru with premium economy seating, FastTrack security, and curated regional dining."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.3,
+                            "beckn:ratingCount": 288
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "bap.net/travel",
+                            "bap.net/flights"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "flightnet-air-services",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "FlightNet Air Services"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "AI",
+                            "carrierName": "Air India",
+                            "marketingFlightNumber": "504",
+                            "operatingCarrierCode": "AI",
+                            "operatingCarrierName": "Air India",
+                            "operatingFlightNumber": "504",
+                            "flightDesignator": "AI504",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "DEL",
+                                "airportName": "Indira Gandhi International Airport",
+                                "cityCode": "DEL",
+                                "cityName": "New Delhi",
+                                "terminal": "T3",
+                                "gate": "C06",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            77.0996,
+                                            28.5562
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "IGI Airport Terminal 3",
+                                        "addressLocality": "New Delhi",
+                                        "addressRegion": "Delhi",
+                                        "postalCode": "110037",
+                                        "addressCountry": "IN"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "BLR",
+                                "airportName": "Kempegowda International Airport",
+                                "cityCode": "BLR",
+                                "cityName": "Bengaluru",
+                                "terminal": "T2",
+                                "gate": "B04",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            77.7051,
+                                            13.1989
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 2, Kempegowda International Airport",
+                                        "addressLocality": "Devanahalli",
+                                        "addressRegion": "Karnataka",
+                                        "postalCode": "560300",
+                                        "addressCountry": "IN"
+                                    }
+                                }
+                            },
+                            "departureDate": "2025-03-15",
+                            "departureTime": "2025-03-15T10:45:00+05:30",
+                            "arrivalDate": "2025-03-15",
+                            "arrivalTime": "2025-03-15T13:35:00+05:30",
+                            "durationMinutes": 170,
+                            "cabinsOffered": [
+                                "Economy",
+                                "PremiumEconomy"
+                            ],
+                            "cabinClass": "PremiumEconomy",
+                            "fareFamily": "FlexiSaver",
+                            "fareBasisCode": "W1AI",
+                            "bookingClass": "W",
+                            "availableSeats": 18,
+                            "seatPitchInches": 38,
+                            "seatWidthInches": 19,
+                            "amenities": [
+                                "Dedicated premium check-in",
+                                "Onboard Wi-Fi",
+                                "Regional Indian menus",
+                                "Mood lighting"
+                            ],
+                            "mealService": "Meal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "HNML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 10,
+                                        "dimensionsCm": "55x35x25"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 28,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Complimentary garment pressing for premium economy guests at Delhi lounge."
+                            },
+                            "changePolicy": "Changes permitted up to 3h before departure with INR 2500 fee plus fare difference.",
+                            "refundPolicy": "Refundable with INR 2800 fee before departure; non-refundable after departure.",
+                            "disruptionPolicy": "Rebooking on next available AI/partner flight; lounge access provided during delays.",
+                            "aircraft": {
+                                "equipmentCode": "788",
+                                "equipmentName": "Boeing 787-8 Dreamliner",
+                                "manufacturer": "Boeing",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "2-3-2 in Premium Economy"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T08:55:00Z",
+                            "operationalNotes": "Targets mid-morning business departures with guaranteed 30-minute boarding window.",
+                            "marketingMessages": [
+                                "Bonus Flying Returns points for premium economy guests",
+                                "FastTrack security and immigration at both airports"
+                            ]
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "flightnet-uk8502-blr-del-biz",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "UK 8502 — BLR ➜ DEL Business Class",
+                            "beckn:shortDesc": "Evening return with lie-flat comfort and chauffeur service",
+                            "beckn:longDesc": "UK 8502 departs Bengaluru in the evening with Club Vistara lie-flat suites, chauffeur transfers, and priority baggage delivery in Delhi."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.7,
+                            "beckn:ratingCount": 534
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "bap.net/travel",
+                            "bap.net/flights"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "flightnet-air-services",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "FlightNet Air Services"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "UK",
+                            "carrierName": "Vistara",
+                            "marketingFlightNumber": "8502",
+                            "operatingCarrierCode": "UK",
+                            "operatingCarrierName": "Vistara",
+                            "operatingFlightNumber": "8502",
+                            "flightDesignator": "UK8502",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "BLR",
+                                "airportName": "Kempegowda International Airport",
+                                "cityCode": "BLR",
+                                "cityName": "Bengaluru",
+                                "terminal": "T2",
+                                "gate": "A05",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            77.7051,
+                                            13.1989
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 2, Kempegowda International Airport",
+                                        "addressLocality": "Devanahalli",
+                                        "addressRegion": "Karnataka",
+                                        "postalCode": "560300",
+                                        "addressCountry": "IN"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "DEL",
+                                "airportName": "Indira Gandhi International Airport",
+                                "cityCode": "DEL",
+                                "cityName": "New Delhi",
+                                "terminal": "T3",
+                                "gate": "B10",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            77.0996,
+                                            28.5562
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "IGI Airport Terminal 3",
+                                        "addressLocality": "New Delhi",
+                                        "addressRegion": "Delhi",
+                                        "postalCode": "110037",
+                                        "addressCountry": "IN"
+                                    }
+                                }
+                            },
+                            "departureDate": "2025-03-19",
+                            "departureTime": "2025-03-19T19:30:00+05:30",
+                            "arrivalDate": "2025-03-19",
+                            "arrivalTime": "2025-03-19T22:10:00+05:30",
+                            "durationMinutes": 160,
+                            "cabinsOffered": [
+                                "PremiumEconomy",
+                                "Business"
+                            ],
+                            "cabinClass": "Business",
+                            "fareFamily": "Flex",
+                            "fareBasisCode": "J4RTN",
+                            "bookingClass": "J",
+                            "availableSeats": 8,
+                            "seatPitchInches": 78,
+                            "seatWidthInches": 22,
+                            "amenities": [
+                                "Lie-flat suites",
+                                "Onboard Wi-Fi",
+                                "In-seat power",
+                                "Priority chauffeur service"
+                            ],
+                            "mealService": "PremiumMeal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "BLML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 12,
+                                        "dimensionsCm": "55x35x25"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 32,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Additional garment bag carriage for business travellers upon request."
+                            },
+                            "changePolicy": "Unlimited changes up to departure with fare difference; INR 2500 fee waived for Club Vistara Gold and above.",
+                            "refundPolicy": "Refundable with INR 3200 fee prior to departure; partially refundable after departure.",
+                            "disruptionPolicy": "Hotel accommodation and chauffeur provided for delays over 4 hours; rebooking guaranteed on partner carriers.",
+                            "aircraft": {
+                                "equipmentCode": "789",
+                                "equipmentName": "Boeing 787-9 Dreamliner",
+                                "manufacturer": "Boeing",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "1-2-1 in Business"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T09:05:00Z",
+                            "operationalNotes": "Designed for same-day executive meetings with post-flight chauffeur service in Delhi.",
+                            "marketingMessages": [
+                                "Complimentary spa vouchers at Vistara lounge",
+                                "Earn double Club Vistara tier points on evening sectors"
+                            ]
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -203,6 +517,69 @@
                         "beckn:price": {
                             "currency": "INR",
                             "value": 38500.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2025-03-01T00:00:00Z",
+                            "schema:endDate": "2025-05-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "flightnet-ai504-premium-flex",
+                        "beckn:provider": "flightnet-air-services",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "AI 504 Premium FlexiSaver Fare",
+                            "beckn:shortDesc": "Premium economy fare with lounge and FastTrack privileges"
+                        },
+                        "beckn:items": [
+                            "flightnet-ai504-del-blr-premium"
+                        ],
+                        "beckn:price": {
+                            "currency": "INR",
+                            "value": 24800.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2025-03-01T00:00:00Z",
+                            "schema:endDate": "2025-05-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "flightnet-uk8502-bizflex",
+                        "beckn:provider": "flightnet-air-services",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "UK 8502 Business Flex Fare",
+                            "beckn:shortDesc": "Evening return fare with chauffeur and spa privileges"
+                        },
+                        "beckn:items": [
+                            "flightnet-uk8502-blr-del-biz"
+                        ],
+                        "beckn:price": {
+                            "currency": "INR",
+                            "value": 38250.00,
                             "applicableQuantity": {
                                 "unitText": "Per Passenger",
                                 "unitCode": "E52",

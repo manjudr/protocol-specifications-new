@@ -182,6 +182,315 @@
                                 "Complimentary safari kit for Business & Premier World passengers"
                             ]
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "flightnet-ek501-jfk-nbo-business",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Emirates EK501 — JFK ➜ NBO (Business)",
+                            "beckn:shortDesc": "Premium one-stop service via DXB with lie-flat seats and lounge access",
+                            "beckn:longDesc": "Emirates EK501 links JFK to Nairobi with a coordinated Dubai connection, featuring lie-flat business seats, chauffeur drive in Nairobi, and safari gear allowances."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.7,
+                            "beckn:ratingCount": 268
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "flightnet-air-services",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "FlightNet Air Services"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "EK",
+                            "carrierName": "Emirates",
+                            "marketingFlightNumber": "501",
+                            "operatingCarrierCode": "EK",
+                            "operatingCarrierName": "Emirates",
+                            "operatingFlightNumber": "501",
+                            "flightDesignator": "EK501",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "JFK",
+                                "airportName": "John F. Kennedy International Airport",
+                                "cityCode": "NYC",
+                                "cityName": "New York",
+                                "terminal": "4",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -73.7781,
+                                            40.6413
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 4, JFK International Airport",
+                                        "addressLocality": "Queens",
+                                        "addressRegion": "NY",
+                                        "postalCode": "11430",
+                                        "addressCountry": "US"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "NBO",
+                                "airportName": "Jomo Kenyatta International Airport",
+                                "cityCode": "NBO",
+                                "cityName": "Nairobi",
+                                "terminal": "1E",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            36.9278,
+                                            -1.3192
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Airport North Road",
+                                        "addressLocality": "Nairobi",
+                                        "addressRegion": "Nairobi County",
+                                        "postalCode": "00501",
+                                        "addressCountry": "KE"
+                                    }
+                                }
+                            },
+                            "departureDate": "2024-03-15",
+                            "departureTime": "2024-03-15T10:15:00-04:00",
+                            "arrivalDate": "2024-03-16",
+                            "arrivalTime": "2024-03-16T05:20:00+03:00",
+                            "durationMinutes": 785,
+                            "cabinsOffered": [
+                                "Economy",
+                                "Business"
+                            ],
+                            "cabinClass": "Business",
+                            "fareFamily": "FlexPlus",
+                            "fareBasisCode": "JX2",
+                            "bookingClass": "J",
+                            "availableSeats": 8,
+                            "seatPitchInches": 78,
+                            "seatWidthInches": 23,
+                            "amenities": [
+                                "Lie-flat seats",
+                                "Onboard lounge",
+                                "In-seat power and Wi-Fi",
+                                "Shower spa access in DXB"
+                            ],
+                            "mealService": "PremiumMeal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "KSML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 12,
+                                        "dimensionsCm": "55x38x20"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 32,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Additional 15kg sporting equipment permitted when pre-registered."
+                            },
+                            "changePolicy": "Unlimited date changes with any fare difference collected before departure.",
+                            "refundPolicy": "Refundable anytime before departure with USD 250 fee.",
+                            "disruptionPolicy": "Chauffeur drive and hotel benefits provided for delays exceeding 6 hours.",
+                            "aircraft": {
+                                "equipmentCode": "388",
+                                "equipmentName": "Airbus A380-800",
+                                "manufacturer": "Airbus",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "1-2-1 in Business"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T09:50:00Z",
+                            "operationalNotes": "Dubai connection timed with early morning arrival into Nairobi for safari briefings.",
+                            "marketingMessages": [
+                                "Complimentary chauffeur drive in both New York and Nairobi",
+                                "Skywards members earn elite tier bonus on safari itineraries"
+                            ]
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "flightnet-kq102-nbo-jfk-economy",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Kenya Airways KQ102 — NBO ➜ JFK (Economy)",
+                            "beckn:shortDesc": "Overnight return from Nairobi (NBO) to New York (JFK)",
+                            "beckn:longDesc": "Return from your Masai Mara adventure on KQ102 with safari merchandise allowances, priority wildlife gear handling, and evening arrival into New York."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.5,
+                            "beckn:ratingCount": 366
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network",
+                            "Safari Connect Kenya"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "flightnet-air-services",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "FlightNet Air Services"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "KQ",
+                            "carrierName": "Kenya Airways",
+                            "marketingFlightNumber": "102",
+                            "operatingCarrierCode": "KQ",
+                            "operatingCarrierName": "Kenya Airways",
+                            "operatingFlightNumber": "102",
+                            "flightDesignator": "KQ102",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "NBO",
+                                "airportName": "Jomo Kenyatta International Airport",
+                                "cityCode": "NBO",
+                                "cityName": "Nairobi",
+                                "terminal": "1A",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            36.9278,
+                                            -1.3192
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Airport North Road",
+                                        "addressLocality": "Nairobi",
+                                        "addressRegion": "Nairobi County",
+                                        "postalCode": "00501",
+                                        "addressCountry": "KE"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "JFK",
+                                "airportName": "John F. Kennedy International Airport",
+                                "cityCode": "NYC",
+                                "cityName": "New York",
+                                "terminal": "4",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -73.7781,
+                                            40.6413
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 4, JFK International Airport",
+                                        "addressLocality": "Queens",
+                                        "addressRegion": "NY",
+                                        "postalCode": "11430",
+                                        "addressCountry": "US"
+                                    }
+                                }
+                            },
+                            "departureDate": "2024-03-25",
+                            "departureTime": "2024-03-25T00:30:00+03:00",
+                            "arrivalDate": "2024-03-26",
+                            "arrivalTime": "2024-03-26T06:45:00-04:00",
+                            "durationMinutes": 855,
+                            "cabinsOffered": [
+                                "Economy",
+                                "Business"
+                            ],
+                            "cabinClass": "Economy",
+                            "fareFamily": "Flex",
+                            "fareBasisCode": "YFLEX",
+                            "bookingClass": "Y",
+                            "availableSeats": 38,
+                            "seatPitchInches": 32,
+                            "seatWidthInches": 18,
+                            "amenities": [
+                                "Pre-boarding lounge access add-on",
+                                "USB charging",
+                                "Complimentary meals",
+                                "Kenyan coffee tasting"
+                            ],
+                            "mealService": "Meal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "BBML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 8,
+                                        "dimensionsCm": "55x35x25"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 23,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "One additional piece permitted for safari souvenirs up to 10kg."
+                            },
+                            "changePolicy": "Changes permitted up to 12h before departure with USD 180 fee plus fare difference.",
+                            "refundPolicy": "Refundable with USD 220 fee prior to departure; non-refundable after departure.",
+                            "disruptionPolicy": "Reprotection on next available service; lounge access provided during delays.",
+                            "aircraft": {
+                                "equipmentCode": "788",
+                                "equipmentName": "Boeing 787-8 Dreamliner",
+                                "manufacturer": "Boeing",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "3-3-3 in Economy"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T11:05:00Z",
+                            "operationalNotes": "Departure aligned with post-safari transfers from Wilson Airport and Nairobi hotels.",
+                            "marketingMessages": [
+                                "Complimentary wildlife photo book for returning passengers",
+                                "Priority baggage handling for camera equipment"
+                            ]
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -201,6 +510,70 @@
                         "beckn:price": {
                             "currency": "USD",
                             "value": 1200.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-06-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "CreditCard",
+                            "UPI"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "flightnet-ek501-business-flex",
+                        "beckn:provider": "flightnet-air-services",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "EK501 Business FlexPlus Fare",
+                            "beckn:shortDesc": "Business-class fare with chauffeur drive and lounge privileges"
+                        },
+                        "beckn:items": [
+                            "flightnet-ek501-jfk-nbo-business"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 3200.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "CreditCard",
+                            "UPI"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "flightnet-kq102-economy-flex",
+                        "beckn:provider": "flightnet-air-services",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "KQ102 Economy Flex Fare",
+                            "beckn:shortDesc": "Flexible return fare with souvenir baggage allowance"
+                        },
+                        "beckn:items": [
+                            "flightnet-kq102-nbo-jfk-economy"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 1180.00,
                             "applicableQuantity": {
                                 "unitText": "Per Passenger",
                                 "unitCode": "E52",

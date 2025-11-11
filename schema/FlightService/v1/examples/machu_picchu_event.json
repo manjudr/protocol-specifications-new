@@ -181,6 +181,315 @@
                 "Double LATAM Pass points for trekking travellers"
               ]
             }
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "andesair-ua1540-jfk-cuz-economy",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "United UA1540 — JFK ➜ CUZ (Economy)",
+              "beckn:shortDesc": "United-operated service with acclimatization-ready arrival",
+              "beckn:longDesc": "United UA1540 departs JFK in the evening and arrives Cusco mid-morning, giving travellers time to acclimatize and join Sacred Valley transfers."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "flight-service",
+              "schema:name": "Flight Service"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.4,
+              "beckn:ratingCount": 248
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "ONDC",
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "andesair-peru",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "AndesAir Peru Desk"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+              "@type": "FlightService",
+              "carrierCode": "UA",
+              "carrierName": "United Airlines",
+              "marketingFlightNumber": "1540",
+              "operatingCarrierCode": "UA",
+              "operatingCarrierName": "United Airlines",
+              "operatingFlightNumber": "1540",
+              "flightDesignator": "UA1540",
+              "codeshare": false,
+              "origin": {
+                "airportCode": "JFK",
+                "airportName": "John F. Kennedy International Airport",
+                "cityCode": "NYC",
+                "cityName": "New York",
+                "terminal": "7",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      -73.7781,
+                      40.6413
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "Terminal 7, JFK International Airport",
+                    "addressLocality": "Queens",
+                    "addressRegion": "NY",
+                    "postalCode": "11430",
+                    "addressCountry": "US"
+                  }
+                }
+              },
+              "destination": {
+                "airportCode": "CUZ",
+                "airportName": "Alejandro Velasco Astete International Airport",
+                "cityCode": "CUZ",
+                "cityName": "Cusco",
+                "terminal": "Main",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      -71.9388,
+                      -13.5357
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "Av. Velasco Astete s/n",
+                    "addressLocality": "Cusco",
+                    "addressRegion": "Cusco",
+                    "postalCode": "08002",
+                    "addressCountry": "PE"
+                  }
+                }
+              },
+              "departureDate": "2024-03-15",
+              "departureTime": "2024-03-15T19:30:00-04:00",
+              "arrivalDate": "2024-03-16",
+              "arrivalTime": "2024-03-16T09:15:00-05:00",
+              "durationMinutes": 825,
+              "cabinsOffered": [
+                "Economy",
+                "PremiumEconomy"
+              ],
+              "cabinClass": "Economy",
+              "fareFamily": "Explorer",
+              "fareBasisCode": "YUA2",
+              "bookingClass": "Y",
+              "availableSeats": 34,
+              "seatPitchInches": 31,
+              "seatWidthInches": 17.3,
+              "amenities": [
+                "United Polaris lounge access add-on",
+                "Inflight entertainment",
+                "Complimentary meals",
+                "Hydration service"
+              ],
+              "mealService": "Meal",
+              "specialServiceOffers": [
+                "AVML",
+                "VGML",
+                "WCHR"
+              ],
+              "baggageAllowance": {
+                "cabinBaggage": [
+                  {
+                    "pieces": 1,
+                    "weightKg": 8,
+                    "dimensionsCm": "55x35x25"
+                  }
+                ],
+                "checkedBaggage": [
+                  {
+                    "pieces": 2,
+                    "weightKg": 23,
+                    "dimensionLinearCm": 158
+                  }
+                ],
+                "notes": "Complimentary carriage of trekking poles and daypacks when tagged at JFK."
+              },
+              "changePolicy": "Date changes allowed up to 12h before departure with USD 170 fee plus fare difference.",
+              "refundPolicy": "Refundable prior to departure with USD 210 fee.",
+              "disruptionPolicy": "Rebooking on partner carriers; hotel provided in Lima or Bogota for misconnect.",
+              "aircraft": {
+                "equipmentCode": "763",
+                "equipmentName": "Boeing 767-300ER",
+                "manufacturer": "Boeing",
+                "wifiOnboard": true,
+                "seatConfiguration": "2-3-2 in Economy"
+              },
+              "flightStatus": "Scheduled",
+              "statusLastUpdated": "2025-02-12T11:50:00Z",
+              "operationalNotes": "Evening departure gives travellers same-day connections from across North America.",
+              "marketingMessages": [
+                "MileagePlus members earn Premier bonus on Andes itineraries",
+                "Includes acclimatization tips in pre-flight briefings"
+              ]
+            }
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "andesair-la202-cuz-jfk-economy",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "LATAM LA202 — CUZ ➜ JFK (Economy)",
+              "beckn:shortDesc": "Afternoon departure from Cusco with overnight arrival into JFK",
+              "beckn:longDesc": "LATAM LA202 returns travellers to JFK with time to enjoy a final Sacred Valley lunch before departure and includes priority handling for souvenirs and textiles."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "flight-service",
+              "schema:name": "Flight Service"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.5,
+              "beckn:ratingCount": 318
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "andesair-peru",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "AndesAir Peru Desk"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+              "@type": "FlightService",
+              "carrierCode": "LA",
+              "carrierName": "LATAM Airlines",
+              "marketingFlightNumber": "202",
+              "operatingCarrierCode": "LA",
+              "operatingCarrierName": "LATAM Airlines",
+              "operatingFlightNumber": "202",
+              "flightDesignator": "LA202",
+              "codeshare": false,
+              "origin": {
+                "airportCode": "CUZ",
+                "airportName": "Alejandro Velasco Astete International Airport",
+                "cityCode": "CUZ",
+                "cityName": "Cusco",
+                "terminal": "Main",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      -71.9388,
+                      -13.5357
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "Av. Velasco Astete s/n",
+                    "addressLocality": "Cusco",
+                    "addressRegion": "Cusco",
+                    "postalCode": "08002",
+                    "addressCountry": "PE"
+                  }
+                }
+              },
+              "destination": {
+                "airportCode": "JFK",
+                "airportName": "John F. Kennedy International Airport",
+                "cityCode": "NYC",
+                "cityName": "New York",
+                "terminal": "4",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      -73.7781,
+                      40.6413
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "Terminal 4, JFK International Airport",
+                    "addressLocality": "Queens",
+                    "addressRegion": "NY",
+                    "postalCode": "11430",
+                    "addressCountry": "US"
+                  }
+                }
+              },
+              "departureDate": "2024-03-24",
+              "departureTime": "2024-03-24T13:25:00-05:00",
+              "arrivalDate": "2024-03-25",
+              "arrivalTime": "2024-03-25T05:50:00-04:00",
+              "durationMinutes": 865,
+              "cabinsOffered": [
+                "Economy",
+                "Business"
+              ],
+              "cabinClass": "Economy",
+              "fareFamily": "Flex",
+              "fareBasisCode": "YRET",
+              "bookingClass": "Y",
+              "availableSeats": 33,
+              "seatPitchInches": 31,
+              "seatWidthInches": 17.5,
+              "amenities": [
+                "Altitude recovery beverages",
+                "USB charging",
+                "Complimentary meals",
+                "In-seat entertainment"
+              ],
+              "mealService": "Meal",
+              "specialServiceOffers": [
+                "AVML",
+                "GFML",
+                "WCHR"
+              ],
+              "baggageAllowance": {
+                "cabinBaggage": [
+                  {
+                    "pieces": 1,
+                    "weightKg": 8,
+                    "dimensionsCm": "55x35x25"
+                  }
+                ],
+                "checkedBaggage": [
+                  {
+                    "pieces": 2,
+                    "weightKg": 23,
+                    "dimensionLinearCm": 158
+                  }
+                ],
+                "notes": "Souvenir textiles and crafts up to 12kg accepted as additional baggage when packed in provided protective bags."
+              },
+              "changePolicy": "Changes permitted up to 12h before departure with USD 190 fee plus fare difference.",
+              "refundPolicy": "Refundable with USD 210 fee prior to departure.",
+              "disruptionPolicy": "Lounge access and hotel offered in Lima if onward connection is disrupted.",
+              "aircraft": {
+                "equipmentCode": "763",
+                "equipmentName": "Boeing 767-300ER",
+                "manufacturer": "Boeing",
+                "wifiOnboard": true,
+                "seatConfiguration": "2-3-2 in Economy"
+              },
+              "flightStatus": "Scheduled",
+              "statusLastUpdated": "2025-02-12T11:52:00Z",
+              "operationalNotes": "Departure aligned with morning Machu Picchu guided tours returning to Cusco by noon.",
+              "marketingMessages": [
+                "Complimentary Andean wellness kit on return sector",
+                "Double LATAM Pass points for Sacred Valley itineraries"
+              ]
+            }
           }
         ],
         "beckn:offers": [
@@ -196,6 +505,70 @@
             },
             "beckn:items": [
               "andesair-la201-jfk-cuz-economy"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 980.00,
+              "applicableQuantity": {
+                "unitText": "Per Passenger",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard"
+            ]
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "andesair-ua1540-explorer",
+            "beckn:provider": "andesair-peru",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "UA1540 Explorer Fare",
+              "beckn:shortDesc": "Evening departure with hydration service and flexible changes"
+            },
+            "beckn:items": [
+              "andesair-ua1540-jfk-cuz-economy"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 1120.00,
+              "applicableQuantity": {
+                "unitText": "Per Passenger",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard"
+            ]
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "andesair-la202-economy-flex",
+            "beckn:provider": "andesair-peru",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "LA202 Economy Flex Fare",
+              "beckn:shortDesc": "Return fare with souvenir baggage waiver and flexible dates"
+            },
+            "beckn:items": [
+              "andesair-la202-cuz-jfk-economy"
             ],
             "beckn:price": {
               "currency": "USD",

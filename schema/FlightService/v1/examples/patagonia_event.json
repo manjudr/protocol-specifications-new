@@ -180,6 +180,315 @@
                                 "Earn double LATAM Pass points for wilderness itineraries"
                             ]
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "patagoniaair-aa900-jfk-puq-economy",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "American Airlines AA900 — JFK ➜ PUQ (Economy)",
+                            "beckn:shortDesc": "American Airlines connection to Punta Arenas with priority gear handling",
+                            "beckn:longDesc": "AA900 transports trekkers from New York to Punta Arenas with overnight arrival, Patagonia gear allowances, and coordinated transfer support to Torres del Paine."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.4,
+                            "beckn:ratingCount": 204
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network",
+                            "ONDC"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "patagoniaair-american",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "PatagoniaAir American Desk"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "AA",
+                            "carrierName": "American Airlines",
+                            "marketingFlightNumber": "900",
+                            "operatingCarrierCode": "AA",
+                            "operatingCarrierName": "American Airlines",
+                            "operatingFlightNumber": "900",
+                            "flightDesignator": "AA900",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "JFK",
+                                "airportName": "John F. Kennedy International Airport",
+                                "cityCode": "NYC",
+                                "cityName": "New York",
+                                "terminal": "8",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -73.7781,
+                                            40.6413
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 8, JFK International Airport",
+                                        "addressLocality": "Queens",
+                                        "addressRegion": "NY",
+                                        "postalCode": "11430",
+                                        "addressCountry": "US"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "PUQ",
+                                "airportName": "Presidente Carlos Ibáñez del Campo International Airport",
+                                "cityCode": "PUQ",
+                                "cityName": "Punta Arenas",
+                                "terminal": "Main",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -70.8431,
+                                            -53.0059
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Av. Presidente Ibáñez 01532",
+                                        "addressLocality": "Punta Arenas",
+                                        "addressRegion": "Magallanes",
+                                        "postalCode": "6210427",
+                                        "addressCountry": "CL"
+                                    }
+                                }
+                            },
+                            "departureDate": "2024-03-15",
+                            "departureTime": "2024-03-15T18:30:00-04:00",
+                            "arrivalDate": "2024-03-16",
+                            "arrivalTime": "2024-03-16T11:45:00-03:00",
+                            "durationMinutes": 915,
+                            "cabinsOffered": [
+                                "Economy",
+                                "PremiumEconomy"
+                            ],
+                            "cabinClass": "Economy",
+                            "fareFamily": "Explorer",
+                            "fareBasisCode": "YAA9",
+                            "bookingClass": "Y",
+                            "availableSeats": 34,
+                            "seatPitchInches": 31,
+                            "seatWidthInches": 17.5,
+                            "amenities": [
+                                "Inflight entertainment",
+                                "USB charging",
+                                "Complimentary meals",
+                                "Trek hydration service"
+                            ],
+                            "mealService": "Meal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "LFML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 8,
+                                        "dimensionsCm": "55x35x25"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 23,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Additional garment bag carriage for cold-weather gear when tagged at JFK."
+                            },
+                            "changePolicy": "Changes permitted up to 24h before departure with USD 210 fee plus fare difference.",
+                            "refundPolicy": "Refundable with USD 240 fee prior to departure; non-refundable after departure.",
+                            "disruptionPolicy": "Rebooking on partner carriers; hotel provided in Santiago or Buenos Aires for delays exceeding 8 hours.",
+                            "aircraft": {
+                                "equipmentCode": "772",
+                                "equipmentName": "Boeing 777-200ER",
+                                "manufacturer": "Boeing",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "2-5-2 in Economy"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T12:58:00Z",
+                            "operationalNotes": "Arrival timed to align with PatagoniaAir charter connections to Puerto Natales.",
+                            "marketingMessages": [
+                                "Mileage loyalty bonus for Patagonia itineraries",
+                                "Complimentary weatherproof duffel on first checked bag"
+                            ]
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "patagoniaair-la802-puq-jfk-economy",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "LATAM LA802 — PUQ ➜ JFK (Economy)",
+                            "beckn:shortDesc": "LATAM return flight from Punta Arenas to New York",
+                            "beckn:longDesc": "LATAM LA802 departs Punta Arenas in the afternoon with an overnight connection to New York, offering liberal baggage for trekking gear and souvenir textiles."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.5,
+                            "beckn:ratingCount": 198
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "patagoniaair-latam",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "PatagoniaAir LATAM Desk"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "LA",
+                            "carrierName": "LATAM Airlines",
+                            "marketingFlightNumber": "802",
+                            "operatingCarrierCode": "LA",
+                            "operatingCarrierName": "LATAM Airlines",
+                            "operatingFlightNumber": "802",
+                            "flightDesignator": "LA802",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "PUQ",
+                                "airportName": "Presidente Carlos Ibáñez del Campo International Airport",
+                                "cityCode": "PUQ",
+                                "cityName": "Punta Arenas",
+                                "terminal": "Main",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -70.8431,
+                                            -53.0059
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Av. Presidente Ibáñez 01532",
+                                        "addressLocality": "Punta Arenas",
+                                        "addressRegion": "Magallanes",
+                                        "postalCode": "6210427",
+                                        "addressCountry": "CL"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "JFK",
+                                "airportName": "John F. Kennedy International Airport",
+                                "cityCode": "NYC",
+                                "cityName": "New York",
+                                "terminal": "4",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -73.7781,
+                                            40.6413
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 4, JFK International Airport",
+                                        "addressLocality": "Queens",
+                                        "addressRegion": "NY",
+                                        "postalCode": "11430",
+                                        "addressCountry": "US"
+                                    }
+                                }
+                            },
+                            "departureDate": "2024-03-25",
+                            "departureTime": "2024-03-25T16:45:00-03:00",
+                            "arrivalDate": "2024-03-26",
+                            "arrivalTime": "2024-03-26T08:20:00-04:00",
+                            "durationMinutes": 935,
+                            "cabinsOffered": [
+                                "Economy",
+                                "Business"
+                            ],
+                            "cabinClass": "Economy",
+                            "fareFamily": "Flex",
+                            "fareBasisCode": "YTR46",
+                            "bookingClass": "Y",
+                            "availableSeats": 28,
+                            "seatPitchInches": 31,
+                            "seatWidthInches": 17.6,
+                            "amenities": [
+                                "In-flight entertainment",
+                                "USB charging",
+                                "Chilean-inspired cuisine",
+                                "Premium beverages"
+                            ],
+                            "mealService": "Meal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "BBML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 8,
+                                        "dimensionsCm": "55x35x25"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 23,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Additional 12kg allowance for souvenir textiles and trekking gear on return sector."
+                            },
+                            "changePolicy": "Changes allowed up to 24h before departure with USD 210 fee plus fare difference.",
+                            "refundPolicy": "Refundable with USD 240 fee prior to departure.",
+                            "disruptionPolicy": "Rebooking on LATAM/partner flights; hotel vouchers provided for delays exceeding 8 hours.",
+                            "aircraft": {
+                                "equipmentCode": "789",
+                                "equipmentName": "Boeing 787-9 Dreamliner",
+                                "manufacturer": "Boeing",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "3-3-3 in Economy"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T12:58:00Z",
+                            "operationalNotes": "Departures coordinated with Torres del Paine transfers arriving in Punta Arenas by midday.",
+                            "marketingMessages": [
+                                "Complimentary Patagonia travel journal for return passengers",
+                                "LATAM Pass double points on conservation-supporting fares"
+                            ]
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -195,6 +504,70 @@
                         },
                         "beckn:items": [
                             "patagoniaair-la801-jfk-puq-economy"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 1600.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "patagoniaair-aa900-economy-explorer",
+                        "beckn:provider": "patagoniaair-american",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "AA900 Economy Explorer Fare",
+                            "beckn:shortDesc": "Flexible fare with Patagonia gear handling and hydration kit"
+                        },
+                        "beckn:items": [
+                            "patagoniaair-aa900-jfk-puq-economy"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 1720.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "patagoniaair-la802-economy-flex",
+                        "beckn:provider": "patagoniaair-latam",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "LA802 Economy Flex Fare",
+                            "beckn:shortDesc": "Return fare with souvenir baggage waiver and flexible changes"
+                        },
+                        "beckn:items": [
+                            "patagoniaair-la802-puq-jfk-economy"
                         ],
                         "beckn:price": {
                             "currency": "USD",

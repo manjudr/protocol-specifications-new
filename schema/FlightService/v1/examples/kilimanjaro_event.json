@@ -182,6 +182,315 @@
                 "Earn double points with Beckn explorer loyalty program"
               ]
             }
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "flightnet-qr1432-jfk-jro-economy",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Qatar Airways QR1432 — JFK ➜ JRO (Economy)",
+              "beckn:shortDesc": "One-stop service via Doha with trek-friendly arrival into JRO",
+              "beckn:longDesc": "Qatar Airways QR1432 offers early-morning departure from JFK, seamless connection at DOH, and dawn arrival into Kilimanjaro to align with trek staging."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "flight-service",
+              "schema:name": "Flight Service"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.4,
+              "beckn:ratingCount": 296
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "ONDC",
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "flightnet-air-services",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "FlightNet Air Services"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+              "@type": "FlightService",
+              "carrierCode": "QR",
+              "carrierName": "Qatar Airways",
+              "marketingFlightNumber": "1432",
+              "operatingCarrierCode": "QR",
+              "operatingCarrierName": "Qatar Airways",
+              "operatingFlightNumber": "1432",
+              "flightDesignator": "QR1432",
+              "codeshare": false,
+              "origin": {
+                "airportCode": "JFK",
+                "airportName": "John F. Kennedy International Airport",
+                "cityCode": "NYC",
+                "cityName": "New York",
+                "terminal": "8",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      -73.7781,
+                      40.6413
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "Terminal 8, JFK International Airport",
+                    "addressLocality": "Queens",
+                    "addressRegion": "NY",
+                    "postalCode": "11430",
+                    "addressCountry": "US"
+                  }
+                }
+              },
+              "destination": {
+                "airportCode": "JRO",
+                "airportName": "Kilimanjaro International Airport",
+                "cityCode": "JRO",
+                "cityName": "Kilimanjaro",
+                "terminal": "Main",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      37.0745,
+                      -3.4294
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "Airport Road",
+                    "addressLocality": "Kilimanjaro",
+                    "addressRegion": "Kilimanjaro Region",
+                    "postalCode": "20270",
+                    "addressCountry": "TZ"
+                  }
+                }
+              },
+              "departureDate": "2024-03-15",
+              "departureTime": "2024-03-15T08:20:00-04:00",
+              "arrivalDate": "2024-03-16",
+              "arrivalTime": "2024-03-16T02:40:00+03:00",
+              "durationMinutes": 980,
+              "cabinsOffered": [
+                "Economy",
+                "Business"
+              ],
+              "cabinClass": "Economy",
+              "fareFamily": "Explorer",
+              "fareBasisCode": "YQRX",
+              "bookingClass": "Y",
+              "availableSeats": 32,
+              "seatPitchInches": 32,
+              "seatWidthInches": 18,
+              "amenities": [
+                "Full-flat beds in business cabin",
+                "Oryx One inflight entertainment",
+                "Wi-Fi connectivity",
+                "Hydration and stretch program for trekkers"
+              ],
+              "mealService": "Meal",
+              "specialServiceOffers": [
+                "AVML",
+                "GFML",
+                "WCHR"
+              ],
+              "baggageAllowance": {
+                "cabinBaggage": [
+                  {
+                    "pieces": 1,
+                    "weightKg": 7,
+                    "dimensionsCm": "55x35x25"
+                  }
+                ],
+                "checkedBaggage": [
+                  {
+                    "pieces": 2,
+                    "weightKg": 23,
+                    "dimensionLinearCm": 158
+                  }
+                ],
+                "notes": "Additional 7kg permitted for trekking poles and crampons when declared at check-in."
+              },
+              "changePolicy": "Changes allowed up to 12h before departure with USD 200 fee plus fare difference.",
+              "refundPolicy": "Refundable with USD 250 fee prior to departure.",
+              "disruptionPolicy": "Lounge access and hotel offered in Doha for delays exceeding 6 hours.",
+              "aircraft": {
+                "equipmentCode": "77W",
+                "equipmentName": "Boeing 777-300ER",
+                "manufacturer": "Boeing",
+                "wifiOnboard": true,
+                "seatConfiguration": "3-4-3 in Economy"
+              },
+              "flightStatus": "Scheduled",
+              "statusLastUpdated": "2025-02-12T11:20:00Z",
+              "operationalNotes": "Connection in Doha aligned with gear transfer assistance for climbers.",
+              "marketingMessages": [
+                "Complimentary access to DOH vitality spa for trekkers",
+                "Privilege Club double Qpoints on Kilimanjaro routes"
+              ]
+            }
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "flightnet-ek721-jro-jfk-economy",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Emirates EK721 — JRO ➜ JFK (Economy)",
+              "beckn:shortDesc": "Evening departure from Kilimanjaro with overnight arrival into JFK",
+              "beckn:longDesc": "Emirates EK721 provides a comfortable return from Kilimanjaro with relaxed connection times in Dubai and extended sports baggage allowances."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "flight-service",
+              "schema:name": "Flight Service"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.6,
+              "beckn:ratingCount": 241
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "flightnet-air-services",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "FlightNet Air Services"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+              "@type": "FlightService",
+              "carrierCode": "EK",
+              "carrierName": "Emirates",
+              "marketingFlightNumber": "721",
+              "operatingCarrierCode": "EK",
+              "operatingCarrierName": "Emirates",
+              "operatingFlightNumber": "721",
+              "flightDesignator": "EK721",
+              "codeshare": false,
+              "origin": {
+                "airportCode": "JRO",
+                "airportName": "Kilimanjaro International Airport",
+                "cityCode": "JRO",
+                "cityName": "Kilimanjaro",
+                "terminal": "Main",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      37.0745,
+                      -3.4294
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "Airport Road",
+                    "addressLocality": "Kilimanjaro",
+                    "addressRegion": "Kilimanjaro Region",
+                    "postalCode": "20270",
+                    "addressCountry": "TZ"
+                  }
+                }
+              },
+              "destination": {
+                "airportCode": "JFK",
+                "airportName": "John F. Kennedy International Airport",
+                "cityCode": "NYC",
+                "cityName": "New York",
+                "terminal": "4",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      -73.7781,
+                      40.6413
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "Terminal 4, JFK International Airport",
+                    "addressLocality": "Queens",
+                    "addressRegion": "NY",
+                    "postalCode": "11430",
+                    "addressCountry": "US"
+                  }
+                }
+              },
+              "departureDate": "2024-03-25",
+              "departureTime": "2024-03-25T17:45:00+03:00",
+              "arrivalDate": "2024-03-26",
+              "arrivalTime": "2024-03-26T07:30:00-04:00",
+              "durationMinutes": 1005,
+              "cabinsOffered": [
+                "Economy",
+                "Business"
+              ],
+              "cabinClass": "Economy",
+              "fareFamily": "Flex",
+              "fareBasisCode": "YEKX",
+              "bookingClass": "Y",
+              "availableSeats": 36,
+              "seatPitchInches": 33,
+              "seatWidthInches": 18,
+              "amenities": [
+                "Ice inflight entertainment",
+                "USB and AC power",
+                "Complimentary meals with post-trek recovery menu",
+                "Hydration kits"
+              ],
+              "mealService": "Meal",
+              "specialServiceOffers": [
+                "AVML",
+                "BBML",
+                "WCHR"
+              ],
+              "baggageAllowance": {
+                "cabinBaggage": [
+                  {
+                    "pieces": 1,
+                    "weightKg": 7,
+                    "dimensionsCm": "55x38x20"
+                  }
+                ],
+                "checkedBaggage": [
+                  {
+                    "pieces": 2,
+                    "weightKg": 23,
+                    "dimensionLinearCm": 158
+                  }
+                ],
+                "notes": "Additional 10kg sports allowance for trekking gear on return sector."
+              },
+              "changePolicy": "Date changes allowed up to 6h before departure with USD 175 fee plus fare difference.",
+              "refundPolicy": "Refundable prior to departure with USD 220 fee; partially refundable after departure.",
+              "disruptionPolicy": "Hotel accommodation and meal vouchers provided for delays beyond 6 hours in Dubai.",
+              "aircraft": {
+                "equipmentCode": "77W",
+                "equipmentName": "Boeing 777-300ER",
+                "manufacturer": "Boeing",
+                "wifiOnboard": true,
+                "seatConfiguration": "3-4-3 in Economy"
+              },
+              "flightStatus": "Scheduled",
+              "statusLastUpdated": "2025-02-12T11:15:00Z",
+              "operationalNotes": "Departure time aligned with trek completion day to allow gear handover and celebratory dinner in Arusha.",
+              "marketingMessages": [
+                "Complimentary access to Dubai Arrivals lounge during connection",
+                "Earn Skywards tier miles faster on expedition itineraries"
+              ]
+            }
           }
         ],
         "beckn:offers": [
@@ -201,6 +510,70 @@
             "beckn:price": {
               "currency": "USD",
               "value": 1350.00,
+              "applicableQuantity": {
+                "unitText": "Per Passenger",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "CreditCard",
+              "UPI"
+            ]
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "flightnet-qr1432-economy-explorer",
+            "beckn:provider": "flightnet-air-services",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "QR1432 Explorer Fare",
+              "beckn:shortDesc": "Economy fare with Doha lounge access and trekking gear waiver"
+            },
+            "beckn:items": [
+              "flightnet-qr1432-jfk-jro-economy"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 1520.00,
+              "applicableQuantity": {
+                "unitText": "Per Passenger",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "CreditCard",
+              "UPI"
+            ]
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "flightnet-ek721-economy-flex",
+            "beckn:provider": "flightnet-air-services",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "EK721 Expedition Flex Fare",
+              "beckn:shortDesc": "Return fare with extended sports baggage and Dubai connection benefits"
+            },
+            "beckn:items": [
+              "flightnet-ek721-jro-jfk-economy"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 1480.00,
               "applicableQuantity": {
                 "unitText": "Per Passenger",
                 "unitCode": "E52",
