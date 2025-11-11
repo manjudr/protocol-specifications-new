@@ -1,0 +1,233 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:mobility:airport-taxi:*",
+    "timestamp": "2025-02-12T11:10:00Z",
+    "transaction_id": "0c9f14a6-54bf-4f1d-9bfb-b28735a2de61",
+    "message_id": "e6b58fec-5da0-4f0d-9d7f-7923a1f3b8e6",
+    "bpp_id": "airporttransfers.kenya.example.com",
+    "bpp_uri": "https://airporttransfers.kenya.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-airport-taxi-kenya-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "Safari Transfers — Nairobi Arrivals",
+          "beckn:shortDesc": "Authorised 4WD transfers from Nairobi airport to Masai Mara camps",
+          "beckn:longDesc": "Safari Transfers provides licensed airport pickups with safari-grade vehicles and experienced drivers for seamless journeys from Nairobi (NBO) to Masai Mara lodges."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "safari-transfer-nbo-mara-pickup",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Nairobi Airport ➜ Masai Mara Luxury Transfer",
+              "beckn:shortDesc": "Luxury 4WD airport pickup with en-route game drive",
+              "beckn:longDesc": "Travel in comfort from Jomo Kenyatta International Airport to your Masai Mara camp with professional drivers, safari-spec 4WD vehicles, and refreshments."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "airport-taxi",
+              "schema:name": "Airport Taxi Service"
+            },
+            "beckn:availableAt": [
+              {
+                "@type": "beckn:Location",
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [36.9278, -1.3192]
+                },
+                "address": {
+                  "streetAddress": "Arrivals Terminal, JKIA",
+                  "addressLocality": "Nairobi",
+                  "addressRegion": "Nairobi County",
+                  "postalCode": "00501",
+                  "addressCountry": "KE"
+                }
+              }
+            ],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.7,
+              "beckn:ratingCount": 612
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Kenya Tourism Board Network",
+              "Safari Connect Kenya"
+            ],
+            "beckn:provider": {
+              "beckn:id": "safari-transfers-kenya",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "Safari Transfers Kenya"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AirportTaxiService/v1/context.jsonld",
+              "@type": "AirportTaxiService",
+              "serviceType": "AirportPickup",
+              "vehicleCategory": "SUV",
+              "passengerCapacity": 6,
+              "luggageCapacity": {
+                "weightKg": 120,
+                "pieces": 6,
+                "oversizedAccepted": true
+              },
+              "airport": {
+                "airportCode": "NBO",
+                "airportName": "Jomo Kenyatta International Airport",
+                "cityCode": "NBO",
+                "cityName": "Nairobi"
+              },
+              "pickupLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [36.9278, -1.3192]
+                },
+                "address": {
+                  "streetAddress": "Arrivals Terminal, JKIA",
+                  "addressLocality": "Nairobi",
+                  "addressRegion": "Nairobi County",
+                  "postalCode": "00501",
+                  "addressCountry": "KE"
+                }
+              },
+              "pickupInstructions": "Meet Safari Transfers staff at Arrivals Gate 3 holding a sign with your name. Vehicles depart from Bay Safari-4.",
+              "dropoffCoverage": {
+                "cityLimits": "Masai Mara National Reserve and Greater Mara Conservancies",
+                "serviceRadiusKm": 280,
+                "postalCodes": [
+                  "20500"
+                ],
+                "exclusions": [
+                  "Restricted conservancy zones without prior permit"
+                ]
+              },
+              "estimatedTravelTimeMinutes": 360,
+              "queueType": "PreBooked",
+              "averageWaitTimeMinutes": 15,
+              "surgePolicy": "Peak season surcharge up to 20% during July–October migration period.",
+              "fareModel": {
+                "modelType": "FlatRate",
+                "baseFareAmount": 180,
+                "baseFareIncludesTolls": true,
+                "nightSurchargePercent": 15,
+                "includedDistanceKm": 260,
+                "notes": "Includes park gate fees for vehicle entry and en-route picnic stop."
+              },
+              "tollPolicy": "National park gate entry fees included; conservancy fees payable separately where applicable.",
+              "meetAndGreetIncluded": true,
+              "additionalServices": [
+                "GameDriveEnRoute",
+                "WiFi",
+                "BottledWater"
+              ],
+              "accessibilityFeatures": [
+                "HearingAssistance"
+              ],
+              "driverLanguageSupport": [
+                "English",
+                "Swahili"
+              ],
+              "driverVerification": {
+                "backgroundCheck": true,
+                "uniformRequired": true,
+                "idDisplayed": true,
+                "trainingNotes": "KWS wildlife awareness, first-aid, and defensive driving certified."
+              },
+              "fleetInformation": {
+                "averageVehicleAgeYears": 3,
+                "fuelType": [
+                  "Diesel"
+                ],
+                "maintenanceStandards": "Daily vehicle inspections with 10,000 km scheduled servicing."
+              },
+              "operatingHours": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startTime": "00:00:00",
+                  "schema:endTime": "23:59:00"
+                }
+              ],
+              "helplineContact": {
+                "phone": "+254-700-555-100",
+                "email": "support@safaritransfers.example.com",
+                "availability": "24x7"
+              },
+              "safetyMeasures": [
+                "GPSTracking",
+                "PanicButton",
+                "SatellitePhone"
+              ],
+              "complianceCertifications": [
+                "AirportAuthorised",
+                "TourismRegulatorLicensed"
+              ],
+              "waitAndChargePolicy": "30-minute grace period included; thereafter USD 10 per 15 minutes.",
+              "cancellationPolicy": "Full refund if cancelled ≥24h; 50% charge within 24h; no-show charged fully.",
+              "digitalPaymentOptions": [
+                "UPI",
+                "CreditCard",
+                "M-Pesa"
+              ],
+              "cashAccepted": true,
+              "notes": "Includes wildlife brief and refreshment hamper for the road."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "safari-transfer-nbo-mara-flatfare",
+            "beckn:provider": "safari-transfers-kenya",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Safari Transfer — Flat Fare",
+              "beckn:shortDesc": "Flat fare for 4WD transfer with meet-and-greet and refreshments"
+            },
+            "beckn:items": [
+              "safari-transfer-nbo-mara-pickup"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 180.00,
+              "applicableQuantity": {
+                "unitText": "Per Trip",
+                "unitCode": "C62",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "M-Pesa",
+              "Cash"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

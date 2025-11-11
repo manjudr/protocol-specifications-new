@@ -1,0 +1,313 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:travel:trips:*",
+    "timestamp": "2025-02-12T11:45:00Z",
+    "transaction_id": "df0b9cf4-8bc8-4b30-9f1e-28f83b5f6abc",
+    "message_id": "bbb762ec-78e0-4863-9be2-1e9c67a51643",
+    "bpp_id": "summiteer.example.com",
+    "bpp_uri": "https://summiteer.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-trip-kilimanjaro-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "Summiteer — Mount Kilimanjaro Expedition",
+          "beckn:shortDesc": "Machame-route expedition to summit Uhuru Peak",
+          "beckn:longDesc": "Summiteer’s Kilimanjaro Expedition delivers a guided eight-day trek via the Machame Route with acclimatization hotel, certified guides, and full support services."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "summiteer-kilimanjaro-machame-8d",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Mount Kilimanjaro Machame Expedition — 8 Days",
+              "beckn:shortDesc": "Guided Machame route with full support and summit attempt",
+              "beckn:longDesc": "Scale Kilimanjaro via the Machame route with Summiteer’s eight-day itinerary featuring acclimatization support, licensed guides, and all trek logistics."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "multi-day-trip",
+              "schema:name": "Trip / Tour Package"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.8,
+              "beckn:ratingCount": 268
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network",
+              "Safari Connect Kenya"
+            ],
+            "beckn:provider": {
+              "beckn:id": "summiteer-expeditions",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "Summiteer Expeditions"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@type": "TripService",
+              "tripType": "GuidedGroup",
+              "theme": [
+                "Adventure",
+                "Trekking"
+              ],
+              "durationDays": 8,
+              "durationNights": 7,
+              "startDateFlexible": false,
+              "departureWindows": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-07-12T00:00:00Z",
+                  "schema:endDate": "2024-07-20T00:00:00Z"
+                },
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-08-16T00:00:00Z",
+                  "schema:endDate": "2024-08-24T00:00:00Z"
+                }
+              ],
+              "startLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [36.6983, -3.3619]
+                },
+                "address": {
+                  "streetAddress": "Kibo Palace Hotel, Arusha",
+                  "addressLocality": "Arusha",
+                  "addressRegion": "Arusha Region",
+                  "postalCode": "23109",
+                  "addressCountry": "TZ"
+                }
+              },
+              "endLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [36.6983, -3.3619]
+                },
+                "address": {
+                  "streetAddress": "Arusha City Centre",
+                  "addressLocality": "Arusha",
+                  "addressRegion": "Arusha Region",
+                  "postalCode": "23101",
+                  "addressCountry": "TZ"
+                }
+              },
+              "regionsCovered": [
+                "TZ-Arusha",
+                "TZ-Kilimanjaro"
+              ],
+              "highlights": [
+                "Summit Uhuru Peak at 5,895m",
+                "Machame rainforest to alpine desert transition",
+                "Professional guides and porter support",
+                "Cultural tours in Arusha"
+              ],
+              "itinerary": [
+                {
+                  "day": 1,
+                  "title": "Arrive Arusha & Trek Briefing",
+                  "description": "Arrival transfer to Arusha hotel, gear check, and evening briefing.",
+                  "activities": [
+                    {
+                      "name": "Arusha City Tour",
+                      "activityType": "Cultural",
+                      "startTime": "14:00:00",
+                      "endTime": "18:00:00",
+                      "included": true,
+                      "notes": "Includes museum entry and local lunch."
+                    }
+                  ]
+                },
+                {
+                  "day": 2,
+                  "title": "Machame Gate to Machame Camp",
+                  "description": "Start Machame Route through lush rainforest to Machame Camp.",
+                  "activities": [
+                    {
+                      "name": "Machame Route Trek - Day 1",
+                      "activityType": "Trekking",
+                      "startTime": "09:00:00",
+                      "endTime": "16:00:00",
+                      "included": true,
+                      "notes": "Covers rainforest zone; lunch provided en route."
+                    }
+                  ]
+                },
+                {
+                  "day": 6,
+                  "title": "Summit Attempt — Uhuru Peak",
+                  "description": "Midnight climb from Barafu Camp to Uhuru Peak, descent to Mweka Camp.",
+                  "activities": [
+                    {
+                      "name": "Summit Attempt - Uhuru Peak",
+                      "activityType": "Summit",
+                      "startTime": "00:30:00",
+                      "endTime": "14:00:00",
+                      "included": true,
+                      "notes": "Includes summit certificate, celebration at Mweka Camp."
+                    }
+                  ]
+                }
+              ],
+              "inclusions": [
+                "Round-trip airport transfers",
+                "2 nights Arusha hotel",
+                "6 nights mountain tents with meals",
+                "Professional guide and porter team",
+                "Park fees and rescue insurance"
+              ],
+              "exclusions": [
+                "International flights",
+                "Personal trekking gear",
+                "Tips for guides and porters"
+              ],
+              "difficultyLevel": "Strenuous",
+              "activityPace": "Active",
+              "fitnessRequirements": "Ability to hike 6-8 hours daily with steep ascents at altitude.",
+              "ageRestriction": {
+                "minimumAge": 16,
+                "notes": "Participants under 18 require guardian consent."
+              },
+              "groupConfiguration": {
+                "minimumGroupSize": 6,
+                "maximumGroupSize": 12,
+                "singleSupplementAvailable": true,
+                "sharedRooming": true,
+                "childPolicy": "Not recommended for children under 16 due to altitude."
+              },
+              "sustainabilityPractices": [
+                "Leave-no-trace compliance",
+                "Porter welfare certified by KPAP",
+                "Carbon offset contributions"
+              ],
+              "responsibleTravelNotes": "Follow guide instructions for waste disposal; support local economy by purchasing artisanal handicrafts.",
+              "requiredDocuments": [
+                "Passport valid 6 months beyond travel",
+                "Visa for Tanzania",
+                "Proof of travel/medical insurance"
+              ],
+              "travelInsuranceRequired": true,
+              "visaAssistanceIncluded": true,
+              "safetyProtocols": [
+                "Daily health checks and pulse oximeter readings",
+                "Emergency oxygen and porter support",
+                "24/7 operations desk"
+              ],
+              "covidPolicy": "Adhere to latest Tanzania MoH guidelines; masks required during transfers when mandated.",
+              "cancellationPolicy": {
+                "policyType": "Strict",
+                "timeline": [
+                  {
+                    "deadlineDaysBeforeDeparture": 60,
+                    "penaltyPercent": 0
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 30,
+                    "penaltyPercent": 40
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 14,
+                    "penaltyPercent": 75
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 7,
+                    "penaltyPercent": 100
+                  }
+                ],
+                "notes": "Transferable to future departure with USD 200 rebooking fee if notice ≥14 days."
+              },
+              "paymentSchedule": [
+                {
+                  "milestone": "Deposit",
+                  "amountPercent": 25,
+                  "dueOffsetDays": 90
+                },
+                {
+                  "milestone": "Balance",
+                  "amountPercent": 75,
+                  "dueOffsetDays": 30
+                }
+              ],
+              "loyaltyEligible": true,
+              "testimonials": [
+                {
+                  "reviewerName": "Aaron Mitchell",
+                  "quote": "Summiteer’s guides kept us safe and motivated—summiting Uhuru was unforgettable!",
+                  "rating": 5
+                }
+              ],
+              "mediaGallery": [
+                {
+                  "mediaType": "Image",
+                  "url": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800",
+                  "caption": "Climbers on the Machame route"
+                },
+                {
+                  "mediaType": "Video",
+                  "url": "https://cdn.summiteer.example.com/trips/kilimanjaro/overview.mp4",
+                  "caption": "Expedition highlight reel"
+                }
+              ],
+              "additionalNotes": "Private climbs available for groups of four or more with bespoke acclimatization schedules."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "summiteer-kilimanjaro-machame-smallgroup",
+            "beckn:provider": "summiteer-expeditions",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Machame Route Small-Group Departure",
+              "beckn:shortDesc": "8-day guided climb with porter support and acclimatization hotel"
+            },
+            "beckn:items": [
+              "summiteer-kilimanjaro-machame-8d"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 3200.00,
+              "applicableQuantity": {
+                "unitText": "Per Traveller",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "NetBanking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

@@ -1,0 +1,177 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:retail:accessories:*",
+    "timestamp": "2025-02-12T11:50:00Z",
+    "transaction_id": "2e08c72a-7f4d-4a09-8730-167c0c905f4a",
+    "message_id": "efac6c33-995c-4a00-b4de-be0b7cf8c3d8",
+    "bpp_id": "gearhub.expeditions.example.com",
+    "bpp_uri": "https://gearhub.expeditions.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-accessories-kilimanjaro-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "GearHub Summit Essentials",
+          "beckn:shortDesc": "High-altitude gear curated for Kilimanjaro trekkers",
+          "beckn:longDesc": "Summit Essentials delivers top-tier trekking gear—boots, cold-weather layers, and equipment—aligned with Kilimanjaro Machame route requirements."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "gearhub-hikingboots-highaltitude",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Salomon High-Altitude Hiking Boots",
+              "beckn:shortDesc": "Waterproof insulated boots rated for -20°C",
+              "beckn:longDesc": "Salomon high-altitude boots deliver waterproofing, insulation, and ankle support for challenging Kilimanjaro trails."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-trekking",
+              "schema:name": "Trekking Accessories"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.7,
+              "beckn:ratingCount": 189
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network",
+              "Safari Connect Kenya"
+            ],
+            "beckn:provider": {
+              "beckn:id": "gearhub-urban",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "GearHub Urban Outlet"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Footwear",
+              "brand": "Salomon",
+              "modelNumber": "ALTI-BOOT-KILI",
+              "compatibility": [
+                "High-altitude trekking",
+                "Snow and ice terrain"
+              ],
+              "materials": [
+                "Leather",
+                "GORE-TEX"
+              ],
+              "colorOptions": [
+                "Charcoal Grey"
+              ],
+              "dimensions": {
+                "notes": "Available sizes US 6-13 with wide fit option."
+              },
+              "weightGrams": 1200,
+              "capacity": "Rated for -20°C with Vibram outsole",
+              "keyFeatures": [
+                "Waterproof insulation",
+                "Ankle support",
+                "Vibram sole",
+                "Gaiter hooks"
+              ],
+              "usageScenarios": [
+                "Machame route trekking",
+                "Summit night ascent",
+                "Rainforest to alpine desert transitions"
+              ],
+              "includedItems": [
+                "Pair of boots",
+                "Extra laces",
+                "Care kit"
+              ],
+              "warranty": {
+                "durationMonths": 24,
+                "coverage": "Manufacturer defects and sole separation",
+                "serviceChannels": [
+                  "Mail-in",
+                  "Walk-in"
+                ]
+              },
+              "careInstructions": [
+                "Air dry after use",
+                "Treat leather every 3 months",
+                "Avoid direct heat sources"
+              ],
+              "safetyInformation": [
+                "Break-in recommended before trek",
+                "Pair with proper socks to avoid blisters"
+              ],
+              "certifications": [
+                "CE"
+              ],
+              "sustainabilityNotes": "Features recycled EVA midsoles and eco-friendly leather tanning.",
+              "lifecycle": {
+                "launchDate": "2024-02-01",
+                "supportNotes": "Heel replacement service available through Salomon partners."
+              },
+              "crossSellSuggestions": [
+                "gearhub-coldweather-gear-set",
+                "gearhub-trekking-poles"
+              ],
+              "returnPolicyNotes": "Return accepted within 30 days if unworn; size exchanges supported.",
+              "additionalNotes": "Recommended by Summiteer guides for Machame and Lemosho routes."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "gearhub-hikingboots-highaltitude-offer",
+            "beckn:provider": "gearhub-urban",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "High-Altitude Boots — Expedition Bundle",
+              "beckn:shortDesc": "Includes boot care kit and moisture-wicking socks"
+            },
+            "beckn:items": [
+              "gearhub-hikingboots-highaltitude"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 280.00,
+              "applicableQuantity": {
+                "unitText": "Per Unit",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-06-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet",
+              "NetBanking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

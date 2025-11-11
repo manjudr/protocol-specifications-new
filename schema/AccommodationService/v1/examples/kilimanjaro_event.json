@@ -1,0 +1,213 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:hospitality:accommodation:*",
+        "timestamp": "2025-02-12T11:35:00Z",
+        "transaction_id": "84c60da3-6a4b-4d5b-93de-a4eb0a0e8cf2",
+        "message_id": "5a7fce3d-8ef2-4146-8b6c-7bf8cbd47ff0",
+        "bpp_id": "stayhub.tanzania.example.com",
+        "bpp_uri": "https://stayhub.tanzania.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-accommodation-kilimanjaro-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "StayHub — Kilimanjaro Base Lodging",
+                    "beckn:shortDesc": "Arusha base hotels for Mount Kilimanjaro trekkers",
+                    "beckn:longDesc": "StayHub Kilimanjaro features acclimatization-friendly hotels in Arusha with gear storage, briefings, and certified support for summit expeditions."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2024-03-01T00:00:00Z",
+                    "schema:endDate": "2024-09-30T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-kibo-palace-deluxe-room",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Kibo Palace Hotel — Deluxe Room",
+                            "beckn:shortDesc": "Arusha acclimatization hotel with mountain views",
+                            "beckn:longDesc": "Kibo Palace Hotel offers deluxe rooms with acclimatization support, gear storage, and pre-trek briefings for Kilimanjaro climbers."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        36.6850,
+                                        -3.3684
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Arusha Road, Kijenge",
+                                    "addressLocality": "Arusha",
+                                    "addressRegion": "Arusha Region",
+                                    "postalCode": "23109",
+                                    "addressCountry": "TZ"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T12:00:00Z",
+                                "schema:endDate": "2024-09-30T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.2,
+                            "beckn:ratingCount": 256
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network",
+                            "Safari Connect Kenya"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-kibo-palace",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Kibo Palace Hotel"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Hotel",
+                            "roomType": "Deluxe Room",
+                            "roomCategory": "Standard",
+                            "inventoryCode": "DLX-MTNVIEW-ARUSHA",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "Queen"
+                            ],
+                            "roomSize": {
+                                "value": 32,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Mountain View",
+                            "level": "5",
+                            "checkInTime": "14:00:00",
+                            "checkOutTime": "11:00:00",
+                            "stayMinimumNights": 1,
+                            "stayMaximumNights": 5,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        36.6850,
+                                        -3.3684
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Arusha Road, Kijenge",
+                                    "addressLocality": "Arusha",
+                                    "addressRegion": "Arusha Region",
+                                    "postalCode": "23109",
+                                    "addressCountry": "TZ"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Pool",
+                                "Gym",
+                                "Mountain Views"
+                            ],
+                            "highlightedInclusions": [
+                                "Gear storage",
+                                "Pre-trek briefing session"
+                            ],
+                            "mealPlans": [
+                                "BedAndBreakfast"
+                            ],
+                            "accessibilityFeatures": [
+                                "Wheelchair accessible room",
+                                "Elevator access"
+                            ],
+                            "childPolicy": "Children under 8 stay free sharing existing bedding.",
+                            "petPolicy": "Service animals permitted with prior notice.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Flexible",
+                                "deadlineHoursBeforeCheckIn": 24,
+                                "penaltyDescription": "One night charge within 24h of arrival or no-show."
+                            },
+                            "guaranteePolicy": "Credit card guarantee required; full payment on check-in.",
+                            "houseRules": [
+                                "Quiet hours 22:00-06:00",
+                                "Gear drying in designated areas only"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Tanzania Tourist Board (TTB) Certified"
+                            ],
+                            "languagesSpoken": [
+                                "English",
+                                "Swahili"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Altitude acclimatization support available on request."
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-kibo-palace-dlx-bb",
+                        "beckn:provider": "stayhub-kibo-palace",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Deluxe Room — Bed & Breakfast",
+                            "beckn:shortDesc": "Deluxe room with breakfast and trek briefing"
+                        },
+                        "beckn:items": [
+                            "stayhub-kibo-palace-deluxe-room"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 120.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard",
+                            "NetBanking"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

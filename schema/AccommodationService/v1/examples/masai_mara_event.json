@@ -1,0 +1,223 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:hospitality:accommodation:*",
+        "timestamp": "2025-02-12T11:05:00Z",
+        "transaction_id": "faed8ad5-2b7b-4af7-8ca4-41e9a7831eb1",
+        "message_id": "9cf899d1-9027-427d-a406-94f3b18d8a59",
+        "bpp_id": "stayhub.kenya.example.com",
+        "bpp_uri": "https://stayhub.kenya.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-accommodation-kenya-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "StayHub — Masai Mara Luxury Camps",
+                    "beckn:shortDesc": "Handpicked tented camps and safari lodges inside Masai Mara",
+                    "beckn:longDesc": "StayHub curates luxury tented camps within Masai Mara National Reserve featuring full-board dining, game drives, and conservation-certified experiences."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2024-03-01T00:00:00Z",
+                    "schema:endDate": "2024-08-31T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-sarova-mara-deluxe-tent",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Sarova Mara Game Camp — Deluxe Safari Tent",
+                            "beckn:shortDesc": "Luxury tented accommodation with full-board and game drives",
+                            "beckn:longDesc": "Sarova Mara Game Camp offers spacious deluxe safari tents overlooking the plains, complete with ensuite bathrooms, all meals, and twice-daily game drives."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        35.1429,
+                                        -1.4061
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Sarova Mara Game Camp, Talek",
+                                    "addressLocality": "Masai Mara National Reserve",
+                                    "addressRegion": "Narok County",
+                                    "postalCode": "20500",
+                                    "addressCountry": "KE"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T12:00:00Z",
+                                "schema:endDate": "2024-08-31T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.5,
+                            "beckn:ratingCount": 728
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Kenya Tourism Board Network",
+                            "Safari Connect Kenya"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-sarova-mara",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Sarova Mara Game Camp"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Resort",
+                            "roomType": "Deluxe Safari Tent",
+                            "roomCategory": "Luxury",
+                            "inventoryCode": "DLX-TENT-PLAINVIEW",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 45,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Savannah View",
+                            "level": "Ground",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "11:00:00",
+                            "checkInWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "12:00:00",
+                                "schema:endTime": "20:00:00"
+                            },
+                            "checkOutWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "06:00:00",
+                                "schema:endTime": "11:00:00"
+                            },
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 10,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        35.1429,
+                                        -1.4061
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Talek, Masai Mara National Reserve",
+                                    "addressLocality": "Narok County",
+                                    "addressRegion": "Rift Valley",
+                                    "postalCode": "20500",
+                                    "addressCountry": "KE"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Pool",
+                                "Spa",
+                                "Game Drives"
+                            ],
+                            "highlightedInclusions": [
+                                "Full-board meals",
+                                "Twice-daily shared game drives"
+                            ],
+                            "mealPlans": [
+                                "FullBoard"
+                            ],
+                            "accessibilityFeatures": [
+                                "Wheelchair accessible pathways",
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children under 6 stay complimentary when sharing with adults.",
+                            "petPolicy": "No pets allowed inside the reserve per KWS regulations.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Flexible",
+                                "deadlineHoursBeforeCheckIn": 48,
+                                "penaltyDescription": "One night charge within 48h of arrival or no-show."
+                            },
+                            "guaranteePolicy": "25% deposit at booking; balance due 14 days prior to arrival.",
+                            "houseRules": [
+                                "Quiet hours 22:00-06:00",
+                                "Game drive departure 06:30 sharp"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Eco Tourism Kenya Gold"
+                            ],
+                            "languagesSpoken": [
+                                "English",
+                                "Swahili"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Guests receive complimentary conservation briefing on arrival."
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-sarova-mara-dlx-fb",
+                        "beckn:provider": "stayhub-sarova-mara",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Deluxe Safari Tent — Full Board",
+                            "beckn:shortDesc": "Full-board plan with shared game drives and conservancy fees included"
+                        },
+                        "beckn:items": [
+                            "stayhub-sarova-mara-deluxe-tent"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 350.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-08-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard",
+                            "NetBanking"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

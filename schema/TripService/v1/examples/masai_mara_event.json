@@ -1,0 +1,326 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:travel:trips:*",
+    "timestamp": "2025-02-12T11:15:00Z",
+    "transaction_id": "1a387c5f-3d4d-43de-b259-9a30d18a5d86",
+    "message_id": "6e3f6db5-63b4-43a6-a48e-3ed5b8a9f2ff",
+    "bpp_id": "journeycraft.kenya.example.com",
+    "bpp_uri": "https://journeycraft.kenya.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-trip-kenya-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "JourneyCraft — Masai Mara & Mombasa Escape",
+          "beckn:shortDesc": "Seven-day guided safari and beach retreat across Kenya",
+          "beckn:longDesc": "JourneyCraft’s Masai Mara & Mombasa Escape combines the Great Migration, premium tented camps, and coastal relaxation with curated flights, transfers, and activities."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "journeycraft-trip-kenya-7d",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Masai Mara & Mombasa Signature Journey — 7 Days",
+              "beckn:shortDesc": "Guided safari adventure with coastal finale",
+              "beckn:longDesc": "Experience Kenya’s Great Migration and Indian Ocean beaches across a seven-day guided program featuring luxury camps, curated activities, and dedicated transfers."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "multi-day-trip",
+              "schema:name": "Trip / Tour Package"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.9,
+              "beckn:ratingCount": 310
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Kenya Tourism Board Network",
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "journeycraft-travel-co",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "JourneyCraft Travel Co."
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@type": "TripService",
+              "tripType": "GuidedGroup",
+              "theme": [
+                "Nature",
+                "Wildlife",
+                "Beach"
+              ],
+              "durationDays": 7,
+              "durationNights": 6,
+              "startDateFlexible": false,
+              "departureWindows": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-07-05T00:00:00Z",
+                  "schema:endDate": "2024-07-12T00:00:00Z"
+                },
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-08-09T00:00:00Z",
+                  "schema:endDate": "2024-08-16T00:00:00Z"
+                }
+              ],
+              "startLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [39.6682, -4.0435]
+                },
+                "address": {
+                  "streetAddress": "Moi International Airport, Mombasa",
+                  "addressLocality": "Mombasa",
+                  "addressRegion": "Coast Province",
+                  "postalCode": "80115",
+                  "addressCountry": "KE"
+                }
+              },
+              "endLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [36.8219, -1.2921]
+                },
+                "address": {
+                  "streetAddress": "Jomo Kenyatta International Airport",
+                  "addressLocality": "Nairobi",
+                  "addressRegion": "Nairobi County",
+                  "postalCode": "00501",
+                  "addressCountry": "KE"
+                }
+              },
+              "regionsCovered": [
+                "KE-Nairobi",
+                "KE-Narok",
+                "KE-Mombasa"
+              ],
+              "highlights": [
+                "Great Migration safari drives",
+                "Hot air balloon over Masai Mara",
+                "Mombasa beach resort stay",
+                "Coastal snorkeling and water sports"
+              ],
+              "itinerary": [
+                {
+                  "day": 1,
+                  "title": "Arrive Mombasa & Coastal Welcome",
+                  "description": "Beachside welcome at Voyager Beach Resort with sunset dhow cruise.",
+                  "activities": [
+                    {
+                      "name": "Mombasa Beach Day",
+                      "activityType": "Beach",
+                      "startTime": "14:00:00",
+                      "endTime": "18:00:00",
+                      "included": true,
+                      "notes": "Includes water sports and coastal hospitality briefing."
+                    }
+                  ]
+                },
+                {
+                  "day": 3,
+                  "title": "Fly to Masai Mara & Game Drive",
+                  "description": "Morning bush flight to Masai Mara followed by evening game drive.",
+                  "activities": [
+                    {
+                      "name": "Great Migration Safari",
+                      "activityType": "Wildlife Safari",
+                      "startTime": "15:30:00",
+                      "endTime": "19:00:00",
+                      "included": true,
+                      "notes": "Expert guide and refreshments provided."
+                    }
+                  ]
+                },
+                {
+                  "day": 5,
+                  "title": "Hot Air Balloon & Community Visit",
+                  "description": "Sunrise balloon flight with champagne breakfast and Maasai village visit.",
+                  "activities": [
+                    {
+                      "name": "Hot Air Balloon Safari",
+                      "activityType": "Adventure",
+                      "startTime": "05:00:00",
+                      "endTime": "08:30:00",
+                      "included": true
+                    },
+                    {
+                      "name": "Maasai Cultural Experience",
+                      "activityType": "Cultural",
+                      "startTime": "11:00:00",
+                      "endTime": "13:00:00",
+                      "included": true
+                    }
+                  ]
+                }
+              ],
+              "inclusions": [
+                "Round-trip economy flights JFK⇄NBO",
+                "Airport transfers and intercity transport",
+                "4 nights luxury safari camp + 3 nights beach resort",
+                "All breakfasts, 4 lunches, 5 dinners",
+                "Shared game drives and guided excursions"
+              ],
+              "exclusions": [
+                "International travel insurance",
+                "Visa fees",
+                "Optional spa treatments and premium beverages"
+              ],
+              "difficultyLevel": "Moderate",
+              "activityPace": "Balanced",
+              "fitnessRequirements": "Comfortable with moderate walking and early morning wake-up calls.",
+              "ageRestriction": {
+                "minimumAge": 10,
+                "notes": "Families with younger children can request a private departure."
+              },
+              "groupConfiguration": {
+                "minimumGroupSize": 6,
+                "maximumGroupSize": 14,
+                "singleSupplementAvailable": true,
+                "sharedRooming": false,
+                "childPolicy": "Children aged 10-16 must share with guardian unless booking interconnecting tents."
+              },
+              "sustainabilityPractices": [
+                "Carbon offset included",
+                "Eco Tourism Kenya certified accommodations",
+                "Local community partnership contributions"
+              ],
+              "responsibleTravelNotes": "Respect wildlife viewing distances; support Maasai artisans through designated outlets.",
+              "requiredDocuments": [
+                "Passport valid 6 months from travel",
+                "Yellow fever vaccination certificate",
+                "Proof of travel insurance"
+              ],
+              "travelInsuranceRequired": true,
+              "visaAssistanceIncluded": true,
+              "safetyProtocols": [
+                "24x7 emergency helpline",
+                "Trip leaders trained in wilderness first aid",
+                "GPS tracking on all vehicles"
+              ],
+              "covidPolicy": "Follow latest Kenya MoH guidelines; masks required in shared vehicles when mandated.",
+              "cancellationPolicy": {
+                "policyType": "Moderate",
+                "timeline": [
+                  {
+                    "deadlineDaysBeforeDeparture": 60,
+                    "penaltyPercent": 0
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 30,
+                    "penaltyPercent": 25
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 14,
+                    "penaltyPercent": 50
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 7,
+                    "penaltyPercent": 75
+                  }
+                ],
+                "notes": "Deposit fully refundable within 48 hours of booking if departure is more than 45 days away."
+              },
+              "paymentSchedule": [
+                {
+                  "milestone": "Deposit",
+                  "amountPercent": 20,
+                  "dueOffsetDays": 90
+                },
+                {
+                  "milestone": "Interim",
+                  "amountPercent": 30,
+                  "dueOffsetDays": 45
+                },
+                {
+                  "milestone": "Balance",
+                  "amountPercent": 50,
+                  "dueOffsetDays": 15
+                }
+              ],
+              "loyaltyEligible": true,
+              "testimonials": [
+                {
+                  "reviewerName": "Priya Desai",
+                  "quote": "Flawless coordination from the Mara to the coast—our family loved every moment.",
+                  "rating": 5
+                }
+              ],
+              "mediaGallery": [
+                {
+                  "mediaType": "Image",
+                  "url": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800",
+                  "caption": "Sunset over Masai Mara plains"
+                },
+                {
+                  "mediaType": "Video",
+                  "url": "https://cdn.journeycraft.example.com/trips/kenya/overview.mp4",
+                  "caption": "Journey highlights reel"
+                }
+              ],
+              "additionalNotes": "Private departures and extensions to Amboseli or Samburu available on request."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "journeycraft-trip-kenya-7d-smallgroup",
+            "beckn:provider": "journeycraft-travel-co",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Masai Mara & Mombasa Small-Group Departure",
+              "beckn:shortDesc": "Small-group program with full-board camp stays and guided activities"
+            },
+            "beckn:items": [
+              "journeycraft-trip-kenya-7d"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 2200.00,
+              "applicableQuantity": {
+                "unitText": "Per Traveller",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "NetBanking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

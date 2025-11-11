@@ -1,0 +1,234 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:mobility:airport-taxi:*",
+    "timestamp": "2025-02-12T11:40:00Z",
+    "transaction_id": "fb5a3e6c-2c0c-4e20-a747-2bf9f0d42ce1",
+    "message_id": "c20a0b39-caf4-421c-9e6c-d47d3ef7e01d",
+    "bpp_id": "airporttransfers.tanzania.example.com",
+    "bpp_uri": "https://airporttransfers.tanzania.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-airport-taxi-kilimanjaro-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "Mountain Transfers — Kilimanjaro Arrivals",
+          "beckn:shortDesc": "Airport pickups from Kilimanjaro International to Arusha acclimatization hotels",
+          "beckn:longDesc": "Mountain Transfers delivers reliable airport pickups with trek-ready vehicles, professional drivers, and hydration kits for Kilimanjaro climbers."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "mountain-transfer-jro-arusha-pickup",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Kilimanjaro Airport ➜ Arusha Hotel Transfer",
+              "beckn:shortDesc": "Luxury minibus transfer with trek orientation",
+              "beckn:longDesc": "Travel from Kilimanjaro International Airport to Arusha hotels in air-conditioned minibuses featuring hydration kits, luggage handling, and trek briefings."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "airport-taxi",
+              "schema:name": "Airport Taxi Service"
+            },
+            "beckn:availableAt": [
+              {
+                "@type": "beckn:Location",
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [37.0745, -3.4294]
+                },
+                "address": {
+                  "streetAddress": "Arrival Hall, Kilimanjaro International Airport",
+                  "addressLocality": "Kilimanjaro",
+                  "addressRegion": "Kilimanjaro Region",
+                  "postalCode": "20270",
+                  "addressCountry": "TZ"
+                }
+              }
+            ],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.6,
+              "beckn:ratingCount": 298
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network",
+              "Safari Connect Kenya"
+            ],
+            "beckn:provider": {
+              "beckn:id": "mountain-transfers-tz",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "Mountain Transfers Tanzania"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AirportTaxiService/v1/context.jsonld",
+              "@type": "AirportTaxiService",
+              "serviceType": "AirportPickup",
+              "vehicleCategory": "Van",
+              "passengerCapacity": 8,
+              "luggageCapacity": {
+                "weightKg": 150,
+                "pieces": 10,
+                "oversizedAccepted": true
+              },
+              "airport": {
+                "airportCode": "JRO",
+                "airportName": "Kilimanjaro International Airport",
+                "cityCode": "JRO",
+                "cityName": "Kilimanjaro"
+              },
+              "pickupLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [37.0745, -3.4294]
+                },
+                "address": {
+                  "streetAddress": "Arrival Hall, Kilimanjaro International Airport",
+                  "addressLocality": "Kilimanjaro",
+                  "addressRegion": "Kilimanjaro Region",
+                  "postalCode": "20270",
+                  "addressCountry": "TZ"
+                }
+              },
+              "pickupInstructions": "Meet Mountain Transfers staff at Arrival Gate B with a Kilimanjaro Trek signboard.",
+              "dropoffCoverage": {
+                "cityLimits": "Arusha city and Machame gate hotels",
+                "serviceRadiusKm": 80,
+                "postalCodes": [
+                  "23109",
+                  "23101"
+                ],
+                "exclusions": [
+                  "Mount Kilimanjaro National Park gate without advance permit"
+                ]
+              },
+              "estimatedTravelTimeMinutes": 90,
+              "queueType": "PreBooked",
+              "averageWaitTimeMinutes": 10,
+              "surgePolicy": "Peak surcharge 15% between June–October trekking season.",
+              "fareModel": {
+                "modelType": "FlatRate",
+                "baseFareAmount": 45,
+                "baseFareIncludesTolls": true,
+                "nightSurchargePercent": 10,
+                "includedDistanceKm": 60,
+                "notes": "Includes trek briefing and hydration pack."
+              },
+              "tollPolicy": "Highway tolls included; additional park entry fees handled separately when applicable.",
+              "meetAndGreetIncluded": true,
+              "additionalServices": [
+                "HydrationPack",
+                "WiFi",
+                "TrekBriefing"
+              ],
+              "accessibilityFeatures": [
+                "WheelchairRamp"
+              ],
+              "driverLanguageSupport": [
+                "English",
+                "Swahili"
+              ],
+              "driverVerification": {
+                "backgroundCheck": true,
+                "uniformRequired": true,
+                "idDisplayed": true,
+                "trainingNotes": "Drivers trained in altitude awareness and first-aid."
+              },
+              "fleetInformation": {
+                "averageVehicleAgeYears": 2,
+                "fuelType": [
+                  "Diesel"
+                ],
+                "maintenanceStandards": "Monthly maintenance with daily safety checklist."
+              },
+              "operatingHours": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startTime": "00:00:00",
+                  "schema:endTime": "23:59:00"
+                }
+              ],
+              "helplineContact": {
+                "phone": "+255-755-000-222",
+                "email": "support@mountaintransfers.example.com",
+                "availability": "24x7"
+              },
+              "safetyMeasures": [
+                "GPSTracking",
+                "PanicButton",
+                "FirstAidKit"
+              ],
+              "complianceCertifications": [
+                "AirportAuthorised",
+                "TanzaniaTouristBoardLicensed"
+              ],
+              "waitAndChargePolicy": "15-minute grace period, USD 8 per 15 minutes thereafter.",
+              "cancellationPolicy": "Full refund if cancelled ≥12h; 50% charge within 12h; no-show charged fully.",
+              "digitalPaymentOptions": [
+                "UPI",
+                "CreditCard",
+                "M-Pesa"
+              ],
+              "cashAccepted": true,
+              "notes": "Includes welcome briefing on acclimatization best practices."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "mountain-transfer-jro-arusha-flatfare",
+            "beckn:provider": "mountain-transfers-tz",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Kilimanjaro Airport Flat Fare",
+              "beckn:shortDesc": "Flat fare for airport pickup with hydration and trek briefing"
+            },
+            "beckn:items": [
+              "mountain-transfer-jro-arusha-pickup"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 45.00,
+              "applicableQuantity": {
+                "unitText": "Per Trip",
+                "unitCode": "C62",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "M-Pesa",
+              "Cash"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

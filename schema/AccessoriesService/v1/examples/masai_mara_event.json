@@ -1,0 +1,181 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:retail:accessories:*",
+    "timestamp": "2025-02-12T11:20:00Z",
+    "transaction_id": "a3da2e63-02eb-4d5b-930e-78be7c6f49ad",
+    "message_id": "0c42b496-9361-4f14-a86a-7b88828eb9f3",
+    "bpp_id": "gearhub.safari.example.com",
+    "bpp_uri": "https://gearhub.safari.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-accessories-kenya-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "GearHub Safari Essentials",
+          "beckn:shortDesc": "Essential gear for Masai Mara wildlife encounters",
+          "beckn:longDesc": "GearHub Safari Essentials covers optical gear, adventure apparel, and eco-friendly protection curated for Masai Mara expeditions."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "gearhub-binoculars-pro-10x42",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Nikon ProSafari 10x42 Binoculars",
+              "beckn:shortDesc": "Professional wildlife binoculars for safari drives",
+              "beckn:longDesc": "Capture every moment of the Great Migration with Nikon’s ProSafari 10x42 waterproof binoculars featuring fog-proof glass and multi-coated lenses."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-safari",
+              "schema:name": "Safari Accessories"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.8,
+              "beckn:ratingCount": 418
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Kenya Tourism Board Network",
+              "Safari Connect Kenya"
+            ],
+            "beckn:provider": {
+              "beckn:id": "gearhub-urban",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "GearHub Urban Outlet"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Optics",
+              "brand": "Nikon",
+              "modelNumber": "PRO-10X42",
+              "compatibility": [
+                "Wildlife safaris",
+                "Bird watching",
+                "Low-light observation"
+              ],
+              "materials": [
+                "Polycarbonate",
+                "Rubber Armor"
+              ],
+              "colorOptions": [
+                "Olive Green"
+              ],
+              "dimensions": {
+                "lengthMm": 145,
+                "widthMm": 130,
+                "heightMm": 55,
+                "notes": "Body dimensions with eyecups extended."
+              },
+              "weightGrams": 650,
+              "capacity": "10x magnification with 42mm objective lens",
+              "keyFeatures": [
+                "Phase-corrected roof prisms",
+                "Waterproof & fog-proof",
+                "Locking diopter adjustment",
+                "Tripod adaptable"
+              ],
+              "usageScenarios": [
+                "Game drives",
+                "Balloon safaris",
+                "Bush walks"
+              ],
+              "includedItems": [
+                "Binocular harness strap",
+                "Carry case",
+                "Lens covers",
+                "Cleaning cloth"
+              ],
+              "warranty": {
+                "durationMonths": 36,
+                "coverage": "Manufacturer defects and optical alignment issues",
+                "serviceChannels": [
+                  "Walk-in",
+                  "Mail-in"
+                ]
+              },
+              "careInstructions": [
+                "Use supplied cleaning cloth on lenses",
+                "Store in dry bag during rain",
+                "Avoid direct sun exposure when not in use"
+              ],
+              "safetyInformation": [
+                "Do not look directly at the sun",
+                "Secure strap when on vehicle roof"
+              ],
+              "certifications": [
+                "CE",
+                "RoHS"
+              ],
+              "sustainabilityNotes": "Packaging made from recycled cardboard with soy-based inks.",
+              "lifecycle": {
+                "launchDate": "2024-01-10",
+                "supportNotes": "Serviceable through Nikon Kenya authorized centers."
+              },
+              "crossSellSuggestions": [
+                "gearhub-safari-daypack",
+                "gearhub-safari-clothing-set"
+              ],
+              "returnPolicyNotes": "30-day returns accepted if lenses remain scratch-free.",
+              "additionalNotes": "Highly recommended for Great Migration spectators."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "gearhub-binoculars-pro-10x42-offer",
+            "beckn:provider": "gearhub-urban",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "ProSafari 10x42 Binoculars — Launch Deal",
+              "beckn:shortDesc": "Launch pricing with complimentary harness upgrade"
+            },
+            "beckn:items": [
+              "gearhub-binoculars-pro-10x42"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 120.00,
+              "applicableQuantity": {
+                "unitText": "Per Unit",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-05-31T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

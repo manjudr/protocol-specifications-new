@@ -1,0 +1,220 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:travel:flights:*",
+    "timestamp": "2025-02-12T11:30:00Z",
+    "transaction_id": "e524ec10-7613-44c9-9cfe-3561ad44798f",
+    "message_id": "6c1a4f01-92b4-4d52-9328-9c07efc72a8d",
+    "bpp_id": "flightnet.tanzania.example.com",
+    "bpp_uri": "https://flightnet.tanzania.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-flight-kilimanjaro-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "FlightNet — Kilimanjaro Expedition Airlift",
+          "beckn:shortDesc": "Economy flights connecting New York to Kilimanjaro for trekking expeditions",
+          "beckn:longDesc": "FlightNet curates international connections for Kilimanjaro trekkers, including flexible baggage allowances and schedules that align with trek departures."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "flightnet-et501-jfk-jro-economy",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Ethiopian Airlines ET501 — JFK ➜ JRO (Economy)",
+              "beckn:shortDesc": "One-stop connection to Kilimanjaro International Airport",
+              "beckn:longDesc": "Ethiopian Airlines ET501 connects trekkers from JFK to Kilimanjaro International (JRO) with generous gear allowances and trek-aligned arrival times."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "flight-service",
+              "schema:name": "Flight Service"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.5,
+              "beckn:ratingCount": 412
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network",
+              "Safari Connect Kenya"
+            ],
+            "beckn:provider": {
+              "beckn:id": "flightnet-air-services",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "FlightNet Air Services"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/context.jsonld",
+              "@type": "FlightService",
+              "carrierCode": "ET",
+              "carrierName": "Ethiopian Airlines",
+              "marketingFlightNumber": "501",
+              "operatingCarrierCode": "ET",
+              "operatingCarrierName": "Ethiopian Airlines",
+              "operatingFlightNumber": "501",
+              "flightDesignator": "ET501",
+              "codeshare": false,
+              "origin": {
+                "airportCode": "JFK",
+                "airportName": "John F. Kennedy International Airport",
+                "cityCode": "NYC",
+                "cityName": "New York",
+                "terminal": "4",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [-73.7781, 40.6413]
+                  },
+                  "address": {
+                    "streetAddress": "JFK International Airport, Terminal 4",
+                    "addressLocality": "Queens",
+                    "addressRegion": "NY",
+                    "postalCode": "11430",
+                    "addressCountry": "US"
+                  }
+                }
+              },
+              "destination": {
+                "airportCode": "JRO",
+                "airportName": "Kilimanjaro International Airport",
+                "cityCode": "JRO",
+                "cityName": "Kilimanjaro",
+                "terminal": "Main",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [37.0745, -3.4294]
+                  },
+                  "address": {
+                    "streetAddress": "Airport Road",
+                    "addressLocality": "Kilimanjaro",
+                    "addressRegion": "Kilimanjaro Region",
+                    "postalCode": "20270",
+                    "addressCountry": "TZ"
+                  }
+                }
+              },
+              "departureDate": "2024-03-15",
+              "departureTime": "2024-03-15T20:15:00-04:00",
+              "arrivalDate": "2024-03-16",
+              "arrivalTime": "2024-03-16T15:30:00+03:00",
+              "durationMinutes": 1095,
+              "cabinsOffered": [
+                "Economy",
+                "Business"
+              ],
+              "cabinClass": "Economy",
+              "fareFamily": "TrekSaver",
+              "fareBasisCode": "Y35S",
+              "bookingClass": "Y",
+              "availableSeats": 35,
+              "seatPitchInches": 31,
+              "seatWidthInches": 17.5,
+              "amenities": [
+                "In-seat entertainment",
+                "USB charging",
+                "Complimentary meals",
+                "Altitude-friendly hydration program"
+              ],
+              "mealService": "Meal",
+              "specialServiceOffers": [
+                "AVML",
+                "BBML",
+                "WCHR"
+              ],
+              "baggageAllowance": {
+                "cabinBaggage": [
+                  {
+                    "pieces": 1,
+                    "weightKg": 7,
+                    "dimensionsCm": "55x35x25"
+                  }
+                ],
+                "checkedBaggage": [
+                  {
+                    "pieces": 2,
+                    "weightKg": 23,
+                    "dimensionLinearCm": 158
+                  }
+                ],
+                "notes": "Additional 5kg allowance for trekking gear when presenting trek booking confirmation."
+              },
+              "changePolicy": "Changes permitted up to 24h before departure with USD 180 fee plus fare difference.",
+              "refundPolicy": "Refundable with USD 200 fee before departure; non-refundable after departure.",
+              "disruptionPolicy": "Reprotection on next available Ethiopian/partner flight; overnight accommodation if delay exceeds 8 hours.",
+              "aircraft": {
+                "equipmentCode": "788",
+                "equipmentName": "Boeing 787-8 Dreamliner",
+                "manufacturer": "Boeing",
+                "wifiOnboard": true,
+                "seatConfiguration": "3-3-3 in Economy"
+              },
+              "flightStatus": "Scheduled",
+              "statusLastUpdated": "2025-02-12T11:25:00Z",
+              "operationalNotes": "Arrival timed to allow gear check, briefing, and rest day prior to Machame trek start.",
+              "marketingMessages": [
+                "Complimentary trekking orientation at Kilimanjaro airport lounge",
+                "Earn double points with Beckn explorer loyalty program"
+              ]
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "flightnet-et501-economy-flex",
+            "beckn:provider": "flightnet-air-services",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "ET501 Trekker Fare",
+              "beckn:shortDesc": "Economy fare with trekking gear allowance and date flexibility"
+            },
+            "beckn:items": [
+              "flightnet-et501-jfk-jro-economy"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 1350.00,
+              "applicableQuantity": {
+                "unitText": "Per Passenger",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "CreditCard",
+              "UPI",
+              "NetBanking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+
