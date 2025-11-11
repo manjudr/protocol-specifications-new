@@ -1,0 +1,344 @@
+openapi: 3.1.1
+info:
+  title: Airport Taxi — Ground Transport Service Attributes (v1)
+  version: 1.0.0
+  x-profile-id: profiles/mobility/airport_taxi/v1/airport-taxi-service
+  description: >
+    Attribute schemas for airport taxi cab services (Item.attributes).
+    These attributes extend Beckn core schemas with ground-transport specifics for
+    airport pick-up, drop-off, and inter-terminal transfers. Core Beckn fields
+    (descriptor, media, price, fulfillment, payments) remain sourced from the
+    Beckn core v2 schemas; this pack defines taxi-specific details only.
+
+components:
+  schemas:
+    ########################################################################
+    # ITEM.ATTRIBUTES — AirportTaxiService (mobility-specific only)
+    ########################################################################
+    AirportTaxiService:
+      type: object
+      additionalProperties: false
+      required:
+        - serviceType
+        - vehicleCategory
+        - passengerCapacity
+        - pickupLocation
+        - dropoffCoverage
+        - airport
+      x-jsonld:
+        "@context": ./context.jsonld
+        "@type": AirportTaxiService
+      properties:
+
+        serviceType:
+          type: string
+          enum: [AirportPickup, AirportDropoff, InterTerminalTransfer]
+          description: Service pattern being offered (arrivals pickup, departures drop-off, or airport internal transfer).
+          example: AirportPickup
+          x-jsonld: { "@id": serviceType }
+
+        vehicleCategory:
+          type: string
+          enum: [Sedan, SUV, MUV, Van, LuxurySedan, Electric, Accessible]
+          description: Vehicle segment assigned to the service.
+          example: Sedan
+          x-jsonld: { "@id": vehicleCategory }
+
+        passengerCapacity:
+          type: integer
+          minimum: 1
+          description: Maximum number of passengers accommodated without extra seats.
+          example: 3
+          x-jsonld: { "@id": passengerCapacity }
+
+        luggageCapacity:
+          type: object
+          additionalProperties: false
+          description: Standard luggage allowance for the vehicle category.
+          properties:
+            weightKg:
+              type: number
+              minimum: 0
+              description: Total luggage weight supported (kg).
+              example: 60
+            pieces:
+              type: integer
+              minimum: 0
+              description: Suggested number of standard suitcases.
+              example: 3
+            oversizedAccepted:
+              type: boolean
+              description: Whether oversized/sports equipment can be carried (may incur surcharge).
+              example: true
+          x-jsonld: { "@id": luggageCapacity }
+
+        airport:
+          type: object
+          additionalProperties: false
+          required:
+            - airportCode
+          description: Airport served by this taxi service.
+          properties:
+            airportCode:
+              type: string
+              pattern: "^[A-Z]{3}$"
+              description: IATA airport code.
+              example: "BLR"
+            airportName:
+              type: string
+              description: Marketing name of the airport.
+              example: "Kempegowda International Airport"
+            cityCode:
+              type: string
+              pattern: "^[A-Z]{3}$"
+              description: IATA city code.
+              example: "BLR"
+            cityName:
+              type: string
+              description: City or metropolitan area served.
+              example: "Bengaluru"
+          x-jsonld: { "@id": airport }
+
+        pickupLocation:
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/Location"
+            - type: object
+              description: Standard pickup bay or zone inside the airport campus.
+              properties:
+                schema:name:
+                  type: string
+                  description: Human-readable pickup point name (e.g., T1 Gate 3, Arrivals curb A).
+              x-jsonld: { "@id": pickupLocation }
+
+        pickupInstructions:
+          type: string
+          description: Step-by-step instructions for passengers to locate the pickup point.
+          example: "Exit Arrivals Gate A, turn right towards the taxi bay, look for Zone C signage."
+          x-jsonld: { "@id": pickupInstructions }
+
+        dropoffCoverage:
+          type: object
+          additionalProperties: false
+          description: Serviceable drop-off/pickup coverage regions outside the airport.
+          properties:
+            cityLimits:
+              type: string
+              description: General service boundary (e.g., entire city, specific districts).
+              example: "Bengaluru urban limits"
+            serviceRadiusKm:
+              type: number
+              minimum: 0
+              description: Radius from airport within which service operates (km).
+              example: 80
+            postalCodes:
+              type: array
+              items: { type: string }
+              description: Included postal code list if coverage is discrete.
+            exclusions:
+              type: array
+              items: { type: string }
+              description: Areas where service is not available (e.g., restricted zones).
+          x-jsonld: { "@id": dropoffCoverage }
+
+        estimatedTravelTimeMinutes:
+          type: integer
+          minimum: 0
+          description: Typical travel time from airport to central business district (for guidance).
+          example: 75
+          x-jsonld: { "@id": estimatedTravelTimeMinutes }
+
+        queueType:
+          type: string
+          enum: [OnDemandQueue, PreBooked, Hybrid]
+          description: Operational mode—walk-up taxi queue, pre-booked dispatch, or combination.
+          example: OnDemandQueue
+          x-jsonld: { "@id": queueType }
+
+        averageWaitTimeMinutes:
+          type: integer
+          minimum: 0
+          description: Average wait time for pickup during normal operations (minutes).
+          example: 10
+          x-jsonld: { "@id": averageWaitTimeMinutes }
+
+        surgePolicy:
+          type: string
+          description: Conditions under which surge or peak pricing applies.
+          example: "Peak pricing between 23:00-05:00 or during major events; capped at 1.5x base fare."
+          x-jsonld: { "@id": surgePolicy }
+
+        fareModel:
+          type: object
+          additionalProperties: false
+          description: Fare computation style for the airport taxi service.
+          properties:
+            modelType:
+              type: string
+              enum: [FlatRate, Metered, SlabBased, Dynamic]
+              description: Primary fare calculation model.
+              example: FlatRate
+            baseFareAmount:
+              type: number
+              minimum: 0
+              description: Base fare amount (currency derived from offer/price). Informational.
+              example: 950
+            baseFareIncludesTolls:
+              type: boolean
+              description: Indicates if toll/parking charges are included in the published base fare.
+            nightSurchargePercent:
+              type: number
+              minimum: 0
+              description: Percentage surcharge during night hours (if applicable).
+            extraKmRate:
+              type: number
+              minimum: 0
+              description: Rate per extra kilometer beyond included distance.
+            includedDistanceKm:
+              type: number
+              minimum: 0
+              description: Distance covered in base fare (km).
+            notes:
+              type: string
+              description: Additional fare notes (e.g., shared ride discounts, expressway charges).
+          x-jsonld: { "@id": fareModel }
+
+        tollPolicy:
+          type: string
+          description: Handling of tolls, parking, or airport access fees (e.g., included, pass-through).
+          example: "Tolls included in base fare; parking charges payable by passenger."
+          x-jsonld: { "@id": tollPolicy }
+
+        meetAndGreetIncluded:
+          type: boolean
+          description: Indicates whether a driver meets passengers inside the terminal holding placards.
+          example: false
+          x-jsonld: { "@id": meetAndGreetIncluded }
+
+        additionalServices:
+          type: array
+          items: { type: string }
+          description: Value-added services (e.g., ChildSeat, WiFi, BottledWater, MultilingualChauffeur).
+          example: ["ChildSeat", "WiFi"]
+          x-jsonld: { "@id": additionalServices }
+
+        accessibilityFeatures:
+          type: array
+          items: { type: string }
+          description: Accessibility support (e.g., WheelchairRamp, SwivelSeat, HearingAssistance).
+          example: ["WheelchairRamp"]
+          x-jsonld: { "@id": accessibilityFeatures }
+
+        driverLanguageSupport:
+          type: array
+          items: { type: string }
+          description: Languages commonly spoken by drivers for this service.
+          example: ["English", "Hindi", "Kannada"]
+          x-jsonld: { "@id": driverLanguageSupport }
+
+        driverVerification:
+          type: object
+          additionalProperties: false
+          description: Credentials and verification measures for drivers in this service.
+          properties:
+            backgroundCheck:
+              type: boolean
+              description: Drivers undergo police/background verification.
+            uniformRequired:
+              type: boolean
+              description: Indicates if drivers wear designated uniforms/badges.
+            idDisplayed:
+              type: boolean
+              description: Driver ID visibly displayed in the vehicle.
+            trainingNotes:
+              type: string
+              description: Additional training or certification notes (e.g., defensive driving).
+          x-jsonld: { "@id": driverVerification }
+
+        fleetInformation:
+          type: object
+          additionalProperties: false
+          description: Fleet and vehicle quality details.
+          properties:
+            averageVehicleAgeYears:
+              type: number
+              minimum: 0
+              description: Average age of vehicles in service fleet.
+            fuelType:
+              type: array
+              items: { type: string }
+              description: Predominant fuel types (Petrol, Diesel, CNG, Electric, Hybrid).
+            maintenanceStandards:
+              type: string
+              description: Maintenance schedule or standards followed.
+          x-jsonld: { "@id": fleetInformation }
+
+        operatingHours:
+          type: array
+          items:
+            $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/TimePeriod"
+          description: Time windows when the service operates (24x7 represented by full-day period).
+          x-jsonld: { "@id": operatingHours }
+
+        helplineContact:
+          type: object
+          additionalProperties: false
+          description: Support contact details for passengers.
+          properties:
+            phone:
+              type: string
+              description: Support phone number with country code.
+              example: "+91-80-1234-5678"
+            email:
+              type: string
+              format: email
+              description: Support email address.
+            availability:
+              type: string
+              description: Operating hours for the support channel.
+          x-jsonld: { "@id": helplineContact }
+
+        safetyMeasures:
+          type: array
+          items: { type: string }
+          description: Safety protocols adhered to (e.g., SanitizedVehicles, GPSTracking, PanicButton).
+          example: ["GPSTracking", "PanicButton", "SanitizedVehicles"]
+          x-jsonld: { "@id": safetyMeasures }
+
+        complianceCertifications:
+          type: array
+          items: { type: string }
+          description: Licenses or certifications held (e.g., AirportAuthorised, TransportPermit, ISO39001).
+          example: ["AirportAuthorised", "TransportPermit"]
+          x-jsonld: { "@id": complianceCertifications }
+
+        waitAndChargePolicy:
+          type: string
+          description: Policy for wait time charges after driver arrival (grace period, per-minute fee).
+          example: "15-minute grace; thereafter INR 50 per 5 minutes."
+          x-jsonld: { "@id": waitAndChargePolicy }
+
+        cancellationPolicy:
+          type: string
+          description: Service-specific cancellation policy summary (detailed pricing in offer/order attributes).
+          example: "Full refund if cancelled ≥2h prior; 50% charge within 2h of pickup."
+          x-jsonld: { "@id": cancellationPolicy }
+
+        digitalPaymentOptions:
+          type: array
+          items: { type: string }
+          description: Accepted digital payment methods (UPI, Cards, Wallets).
+          example: ["UPI", "CreditCard", "Wallet"]
+          x-jsonld: { "@id": digitalPaymentOptions }
+
+        cashAccepted:
+          type: boolean
+          description: Indicates if cash payments are accepted by the driver.
+          example: true
+          x-jsonld: { "@id": cashAccepted }
+
+        notes:
+          type: string
+          description: Miscellaneous remarks or highlights for passengers.
+          example: "Includes complimentary bottled water and in-car Wi-Fi."
+          x-jsonld: { "@id": notes }
+

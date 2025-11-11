@@ -1,0 +1,484 @@
+{
+    "@context": {
+        "@version": 1.1,
+        "beckn": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AirportTaxiService/v1/#",
+        "schema": "https://schema.org/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@graph": [
+        {
+            "@id": "beckn:AirportTaxiService",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Airport Taxi Service",
+            "rdfs:comment": "A ground transport service providing taxi rides to or from an airport, including airport authorized cab queues and pre-booked transfers."
+        },
+        {
+            "@id": "beckn:AirportFacility",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Airport Facility",
+            "rdfs:comment": "Airport metadata (codes, names, city) associated with the taxi service coverage."
+        },
+        {
+            "@id": "beckn:CoverageArea",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Coverage Area",
+            "rdfs:comment": "Serviceable drop-off or pick-up zones for the airport taxi."
+        },
+        {
+            "@id": "beckn:LuggageSpecification",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Luggage Specification",
+            "rdfs:comment": "Details about luggage allowance for the taxi service."
+        },
+        {
+            "@id": "beckn:FareModel",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Fare Model",
+            "rdfs:comment": "Description of the fare calculation model used by the taxi service."
+        },
+        {
+            "@id": "beckn:DriverVerification",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Driver Verification",
+            "rdfs:comment": "Driver vetting and verification practices for the taxi service."
+        },
+        {
+            "@id": "beckn:FleetInformation",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Fleet Information",
+            "rdfs:comment": "Aggregate information about the vehicle fleet (age, fuel types, maintenance standards)."
+        },
+        {
+            "@id": "beckn:HelplineContact",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Helpline Contact",
+            "rdfs:comment": "Support contact details made available to passengers."
+        },
+        {
+            "@id": "beckn:serviceType",
+            "@type": "rdf:Property",
+            "rdfs:label": "Service type",
+            "rdfs:comment": "Type of airport taxi service (AirportPickup, AirportDropoff, InterTerminalTransfer).",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:vehicleCategory",
+            "@type": "rdf:Property",
+            "rdfs:label": "Vehicle category",
+            "rdfs:comment": "Vehicle segment used for the taxi service (Sedan, SUV, Electric, etc.).",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:passengerCapacity",
+            "@type": "rdf:Property",
+            "rdfs:label": "Passenger capacity",
+            "rdfs:comment": "Maximum number of passengers supported without extra seats.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:luggageCapacity",
+            "@type": "rdf:Property",
+            "rdfs:label": "Luggage capacity",
+            "rdfs:comment": "Luggage allowance information for the taxi service.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "beckn:LuggageSpecification"
+        },
+        {
+            "@id": "beckn:weightKg",
+            "@type": "rdf:Property",
+            "rdfs:label": "Weight (kg)",
+            "rdfs:comment": "Total luggage weight supported in kilograms.",
+            "rdfs:domain": "beckn:LuggageSpecification",
+            "schema:rangeIncludes": "schema:Number"
+        },
+        {
+            "@id": "beckn:pieces",
+            "@type": "rdf:Property",
+            "rdfs:label": "Pieces",
+            "rdfs:comment": "Suggested number of standard luggage pieces supported.",
+            "rdfs:domain": "beckn:LuggageSpecification",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:oversizedAccepted",
+            "@type": "rdf:Property",
+            "rdfs:label": "Oversized accepted",
+            "rdfs:comment": "Indicates if oversized luggage can be carried.",
+            "rdfs:domain": "beckn:LuggageSpecification",
+            "schema:rangeIncludes": "schema:Boolean"
+        },
+        {
+            "@id": "beckn:airport",
+            "@type": "rdf:Property",
+            "rdfs:label": "Airport",
+            "rdfs:comment": "Airport served by the taxi service.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "beckn:AirportFacility"
+        },
+        {
+            "@id": "beckn:airportCode",
+            "@type": "rdf:Property",
+            "rdfs:label": "Airport code",
+            "rdfs:comment": "IATA airport code.",
+            "rdfs:domain": "beckn:AirportFacility",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:airportName",
+            "@type": "rdf:Property",
+            "rdfs:label": "Airport name",
+            "rdfs:comment": "Name of the airport.",
+            "rdfs:domain": "beckn:AirportFacility",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:cityCode",
+            "@type": "rdf:Property",
+            "rdfs:label": "City code",
+            "rdfs:comment": "IATA city code served by the airport.",
+            "rdfs:domain": "beckn:AirportFacility",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:cityName",
+            "@type": "rdf:Property",
+            "rdfs:label": "City name",
+            "rdfs:comment": "City name associated with the airport.",
+            "rdfs:domain": "beckn:AirportFacility",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:pickupLocation",
+            "@type": "rdf:Property",
+            "rdfs:label": "Pickup location",
+            "rdfs:comment": "Location within the airport campus where pickups occur.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Place"
+        },
+        {
+            "@id": "beckn:pickupInstructions",
+            "@type": "rdf:Property",
+            "rdfs:label": "Pickup instructions",
+            "rdfs:comment": "Instructions for passengers to find the pickup point.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:dropoffCoverage",
+            "@type": "rdf:Property",
+            "rdfs:label": "Drop-off coverage",
+            "rdfs:comment": "Serviceable drop-off or pickup coverage information.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "beckn:CoverageArea"
+        },
+        {
+            "@id": "beckn:cityLimits",
+            "@type": "rdf:Property",
+            "rdfs:label": "City limits",
+            "rdfs:comment": "Describes the city boundaries covered by the service.",
+            "rdfs:domain": "beckn:CoverageArea",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:serviceRadiusKm",
+            "@type": "rdf:Property",
+            "rdfs:label": "Service radius (km)",
+            "rdfs:comment": "Radius from airport (in kilometers) within which the service operates.",
+            "rdfs:domain": "beckn:CoverageArea",
+            "schema:rangeIncludes": "schema:Number"
+        },
+        {
+            "@id": "beckn:postalCodes",
+            "@type": "rdf:Property",
+            "rdfs:label": "Postal codes",
+            "rdfs:comment": "Postal codes included in the coverage area.",
+            "rdfs:domain": "beckn:CoverageArea",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:exclusions",
+            "@type": "rdf:Property",
+            "rdfs:label": "Exclusions",
+            "rdfs:comment": "Areas excluded from coverage.",
+            "rdfs:domain": "beckn:CoverageArea",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:estimatedTravelTimeMinutes",
+            "@type": "rdf:Property",
+            "rdfs:label": "Estimated travel time (minutes)",
+            "rdfs:comment": "Typical travel time in minutes for the airport taxi service to the main city area.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:queueType",
+            "@type": "rdf:Property",
+            "rdfs:label": "Queue type",
+            "rdfs:comment": "Operational mode (OnDemandQueue, PreBooked, Hybrid).",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:averageWaitTimeMinutes",
+            "@type": "rdf:Property",
+            "rdfs:label": "Average wait time (minutes)",
+            "rdfs:comment": "Average wait time for pickup, in minutes.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:surgePolicy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Surge policy",
+            "rdfs:comment": "Description of peak pricing policies.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:fareModel",
+            "@type": "rdf:Property",
+            "rdfs:label": "Fare model",
+            "rdfs:comment": "Fare computation model description.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "beckn:FareModel"
+        },
+        {
+            "@id": "beckn:modelType",
+            "@type": "rdf:Property",
+            "rdfs:label": "Model type",
+            "rdfs:comment": "Primary fare calculation model (FlatRate, Metered, etc.).",
+            "rdfs:domain": "beckn:FareModel",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:baseFareAmount",
+            "@type": "rdf:Property",
+            "rdfs:label": "Base fare amount",
+            "rdfs:comment": "Base fare amount (currency determined by offer).",
+            "rdfs:domain": "beckn:FareModel",
+            "schema:rangeIncludes": "schema:Number"
+        },
+        {
+            "@id": "beckn:baseFareIncludesTolls",
+            "@type": "rdf:Property",
+            "rdfs:label": "Base fare includes tolls",
+            "rdfs:comment": "Indicates if tolls are included in the base fare.",
+            "rdfs:domain": "beckn:FareModel",
+            "schema:rangeIncludes": "schema:Boolean"
+        },
+        {
+            "@id": "beckn:nightSurchargePercent",
+            "@type": "rdf:Property",
+            "rdfs:label": "Night surcharge percent",
+            "rdfs:comment": "Night surcharge as a percentage of base fare.",
+            "rdfs:domain": "beckn:FareModel",
+            "schema:rangeIncludes": "schema:Number"
+        },
+        {
+            "@id": "beckn:extraKmRate",
+            "@type": "rdf:Property",
+            "rdfs:label": "Extra kilometer rate",
+            "rdfs:comment": "Rate charged per kilometer beyond included distance.",
+            "rdfs:domain": "beckn:FareModel",
+            "schema:rangeIncludes": "schema:Number"
+        },
+        {
+            "@id": "beckn:includedDistanceKm",
+            "@type": "rdf:Property",
+            "rdfs:label": "Included distance (km)",
+            "rdfs:comment": "Distance covered by the base fare.",
+            "rdfs:domain": "beckn:FareModel",
+            "schema:rangeIncludes": "schema:Number"
+        },
+        {
+            "@id": "beckn:tollPolicy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Toll policy",
+            "rdfs:comment": "Handling of tolls and parking charges.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:meetAndGreetIncluded",
+            "@type": "rdf:Property",
+            "rdfs:label": "Meet and greet included",
+            "rdfs:comment": "Indicates if meet-and-greet service inside the terminal is included.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Boolean"
+        },
+        {
+            "@id": "beckn:additionalServices",
+            "@type": "rdf:Property",
+            "rdfs:label": "Additional services",
+            "rdfs:comment": "Value-added services available (ChildSeat, WiFi, etc.).",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:accessibilityFeatures",
+            "@type": "rdf:Property",
+            "rdfs:label": "Accessibility features",
+            "rdfs:comment": "Accessibility accommodations provided.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:driverLanguageSupport",
+            "@type": "rdf:Property",
+            "rdfs:label": "Driver language support",
+            "rdfs:comment": "Languages supported by drivers.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:driverVerification",
+            "@type": "rdf:Property",
+            "rdfs:label": "Driver verification",
+            "rdfs:comment": "Driver verification practices.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "beckn:DriverVerification"
+        },
+        {
+            "@id": "beckn:backgroundCheck",
+            "@type": "rdf:Property",
+            "rdfs:label": "Background check",
+            "rdfs:comment": "Indicates whether drivers undergo background checks.",
+            "rdfs:domain": "beckn:DriverVerification",
+            "schema:rangeIncludes": "schema:Boolean"
+        },
+        {
+            "@id": "beckn:uniformRequired",
+            "@type": "rdf:Property",
+            "rdfs:label": "Uniform required",
+            "rdfs:comment": "Indicates whether drivers wear uniforms.",
+            "rdfs:domain": "beckn:DriverVerification",
+            "schema:rangeIncludes": "schema:Boolean"
+        },
+        {
+            "@id": "beckn:idDisplayed",
+            "@type": "rdf:Property",
+            "rdfs:label": "ID displayed",
+            "rdfs:comment": "Indicates whether driver ID is displayed in the vehicle.",
+            "rdfs:domain": "beckn:DriverVerification",
+            "schema:rangeIncludes": "schema:Boolean"
+        },
+        {
+            "@id": "beckn:trainingNotes",
+            "@type": "rdf:Property",
+            "rdfs:label": "Training notes",
+            "rdfs:comment": "Training or certification details for drivers.",
+            "rdfs:domain": "beckn:DriverVerification",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:fleetInformation",
+            "@type": "rdf:Property",
+            "rdfs:label": "Fleet information",
+            "rdfs:comment": "Fleet-level metadata (vehicle age, fuel type, maintenance).",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "beckn:FleetInformation"
+        },
+        {
+            "@id": "beckn:averageVehicleAgeYears",
+            "@type": "rdf:Property",
+            "rdfs:label": "Average vehicle age (years)",
+            "rdfs:comment": "Average age of vehicles in the fleet.",
+            "rdfs:domain": "beckn:FleetInformation",
+            "schema:rangeIncludes": "schema:Number"
+        },
+        {
+            "@id": "beckn:fuelType",
+            "@type": "rdf:Property",
+            "rdfs:label": "Fuel type",
+            "rdfs:comment": "Fuel types used by the fleet (Petrol, Diesel, CNG, Electric, etc.).",
+            "rdfs:domain": "beckn:FleetInformation",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:maintenanceStandards",
+            "@type": "rdf:Property",
+            "rdfs:label": "Maintenance standards",
+            "rdfs:comment": "Maintenance regimen or certifications for the fleet.",
+            "rdfs:domain": "beckn:FleetInformation",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:operatingHours",
+            "@type": "rdf:Property",
+            "rdfs:label": "Operating hours",
+            "rdfs:comment": "Operational time windows for the service.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:StructuredValue"
+        },
+        {
+            "@id": "beckn:helplineContact",
+            "@type": "rdf:Property",
+            "rdfs:label": "Helpline contact",
+            "rdfs:comment": "Support contact information.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "beckn:HelplineContact"
+        },
+        {
+            "@id": "beckn:safetyMeasures",
+            "@type": "rdf:Property",
+            "rdfs:label": "Safety measures",
+            "rdfs:comment": "Safety protocols followed by the taxi service.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:complianceCertifications",
+            "@type": "rdf:Property",
+            "rdfs:label": "Compliance certifications",
+            "rdfs:comment": "Licenses or certifications held by the service provider.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:waitAndChargePolicy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Wait-and-charge policy",
+            "rdfs:comment": "Rules for wait time charges after driver arrival.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:cancellationPolicy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Cancellation policy",
+            "rdfs:comment": "Cancellation policy summary for the taxi service.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:digitalPaymentOptions",
+            "@type": "rdf:Property",
+            "rdfs:label": "Digital payment options",
+            "rdfs:comment": "Digital payment methods accepted.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:cashAccepted",
+            "@type": "rdf:Property",
+            "rdfs:label": "Cash accepted",
+            "rdfs:comment": "Indicates if cash payment is accepted.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Boolean"
+        },
+        {
+            "@id": "beckn:notes",
+            "@type": "rdf:Property",
+            "rdfs:label": "Notes",
+            "rdfs:comment": "Additional notes or highlights for passengers.",
+            "rdfs:domain": "beckn:AirportTaxiService",
+            "schema:rangeIncludes": "schema:Text"
+        }
+    ]
+}

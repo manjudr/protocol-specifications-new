@@ -1,0 +1,94 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schemas.example.org/profiles/mobility/airport_taxi/v1/profile.json",
+    "title": "Airport Taxi — Ground Transport Service Attribute Pack (v1)",
+    "description": "Bundle of attribute schemas for airport taxi cab services: Item (AirportTaxiService) with operational guidance for discovery and bookings. Uses ./context.jsonld for JSON-LD mappings and ./vocab.jsonld for taxi terms.",
+    "type": "object",
+    "additionalProperties": false,
+    "$comment": "JSON-LD context: ./context.jsonld ; Airport taxi vocab: ./vocab.jsonld",
+    "properties": {
+        "AirportTaxiService": {
+            "$ref": "./attributes.yaml#/components/schemas/AirportTaxiService"
+        }
+    },
+    "required": [
+        "AirportTaxiService"
+    ],
+    "operational_hints": {
+        "indexHints": [
+            "beckn:id",
+            "beckn:descriptor.schema:name",
+            "beckn:descriptor.beckn:shortDesc",
+            "beckn:itemAttributes.serviceType",
+            "beckn:itemAttributes.vehicleCategory",
+            "beckn:itemAttributes.airport.airportCode",
+            "beckn:itemAttributes.airport.cityCode",
+            "beckn:itemAttributes.dropoffCoverage.cityLimits",
+            "beckn:itemAttributes.dropoffCoverage.serviceRadiusKm",
+            "beckn:itemAttributes.queueType",
+            "beckn:itemAttributes.averageWaitTimeMinutes",
+            "beckn:itemAttributes.fareModel.modelType",
+            "beckn:itemAttributes.fareModel.baseFareAmount",
+            "beckn:itemAttributes.tollPolicy",
+            "beckn:itemAttributes.additionalServices",
+            "beckn:itemAttributes.accessibilityFeatures",
+            "beckn:itemAttributes.safetyMeasures"
+        ],
+        "piiHints": {
+            "fields": [
+                "message.order.billing.name",
+                "message.order.billing.email",
+                "message.order.billing.phone",
+                "message.order.payments[].params.*",
+                "message.order.fulfillments[].customer.person.name",
+                "message.order.fulfillments[].customer.contact.*",
+                "beckn:orderAttributes.passengerDetails",
+                "beckn:orderAttributes.tripInstructions"
+            ],
+            "treatment": "Treat as sensitive; restrict indexing, redact in logs, encrypt at rest.",
+            "notes": "Airport taxi transactions may include passenger contact numbers, device IDs, and special instructions (child seat, accessibility). Discovery payloads should remain free of PII."
+        },
+        "api_response_config": {
+            "description": "Recommended minimal vs expanded field sets for airport taxi discovery APIs.",
+            "max_items_per_page": 500,
+            "max_offers_per_item": 10,
+            "minimal_fields": {
+                "item_attributes": [
+                    "beckn:id",
+                    "beckn:descriptor.schema:name",
+                    "beckn:itemAttributes.serviceType",
+                    "beckn:itemAttributes.vehicleCategory",
+                    "beckn:itemAttributes.airport.airportCode",
+                    "beckn:itemAttributes.airport.cityCode",
+                    "beckn:itemAttributes.queueType",
+                    "beckn:itemAttributes.averageWaitTimeMinutes",
+                    "beckn:itemAttributes.fareModel.modelType",
+                    "beckn:itemAttributes.fareModel.baseFareAmount"
+                ],
+                "offer_attributes": [
+                    "beckn:id",
+                    "beckn:descriptor.schema:name",
+                    "beckn:price.currency",
+                    "beckn:price.value",
+                    "beckn:validity.end",
+                    "beckn:terms.cancellation"
+                ]
+            },
+            "notes": "Use minimal field sets for list/search responses. Expand with optional params (include=amenities, include=fareModelDetails) for detail or fare-comparison views."
+        },
+        "discover": {
+            "supported_filters": [
+                "text_search",
+                "jsonpath_filters",
+                "geo_distance_filter",
+                "availability_window_filter",
+                "fare_range_filter"
+            ],
+            "default_sort": [
+                "beckn:itemAttributes.averageWaitTimeMinutes.asc",
+                "beckn:offerAttributes.priceSpecification.price.asc",
+                "beckn:itemAttributes.vehicleCategory.asc"
+            ]
+        }
+    }
+}

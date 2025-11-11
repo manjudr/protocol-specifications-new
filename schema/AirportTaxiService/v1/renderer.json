@@ -1,0 +1,6 @@
+{
+  "$comment": "Renderer configuration for airport taxi UI components - helps clients render pickup instructions, fare highlights, and waiting times.",
+  "description": "Renderer configuration for Airport Taxi Service UI components",
+  "version": "1.0.0"
+}
+
