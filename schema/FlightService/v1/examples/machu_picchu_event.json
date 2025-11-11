@@ -63,7 +63,7 @@
               }
             },
             "beckn:itemAttributes": {
-              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/context.jsonld",
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
               "@type": "FlightService",
               "carrierCode": "LA",
               "carrierName": "LATAM Airlines",
@@ -82,7 +82,10 @@
                 "location": {
                   "geo": {
                     "type": "Point",
-                    "coordinates": [-73.7781, 40.6413]
+                    "coordinates": [
+                      -73.7781,
+                      40.6413
+                    ]
                   },
                   "address": {
                     "streetAddress": "Terminal 4, JFK International Airport",
@@ -102,7 +105,10 @@
                 "location": {
                   "geo": {
                     "type": "Point",
-                    "coordinates": [-71.9388, -13.5357]
+                    "coordinates": [
+                      -71.9388,
+                      -13.5357
+                    ]
                   },
                   "address": {
                     "streetAddress": "Av. Velasco Astete s/n",
@@ -207,8 +213,7 @@
             },
             "beckn:acceptedPaymentMethod": [
               "UPI",
-              "CreditCard",
-              "NetBanking"
+              "CreditCard"
             ]
           }
         ]
@@ -216,4 +221,3 @@
     ]
   }
 }
-

@@ -48,7 +48,10 @@
                 "@type": "beckn:Location",
                 "geo": {
                   "type": "Point",
-                  "coordinates": [-22.6056, 63.9850]
+                  "coordinates": [
+                    -22.6056,
+                    63.9850
+                  ]
                 },
                 "address": {
                   "streetAddress": "Arrivals Hall, Keflavík Intl Airport",
@@ -77,7 +80,7 @@
               }
             },
             "beckn:itemAttributes": {
-              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AirportTaxiService/v1/context.jsonld",
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AirportTaxiService/v1/context.jsonld",
               "@type": "AirportTaxiService",
               "serviceType": "AirportPickup",
               "vehicleCategory": "Minibus",
@@ -96,7 +99,10 @@
               "pickupLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [-22.6056, 63.9850]
+                  "coordinates": [
+                    -22.6056,
+                    63.9850
+                  ]
                 },
                 "address": {
                   "streetAddress": "Arrivals Hall, Keflavík Airport",
@@ -229,4 +235,3 @@
     ]
   }
 }
-

@@ -213,8 +213,7 @@
                         },
                         "beckn:acceptedPaymentMethod": [
                             "UPI",
-                            "CreditCard",
-                            "NetBanking"
+                            "CreditCard"
                         ]
                     }
                 ]
@@ -222,4 +221,3 @@
         ]
     }
 }
-

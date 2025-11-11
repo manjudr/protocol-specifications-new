@@ -62,7 +62,7 @@
                             }
                         },
                         "beckn:itemAttributes": {
-                            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/context.jsonld",
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
                             "@type": "FlightService",
                             "carrierCode": "LA",
                             "carrierName": "LATAM Airlines",
@@ -184,7 +184,7 @@
                 ],
                 "beckn:offers": [
                     {
-                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
                         "@type": "beckn:Offer",
                         "beckn:id": "patagoniaair-la801-economy-explorer",
                         "beckn:provider": "patagoniaair-latam",
@@ -212,8 +212,7 @@
                         },
                         "beckn:acceptedPaymentMethod": [
                             "UPI",
-                            "CreditCard",
-                            "NetBanking"
+                            "CreditCard"
                         ]
                     }
                 ]

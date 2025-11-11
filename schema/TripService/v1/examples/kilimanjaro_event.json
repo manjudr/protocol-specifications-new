@@ -63,7 +63,7 @@
               }
             },
             "beckn:itemAttributes": {
-              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/TripService/v1/context.jsonld",
               "@type": "TripService",
               "tripType": "GuidedGroup",
               "theme": [
@@ -88,7 +88,10 @@
               "startLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [36.6983, -3.3619]
+                  "coordinates": [
+                    36.6983,
+                    -3.3619
+                  ]
                 },
                 "address": {
                   "streetAddress": "Kibo Palace Hotel, Arusha",
@@ -101,7 +104,10 @@
               "endLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [36.6983, -3.3619]
+                  "coordinates": [
+                    36.6983,
+                    -3.3619
+                  ]
                 },
                 "address": {
                   "streetAddress": "Arusha City Centre",
@@ -301,8 +307,7 @@
             },
             "beckn:acceptedPaymentMethod": [
               "UPI",
-              "CreditCard",
-              "NetBanking"
+              "CreditCard"
             ]
           }
         ]
@@ -310,4 +315,3 @@
     ]
   }
 }
-

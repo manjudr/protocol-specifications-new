@@ -63,7 +63,7 @@
               }
             },
             "beckn:itemAttributes": {
-              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/TripService/v1/context.jsonld",
               "@type": "TripService",
               "tripType": "GuidedGroup",
               "theme": [
@@ -88,7 +88,10 @@
               "startLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [-70.8431, -53.0059]
+                  "coordinates": [
+                    -70.8431,
+                    -53.0059
+                  ]
                 },
                 "address": {
                   "streetAddress": "Presidente Ibáñez Airport Arrivals",
@@ -101,7 +104,10 @@
               "endLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [-70.8431, -53.0059]
+                  "coordinates": [
+                    -70.8431,
+                    -53.0059
+                  ]
                 },
                 "address": {
                   "streetAddress": "Presidente Ibáñez Airport Departures",
@@ -264,7 +270,7 @@
                   "mediaType": "Image",
                   "url": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800",
                   "caption": "Torres del Paine at sunrise"
-                },
+                }
               ],
               "additionalNotes": "Ice hiking add-on available on request; limited slots."
             }
@@ -300,8 +306,7 @@
             },
             "beckn:acceptedPaymentMethod": [
               "UPI",
-              "CreditCard",
-              "NetBanking"
+              "CreditCard"
             ]
           }
         ]
@@ -309,4 +314,3 @@
     ]
   }
 }
-

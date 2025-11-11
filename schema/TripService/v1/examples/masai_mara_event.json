@@ -63,7 +63,7 @@
               }
             },
             "beckn:itemAttributes": {
-              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/TripService/v1/context.jsonld",
               "@type": "TripService",
               "tripType": "GuidedGroup",
               "theme": [
@@ -89,7 +89,10 @@
               "startLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [39.6682, -4.0435]
+                  "coordinates": [
+                    39.6682,
+                    -4.0435
+                  ]
                 },
                 "address": {
                   "streetAddress": "Moi International Airport, Mombasa",
@@ -102,7 +105,10 @@
               "endLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [36.8219, -1.2921]
+                  "coordinates": [
+                    36.8219,
+                    -1.2921
+                  ]
                 },
                 "address": {
                   "streetAddress": "Jomo Kenyatta International Airport",
@@ -314,8 +320,7 @@
             },
             "beckn:acceptedPaymentMethod": [
               "UPI",
-              "CreditCard",
-              "NetBanking"
+              "CreditCard"
             ]
           }
         ]
@@ -323,4 +328,3 @@
     ]
   }
 }
-

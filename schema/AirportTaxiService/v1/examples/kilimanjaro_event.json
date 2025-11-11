@@ -3,11 +3,11 @@
     "version": "2.0.0",
     "action": "catalog_publish",
     "domain": "beckn.one:mobility:airport-taxi:*",
-    "timestamp": "2025-02-12T11:40:00Z",
-    "transaction_id": "fb5a3e6c-2c0c-4e20-a747-2bf9f0d42ce1",
-    "message_id": "c20a0b39-caf4-421c-9e6c-d47d3ef7e01d",
-    "bpp_id": "airporttransfers.tanzania.example.com",
-    "bpp_uri": "https://airporttransfers.tanzania.example.com",
+    "timestamp": "2025-02-12T12:40:00Z",
+    "transaction_id": "9a389fa0-48aa-4f7a-9f80-aef067824db7",
+    "message_id": "d45f7e8f-5eb2-42f5-9167-9c9f4893b7d8",
+    "bpp_id": "reeftransfers.example.com",
+    "bpp_uri": "https://reeftransfers.example.com",
     "ttl": "PT30S"
   },
   "message": {
@@ -15,12 +15,12 @@
       {
         "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
         "@type": "beckn:Catalog",
-        "beckn:id": "catalog-airport-taxi-kilimanjaro-001",
+        "beckn:id": "catalog-airport-taxi-australia-001",
         "beckn:descriptor": {
           "@type": "beckn:Descriptor",
-          "schema:name": "Mountain Transfers — Kilimanjaro Arrivals",
-          "beckn:shortDesc": "Airport pickups from Kilimanjaro International to Arusha acclimatization hotels",
-          "beckn:longDesc": "Mountain Transfers delivers reliable airport pickups with trek-ready vehicles, professional drivers, and hydration kits for Kilimanjaro climbers."
+          "schema:name": "ReefTransfers — Cairns Arrivals",
+          "beckn:shortDesc": "Airport pickups linking Cairns airport and marine precinct",
+          "beckn:longDesc": "ReefTransfers delivers licensed airport pickups with luxury sedans connecting passengers from Cairns Airport to city hotels and marina embarkation points."
         },
         "beckn:validity": {
           "@type": "beckn:TimePeriod",
@@ -31,12 +31,12 @@
           {
             "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
             "@type": "beckn:Item",
-            "beckn:id": "mountain-transfer-jro-arusha-pickup",
+            "beckn:id": "reeftransfer-cns-city-pickup",
             "beckn:descriptor": {
               "@type": "beckn:Descriptor",
-              "schema:name": "Kilimanjaro Airport ➜ Arusha Hotel Transfer",
-              "beckn:shortDesc": "Luxury minibus transfer with trek orientation",
-              "beckn:longDesc": "Travel from Kilimanjaro International Airport to Arusha hotels in air-conditioned minibuses featuring hydration kits, luggage handling, and trek briefings."
+              "schema:name": "Cairns Airport ➜ City Transfer",
+              "beckn:shortDesc": "Luxury sedan airport pickup with reef orientation",
+              "beckn:longDesc": "Transfer from Cairns Airport to city hotels with professional driver, AC vehicle, and briefing on reef departure procedures."
             },
             "beckn:category": {
               "@type": "schema:CategoryCode",
@@ -48,14 +48,17 @@
                 "@type": "beckn:Location",
                 "geo": {
                   "type": "Point",
-                  "coordinates": [37.0745, -3.4294]
+                  "coordinates": [
+                    145.7553,
+                    -16.8760
+                  ]
                 },
                 "address": {
-                  "streetAddress": "Arrival Hall, Kilimanjaro International Airport",
-                  "addressLocality": "Kilimanjaro",
-                  "addressRegion": "Kilimanjaro Region",
-                  "postalCode": "20270",
-                  "addressCountry": "TZ"
+                  "streetAddress": "Terminal Arrivals, Cairns Airport",
+                  "addressLocality": "Cairns",
+                  "addressRegion": "Queensland",
+                  "postalCode": "4870",
+                  "addressCountry": "AU"
                 }
               }
             ],
@@ -63,100 +66,100 @@
             "beckn:rating": {
               "@type": "beckn:Rating",
               "beckn:ratingValue": 4.6,
-              "beckn:ratingCount": 298
+              "beckn:ratingCount": 198
             },
             "beckn:isActive": true,
             "beckn:networkId": [
-              "Beckn Global Network",
-              "Safari Connect Kenya"
+              "Beckn Global Network"
             ],
             "beckn:provider": {
-              "beckn:id": "mountain-transfers-tz",
+              "beckn:id": "reeftransfers-cairns",
               "beckn:descriptor": {
                 "@type": "beckn:Descriptor",
-                "schema:name": "Mountain Transfers Tanzania"
+                "schema:name": "ReefTransfers Cairns"
               }
             },
             "beckn:itemAttributes": {
-              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AirportTaxiService/v1/context.jsonld",
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AirportTaxiService/v1/context.jsonld",
               "@type": "AirportTaxiService",
               "serviceType": "AirportPickup",
-              "vehicleCategory": "Van",
-              "passengerCapacity": 8,
+              "vehicleCategory": "Sedan",
+              "passengerCapacity": 4,
               "luggageCapacity": {
-                "weightKg": 150,
-                "pieces": 10,
+                "weightKg": 60,
+                "pieces": 4,
                 "oversizedAccepted": true
               },
               "airport": {
-                "airportCode": "JRO",
-                "airportName": "Kilimanjaro International Airport",
-                "cityCode": "JRO",
-                "cityName": "Kilimanjaro"
+                "airportCode": "CNS",
+                "airportName": "Cairns Airport",
+                "cityCode": "CNS",
+                "cityName": "Cairns"
               },
               "pickupLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [37.0745, -3.4294]
+                  "coordinates": [
+                    145.7553,
+                    -16.8760
+                  ]
                 },
                 "address": {
-                  "streetAddress": "Arrival Hall, Kilimanjaro International Airport",
-                  "addressLocality": "Kilimanjaro",
-                  "addressRegion": "Kilimanjaro Region",
-                  "postalCode": "20270",
-                  "addressCountry": "TZ"
+                  "streetAddress": "Terminal Arrivals, Cairns Airport",
+                  "addressLocality": "Cairns",
+                  "addressRegion": "Queensland",
+                  "postalCode": "4870",
+                  "addressCountry": "AU"
                 }
               },
-              "pickupInstructions": "Meet Mountain Transfers staff at Arrival Gate B with a Kilimanjaro Trek signboard.",
+              "pickupInstructions": "Meet our driver at Arrivals Bay 3 with ReefTransfers signage. Vehicles depart every 20 minutes.",
               "dropoffCoverage": {
-                "cityLimits": "Arusha city and Machame gate hotels",
-                "serviceRadiusKm": 80,
+                "cityLimits": "Cairns CBD and Marina precinct",
+                "serviceRadiusKm": 20,
                 "postalCodes": [
-                  "23109",
-                  "23101"
+                  "4870"
                 ],
                 "exclusions": [
-                  "Mount Kilimanjaro National Park gate without advance permit"
+                  "Pedestrian-only esplanade beyond Hotel Zone"
                 ]
               },
-              "estimatedTravelTimeMinutes": 90,
-              "queueType": "PreBooked",
+              "estimatedTravelTimeMinutes": 35,
+              "queueType": "Hybrid",
               "averageWaitTimeMinutes": 10,
-              "surgePolicy": "Peak surcharge 15% between June–October trekking season.",
+              "surgePolicy": "Peak surcharge up to 10% during holiday weekends.",
               "fareModel": {
                 "modelType": "FlatRate",
-                "baseFareAmount": 45,
+                "baseFareAmount": 35,
                 "baseFareIncludesTolls": true,
-                "nightSurchargePercent": 10,
-                "includedDistanceKm": 60,
-                "notes": "Includes trek briefing and hydration pack."
+                "nightSurchargePercent": 15,
+                "includedDistanceKm": 25,
+                "notes": "Includes bottled water and reef orientation map."
               },
-              "tollPolicy": "Highway tolls included; additional park entry fees handled separately when applicable.",
+              "tollPolicy": "Airport parking and toll fees included.",
               "meetAndGreetIncluded": true,
               "additionalServices": [
-                "HydrationPack",
-                "WiFi",
-                "TrekBriefing"
+                "ReefOrientation",
+                "WiFi"
               ],
               "accessibilityFeatures": [
-                "WheelchairRamp"
+                "ChildSeatOnRequest"
               ],
               "driverLanguageSupport": [
                 "English",
-                "Swahili"
+                "Mandarin"
               ],
               "driverVerification": {
                 "backgroundCheck": true,
                 "uniformRequired": true,
                 "idDisplayed": true,
-                "trainingNotes": "Drivers trained in altitude awareness and first-aid."
+                "trainingNotes": "Drivers trained on reef excursion schedules and guest care."
               },
               "fleetInformation": {
                 "averageVehicleAgeYears": 2,
                 "fuelType": [
-                  "Diesel"
+                  "Hybrid"
                 ],
-                "maintenanceStandards": "Monthly maintenance with daily safety checklist."
+                "maintenanceStandards": "Weekly detailing; monthly mechanical inspection."
               },
               "operatingHours": [
                 {
@@ -166,28 +169,27 @@
                 }
               ],
               "helplineContact": {
-                "phone": "+255-755-000-222",
-                "email": "support@mountaintransfers.example.com",
+                "phone": "+61-7-4000-1234",
+                "email": "support@reeftransfers.example.com",
                 "availability": "24x7"
               },
               "safetyMeasures": [
                 "GPSTracking",
                 "PanicButton",
-                "FirstAidKit"
+                "UVSanitization"
               ],
               "complianceCertifications": [
-                "AirportAuthorised",
-                "TanzaniaTouristBoardLicensed"
+                "QueenslandTourismAccredited"
               ],
-              "waitAndChargePolicy": "15-minute grace period, USD 8 per 15 minutes thereafter.",
-              "cancellationPolicy": "Full refund if cancelled ≥12h; 50% charge within 12h; no-show charged fully.",
+              "waitAndChargePolicy": "15-minute grace period; AUD 10 per additional 10 minutes thereafter.",
+              "cancellationPolicy": "Full refund if cancelled ≥6h; 50% charge within 6h; no-show charged fully.",
               "digitalPaymentOptions": [
                 "UPI",
                 "CreditCard",
-                "M-Pesa"
+                "Wallet"
               ],
               "cashAccepted": true,
-              "notes": "Includes welcome briefing on acclimatization best practices."
+              "notes": "Optional stop at Cairns Lagoon available on request."
             }
           }
         ],
@@ -195,19 +197,19 @@
           {
             "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
             "@type": "beckn:Offer",
-            "beckn:id": "mountain-transfer-jro-arusha-flatfare",
-            "beckn:provider": "mountain-transfers-tz",
+            "beckn:id": "reeftransfer-cns-city-flatfare",
+            "beckn:provider": "reeftransfers-cairns",
             "beckn:descriptor": {
               "@type": "beckn:Descriptor",
-              "schema:name": "Kilimanjaro Airport Flat Fare",
-              "beckn:shortDesc": "Flat fare for airport pickup with hydration and trek briefing"
+              "schema:name": "Cairns Airport Sedan — Flat Fare",
+              "beckn:shortDesc": "Flat fare with reef orientation and bottled water"
             },
             "beckn:items": [
-              "mountain-transfer-jro-arusha-pickup"
+              "reeftransfer-cns-city-pickup"
             ],
             "beckn:price": {
               "currency": "USD",
-              "value": 45.00,
+              "value": 35.00,
               "applicableQuantity": {
                 "unitText": "Per Trip",
                 "unitCode": "C62",
@@ -222,7 +224,7 @@
             "beckn:acceptedPaymentMethod": [
               "UPI",
               "CreditCard",
-              "M-Pesa",
+              "Wallet",
               "Cash"
             ]
           }
@@ -231,4 +233,3 @@
     ]
   }
 }
-

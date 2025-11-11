@@ -63,7 +63,7 @@
               }
             },
             "beckn:itemAttributes": {
-              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/context.jsonld",
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
               "@type": "FlightService",
               "carrierCode": "ET",
               "carrierName": "Ethiopian Airlines",
@@ -82,7 +82,10 @@
                 "location": {
                   "geo": {
                     "type": "Point",
-                    "coordinates": [-73.7781, 40.6413]
+                    "coordinates": [
+                      -73.7781,
+                      40.6413
+                    ]
                   },
                   "address": {
                     "streetAddress": "JFK International Airport, Terminal 4",
@@ -102,7 +105,10 @@
                 "location": {
                   "geo": {
                     "type": "Point",
-                    "coordinates": [37.0745, -3.4294]
+                    "coordinates": [
+                      37.0745,
+                      -3.4294
+                    ]
                   },
                   "address": {
                     "streetAddress": "Airport Road",
@@ -208,8 +214,7 @@
             },
             "beckn:acceptedPaymentMethod": [
               "CreditCard",
-              "UPI",
-              "NetBanking"
+              "UPI"
             ]
           }
         ]
@@ -217,4 +222,3 @@
     ]
   }
 }
-

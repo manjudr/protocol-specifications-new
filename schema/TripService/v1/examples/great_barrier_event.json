@@ -62,7 +62,7 @@
               }
             },
             "beckn:itemAttributes": {
-              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/TripService/v1/context.jsonld",
               "@type": "TripService",
               "tripType": "GuidedGroup",
               "theme": [
@@ -87,7 +87,10 @@
               "startLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [145.7553, -16.8760]
+                  "coordinates": [
+                    145.7553,
+                    -16.8760
+                  ]
                 },
                 "address": {
                   "streetAddress": "Cairns Airport Arrivals",
@@ -100,7 +103,10 @@
               "endLocation": {
                 "geo": {
                   "type": "Point",
-                  "coordinates": [145.7553, -16.8760]
+                  "coordinates": [
+                    145.7553,
+                    -16.8760
+                  ]
                 },
                 "address": {
                   "streetAddress": "Cairns Airport Departures",
@@ -292,8 +298,7 @@
             },
             "beckn:acceptedPaymentMethod": [
               "UPI",
-              "CreditCard",
-              "NetBanking"
+              "CreditCard"
             ]
           }
         ]
@@ -301,4 +306,3 @@
     ]
   }
 }
-

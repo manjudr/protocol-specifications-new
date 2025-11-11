@@ -63,7 +63,7 @@
                             }
                         },
                         "beckn:itemAttributes": {
-                            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/context.jsonld",
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
                             "@type": "FlightService",
                             "carrierCode": "KQ",
                             "carrierName": "Kenya Airways",
@@ -214,8 +214,7 @@
                         },
                         "beckn:acceptedPaymentMethod": [
                             "CreditCard",
-                            "UPI",
-                            "NetBanking"
+                            "UPI"
                         ]
                     }
                 ]
