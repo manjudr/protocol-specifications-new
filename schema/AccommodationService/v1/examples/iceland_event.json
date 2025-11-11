@@ -1,0 +1,221 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:hospitality:accommodation:*",
+        "timestamp": "2025-02-12T13:35:00Z",
+        "transaction_id": "b2400b94-98b2-40d1-87e4-4dc76d4f388f",
+        "message_id": "79f62bb5-43fc-4f09-b1f6-3f92f3a35324",
+        "bpp_id": "stayhub.iceland.example.com",
+        "bpp_uri": "https://stayhub.iceland.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-accommodation-iceland-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "StayHub — Reykjavik Aurora Stays",
+                    "beckn:shortDesc": "Altitude-friendly hotels for Northern Lights hunters",
+                    "beckn:longDesc": "StayHub Reykjavik highlights aurora-friendly hotels offering wake-up alerts, geothermal comforts, and cultural programming."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2024-09-01T00:00:00Z",
+                    "schema:endDate": "2025-03-31T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-reykjavik-centrum-deluxe",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Hotel Reykjavik Centrum — Deluxe Room",
+                            "beckn:shortDesc": "Historic Reykjavik hotel with aurora wake-up service",
+                            "beckn:longDesc": "Hotel Reykjavik Centrum offers deluxe rooms in the historic district with aurora wake-up calls and local cultural experiences."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -21.9430,
+                                        64.1472
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Adalstræti 16",
+                                    "addressLocality": "Reykjavik",
+                                    "addressRegion": "Capital Region",
+                                    "postalCode": "101",
+                                    "addressCountry": "IS"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-09-01T15:00:00Z",
+                                "schema:endDate": "2025-03-31T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.2,
+                            "beckn:ratingCount": 198
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-reykjavik-centrum",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Hotel Reykjavik Centrum"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Hotel",
+                            "roomType": "Deluxe Room",
+                            "roomCategory": "Premium",
+                            "inventoryCode": "DLX-AURORA-REK",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 30,
+                                "unit": "sqm"
+                            },
+                            "roomView": "City View",
+                            "level": "4",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "12:00:00",
+                            "checkInWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "12:00:00",
+                                "schema:endTime": "23:00:00"
+                            },
+                            "checkOutWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "06:00:00",
+                                "schema:endTime": "12:00:00"
+                            },
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 6,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -21.9430,
+                                        64.1472
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Adalstræti 16",
+                                    "addressLocality": "Reykjavik",
+                                    "addressRegion": "Capital Region",
+                                    "postalCode": "101",
+                                    "addressCountry": "IS"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Aurora Wake-up Service",
+                                "Heritage Lounge"
+                            ],
+                            "highlightedInclusions": [
+                                "Daily breakfast buffet",
+                                "Aurora monitoring alerts"
+                            ],
+                            "mealPlans": [
+                                "BedAndBreakfast"
+                            ],
+                            "accessibilityFeatures": [
+                                "Elevator access"
+                            ],
+                            "childPolicy": "Children under 12 share complimentary with existing bedding.",
+                            "petPolicy": "Service animals welcome; pets not permitted.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Flexible",
+                                "deadlineHoursBeforeCheckIn": 48,
+                                "penaltyDescription": "One night charge within 48h or no-show."
+                            },
+                            "guaranteePolicy": "Credit card guarantee required; charged on departure.",
+                            "houseRules": [
+                                "Quiet hours 22:00-07:00",
+                                "Aurora calls limited to requested guests"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Icelandic Tourist Board Certified"
+                            ],
+                            "languagesSpoken": [
+                                "Icelandic",
+                                "English"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes complimentary geothermal spa pass for stays 3 nights or longer."
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-reykjavik-centrum-dlx-bnb",
+                        "beckn:provider": "stayhub-reykjavik-centrum",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Deluxe Room — Bed & Breakfast",
+                            "beckn:shortDesc": "Aurora-ready plan with breakfast and alerts"
+                        },
+                        "beckn:items": [
+                            "stayhub-reykjavik-centrum-deluxe"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 220.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-09-01T00:00:00Z",
+                            "schema:endDate": "2025-03-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard",
+                            "NetBanking"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+

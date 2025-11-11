@@ -1,0 +1,219 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:travel:flights:*",
+    "timestamp": "2025-02-12T11:55:00Z",
+    "transaction_id": "7ce0b5dc-8a8d-40e0-93b5-6cdea71c7f33",
+    "message_id": "4cce6649-6d53-4a32-8b1c-7b22ae3521bd",
+    "bpp_id": "andesair.example.com",
+    "bpp_uri": "https://andesair.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-flight-peru-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "AndesAir — Machu Picchu Connect",
+          "beckn:shortDesc": "Curated flights linking New York and Cusco for Inca adventures",
+          "beckn:longDesc": "AndesAir’s Machu Picchu Connect offers reliable JFK⇄CUZ services with generous baggage, altitude-friendly meals, and priority entry to the Sacred Valley."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "andesair-la201-jfk-cuz-economy",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "LATAM LA201 — JFK ➜ CUZ (Economy)",
+              "beckn:shortDesc": "One-stop connection to Cusco with Sacred Valley friendly schedule",
+              "beckn:longDesc": "LATAM LA201 transports travellers from JFK to Cusco with baggage allowances tailored for trekking gear and coordinated transfers to the Sacred Valley."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "flight-service",
+              "schema:name": "Flight Service"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.5,
+              "beckn:ratingCount": 392
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network",
+              "ONDC"
+            ],
+            "beckn:provider": {
+              "beckn:id": "andesair-peru",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "AndesAir Peru Desk"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/context.jsonld",
+              "@type": "FlightService",
+              "carrierCode": "LA",
+              "carrierName": "LATAM Airlines",
+              "marketingFlightNumber": "201",
+              "operatingCarrierCode": "LA",
+              "operatingCarrierName": "LATAM Airlines",
+              "operatingFlightNumber": "201",
+              "flightDesignator": "LA201",
+              "codeshare": false,
+              "origin": {
+                "airportCode": "JFK",
+                "airportName": "John F. Kennedy International Airport",
+                "cityCode": "NYC",
+                "cityName": "New York",
+                "terminal": "4",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [-73.7781, 40.6413]
+                  },
+                  "address": {
+                    "streetAddress": "Terminal 4, JFK International Airport",
+                    "addressLocality": "Queens",
+                    "addressRegion": "NY",
+                    "postalCode": "11430",
+                    "addressCountry": "US"
+                  }
+                }
+              },
+              "destination": {
+                "airportCode": "CUZ",
+                "airportName": "Alejandro Velasco Astete International Airport",
+                "cityCode": "CUZ",
+                "cityName": "Cusco",
+                "terminal": "Main",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [-71.9388, -13.5357]
+                  },
+                  "address": {
+                    "streetAddress": "Av. Velasco Astete s/n",
+                    "addressLocality": "Cusco",
+                    "addressRegion": "Cusco",
+                    "postalCode": "08002",
+                    "addressCountry": "PE"
+                  }
+                }
+              },
+              "departureDate": "2024-03-15",
+              "departureTime": "2024-03-15T23:45:00-04:00",
+              "arrivalDate": "2024-03-16",
+              "arrivalTime": "2024-03-16T11:20:00-05:00",
+              "durationMinutes": 935,
+              "cabinsOffered": [
+                "Economy",
+                "Business"
+              ],
+              "cabinClass": "Economy",
+              "fareFamily": "Adventure",
+              "fareBasisCode": "YEX25",
+              "bookingClass": "Y",
+              "availableSeats": 35,
+              "seatPitchInches": 31,
+              "seatWidthInches": 17.5,
+              "amenities": [
+                "In-flight entertainment",
+                "USB charging",
+                "Andean-inspired meal service"
+              ],
+              "mealService": "Meal",
+              "specialServiceOffers": [
+                "AVML",
+                "GFML",
+                "WCHR"
+              ],
+              "baggageAllowance": {
+                "cabinBaggage": [
+                  {
+                    "pieces": 1,
+                    "weightKg": 8,
+                    "dimensionsCm": "55x35x25"
+                  }
+                ],
+                "checkedBaggage": [
+                  {
+                    "pieces": 2,
+                    "weightKg": 23,
+                    "dimensionLinearCm": 158
+                  }
+                ],
+                "notes": "Additional 10kg allowance for trekking gear when presenting Machu Picchu booking."
+              },
+              "changePolicy": "Changes allowed up to 24h before departure with USD 180 fee plus fare difference.",
+              "refundPolicy": "Refundable with USD 220 fee prior to departure; non-refundable post departure.",
+              "disruptionPolicy": "Rebooking on next LATAM/partner flight; hotel provided for delays exceeding 8 hours.",
+              "aircraft": {
+                "equipmentCode": "763",
+                "equipmentName": "Boeing 767-300ER",
+                "manufacturer": "Boeing",
+                "wifiOnboard": true,
+                "seatConfiguration": "2-3-2 in Economy"
+              },
+              "flightStatus": "Scheduled",
+              "statusLastUpdated": "2025-02-12T11:45:00Z",
+              "operationalNotes": "Optimized for connecting onward Cusco flights and acclimatization schedules.",
+              "marketingMessages": [
+                "Includes complimentary oxygen canister rental voucher",
+                "Double LATAM Pass points for trekking travellers"
+              ]
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "andesair-la201-economy-adventure",
+            "beckn:provider": "andesair-peru",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "LA201 Economy Adventure Fare",
+              "beckn:shortDesc": "Flexible fare for trekkers with gear-friendly allowances"
+            },
+            "beckn:items": [
+              "andesair-la201-jfk-cuz-economy"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 980.00,
+              "applicableQuantity": {
+                "unitText": "Per Passenger",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "NetBanking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

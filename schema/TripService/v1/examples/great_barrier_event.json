@@ -1,0 +1,304 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:travel:trips:*",
+    "timestamp": "2025-02-12T12:50:00Z",
+    "transaction_id": "4c9a3e3c-615a-4a84-94a3-37bb0fe69825",
+    "message_id": "d89a1231-2e96-46f1-820e-0a4f8295d227",
+    "bpp_id": "reefventures.example.com",
+    "bpp_uri": "https://reefventures.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-trip-australia-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "ReefVentures — Great Barrier Reef & Daintree",
+          "beckn:shortDesc": "Six-day reef and rainforest discovery",
+          "beckn:longDesc": "ReefVentures’ six-day program blends Great Barrier Reef snorkeling, Daintree rainforest adventures, and Cairns cultural exploration."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "reefventures-gbr-daintree-6d",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Great Barrier Reef & Daintree — 6 Days",
+              "beckn:shortDesc": "Marine and rainforest immersion with expert guides",
+              "beckn:longDesc": "Explore the world’s largest coral reef and ancient Daintree rainforest with guided snorkeling, eco-lodges, and cultural encounters over six days."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "multi-day-trip",
+              "schema:name": "Trip / Tour Package"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.6,
+              "beckn:ratingCount": 188
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "reefventures-travel",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "ReefVentures Travel"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@type": "TripService",
+              "tripType": "GuidedGroup",
+              "theme": [
+                "Nature",
+                "Marine"
+              ],
+              "durationDays": 6,
+              "durationNights": 5,
+              "startDateFlexible": false,
+              "departureWindows": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-04-12T00:00:00Z",
+                  "schema:endDate": "2024-04-18T00:00:00Z"
+                },
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-05-17T00:00:00Z",
+                  "schema:endDate": "2024-05-23T00:00:00Z"
+                }
+              ],
+              "startLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [145.7553, -16.8760]
+                },
+                "address": {
+                  "streetAddress": "Cairns Airport Arrivals",
+                  "addressLocality": "Cairns",
+                  "addressRegion": "Queensland",
+                  "postalCode": "4870",
+                  "addressCountry": "AU"
+                }
+              },
+              "endLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [145.7553, -16.8760]
+                },
+                "address": {
+                  "streetAddress": "Cairns Airport Departures",
+                  "addressLocality": "Cairns",
+                  "addressRegion": "Queensland",
+                  "postalCode": "4870",
+                  "addressCountry": "AU"
+                }
+              },
+              "regionsCovered": [
+                "AU-QLD"
+              ],
+              "highlights": [
+                "Great Barrier Reef snorkel expedition",
+                "Daintree rainforest walk",
+                "Cairns esplanade tour",
+                "Aboriginal culture engagement"
+              ],
+              "itinerary": [
+                {
+                  "day": 1,
+                  "title": "Arrive Cairns & Lagoon Evening",
+                  "description": "Airport transfer, check-in, and esplanade sunset walk.",
+                  "activities": [
+                    {
+                      "name": "Cairns City & Esplanade Tour",
+                      "activityType": "Cultural",
+                      "startTime": "15:00:00",
+                      "endTime": "18:00:00",
+                      "included": true
+                    }
+                  ]
+                },
+                {
+                  "day": 2,
+                  "title": "Great Barrier Reef Snorkeling",
+                  "description": "Full-day reef experience with marine guide and photography briefing.",
+                  "activities": [
+                    {
+                      "name": "Great Barrier Reef Snorkeling",
+                      "activityType": "Water Sports",
+                      "startTime": "08:00:00",
+                      "endTime": "17:00:00",
+                      "included": true
+                    }
+                  ]
+                },
+                {
+                  "day": 4,
+                  "title": "Daintree Rainforest Walk",
+                  "description": "Guided rainforest walk with indigenous stories and wildlife spotting.",
+                  "activities": [
+                    {
+                      "name": "Daintree Rainforest Walk",
+                      "activityType": "Nature",
+                      "startTime": "09:00:00",
+                      "endTime": "13:00:00",
+                      "included": true
+                    }
+                  ]
+                }
+              ],
+              "inclusions": [
+                "Round-trip flights JFK⇄CNS",
+                "Airport transfers and intercity transport",
+                "3 nights Cairns hotel + 2 nights Daintree eco-lodge",
+                "All breakfasts, 3 lunches, 2 dinners",
+                "Marine biologist and rainforest guide experiences"
+              ],
+              "exclusions": [
+                "Travel insurance",
+                "Optional scuba upgrades",
+                "Personal expenses and incidentals"
+              ],
+              "difficultyLevel": "Moderate",
+              "activityPace": "Balanced",
+              "fitnessRequirements": "Comfortable swimming/snorkeling and light hiking.",
+              "ageRestriction": {
+                "minimumAge": 12,
+                "notes": "Children 12-15 must snorkel under guardian supervision."
+              },
+              "groupConfiguration": {
+                "minimumGroupSize": 6,
+                "maximumGroupSize": 12,
+                "singleSupplementAvailable": true,
+                "sharedRooming": false,
+                "childPolicy": "Teens 12-15 share with guardian; extra bed provision subject to availability."
+              },
+              "sustainabilityPractices": [
+                "Reef-safe sunscreen provided",
+                "Koala-friendly donations per booking",
+                "Eco-certified lodges"
+              ],
+              "responsibleTravelNotes": "Use reef-safe sunscreen; follow reef and rainforest conservation guidelines.",
+              "requiredDocuments": [
+                "Passport valid 6 months",
+                "Australia ETA visa",
+                "Travel insurance confirmation"
+              ],
+              "travelInsuranceRequired": true,
+              "visaAssistanceIncluded": false,
+              "safetyProtocols": [
+                "24x7 helpline",
+                "First-aid trained guides",
+                "Marine stinger suits provided"
+              ],
+              "covidPolicy": "Follow Queensland Health advisories; masks supplied for transport if required.",
+              "cancellationPolicy": {
+                "policyType": "Moderate",
+                "timeline": [
+                  {
+                    "deadlineDaysBeforeDeparture": 45,
+                    "penaltyPercent": 0
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 21,
+                    "penaltyPercent": 30
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 7,
+                    "penaltyPercent": 60
+                  }
+                ],
+                "notes": "Reef tour slots non-refundable within 72 hours of departure."
+              },
+              "paymentSchedule": [
+                {
+                  "milestone": "Deposit",
+                  "amountPercent": 30,
+                  "dueOffsetDays": 60
+                },
+                {
+                  "milestone": "Balance",
+                  "amountPercent": 70,
+                  "dueOffsetDays": 21
+                }
+              ],
+              "loyaltyEligible": true,
+              "testimonials": [
+                {
+                  "reviewerName": "Samantha Lee",
+                  "quote": "The reef guides were phenomenal and the Daintree eco-lodge was unforgettable.",
+                  "rating": 5
+                }
+              ],
+              "mediaGallery": [
+                {
+                  "mediaType": "Image",
+                  "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+                  "caption": "Snorkeling at the Great Barrier Reef"
+                },
+                {
+                  "mediaType": "Video",
+                  "url": "https://cdn.reefventures.example.com/trips/gbr/highlights.mp4",
+                  "caption": "Highlights of reef and rainforest experiences"
+                }
+              ],
+              "additionalNotes": "Optional hot air balloon ride over the Tablelands available on Day 1."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "reefventures-gbr-daintree-smallgroup",
+            "beckn:provider": "reefventures-travel",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Great Barrier Reef & Daintree — Small Group Departure",
+              "beckn:shortDesc": "Small group program with reef tours and rainforest guides"
+            },
+            "beckn:items": [
+              "reefventures-gbr-daintree-6d"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 2200.00,
+              "applicableQuantity": {
+                "unitText": "Per Traveller",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "NetBanking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

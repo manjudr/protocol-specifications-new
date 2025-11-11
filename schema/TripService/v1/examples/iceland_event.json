@@ -1,0 +1,306 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:travel:trips:*",
+    "timestamp": "2025-02-12T13:50:00Z",
+    "transaction_id": "7a0c7d1e-0cb6-43d8-9ae5-9e3e5bb2d9f0",
+    "message_id": "b7e96f2e-4f6a-4bcf-8f37-4f8a04a3b0c6",
+    "bpp_id": "auroratrails.example.com",
+    "bpp_uri": "https://auroratrails.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-trip-iceland-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "AuroraTrails — Iceland Northern Lights",
+          "beckn:shortDesc": "Five-day aurora and geothermal adventure",
+          "beckn:longDesc": "AuroraTrails’ Iceland Northern Lights program blends aurora hunts, Blue Lagoon spa experiences, Golden Circle tours, and glacier hiking."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-09-01T00:00:00Z",
+          "schema:endDate": "2025-03-31T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "auroratrails-iceland-5d",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Iceland Northern Lights — 5 Days",
+              "beckn:shortDesc": "Aurora hunts with geothermal and glacier adventures",
+              "beckn:longDesc": "Experience Reykjavik culture, Golden Circle highlights, Blue Lagoon relaxation, and glacier hiking during a five-day aurora-focused itinerary."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "multi-day-trip",
+              "schema:name": "Trip / Tour Package"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.7,
+              "beckn:ratingCount": 210
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "auroratrails-expeditions",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "AuroraTrails Expeditions"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@type": "TripService",
+              "tripType": "GuidedGroup",
+              "theme": [
+                "Nature",
+                "Wellness"
+              ],
+              "durationDays": 5,
+              "durationNights": 4,
+              "startDateFlexible": false,
+              "departureWindows": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-11-10T00:00:00Z",
+                  "schema:endDate": "2024-11-15T00:00:00Z"
+                },
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2025-02-05T00:00:00Z",
+                  "schema:endDate": "2025-02-10T00:00:00Z"
+                }
+              ],
+              "startLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-22.6056, 63.9850]
+                },
+                "address": {
+                  "streetAddress": "Keflavík International Airport",
+                  "addressLocality": "Reykjanesbær",
+                  "addressRegion": "Southern Peninsula",
+                  "postalCode": "235",
+                  "addressCountry": "IS"
+                }
+              },
+              "endLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-22.6056, 63.9850]
+                },
+                "address": {
+                  "streetAddress": "Keflavík International Airport",
+                  "addressLocality": "Reykjanesbær",
+                  "addressRegion": "Southern Peninsula",
+                  "postalCode": "235",
+                  "addressCountry": "IS"
+                }
+              },
+              "regionsCovered": [
+                "IS-Höfuðborgarsvæði"
+              ],
+              "highlights": [
+                "Northern Lights hunt",
+                "Blue Lagoon spa",
+                "Golden Circle tour",
+                "Glacier hiking tour"
+              ],
+              "itinerary": [
+                {
+                  "day": 1,
+                  "title": "Arrive Reykjavik & Downtown Exploration",
+                  "description": "Airport pickup, city orientation, and evening aurora briefing.",
+                  "activities": [
+                    {
+                      "name": "Cairns City & Esplanade Tour",
+                      "activityType": "Cultural",
+                      "startTime": "15:00:00",
+                      "endTime": "18:00:00",
+                      "included": true
+                    }
+                  ]
+                },
+                {
+                  "day": 2,
+                  "title": "Golden Circle Highlights",
+                  "description": "Visit Thingvellir, Geysir, and Gullfoss with guided interpretation.",
+                  "activities": [
+                    {
+                      "name": "Golden Circle Tour",
+                      "activityType": "Nature",
+                      "startTime": "09:00:00",
+                      "endTime": "17:00:00",
+                      "included": true
+                    }
+                  ]
+                },
+                {
+                  "day": 3,
+                  "title": "Glacier Hiking & Aurora Hunt",
+                  "description": "Daytime glacier hike followed by evening aurora chase.",
+                  "activities": [
+                    {
+                      "name": "Glacier Hiking Tour",
+                      "activityType": "Adventure",
+                      "startTime": "10:00:00",
+                      "endTime": "15:00:00",
+                      "included": true
+                    },
+                    {
+                      "name": "Northern Lights Hunt",
+                      "activityType": "Nature",
+                      "startTime": "20:00:00",
+                      "endTime": "23:59:00",
+                      "included": true
+                    }
+                  ]
+                }
+              ],
+              "inclusions": [
+                "Round-trip flights JFK⇄KEF",
+                "Airport transfers and Reykjavik transport",
+                "4 nights hotel accommodation",
+                "All breakfasts, 2 dinners",
+                "Aurora guide, Golden Circle tour, glacier hike"
+              ],
+              "exclusions": [
+                "Travel insurance",
+                "Optional Blue Lagoon upgrades",
+                "Lunches and personal expenses"
+              ],
+              "difficultyLevel": "Moderate",
+              "activityPace": "Balanced",
+              "fitnessRequirements": "Comfortable walking in cold conditions; glacier hike requires moderate fitness.",
+              "ageRestriction": {
+                "minimumAge": 12,
+                "notes": "Glacier hike limited to participants 12+."
+              },
+              "groupConfiguration": {
+                "minimumGroupSize": 8,
+                "maximumGroupSize": 18,
+                "singleSupplementAvailable": true,
+                "sharedRooming": false,
+                "childPolicy": "Teens 12-17 share with guardian."
+              },
+              "sustainabilityPractices": [
+                "Certified eco-guides",
+                "Carbon offset contributions",
+                "Reusable bottle program"
+              ],
+              "responsibleTravelNotes": "Follow aurora viewing etiquette; respect geothermal sites.",
+              "requiredDocuments": [
+                "Passport valid 3 months beyond travel",
+                "Schengen visa (if required)",
+                "Travel insurance confirmation"
+              ],
+              "travelInsuranceRequired": true,
+              "visaAssistanceIncluded": false,
+              "safetyProtocols": [
+                "24x7 helpline",
+                "Guides trained in cold-weather response",
+                "Safety briefing before glacier activities"
+              ],
+              "covidPolicy": "Follow Iceland health advisories; masks offered for indoor activities.",
+              "cancellationPolicy": {
+                "policyType": "Moderate",
+                "timeline": [
+                  {
+                    "deadlineDaysBeforeDeparture": 45,
+                    "penaltyPercent": 0
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 21,
+                    "penaltyPercent": 30
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 7,
+                    "penaltyPercent": 60
+                  }
+                ],
+                "notes": "Aurora hunts may be rescheduled due to weather; alternate activities provided."
+              },
+              "paymentSchedule": [
+                {
+                  "milestone": "Deposit",
+                  "amountPercent": 30,
+                  "dueOffsetDays": 60
+                },
+                {
+                  "milestone": "Balance",
+                  "amountPercent": 70,
+                  "dueOffsetDays": 21
+                }
+              ],
+              "loyaltyEligible": true,
+              "testimonials": [
+                {
+                  "reviewerName": "Jonas Pettersson",
+                  "quote": "Incredible aurora viewing despite changing weather—guides were top-notch.",
+                  "rating": 5
+                }
+              ],
+              "mediaGallery": [
+                {
+                  "mediaType": "Image",
+                  "url": "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800",
+                  "caption": "Aurora over Reykjavik"
+                }
+              ],
+              "additionalNotes": "Optional Blue Lagoon overnight upgrade available."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "auroratrails-iceland-5d-smallgroup",
+            "beckn:provider": "auroratrails-expeditions",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Iceland Northern Lights — Small Group Departure",
+              "beckn:shortDesc": "Small group aurora program with glacier hike"
+            },
+            "beckn:items": [
+              "auroratrails-iceland-5d"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 1900.00,
+              "applicableQuantity": {
+                "unitText": "Per Traveller",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-09-01T00:00:00Z",
+              "schema:endDate": "2025-03-31T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "NetBanking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

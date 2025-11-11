@@ -1,0 +1,232 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:mobility:airport-taxi:*",
+    "timestamp": "2025-02-12T13:40:00Z",
+    "transaction_id": "7a39f1e4-14aa-4d0f-8627-15fe4093c4d3",
+    "message_id": "d93004cf-3c23-4b8f-9fb0-1421cc601f09",
+    "bpp_id": "auroratransfers.example.com",
+    "bpp_uri": "https://auroratransfers.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-airport-taxi-iceland-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "AuroraTransfers — Keflavík Arrivals",
+          "beckn:shortDesc": "Airport pickups connecting Keflavík and Reykjavik city",
+          "beckn:longDesc": "AuroraTransfers runs luxury minibuses between Keflavík Airport and Reykjavik hotels with aurora briefings and hydration kits."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-09-01T00:00:00Z",
+          "schema:endDate": "2025-03-31T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "auroratransfer-kef-reykjavik-pickup",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Keflavík Airport ➜ Reykjavik City Transfer",
+              "beckn:shortDesc": "Luxury minibus transfer with aurora orientation",
+              "beckn:longDesc": "Ride from Keflavík Airport to Reykjavik hotels with bilingual drivers, free Wi-Fi, and aurora alert setup assistance."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "airport-taxi",
+              "schema:name": "Airport Taxi Service"
+            },
+            "beckn:availableAt": [
+              {
+                "@type": "beckn:Location",
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-22.6056, 63.9850]
+                },
+                "address": {
+                  "streetAddress": "Arrivals Hall, Keflavík Intl Airport",
+                  "addressLocality": "Reykjanesbær",
+                  "addressRegion": "Southern Peninsula",
+                  "postalCode": "235",
+                  "addressCountry": "IS"
+                }
+              }
+            ],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.6,
+              "beckn:ratingCount": 210
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "auroratransfers-iceland",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "AuroraTransfers Iceland"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AirportTaxiService/v1/context.jsonld",
+              "@type": "AirportTaxiService",
+              "serviceType": "AirportPickup",
+              "vehicleCategory": "Minibus",
+              "passengerCapacity": 8,
+              "luggageCapacity": {
+                "weightKg": 80,
+                "pieces": 8,
+                "oversizedAccepted": true
+              },
+              "airport": {
+                "airportCode": "KEF",
+                "airportName": "Keflavík International Airport",
+                "cityCode": "KEF",
+                "cityName": "Reykjavik"
+              },
+              "pickupLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-22.6056, 63.9850]
+                },
+                "address": {
+                  "streetAddress": "Arrivals Hall, Keflavík Airport",
+                  "addressLocality": "Reykjanesbær",
+                  "addressRegion": "Southern Peninsula",
+                  "postalCode": "235",
+                  "addressCountry": "IS"
+                }
+              },
+              "pickupInstructions": "Meet our hosts at Arrivals Gate 2 with AuroraTransfers signage. Buses depart every 30 minutes.",
+              "dropoffCoverage": {
+                "cityLimits": "Reykjavik city center and surrounding districts",
+                "serviceRadiusKm": 50,
+                "postalCodes": [
+                  "101",
+                  "102",
+                  "103"
+                ],
+                "exclusions": [
+                  "Pedestrian-only streets within car-free zones"
+                ]
+              },
+              "estimatedTravelTimeMinutes": 50,
+              "queueType": "Hybrid",
+              "averageWaitTimeMinutes": 12,
+              "surgePolicy": "Peak surcharge up to 10% during holiday periods.",
+              "fareModel": {
+                "modelType": "FlatRate",
+                "baseFareAmount": 45,
+                "baseFareIncludesTolls": true,
+                "nightSurchargePercent": 10,
+                "includedDistanceKm": 55,
+                "notes": "Includes aurora orientation kit and warm beverage voucher."
+              },
+              "tollPolicy": "Airport fees and Hvalfjörður tunnel tolls (if used) included.",
+              "meetAndGreetIncluded": true,
+              "additionalServices": [
+                "AuroraAlertSetup",
+                "WiFi"
+              ],
+              "accessibilityFeatures": [
+                "WheelchairRamp"
+              ],
+              "driverLanguageSupport": [
+                "Icelandic",
+                "English"
+              ],
+              "driverVerification": {
+                "backgroundCheck": true,
+                "uniformRequired": true,
+                "idDisplayed": true,
+                "trainingNotes": "Drivers trained on winter driving and aurora briefing."
+              },
+              "fleetInformation": {
+                "averageVehicleAgeYears": 2,
+                "fuelType": [
+                  "Electric"
+                ],
+                "maintenanceStandards": "Weekly inspections with winter tire checks."
+              },
+              "operatingHours": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startTime": "00:00:00",
+                  "schema:endTime": "23:59:00"
+                }
+              ],
+              "helplineContact": {
+                "phone": "+354-555-2400",
+                "email": "support@auroratransfers.example.com",
+                "availability": "24x7"
+              },
+              "safetyMeasures": [
+                "GPSTracking",
+                "PanicButton",
+                "HeatedSeats"
+              ],
+              "complianceCertifications": [
+                "IcelandicTouristBoard Licensed"
+              ],
+              "waitAndChargePolicy": "15-minute grace; ISK 1,500 per additional 10 minutes.",
+              "cancellationPolicy": "Full refund if cancelled ≥6h; 50% charge within 6h; no-show charged fully.",
+              "digitalPaymentOptions": [
+                "UPI",
+                "CreditCard",
+                "Wallet"
+              ],
+              "cashAccepted": true,
+              "notes": "Optional stop at Blue Lagoon available when pre-booked."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "auroratransfer-kef-reykjavik-flatfare",
+            "beckn:provider": "auroratransfers-iceland",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Keflavík Airport Minibus — Flat Fare",
+              "beckn:shortDesc": "Flat fare with aurora kit and warm beverage voucher"
+            },
+            "beckn:items": [
+              "auroratransfer-kef-reykjavik-pickup"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 45.00,
+              "applicableQuantity": {
+                "unitText": "Per Trip",
+                "unitCode": "C62",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-09-01T00:00:00Z",
+              "schema:endDate": "2025-03-31T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet",
+              "Cash"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

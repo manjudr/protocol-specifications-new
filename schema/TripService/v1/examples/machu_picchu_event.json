@@ -1,0 +1,310 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:travel:trips:*",
+    "timestamp": "2025-02-12T12:20:00Z",
+    "transaction_id": "d5529db8-adba-4838-9af3-5519aecb1826",
+    "message_id": "ecf1f56b-898b-4a84-a353-5bf3f2a31ff9",
+    "bpp_id": "andesquests.example.com",
+    "bpp_uri": "https://andesquests.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-trip-peru-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "AndesQuests — Machu Picchu Adventure",
+          "beckn:shortDesc": "Seven-day exploration of Cusco, Sacred Valley, and Machu Picchu",
+          "beckn:longDesc": "AndesQuests delivers an immersive Machu Picchu Adventure with Inca Trail trekking, Sacred Valley discovery, and Cusco cultural experiences over seven days."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "andesquests-machu-7d",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Machu Picchu Adventure — 7 Days",
+              "beckn:shortDesc": "Guided Sacred Valley journey with Inca Trail trek",
+              "beckn:longDesc": "Journey through Cusco, the Sacred Valley, and Machu Picchu over seven days featuring guided treks, cultural immersions, and curated accommodations."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "multi-day-trip",
+              "schema:name": "Trip / Tour Package"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.7,
+              "beckn:ratingCount": 245
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network",
+              "PROMPERÚ Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "andesquests-travel",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "AndesQuests Travel"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@type": "TripService",
+              "tripType": "GuidedGroup",
+              "theme": [
+                "Cultural",
+                "Adventure"
+              ],
+              "durationDays": 7,
+              "durationNights": 6,
+              "startDateFlexible": false,
+              "departureWindows": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-05-05T00:00:00Z",
+                  "schema:endDate": "2024-05-12T00:00:00Z"
+                },
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-06-09T00:00:00Z",
+                  "schema:endDate": "2024-06-16T00:00:00Z"
+                }
+              ],
+              "startLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-71.9388, -13.5357]
+                },
+                "address": {
+                  "streetAddress": "Alejandro Velasco Astete International Airport",
+                  "addressLocality": "Cusco",
+                  "addressRegion": "Cusco",
+                  "postalCode": "08002",
+                  "addressCountry": "PE"
+                }
+              },
+              "endLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-71.9388, -13.5357]
+                },
+                "address": {
+                  "streetAddress": "Alejandro Velasco Astete International Airport",
+                  "addressLocality": "Cusco",
+                  "addressRegion": "Cusco",
+                  "postalCode": "08002",
+                  "addressCountry": "PE"
+                }
+              },
+              "regionsCovered": [
+                "PE-Cusco"
+              ],
+              "highlights": [
+                "Inca Trail Day 1 trek",
+                "Machu Picchu Citadel guided visit",
+                "Sacred Valley cultural tour",
+                "Cusco city exploration"
+              ],
+              "itinerary": [
+                {
+                  "day": 1,
+                  "title": "Arrive Cusco & Acclimatize",
+                  "description": "Airport transfer, altitude workshop, and Cusco downtown stroll.",
+                  "activities": [
+                    {
+                      "name": "Cusco City Exploration",
+                      "activityType": "Cultural",
+                      "startTime": "15:00:00",
+                      "endTime": "18:00:00",
+                      "included": true
+                    }
+                  ]
+                },
+                {
+                  "day": 3,
+                  "title": "Inca Trail Commences",
+                  "description": "Begin the Inca Trail with guided trek and campsite experience.",
+                  "activities": [
+                    {
+                      "name": "Inca Trail Trek - Day 1",
+                      "activityType": "Trekking",
+                      "startTime": "07:00:00",
+                      "endTime": "16:00:00",
+                      "included": true,
+                      "notes": "Full porter support and meals included."
+                    }
+                  ]
+                },
+                {
+                  "day": 5,
+                  "title": "Machu Picchu Citadel",
+                  "description": "Sunrise arrival at Machu Picchu with guided exploration and Huayna Picchu option.",
+                  "activities": [
+                    {
+                      "name": "Machu Picchu Citadel Tour",
+                      "activityType": "Cultural",
+                      "startTime": "06:00:00",
+                      "endTime": "12:00:00",
+                      "included": true
+                    }
+                  ]
+                }
+              ],
+              "inclusions": [
+                "Round-trip flights JFK⇄CUZ",
+                "All airport and intercity transfers",
+                "3 nights Cusco hotel + 3 nights trail camp",
+                "All breakfasts, 4 lunches, 4 dinners",
+                "Licensed guides, porters, and permits"
+              ],
+              "exclusions": [
+                "International travel insurance",
+                "Peruvian entry visa (if required)",
+                "Optional Huayna Picchu permit upgrade"
+              ],
+              "difficultyLevel": "Challenging",
+              "activityPace": "Active",
+              "fitnessRequirements": "Comfortable hiking 10 km daily with elevation gain.",
+              "ageRestriction": {
+                "minimumAge": 14,
+                "notes": "Participants under 18 require guardian and physician clearance."
+              },
+              "groupConfiguration": {
+                "minimumGroupSize": 6,
+                "maximumGroupSize": 12,
+                "singleSupplementAvailable": true,
+                "sharedRooming": true,
+                "childPolicy": "Teens 14-17 must share with guardian in hotel segments."
+              },
+              "sustainabilityPractices": [
+                "Leave No Trace compliance",
+                "Local porter welfare fund",
+                "Reusable water systems"
+              ],
+              "responsibleTravelNotes": "Respect archaeological site boundaries; support local artisans in approved markets.",
+              "requiredDocuments": [
+                "Passport valid 6 months from travel",
+                "Trail permit (issued post booking)",
+                "Proof of travel insurance"
+              ],
+              "travelInsuranceRequired": true,
+              "visaAssistanceIncluded": true,
+              "safetyProtocols": [
+                "24x7 emergency contact",
+                "Guides trained in high-altitude response",
+                "Satellite communication on trail"
+              ],
+              "covidPolicy": "Follow Peru CDC guidance; masks required in transport if mandated.",
+              "cancellationPolicy": {
+                "policyType": "Moderate",
+                "timeline": [
+                  {
+                    "deadlineDaysBeforeDeparture": 60,
+                    "penaltyPercent": 0
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 30,
+                    "penaltyPercent": 25
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 15,
+                    "penaltyPercent": 50
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 7,
+                    "penaltyPercent": 75
+                  }
+                ],
+                "notes": "Trail permits are non-refundable once issued."
+              },
+              "paymentSchedule": [
+                {
+                  "milestone": "Deposit",
+                  "amountPercent": 25,
+                  "dueOffsetDays": 90
+                },
+                {
+                  "milestone": "Balance",
+                  "amountPercent": 75,
+                  "dueOffsetDays": 30
+                }
+              ],
+              "loyaltyEligible": true,
+              "testimonials": [
+                {
+                  "reviewerName": "Miguel Alvarez",
+                  "quote": "Impeccable logistics and inspiring guides. The acclimatization plan worked perfectly.",
+                  "rating": 5
+                }
+              ],
+              "mediaGallery": [
+                {
+                  "mediaType": "Image",
+                  "url": "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800",
+                  "caption": "Sunrise over Machu Picchu"
+                },
+                {
+                  "mediaType": "Video",
+                  "url": "https://cdn.andesquests.example.com/trips/machu/overview.mp4",
+                  "caption": "Trail highlights and cultural scenes"
+                }
+              ],
+              "additionalNotes": "Private departures and Rainbow Mountain extension available on request."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "andesquests-machu-7d-smallgroup",
+            "beckn:provider": "andesquests-travel",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Machu Picchu Adventure — Small Group Departure",
+              "beckn:shortDesc": "Small group program with Inca Trail permits and cultural immersions"
+            },
+            "beckn:items": [
+              "andesquests-machu-7d"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 1800.00,
+              "applicableQuantity": {
+                "unitText": "Per Traveller",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "NetBanking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

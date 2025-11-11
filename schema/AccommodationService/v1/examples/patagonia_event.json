@@ -1,0 +1,224 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:hospitality:accommodation:*",
+        "timestamp": "2025-02-12T13:05:00Z",
+        "transaction_id": "d34b8c7c-7f37-4dfe-a40f-8c5b9f2c1ee2",
+        "message_id": "f7edffb7-3a26-4d19-809f-4cfe2d742830",
+        "bpp_id": "stayhub.patagonia.example.com",
+        "bpp_uri": "https://stayhub.patagonia.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-accommodation-patagonia-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "StayHub — Torres del Paine Mountain Lodges",
+                    "beckn:shortDesc": "Base lodges for Patagonia wilderness treks",
+                    "beckn:longDesc": "StayHub Patagonia features lodges inside Torres del Paine with hiking support, gear staging, and mountain views."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2024-03-01T00:00:00Z",
+                    "schema:endDate": "2024-09-30T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-las-torres-mountain-view",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Hotel Las Torres Patagonia — Mountain View Room",
+                            "beckn:shortDesc": "Mountain-view room with trekking support services",
+                            "beckn:longDesc": "Hotel Las Torres Patagonia offers mountain-view rooms with spa access, guided briefing areas, and hiking equipment support inside Torres del Paine."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.9300,
+                                        -50.9730
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Torres del Paine National Park",
+                                    "addressLocality": "Patagonia",
+                                    "addressRegion": "Magallanes",
+                                    "postalCode": "6170000",
+                                    "addressCountry": "CL"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T15:00:00Z",
+                                "schema:endDate": "2024-09-30T11:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.7,
+                            "beckn:ratingCount": 305
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "ONDC",
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-las-torres",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Hotel Las Torres Patagonia"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Resort",
+                            "roomType": "Mountain View Room",
+                            "roomCategory": "Luxury",
+                            "inventoryCode": "MTN-VIEW-TDP",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 42,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Mountain View",
+                            "level": "2",
+                            "checkInTime": "14:00:00",
+                            "checkOutTime": "11:00:00",
+                            "checkInWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "12:00:00",
+                                "schema:endTime": "22:00:00"
+                            },
+                            "checkOutWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "06:00:00",
+                                "schema:endTime": "11:00:00"
+                            },
+                            "stayMinimumNights": 3,
+                            "stayMaximumNights": 10,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.9300,
+                                        -50.9730
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Torres del Paine National Park",
+                                    "addressLocality": "Patagonia",
+                                    "addressRegion": "Magallanes",
+                                    "postalCode": "6170000",
+                                    "addressCountry": "CL"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Spa",
+                                "Hiking Support",
+                                "Mountain Views"
+                            ],
+                            "highlightedInclusions": [
+                                "Daily breakfast and dinner",
+                                "Guided trek briefings",
+                                "Gear storage"
+                            ],
+                            "mealPlans": [
+                                "HalfBoard"
+                            ],
+                            "accessibilityFeatures": [
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children under 10 stay free sharing existing bedding.",
+                            "petPolicy": "No pets; service animals permitted with prior authorization.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Moderate",
+                                "deadlineHoursBeforeCheckIn": 120,
+                                "penaltyDescription": "50% penalty within 5 days; no refund within 48h."
+                            },
+                            "guaranteePolicy": "50% deposit at booking; balance due 7 days before arrival.",
+                            "houseRules": [
+                                "Quiet hours 21:00-06:00",
+                                "Guided hikes depart 07:30 daily"
+                            ],
+                            "sustainabilityCertifications": [
+                                "SERNATUR Sustainable Tourism"
+                            ],
+                            "languagesSpoken": [
+                                "Spanish",
+                                "English"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes access to spa hot tubs; boot dryers available on request."
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-las-torres-mountain-halfboard",
+                        "beckn:provider": "stayhub-las-torres",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Mountain View Room — Half Board",
+                            "beckn:shortDesc": "Half-board plan with trek briefings and spa access"
+                        },
+                        "beckn:items": [
+                            "stayhub-las-torres-mountain-view"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 450.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard",
+                            "NetBanking"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+

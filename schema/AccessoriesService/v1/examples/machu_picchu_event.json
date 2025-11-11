@@ -1,0 +1,175 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:retail:accessories:*",
+    "timestamp": "2025-02-12T12:15:00Z",
+    "transaction_id": "a9f1c08f-5f6f-44d1-9bea-1ca4770b7a64",
+    "message_id": "ae41f3c1-13b0-4a04-9bbf-1bd7bc1bb5a8",
+    "bpp_id": "gearhub.andean.example.com",
+    "bpp_uri": "https://gearhub.andean.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-accessories-peru-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "GearHub — Inca Trail Essentials",
+          "beckn:shortDesc": "Trekking gear curated for Machu Picchu expeditions",
+          "beckn:longDesc": "GearHub’s Inca Trail Essentials features footwear, rain protection, and day packs optimized for high-altitude trekking in the Sacred Valley."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "gearhub-hikingboots-inca",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Merrell AndeanPro Hiking Boots",
+              "beckn:shortDesc": "High-traction hiking boots for Inca Trail terrain",
+              "beckn:longDesc": "Merrell AndeanPro boots provide ankle support, Vibram grip, and waterproofing for the stone paths and staircases of the Inca Trail."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-trekking",
+              "schema:name": "Trekking Accessories"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.7,
+              "beckn:ratingCount": 348
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "PROMPERÚ Network",
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "gearhub-urban",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "GearHub Urban Outlet"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Footwear",
+              "brand": "Merrell",
+              "modelNumber": "AND-PRO-BOOT",
+              "compatibility": [
+                "Inca Trail trekking",
+                "High-altitude hiking"
+              ],
+              "materials": [
+                "Leather",
+                "Gore-Tex Membrane"
+              ],
+              "colorOptions": [
+                "Earth Brown",
+                "Stone Grey"
+              ],
+              "dimensions": {
+                "notes": "Available sizes US 6-12 (unisex)"
+              },
+              "weightGrams": 900,
+              "capacity": "Supports loads up to 20kg backpacking weight",
+              "keyFeatures": [
+                "Vibram outsole",
+                "Ankle support",
+                "Waterproof & breathable",
+                "Shock-absorbing midsole"
+              ],
+              "usageScenarios": [
+                "Inca Trail Trek - Day 1",
+                "Machu Picchu Citadel Tour",
+                "Sacred Valley hikes"
+              ],
+              "includedItems": [
+                "Boot care kit",
+                "Additional laces"
+              ],
+              "warranty": {
+                "durationMonths": 24,
+                "coverage": "Manufacturing defects and sole delamination",
+                "serviceChannels": [
+                  "Walk-in"
+                ]
+              },
+              "careInstructions": [
+                "Air-dry away from direct sun",
+                "Apply leather conditioner monthly",
+                "Remove insoles after wet use"
+              ],
+              "safetyInformation": [
+                "Break-in boots two weeks before trek",
+                "Use with trekking socks"
+              ],
+              "certifications": [
+                "CE"
+              ],
+              "sustainabilityNotes": "Leather sourced from LWG-certified tanneries; recycled packaging.",
+              "lifecycle": {
+                "launchDate": "2024-02-01",
+                "supportNotes": "Replacement insoles available via GearHub support."
+              },
+              "crossSellSuggestions": [
+                "gearhub-rain-gear-set",
+                "gearhub-day-pack"
+              ],
+              "returnPolicyNotes": "Returns accepted within 30 days if unused outdoors.",
+              "additionalNotes": "Recommended by Summiteer Machu Picchu guides."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "gearhub-hikingboots-inca-offer",
+            "beckn:provider": "gearhub-urban",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Merrell AndeanPro Boots — Trek Package",
+              "beckn:shortDesc": "Includes boot care kit and break-in advisory with guided fitting"
+            },
+            "beckn:items": [
+              "gearhub-hikingboots-inca"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 180.00,
+              "applicableQuantity": {
+                "unitText": "Per Pair",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

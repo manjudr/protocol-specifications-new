@@ -1,0 +1,224 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:travel:flights:*",
+        "timestamp": "2025-02-12T12:30:00Z",
+        "transaction_id": "f4bd1fa3-c3e9-4393-96a9-1d077d30d01d",
+        "message_id": "27a4df19-8457-4cf0-8f17-0cdc5af1c91a",
+        "bpp_id": "reefair.example.com",
+        "bpp_uri": "https://reefair.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-flight-australia-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "ReefAir — Great Barrier Reef Connect",
+                    "beckn:shortDesc": "Long-haul flights from New York to Cairns for reef explorers",
+                    "beckn:longDesc": "ReefAir curates Qantas-operated flights linking JFK and Cairns with baggage allowances tailored to dive and snorkel gear for the Great Barrier Reef."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2024-03-01T00:00:00Z",
+                    "schema:endDate": "2024-09-30T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "reefair-qf12-jfk-cns-economy",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Qantas QF12 — JFK ➜ CNS (Economy)",
+                            "beckn:shortDesc": "One-stop connection to Cairns with reef-friendly baggage",
+                            "beckn:longDesc": "Qantas QF12 connects JFK to Cairns with coordinated layovers, allowing reef travellers to carry dive and snorkel equipment without extra fees."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.5,
+                            "beckn:ratingCount": 318
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "reefair-australia",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "ReefAir Australia Desk"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "QF",
+                            "carrierName": "Qantas Airways",
+                            "marketingFlightNumber": "12",
+                            "operatingCarrierCode": "QF",
+                            "operatingCarrierName": "Qantas Airways",
+                            "operatingFlightNumber": "12",
+                            "flightDesignator": "QF12",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "JFK",
+                                "airportName": "John F. Kennedy International Airport",
+                                "cityCode": "NYC",
+                                "cityName": "New York",
+                                "terminal": "8",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -73.7781,
+                                            40.6413
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 8, JFK International Airport",
+                                        "addressLocality": "Queens",
+                                        "addressRegion": "NY",
+                                        "postalCode": "11430",
+                                        "addressCountry": "US"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "CNS",
+                                "airportName": "Cairns Airport",
+                                "cityCode": "CNS",
+                                "cityName": "Cairns",
+                                "terminal": "T2",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            145.7553,
+                                            -16.8760
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Airport Avenue",
+                                        "addressLocality": "Cairns",
+                                        "addressRegion": "Queensland",
+                                        "postalCode": "4870",
+                                        "addressCountry": "AU"
+                                    }
+                                }
+                            },
+                            "departureDate": "2024-03-15",
+                            "departureTime": "2024-03-15T23:45:00-04:00",
+                            "arrivalDate": "2024-03-17",
+                            "arrivalTime": "2024-03-17T08:30:00+10:00",
+                            "durationMinutes": 1245,
+                            "cabinsOffered": [
+                                "Economy",
+                                "PremiumEconomy",
+                                "Business"
+                            ],
+                            "cabinClass": "Economy",
+                            "fareFamily": "Explorer",
+                            "fareBasisCode": "YEX45",
+                            "bookingClass": "Y",
+                            "availableSeats": 45,
+                            "seatPitchInches": 32,
+                            "seatWidthInches": 18,
+                            "amenities": [
+                                "In-flight entertainment",
+                                "Wi-Fi",
+                                "Australian-inspired meal service"
+                            ],
+                            "mealService": "Meal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "BBML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 7,
+                                        "dimensionsCm": "56x36x23"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 23,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Additional snorkel/dive gear up to 10kg accepted free when pre-registered."
+                            },
+                            "changePolicy": "Changes allowed up to 24h before departure with AUD 200 fee plus fare difference.",
+                            "refundPolicy": "Refundable with AUD 250 fee prior to departure; non-refundable after departure.",
+                            "disruptionPolicy": "Rebooking on Qantas/partner services; hotel accommodation provided for delays >8h.",
+                            "aircraft": {
+                                "equipmentCode": "388",
+                                "equipmentName": "Airbus A380-800",
+                                "manufacturer": "Airbus",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "3-4-3 in Economy"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T12:25:00Z",
+                            "operationalNotes": "Long layover in Sydney to connect with reef flights; customs assistance provided.",
+                            "marketingMessages": [
+                                "Complimentary reef-safe sunscreen kit for Economy travellers",
+                                "Earn double Qantas points for marine conservation supporters"
+                            ]
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "reefair-qf12-economy-explorer",
+                        "beckn:provider": "reefair-australia",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "QF12 Economy Explorer Fare",
+                            "beckn:shortDesc": "Flexible economy fare with snorkel gear allowance"
+                        },
+                        "beckn:items": [
+                            "reefair-qf12-jfk-cns-economy"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 1400.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard",
+                            "NetBanking"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

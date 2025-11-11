@@ -1,0 +1,230 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:mobility:airport-taxi:*",
+    "timestamp": "2025-02-12T12:40:00Z",
+    "transaction_id": "9a389fa0-48aa-4f7a-9f80-aef067824db7",
+    "message_id": "d45f7e8f-5eb2-42f5-9167-9c9f4893b7d8",
+    "bpp_id": "reeftransfers.example.com",
+    "bpp_uri": "https://reeftransfers.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-airport-taxi-australia-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "ReefTransfers — Cairns Arrivals",
+          "beckn:shortDesc": "Airport pickups linking Cairns airport and marine precinct",
+          "beckn:longDesc": "ReefTransfers delivers licensed airport pickups with luxury sedans connecting passengers from Cairns Airport to city hotels and marina embarkation points."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "reeftransfer-cns-city-pickup",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Cairns Airport ➜ City Transfer",
+              "beckn:shortDesc": "Luxury sedan airport pickup with reef orientation",
+              "beckn:longDesc": "Transfer from Cairns Airport to city hotels with professional driver, AC vehicle, and briefing on reef departure procedures."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "airport-taxi",
+              "schema:name": "Airport Taxi Service"
+            },
+            "beckn:availableAt": [
+              {
+                "@type": "beckn:Location",
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [145.7553, -16.8760]
+                },
+                "address": {
+                  "streetAddress": "Terminal Arrivals, Cairns Airport",
+                  "addressLocality": "Cairns",
+                  "addressRegion": "Queensland",
+                  "postalCode": "4870",
+                  "addressCountry": "AU"
+                }
+              }
+            ],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.6,
+              "beckn:ratingCount": 198
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "reeftransfers-cairns",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "ReefTransfers Cairns"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AirportTaxiService/v1/context.jsonld",
+              "@type": "AirportTaxiService",
+              "serviceType": "AirportPickup",
+              "vehicleCategory": "Sedan",
+              "passengerCapacity": 4,
+              "luggageCapacity": {
+                "weightKg": 60,
+                "pieces": 4,
+                "oversizedAccepted": true
+              },
+              "airport": {
+                "airportCode": "CNS",
+                "airportName": "Cairns Airport",
+                "cityCode": "CNS",
+                "cityName": "Cairns"
+              },
+              "pickupLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [145.7553, -16.8760]
+                },
+                "address": {
+                  "streetAddress": "Terminal Arrivals, Cairns Airport",
+                  "addressLocality": "Cairns",
+                  "addressRegion": "Queensland",
+                  "postalCode": "4870",
+                  "addressCountry": "AU"
+                }
+              },
+              "pickupInstructions": "Meet our driver at Arrivals Bay 3 with ReefTransfers signage. Vehicles depart every 20 minutes.",
+              "dropoffCoverage": {
+                "cityLimits": "Cairns CBD and Marina precinct",
+                "serviceRadiusKm": 20,
+                "postalCodes": [
+                  "4870"
+                ],
+                "exclusions": [
+                  "Pedestrian-only esplanade beyond Hotel Zone"
+                ]
+              },
+              "estimatedTravelTimeMinutes": 35,
+              "queueType": "Hybrid",
+              "averageWaitTimeMinutes": 10,
+              "surgePolicy": "Peak surcharge up to 10% during holiday weekends.",
+              "fareModel": {
+                "modelType": "FlatRate",
+                "baseFareAmount": 35,
+                "baseFareIncludesTolls": true,
+                "nightSurchargePercent": 15,
+                "includedDistanceKm": 25,
+                "notes": "Includes bottled water and reef orientation map."
+              },
+              "tollPolicy": "Airport parking and toll fees included.",
+              "meetAndGreetIncluded": true,
+              "additionalServices": [
+                "ReefOrientation",
+                "WiFi"
+              ],
+              "accessibilityFeatures": [
+                "ChildSeatOnRequest"
+              ],
+              "driverLanguageSupport": [
+                "English",
+                "Mandarin"
+              ],
+              "driverVerification": {
+                "backgroundCheck": true,
+                "uniformRequired": true,
+                "idDisplayed": true,
+                "trainingNotes": "Drivers trained on reef excursion schedules and guest care."
+              },
+              "fleetInformation": {
+                "averageVehicleAgeYears": 2,
+                "fuelType": [
+                  "Hybrid"
+                ],
+                "maintenanceStandards": "Weekly detailing; monthly mechanical inspection."
+              },
+              "operatingHours": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startTime": "00:00:00",
+                  "schema:endTime": "23:59:00"
+                }
+              ],
+              "helplineContact": {
+                "phone": "+61-7-4000-1234",
+                "email": "support@reeftransfers.example.com",
+                "availability": "24x7"
+              },
+              "safetyMeasures": [
+                "GPSTracking",
+                "PanicButton",
+                "UVSanitization"
+              ],
+              "complianceCertifications": [
+                "QueenslandTourismAccredited"
+              ],
+              "waitAndChargePolicy": "15-minute grace period; AUD 10 per additional 10 minutes thereafter.",
+              "cancellationPolicy": "Full refund if cancelled ≥6h; 50% charge within 6h; no-show charged fully.",
+              "digitalPaymentOptions": [
+                "UPI",
+                "CreditCard",
+                "Wallet"
+              ],
+              "cashAccepted": true,
+              "notes": "Optional stop at Cairns Lagoon available on request."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "reeftransfer-cns-city-flatfare",
+            "beckn:provider": "reeftransfers-cairns",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Cairns Airport Sedan — Flat Fare",
+              "beckn:shortDesc": "Flat fare with reef orientation and bottled water"
+            },
+            "beckn:items": [
+              "reeftransfer-cns-city-pickup"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 35.00,
+              "applicableQuantity": {
+                "unitText": "Per Trip",
+                "unitCode": "C62",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet",
+              "Cash"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

@@ -1,0 +1,231 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:mobility:airport-taxi:*",
+    "timestamp": "2025-02-12T12:10:00Z",
+    "transaction_id": "9fb0e6d0-4e6a-45d9-b6b2-6b78db870215",
+    "message_id": "5dbe0c78-e35e-4cbe-9fcb-0a87f2d9ce72",
+    "bpp_id": "andes-transfers.example.com",
+    "bpp_uri": "https://andes-transfers.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-airport-taxi-peru-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "Andes Transfers — Cusco Arrivals",
+          "beckn:shortDesc": "Airport pickups bridging Cusco, Sacred Valley, and Machu Picchu",
+          "beckn:longDesc": "Andes Transfers provides licensed airport pickups and scenic transfers linking Cusco airport, Sacred Valley accommodations, and Machu Picchu railheads."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "andes-transfer-cuz-city-pickup",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Cusco Airport ➜ Historic Center Transfer",
+              "beckn:shortDesc": "Altitude-aware airport pickup with cultural orientation",
+              "beckn:longDesc": "Comfortable minibus transfer from Alejandro Velasco Astete International Airport to central Cusco hotels including hydration kit and altitude briefing."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "airport-taxi",
+              "schema:name": "Airport Taxi Service"
+            },
+            "beckn:availableAt": [
+              {
+                "@type": "beckn:Location",
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-71.9388, -13.5357]
+                },
+                "address": {
+                  "streetAddress": "Arrivals Hall, Alejandro Velasco Astete Intl Airport",
+                  "addressLocality": "Cusco",
+                  "addressRegion": "Cusco",
+                  "postalCode": "08002",
+                  "addressCountry": "PE"
+                }
+              }
+            ],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.6,
+              "beckn:ratingCount": 278
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "PROMPERÚ Network",
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "andes-transfers",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "Andes Transfers"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AirportTaxiService/v1/context.jsonld",
+              "@type": "AirportTaxiService",
+              "serviceType": "AirportPickup",
+              "vehicleCategory": "Minibus",
+              "passengerCapacity": 8,
+              "luggageCapacity": {
+                "weightKg": 120,
+                "pieces": 8,
+                "oversizedAccepted": true
+              },
+              "airport": {
+                "airportCode": "CUZ",
+                "airportName": "Alejandro Velasco Astete International Airport",
+                "cityCode": "CUZ",
+                "cityName": "Cusco"
+              },
+              "pickupLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-71.9388, -13.5357]
+                },
+                "address": {
+                  "streetAddress": "Arrivals Hall, Cusco Airport",
+                  "addressLocality": "Cusco",
+                  "addressRegion": "Cusco",
+                  "postalCode": "08002",
+                  "addressCountry": "PE"
+                }
+              },
+              "pickupInstructions": "Meet Andes Transfers staff at Arrivals Gate B with green jackets and branded tablets. Vehicles depart from Bay 4.",
+              "dropoffCoverage": {
+                "cityLimits": "Cusco Historic Center and San Blas district",
+                "serviceRadiusKm": 15,
+                "postalCodes": [
+                  "08002"
+                ],
+                "exclusions": [
+                  "Pedestrian-only alleys without vehicle access"
+                ]
+              },
+              "estimatedTravelTimeMinutes": 40,
+              "queueType": "Hybrid",
+              "averageWaitTimeMinutes": 10,
+              "surgePolicy": "Peak surcharge up to 15% during Inti Raymi and Christmas periods.",
+              "fareModel": {
+                "modelType": "FlatRate",
+                "baseFareAmount": 25,
+                "baseFareIncludesTolls": true,
+                "nightSurchargePercent": 10,
+                "includedDistanceKm": 20,
+                "notes": "Includes bottled water and coca tea packets for acclimatization."
+              },
+              "tollPolicy": "Airport access charges included; hotel porter fees payable by guest.",
+              "meetAndGreetIncluded": true,
+              "additionalServices": [
+                "HydrationKit",
+                "CityOrientation"
+              ],
+              "accessibilityFeatures": [
+                "WheelchairRamp"
+              ],
+              "driverLanguageSupport": [
+                "Spanish",
+                "English"
+              ],
+              "driverVerification": {
+                "backgroundCheck": true,
+                "uniformRequired": true,
+                "idDisplayed": true,
+                "trainingNotes": "Altitude awareness and first-aid certified drivers."
+              },
+              "fleetInformation": {
+                "averageVehicleAgeYears": 3,
+                "fuelType": [
+                  "Diesel"
+                ],
+                "maintenanceStandards": "Monthly maintenance with daily pre-trip inspections."
+              },
+              "operatingHours": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startTime": "00:00:00",
+                  "schema:endTime": "23:59:00"
+                }
+              ],
+              "helplineContact": {
+                "phone": "+51-84-555-300",
+                "email": "support@andes-transfers.example.com",
+                "availability": "24x7"
+              },
+              "safetyMeasures": [
+                "GPSTracking",
+                "PanicButton",
+                "AltitudeFirstAidKit"
+              ],
+              "complianceCertifications": [
+                "PROMPERÚ Licensed Operator"
+              ],
+              "waitAndChargePolicy": "20-minute grace period; thereafter USD 8 per 15 minutes.",
+              "cancellationPolicy": "Full refund if cancelled ≥12h; 50% charge within 12h; no-show charged fully.",
+              "digitalPaymentOptions": [
+                "UPI",
+                "CreditCard",
+                "Wallet"
+              ],
+              "cashAccepted": true,
+              "notes": "Includes optional brief stop at Mirador Cristo Blanco if traffic permits."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "andes-transfer-cuz-city-flatfare",
+            "beckn:provider": "andes-transfers",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Cusco Airport Pickup — Flat Fare",
+              "beckn:shortDesc": "Flat fare including hydration kit and bilingual driver"
+            },
+            "beckn:items": [
+              "andes-transfer-cuz-city-pickup"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 25.00,
+              "applicableQuantity": {
+                "unitText": "Per Trip",
+                "unitCode": "C62",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet",
+              "Cash"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

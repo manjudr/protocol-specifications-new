@@ -1,0 +1,223 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:travel:flights:*",
+        "timestamp": "2025-02-12T13:00:00Z",
+        "transaction_id": "fa6b5d2a-58de-4a63-8329-34c9a3408271",
+        "message_id": "9cc476f4-8a7d-4ff2-98d7-5d9fa00ba5f5",
+        "bpp_id": "patagoniaair.example.com",
+        "bpp_uri": "https://patagoniaair.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-flight-patagonia-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "PatagoniaAir — Wilderness Connect",
+                    "beckn:shortDesc": "Long-haul flights linking New York and Punta Arenas",
+                    "beckn:longDesc": "PatagoniaAir partners with LATAM to offer JFK⇄PUQ services timed for Torres del Paine adventures with generous gear allowances."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2024-03-01T00:00:00Z",
+                    "schema:endDate": "2024-09-30T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "patagoniaair-la801-jfk-puq-economy",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "LATAM LA801 — JFK ➜ PUQ (Economy)",
+                            "beckn:shortDesc": "One-stop flight to Punta Arenas for Patagonian treks",
+                            "beckn:longDesc": "LATAM LA801 links New York and Punta Arenas with baggage tailored for hiking equipment and seamless transfers to Torres del Paine."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.6,
+                            "beckn:ratingCount": 186
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "patagoniaair-latam",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "PatagoniaAir LATAM Desk"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "LA",
+                            "carrierName": "LATAM Airlines",
+                            "marketingFlightNumber": "801",
+                            "operatingCarrierCode": "LA",
+                            "operatingCarrierName": "LATAM Airlines",
+                            "operatingFlightNumber": "801",
+                            "flightDesignator": "LA801",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "JFK",
+                                "airportName": "John F. Kennedy International Airport",
+                                "cityCode": "NYC",
+                                "cityName": "New York",
+                                "terminal": "4",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -73.7781,
+                                            40.6413
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 4, JFK International Airport",
+                                        "addressLocality": "Queens",
+                                        "addressRegion": "NY",
+                                        "postalCode": "11430",
+                                        "addressCountry": "US"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "PUQ",
+                                "airportName": "Presidente Carlos Ibáñez del Campo International Airport",
+                                "cityCode": "PUQ",
+                                "cityName": "Punta Arenas",
+                                "terminal": "Main",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -70.8431,
+                                            -53.0059
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Av. Presidente Ibáñez 01532",
+                                        "addressLocality": "Punta Arenas",
+                                        "addressRegion": "Magallanes",
+                                        "postalCode": "6210427",
+                                        "addressCountry": "CL"
+                                    }
+                                }
+                            },
+                            "departureDate": "2024-03-15",
+                            "departureTime": "2024-03-15T22:15:00-04:00",
+                            "arrivalDate": "2024-03-16",
+                            "arrivalTime": "2024-03-16T14:30:00-03:00",
+                            "durationMinutes": 975,
+                            "cabinsOffered": [
+                                "Economy",
+                                "Business"
+                            ],
+                            "cabinClass": "Economy",
+                            "fareFamily": "Explorer",
+                            "fareBasisCode": "YTR45",
+                            "bookingClass": "Y",
+                            "availableSeats": 30,
+                            "seatPitchInches": 31,
+                            "seatWidthInches": 17.6,
+                            "amenities": [
+                                "In-flight entertainment",
+                                "USB charging",
+                                "South American cuisine"
+                            ],
+                            "mealService": "Meal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "BLML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 8,
+                                        "dimensionsCm": "55x35x25"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 2,
+                                        "weightKg": 23,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Additional 5kg allowance for trekking poles and cold-weather gear."
+                            },
+                            "changePolicy": "Changes permitted up to 48h before departure with USD 200 fee plus fare difference.",
+                            "refundPolicy": "Refundable with USD 250 fee prior to departure; non-refundable post departure.",
+                            "disruptionPolicy": "Rebooking on LATAM/partner flights; accommodation provided for delays >8h.",
+                            "aircraft": {
+                                "equipmentCode": "789",
+                                "equipmentName": "Boeing 787-9 Dreamliner",
+                                "manufacturer": "Boeing",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "3-3-3 in Economy"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T12:55:00Z",
+                            "operationalNotes": "Coordinated arrival for Torres del Paine transfer departures at 17:00 local time.",
+                            "marketingMessages": [
+                                "Complimentary hot beverage kit for Patagonian treks",
+                                "Earn double LATAM Pass points for wilderness itineraries"
+                            ]
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "patagoniaair-la801-economy-explorer",
+                        "beckn:provider": "patagoniaair-latam",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "LA801 Economy Explorer Fare",
+                            "beckn:shortDesc": "Explorer fare with trekking gear allowance"
+                        },
+                        "beckn:items": [
+                            "patagoniaair-la801-jfk-puq-economy"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 1600.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard",
+                            "NetBanking"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

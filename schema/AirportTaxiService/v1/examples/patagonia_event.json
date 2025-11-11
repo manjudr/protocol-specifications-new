@@ -1,0 +1,232 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:mobility:airport-taxi:*",
+    "timestamp": "2025-02-12T13:10:00Z",
+    "transaction_id": "56f49cf4-d7a0-4489-b2f6-5d9d2c6644f2",
+    "message_id": "c315d5e9-3993-4ac0-8602-ccef5a9df064",
+    "bpp_id": "patagoniatransfers.example.com",
+    "bpp_uri": "https://patagoniatransfers.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-airport-taxi-patagonia-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "PatagoniaTransfers — Punta Arenas Arrivals",
+          "beckn:shortDesc": "Airport pickups for Torres del Paine explorers",
+          "beckn:longDesc": "PatagoniaTransfers offers airport pickups in luxury sedans linking Presidente Ibáñez Airport to Punta Arenas hotels with mountain orientation."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "patagoniatransfer-puq-city-pickup",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Punta Arenas Airport ➜ City Transfer",
+              "beckn:shortDesc": "Airport pickup with expedition briefing",
+              "beckn:longDesc": "Travel from Presidente Carlos Ibáñez Airport to city hotels with bilingual drivers, mountain weather briefing, and gear transport assistance."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "airport-taxi",
+              "schema:name": "Airport Taxi Service"
+            },
+            "beckn:availableAt": [
+              {
+                "@type": "beckn:Location",
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-70.8431, -53.0059]
+                },
+                "address": {
+                  "streetAddress": "Arrivals Hall, Presidente Ibáñez Airport",
+                  "addressLocality": "Punta Arenas",
+                  "addressRegion": "Magallanes",
+                  "postalCode": "6210427",
+                  "addressCountry": "CL"
+                }
+              }
+            ],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.5,
+              "beckn:ratingCount": 142
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network",
+              "ONDC"
+            ],
+            "beckn:provider": {
+              "beckn:id": "patagoniatransfers-puq",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "PatagoniaTransfers"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AirportTaxiService/v1/context.jsonld",
+              "@type": "AirportTaxiService",
+              "serviceType": "AirportPickup",
+              "vehicleCategory": "Sedan",
+              "passengerCapacity": 4,
+              "luggageCapacity": {
+                "weightKg": 60,
+                "pieces": 4,
+                "oversizedAccepted": true
+              },
+              "airport": {
+                "airportCode": "PUQ",
+                "airportName": "Presidente Carlos Ibáñez del Campo International Airport",
+                "cityCode": "PUQ",
+                "cityName": "Punta Arenas"
+              },
+              "pickupLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-70.8431, -53.0059]
+                },
+                "address": {
+                  "streetAddress": "Arrivals Hall, Punta Arenas Airport",
+                  "addressLocality": "Punta Arenas",
+                  "addressRegion": "Magallanes",
+                  "postalCode": "6210427",
+                  "addressCountry": "CL"
+                }
+              },
+              "pickupInstructions": "Look for PatagoniaTransfers hosts at Arrivals Gate C with Patagonia-blue jackets. Vehicles depart from Bay 2.",
+              "dropoffCoverage": {
+                "cityLimits": "Punta Arenas city center and coastal hotel zone",
+                "serviceRadiusKm": 25,
+                "postalCodes": [
+                  "6200000",
+                  "6210427"
+                ],
+                "exclusions": [
+                  "Remote estancias outside city limits"
+                ]
+              },
+              "estimatedTravelTimeMinutes": 25,
+              "queueType": "Hybrid",
+              "averageWaitTimeMinutes": 8,
+              "surgePolicy": "Peak surcharge up to 15% during summer season (Dec-Feb).",
+              "fareModel": {
+                "modelType": "FlatRate",
+                "baseFareAmount": 25,
+                "baseFareIncludesTolls": true,
+                "nightSurchargePercent": 20,
+                "includedDistanceKm": 30,
+                "notes": "Includes mountain weather briefing and bottled water."
+              },
+              "tollPolicy": "Airport fees and municipal tolls included.",
+              "meetAndGreetIncluded": true,
+              "additionalServices": [
+                "GearAssistance",
+                "WeatherBriefing"
+              ],
+              "accessibilityFeatures": [
+                "ChildSeatOnRequest"
+              ],
+              "driverLanguageSupport": [
+                "Spanish",
+                "English"
+              ],
+              "driverVerification": {
+                "backgroundCheck": true,
+                "uniformRequired": true,
+                "idDisplayed": true,
+                "trainingNotes": "Drivers trained in wilderness safety and expedition logistics."
+              },
+              "fleetInformation": {
+                "averageVehicleAgeYears": 3,
+                "fuelType": [
+                  "Diesel"
+                ],
+                "maintenanceStandards": "Biweekly inspections and winterization checks."
+              },
+              "operatingHours": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startTime": "00:00:00",
+                  "schema:endTime": "23:59:00"
+                }
+              ],
+              "helplineContact": {
+                "phone": "+56-61-555-400",
+                "email": "support@patagoniatransfers.example.com",
+                "availability": "24x7"
+              },
+              "safetyMeasures": [
+                "GPSTracking",
+                "PanicButton",
+                "SnowChains"
+              ],
+              "complianceCertifications": [
+                "SERNATUR Licensed Operator"
+              ],
+              "waitAndChargePolicy": "15-minute grace; CLP 6,000 per additional 15 minutes.",
+              "cancellationPolicy": "Full refund if cancelled ≥12h; 50% charge within 12h; no-show charged fully.",
+              "digitalPaymentOptions": [
+                "UPI",
+                "CreditCard",
+                "Wallet"
+              ],
+              "cashAccepted": true,
+              "notes": "Option to pre-arrange Torres del Paine transfer upgrade."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "patagoniatransfer-puq-city-flatfare",
+            "beckn:provider": "patagoniatransfers-puq",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Punta Arenas Airport Sedan — Flat Fare",
+              "beckn:shortDesc": "Flat fare with mountain briefing and gear assistance"
+            },
+            "beckn:items": [
+              "patagoniatransfer-puq-city-pickup"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 25.00,
+              "applicableQuantity": {
+                "unitText": "Per Trip",
+                "unitCode": "C62",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet",
+              "Cash"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

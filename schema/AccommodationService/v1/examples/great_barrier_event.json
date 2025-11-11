@@ -1,0 +1,223 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:hospitality:accommodation:*",
+        "timestamp": "2025-02-12T12:35:00Z",
+        "transaction_id": "42f92f0c-4bef-4a0b-97c5-e4b7f3ff6b2a",
+        "message_id": "589cbd18-1866-4c25-9dc1-77ff6b26790c",
+        "bpp_id": "stayhub.australia.example.com",
+        "bpp_uri": "https://stayhub.australia.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-accommodation-australia-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "StayHub — Cairns Marina Collection",
+                    "beckn:shortDesc": "Oceanfront hotels for Great Barrier Reef explorers",
+                    "beckn:longDesc": "StayHub Cairns curates marina-side hotels offering reef excursion desks, dive gear storage, and scenic lagoon views."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2024-03-01T00:00:00Z",
+                    "schema:endDate": "2024-09-30T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-shangrila-marina-deluxe",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Shangri-La The Marina — Deluxe Lagoon View Room",
+                            "beckn:shortDesc": "Lagoon-view room with reef excursion concierge",
+                            "beckn:longDesc": "Shangri-La The Marina provides deluxe lagoon rooms with daily breakfast, reef concierge services, and lagoon pool access in Cairns."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        145.7700,
+                                        -16.9186
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Pierpoint Road, Cairns City",
+                                    "addressLocality": "Cairns",
+                                    "addressRegion": "Queensland",
+                                    "postalCode": "4870",
+                                    "addressCountry": "AU"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T12:00:00Z",
+                                "schema:endDate": "2024-09-30T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.6,
+                            "beckn:ratingCount": 412
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-shangrila-marina",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Shangri-La Hotel, The Marina"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Resort",
+                            "roomType": "Deluxe Lagoon View Room",
+                            "roomCategory": "Premium",
+                            "inventoryCode": "DLX-LAGOON-CNS",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 38,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Lagoon View",
+                            "level": "7",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "11:00:00",
+                            "checkInWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "12:00:00",
+                                "schema:endTime": "23:00:00"
+                            },
+                            "checkOutWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "06:00:00",
+                                "schema:endTime": "11:00:00"
+                            },
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 10,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        145.7700,
+                                        -16.9186
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Pierpoint Road, Cairns",
+                                    "addressLocality": "Cairns",
+                                    "addressRegion": "Queensland",
+                                    "postalCode": "4870",
+                                    "addressCountry": "AU"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Pool",
+                                "Spa",
+                                "Reef Concierge"
+                            ],
+                            "highlightedInclusions": [
+                                "Daily gourmet breakfast",
+                                "Reef briefing & booking assistance"
+                            ],
+                            "mealPlans": [
+                                "BedAndBreakfast"
+                            ],
+                            "accessibilityFeatures": [
+                                "Accessible rooms",
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children under 12 stay complimentary sharing existing bedding.",
+                            "petPolicy": "Pets not permitted; service animals allowed with documentation.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Flexible",
+                                "deadlineHoursBeforeCheckIn": 48,
+                                "penaltyDescription": "One night charge within 48h of arrival or no-show."
+                            },
+                            "guaranteePolicy": "Credit card guarantee required; charged on departure.",
+                            "houseRules": [
+                                "Quiet hours 22:00-07:00",
+                                "Reef tours depart from lobby at 07:30"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Quality Tourism Framework (QTF)"
+                            ],
+                            "languagesSpoken": [
+                                "English",
+                                "Mandarin"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes lagoon pool and fitness centre access; reef gear storage available."
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-shangrila-deluxe-bnb",
+                        "beckn:provider": "stayhub-shangrila-marina",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Deluxe Lagoon View — Bed & Breakfast",
+                            "beckn:shortDesc": "Breakfast plan with reef concierge and lagoon amenities"
+                        },
+                        "beckn:items": [
+                            "stayhub-shangrila-marina-deluxe"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 280.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard",
+                            "NetBanking"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+

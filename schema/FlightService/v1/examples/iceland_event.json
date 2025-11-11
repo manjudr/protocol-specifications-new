@@ -1,0 +1,223 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:travel:flights:*",
+        "timestamp": "2025-02-12T13:30:00Z",
+        "transaction_id": "59f3526a-0b86-4763-b662-7c2c3a64ad08",
+        "message_id": "b06afcaf-660a-4b5d-8868-f2dc6a8dd4a4",
+        "bpp_id": "auroraair.example.com",
+        "bpp_uri": "https://auroraair.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-flight-iceland-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "AuroraAir — Northern Lights Connect",
+                    "beckn:shortDesc": "Overnight flights linking New York and Reykjavik",
+                    "beckn:longDesc": "AuroraAir partners with Icelandair to bring travellers from JFK to Reykjavik with nighttime schedules ideal for Northern Lights viewing itineraries."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2024-09-01T00:00:00Z",
+                    "schema:endDate": "2025-03-31T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "auroraair-fi620-jfk-kef-economy",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Icelandair FI620 — JFK ➜ KEF (Economy)",
+                            "beckn:shortDesc": "Overnight connection to Reykjavik for aurora chasers",
+                            "beckn:longDesc": "Icelandair FI620 flies overnight from JFK to Keflavík, providing aurora-themed amenities and generous carry-on allowances for winter gear."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "flight-service",
+                            "schema:name": "Flight Service"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.4,
+                            "beckn:ratingCount": 265
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "auroraair-iceland",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "AuroraAir Iceland Desk"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/FlightService/v1/context.jsonld",
+                            "@type": "FlightService",
+                            "carrierCode": "FI",
+                            "carrierName": "Icelandair",
+                            "marketingFlightNumber": "620",
+                            "operatingCarrierCode": "FI",
+                            "operatingCarrierName": "Icelandair",
+                            "operatingFlightNumber": "620",
+                            "flightDesignator": "FI620",
+                            "codeshare": false,
+                            "origin": {
+                                "airportCode": "JFK",
+                                "airportName": "John F. Kennedy International Airport",
+                                "cityCode": "NYC",
+                                "cityName": "New York",
+                                "terminal": "7",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -73.7781,
+                                            40.6413
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Terminal 7, JFK International Airport",
+                                        "addressLocality": "Queens",
+                                        "addressRegion": "NY",
+                                        "postalCode": "11430",
+                                        "addressCountry": "US"
+                                    }
+                                }
+                            },
+                            "destination": {
+                                "airportCode": "KEF",
+                                "airportName": "Keflavík International Airport",
+                                "cityCode": "KEF",
+                                "cityName": "Reykjavik",
+                                "terminal": "Main",
+                                "location": {
+                                    "geo": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            -22.6056,
+                                            63.9850
+                                        ]
+                                    },
+                                    "address": {
+                                        "streetAddress": "Blikavöllur, 235 Keflavík",
+                                        "addressLocality": "Reykjanesbær",
+                                        "addressRegion": "Southern Peninsula",
+                                        "postalCode": "235",
+                                        "addressCountry": "IS"
+                                    }
+                                }
+                            },
+                            "departureDate": "2024-10-15",
+                            "departureTime": "2024-10-15T21:30:00-04:00",
+                            "arrivalDate": "2024-10-16",
+                            "arrivalTime": "2024-10-16T06:45:00+00:00",
+                            "durationMinutes": 555,
+                            "cabinsOffered": [
+                                "Economy",
+                                "Business"
+                            ],
+                            "cabinClass": "Economy",
+                            "fareFamily": "Aurora",
+                            "fareBasisCode": "YNL45",
+                            "bookingClass": "Y",
+                            "availableSeats": 50,
+                            "seatPitchInches": 31,
+                            "seatWidthInches": 17.2,
+                            "amenities": [
+                                "In-flight entertainment",
+                                "Aurora-themed lighting",
+                                "Icelandic cuisine sampler"
+                            ],
+                            "mealService": "Meal",
+                            "specialServiceOffers": [
+                                "AVML",
+                                "GFML",
+                                "WCHR"
+                            ],
+                            "baggageAllowance": {
+                                "cabinBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 8,
+                                        "dimensionsCm": "55x35x25"
+                                    }
+                                ],
+                                "checkedBaggage": [
+                                    {
+                                        "pieces": 1,
+                                        "weightKg": 23,
+                                        "dimensionLinearCm": 158
+                                    }
+                                ],
+                                "notes": "Additional 5kg allowance for winter clothing when booked with Aurora bundles."
+                            },
+                            "changePolicy": "Changes allowed up to 24h before departure with USD 180 fee plus fare difference.",
+                            "refundPolicy": "Refundable with USD 200 fee prior to departure; non-refundable after departure.",
+                            "disruptionPolicy": "Rebooking on Icelandair/partner services; hotel provided for delays >6h.",
+                            "aircraft": {
+                                "equipmentCode": "752",
+                                "equipmentName": "Boeing 757-200",
+                                "manufacturer": "Boeing",
+                                "wifiOnboard": true,
+                                "seatConfiguration": "3-3 in Economy"
+                            },
+                            "flightStatus": "Scheduled",
+                            "statusLastUpdated": "2025-02-12T13:25:00Z",
+                            "operationalNotes": "Arrives early morning to align with Reykjavik check-ins and Golden Circle departures.",
+                            "marketingMessages": [
+                                "Complimentary Northern Lights guide included",
+                                "Earn bonus Saga Club points during aurora season"
+                            ]
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "auroraair-fi620-aurora-fare",
+                        "beckn:provider": "auroraair-iceland",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "FI620 Aurora Fare",
+                            "beckn:shortDesc": "Flexible fare with winter gear allowance and aurora kit"
+                        },
+                        "beckn:items": [
+                            "auroraair-fi620-jfk-kef-economy"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 850.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Passenger",
+                                "unitCode": "E52",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-09-01T00:00:00Z",
+                            "schema:endDate": "2025-03-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard",
+                            "NetBanking"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,178 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:retail:accessories:*",
+    "timestamp": "2025-02-12T13:45:00Z",
+    "transaction_id": "8a3a4fc1-7f2b-4ca3-9fa6-8ce5130ad6e9",
+    "message_id": "6b2f2ff4-4795-4907-b80d-2a8df30a8e32",
+    "bpp_id": "auroragear.example.com",
+    "bpp_uri": "https://auroragear.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-accessories-iceland-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "AuroraGear — Iceland Adventure Pack",
+          "beckn:shortDesc": "Photography kits and cold-weather essentials for aurora seekers",
+          "beckn:longDesc": "AuroraGear provides Northern Lights photography kits, weather gear, and thermal layers tailored to Iceland adventures."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-09-01T00:00:00Z",
+          "schema:endDate": "2025-03-31T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "auroragear-northern-lights-kit",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Canon AuroraCapture Photography Kit",
+              "beckn:shortDesc": "Camera kit optimized for Northern Lights",
+              "beckn:longDesc": "Capture the aurora borealis with Canon’s AuroraCapture kit featuring wide-angle lens, sturdy tripod, and remote shutter."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-photography",
+              "schema:name": "Photography Accessories"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.8,
+              "beckn:ratingCount": 198
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "auroragear-reykjavik",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "AuroraGear Reykjavik"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Camera",
+              "brand": "Canon",
+              "modelNumber": "AuroraCapture-5D",
+              "compatibility": [
+                "Northern Lights Hunt",
+                "Glacier Hiking Tour"
+              ],
+              "materials": [
+                "Magnesium Alloy",
+                "Carbon Fiber Tripod"
+              ],
+              "colorOptions": [
+                "Midnight Black"
+              ],
+              "dimensions": {
+                "notes": "Camera body + lens length 150 mm; tripod folded length 45 cm."
+              },
+              "weightGrams": 1200,
+              "capacity": "ISO 102400 capture, 24MP stills, 4K video",
+              "keyFeatures": [
+                "Wide-angle f/2.8 lens",
+                "Remote shutter release",
+                "Weather-sealed body",
+                "Extra batteries included"
+              ],
+              "usageScenarios": [
+                "Northern Lights Hunt",
+                "Golden Circle Tour"
+              ],
+              "includedItems": [
+                "DSLR body",
+                "Wide-angle lens",
+                "Tripod",
+                "Remote shutter",
+                "Extra batteries",
+                "Carrying case"
+              ],
+              "warranty": {
+                "durationMonths": 24,
+                "coverage": "Manufacturer defects",
+                "serviceChannels": [
+                  "Walk-in",
+                  "Mail-in"
+                ]
+              },
+              "careInstructions": [
+                "Use desiccant packs after outdoor use",
+                "Avoid battery swaps in heavy moisture",
+                "Store at room temperature"
+              ],
+              "safetyInformation": [
+                "Do not aim at sun or bright lights",
+                "Keep batteries warm during field use"
+              ],
+              "certifications": [
+                "CE",
+                "RoHS"
+              ],
+              "sustainabilityNotes": "Protective case made of recycled plastics; paperless manuals.",
+              "lifecycle": {
+                "launchDate": "2024-09-15",
+                "supportNotes": "Firmware updates via AuroraGear service centers."
+              },
+              "crossSellSuggestions": [
+                "auroragear-thermal-base-layer",
+                "auroragear-icelandic-weather-gear"
+              ],
+              "returnPolicyNotes": "14-day return window if shutter count under 200.",
+              "additionalNotes": "Recommended for AuroraTransfers clients on Northern Lights hunts."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "auroragear-northern-lights-kit-offer",
+            "beckn:provider": "auroragear-reykjavik",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "AuroraCapture Kit — Night Photography Bundle",
+              "beckn:shortDesc": "Bundle includes orientation session and lens heater"
+            },
+            "beckn:items": [
+              "auroragear-northern-lights-kit"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 420.00,
+              "applicableQuantity": {
+                "unitText": "Per Kit",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-09-01T00:00:00Z",
+              "schema:endDate": "2025-03-31T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

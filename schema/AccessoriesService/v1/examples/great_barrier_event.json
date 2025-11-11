@@ -1,0 +1,177 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:retail:accessories:*",
+    "timestamp": "2025-02-12T12:45:00Z",
+    "transaction_id": "e0e29fb1-08dd-4b34-9f51-3e61b7f0f89c",
+    "message_id": "c9d0d89d-8ccc-4d02-8d5b-9d69f2c0fb8f",
+    "bpp_id": "reefgear.example.com",
+    "bpp_uri": "https://reefgear.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-accessories-australia-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "ReefGear — Marine Adventure Kits",
+          "beckn:shortDesc": "Waterproof optics and reef-safe gear for Great Barrier Reef",
+          "beckn:longDesc": "ReefGear supplies marine-friendly accessories including underwater camera kits, reef-safe sunscreen, and tropical clothing for ocean adventures."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "reefgear-underwater-camera-kit",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Olympus MarinePro Underwater Camera Kit",
+              "beckn:shortDesc": "Waterproof camera system for reef photography",
+              "beckn:longDesc": "Capture coral reefs and marine life with the Olympus MarinePro kit featuring waterproof housing, underwater flash, and accessories."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-water",
+              "schema:name": "Water Sports Accessories"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.7,
+              "beckn:ratingCount": 276
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "reefgear-cairns",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "ReefGear Cairns Outlet"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Camera",
+              "brand": "Olympus",
+              "modelNumber": "MarinePro-280",
+              "compatibility": [
+                "Great Barrier Reef Snorkeling",
+                "Scuba diving up to 30m"
+              ],
+              "materials": [
+                "Polycarbonate Housing",
+                "Optical Glass"
+              ],
+              "colorOptions": [
+                "Ocean Blue"
+              ],
+              "dimensions": {
+                "notes": "Camera body 113x66x42 mm; housing adds 30 mm depth."
+              },
+              "weightGrams": 600,
+              "capacity": "4K video, 12MP stills with underwater mode",
+              "keyFeatures": [
+                "Waterproof to 30m",
+                "Underwater white balance presets",
+                "Floating wrist strap",
+                "Quick-release mount"
+              ],
+              "usageScenarios": [
+                "Great Barrier Reef Snorkeling",
+                "Daintree Rainforest Walk"
+              ],
+              "includedItems": [
+                "Waterproof housing",
+                "Underwater flash",
+                "32GB memory card",
+                "Floating strap",
+                "Protective case"
+              ],
+              "warranty": {
+                "durationMonths": 24,
+                "coverage": "Manufacturing defects and housing seal integrity",
+                "serviceChannels": [
+                  "Walk-in",
+                  "Mail-in"
+                ]
+              },
+              "careInstructions": [
+                "Rinse housing with fresh water after use",
+                "Dry thoroughly before storage",
+                "Check O-rings before each dive"
+              ],
+              "safetyInformation": [
+                "Do not open housing while wet",
+                "Avoid direct sun exposure when sealed"
+              ],
+              "certifications": [
+                "CE",
+                "RoHS"
+              ],
+              "sustainabilityNotes": "Shipping materials made from recycled plastics; instructions digital-only.",
+              "lifecycle": {
+                "launchDate": "2024-02-15",
+                "supportNotes": "Firmware updates and seal replacements available via ReefGear service."
+              },
+              "crossSellSuggestions": [
+                "reefgear-waterproof-dry-bag",
+                "reefgear-reef-safe-sunscreen"
+              ],
+              "returnPolicyNotes": "30-day returns accepted if housing seal unused.",
+              "additionalNotes": "Recommended for ReefTransfers guests heading to Green Island."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "reefgear-underwater-camera-kit-offer",
+            "beckn:provider": "reefgear-cairns",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "MarinePro Underwater Camera Kit — Reef Bundle",
+              "beckn:shortDesc": "Includes extra battery pack and quick orientation at pickup"
+            },
+            "beckn:items": [
+              "reefgear-underwater-camera-kit"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 280.00,
+              "applicableQuantity": {
+                "unitText": "Per Kit",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

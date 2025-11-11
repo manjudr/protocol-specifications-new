@@ -1,0 +1,225 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:hospitality:accommodation:*",
+        "timestamp": "2025-02-12T12:05:00Z",
+        "transaction_id": "4e5b1c77-4115-4ad3-a50c-27d87a81fcca",
+        "message_id": "3bb1cc4f-6d8c-42ad-8c2b-bf13f89fe5c0",
+        "bpp_id": "stayhub.peru.example.com",
+        "bpp_uri": "https://stayhub.peru.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-accommodation-peru-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "StayHub — Sacred Valley Boutique Stays",
+                    "beckn:shortDesc": "Altitude-adjusted luxury lodging for Machu Picchu travellers",
+                    "beckn:longDesc": "StayHub Sacred Valley curates historic hotels and eco-lodges in Cusco and Aguas Calientes with acclimatization support and Inca-inspired hospitality."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2024-03-01T00:00:00Z",
+                    "schema:endDate": "2024-09-30T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-monasterio-deluxe-room",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Belmond Hotel Monasterio — Deluxe Oxygenated Room",
+                            "beckn:shortDesc": "Historic monastery hotel room with altitude assistance",
+                            "beckn:longDesc": "Belmond Hotel Monasterio offers deluxe rooms with supplemental oxygen, gourmet dining, and cultural programming in the heart of Cusco."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -71.9750,
+                                        -13.5153
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Plazoleta Nazarenas 337",
+                                    "addressLocality": "Cusco",
+                                    "addressRegion": "Cusco",
+                                    "postalCode": "08002",
+                                    "addressCountry": "PE"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T12:00:00Z",
+                                "schema:endDate": "2024-09-30T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.8,
+                            "beckn:ratingCount": 542
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "PROMPERÚ Network",
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-monasterio",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Belmond Hotel Monasterio"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Hotel",
+                            "roomType": "Deluxe Oxygenated Room",
+                            "roomCategory": "Luxury",
+                            "inventoryCode": "DLX-OXY-CUSCO",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 40,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Courtyard View",
+                            "level": "3",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "12:00:00",
+                            "checkInWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "12:00:00",
+                                "schema:endTime": "23:00:00"
+                            },
+                            "checkOutWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "06:00:00",
+                                "schema:endTime": "12:00:00"
+                            },
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 7,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -71.9750,
+                                        -13.5153
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Plazoleta Nazarenas 337",
+                                    "addressLocality": "Cusco",
+                                    "addressRegion": "Cusco",
+                                    "postalCode": "08002",
+                                    "addressCountry": "PE"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Spa",
+                                "Oxygen Lounge",
+                                "Cultural Evenings"
+                            ],
+                            "highlightedInclusions": [
+                                "Oxygen-enriched room",
+                                "Daily gourmet breakfast",
+                                "Guided monastery tour"
+                            ],
+                            "mealPlans": [
+                                "BedAndBreakfast"
+                            ],
+                            "accessibilityFeatures": [
+                                "Elevator access",
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children under 12 stay complimentary with existing bedding.",
+                            "petPolicy": "Service animals permitted with prior notice.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Moderate",
+                                "deadlineHoursBeforeCheckIn": 72,
+                                "penaltyDescription": "One night charge within 72h of arrival or no-show."
+                            },
+                            "guaranteePolicy": "First night deposit required; balance collected at check-in.",
+                            "houseRules": [
+                                "Quiet hours 22:00-06:00",
+                                "Altitude check recommended on arrival"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Rainforest Alliance Certified"
+                            ],
+                            "languagesSpoken": [
+                                "Spanish",
+                                "English"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Supplemental oxygen available 24/7; acclimatization tea on arrival."
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-monasterio-dlx-oxygen",
+                        "beckn:provider": "stayhub-monasterio",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Deluxe Oxygenated Room — B&B Plan",
+                            "beckn:shortDesc": "Bed & breakfast with acclimatization amenities and cultural programming"
+                        },
+                        "beckn:items": [
+                            "stayhub-monasterio-deluxe-room"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 450.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard",
+                            "NetBanking"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+

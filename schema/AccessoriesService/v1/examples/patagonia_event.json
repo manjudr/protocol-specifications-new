@@ -1,0 +1,174 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:retail:accessories:*",
+    "timestamp": "2025-02-12T13:15:00Z",
+    "transaction_id": "a1cd1de5-90ac-437b-9ea3-4cb6d2c0b152",
+    "message_id": "af8ed308-e712-4512-8714-0d8da36f9a05",
+    "bpp_id": "patagoniagear.example.com",
+    "bpp_uri": "https://patagoniagear.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-accessories-patagonia-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "PatagoniaGear — Wilderness Essentials",
+          "beckn:shortDesc": "Expedition-grade footwear and cold-weather gear",
+          "beckn:longDesc": "PatagoniaGear equips trekkers with extreme weather boots, cold weather systems, and wildlife camera kits for Torres del Paine expeditions."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "patagoniagear-extreme-boots",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Lowa Extreme Weather Hiking Boots",
+              "beckn:shortDesc": "Heavy-duty hiking boots for Patagonian terrain",
+              "beckn:longDesc": "Lowa’s Extreme Weather boots offer insulated, waterproof protection with Vibram soles for Torres del Paine treks."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-trekking",
+              "schema:name": "Trekking Accessories"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.6,
+              "beckn:ratingCount": 224
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "ONDC",
+              "Beckn Global Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "patagoniagear-outlet",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "PatagoniaGear Outlet"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Footwear",
+              "brand": "Lowa",
+              "modelNumber": "EXTREME-PTG",
+              "compatibility": [
+                "Torres del Paine treks",
+                "Snow and ice conditions"
+              ],
+              "materials": [
+                "Leather",
+                "Gore-Tex",
+                "Vibram"
+              ],
+              "colorOptions": [
+                "Slate Grey"
+              ],
+              "dimensions": {
+                "notes": "Available sizes EU 38-46 (unisex); includes half sizes."
+              },
+              "weightGrams": 1400,
+              "capacity": "Rated for -20°C treks with 20kg pack weight",
+              "keyFeatures": [
+                "Waterproof & insulated",
+                "Vibram traction sole",
+                "Ankle support",
+                "Snow gaiter compatible"
+              ],
+              "usageScenarios": [
+                "Torres del Paine Base Trek",
+                "Glacier Grey Boat Tour"
+              ],
+              "includedItems": [
+                "Extra laces",
+                "Boot care kit"
+              ],
+              "warranty": {
+                "durationMonths": 24,
+                "coverage": "Manufacturing defects and sole delamination",
+                "serviceChannels": [
+                  "Walk-in"
+                ]
+              },
+              "careInstructions": [
+                "Air dry away from direct heat",
+                "Apply waterproofing spray after each trek",
+                "Store with boot trees"
+              ],
+              "safetyInformation": [
+                "Break in boots before expedition",
+                "Use with compatible hiking socks"
+              ],
+              "certifications": [
+                "CE"
+              ],
+              "sustainabilityNotes": "Leather sourced from LWG-certified suppliers; recyclable packaging.",
+              "lifecycle": {
+                "launchDate": "2024-02-20",
+                "supportNotes": "Resoling services available through PatagoniaGear partners."
+              },
+              "crossSellSuggestions": [
+                "patagoniagear-cold-weather-system",
+                "patagoniagear-windproof-accessories"
+              ],
+              "returnPolicyNotes": "Returns accepted within 30 days if unused outdoors.",
+              "additionalNotes": "Recommended by PatagoniaTransfers guides for summer season treks."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "patagoniagear-extreme-boots-offer",
+            "beckn:provider": "patagoniagear-outlet",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Extreme Weather Boots — Trek Bundle",
+              "beckn:shortDesc": "Includes boot care kit and fittings by PatagoniaGear staff"
+            },
+            "beckn:items": [
+              "patagoniagear-extreme-boots"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 320.00,
+              "applicableQuantity": {
+                "unitText": "Per Pair",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

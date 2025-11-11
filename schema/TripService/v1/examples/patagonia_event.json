@@ -1,0 +1,312 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:travel:trips:*",
+    "timestamp": "2025-02-12T13:20:00Z",
+    "transaction_id": "c31f35ac-5af6-4a20-8f89-c25e4a4cb2bc",
+    "message_id": "04cd4c6c-9465-4f1c-8d41-a2b001cd45fe",
+    "bpp_id": "andesfrontiers.example.com",
+    "bpp_uri": "https://andesfrontiers.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-trip-patagonia-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "AndesFrontiers — Patagonia Wilderness",
+          "beckn:shortDesc": "Nine-day Patagonia trek and wildlife expedition",
+          "beckn:longDesc": "AndesFrontiers’ Patagonia Wilderness program blends Torres del Paine trekking, Glacier Grey exploration, and estancia cultural experiences over nine days."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2024-03-01T00:00:00Z",
+          "schema:endDate": "2024-09-30T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "andesfrontiers-patagonia-9d",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Patagonia Wilderness — 9 Days",
+              "beckn:shortDesc": "Trekking and wildlife safari across Torres del Paine",
+              "beckn:longDesc": "Traverse Patagonia with guided treks, glacier boat tours, and estancia experiences supported by expedition-grade logistics."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "multi-day-trip",
+              "schema:name": "Trip / Tour Package"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.8,
+              "beckn:ratingCount": 172
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Beckn Global Network",
+              "ONDC"
+            ],
+            "beckn:provider": {
+              "beckn:id": "andesfrontiers-expeditions",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "AndesFrontiers Expeditions"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/TripService/v1/context.jsonld",
+              "@type": "TripService",
+              "tripType": "GuidedGroup",
+              "theme": [
+                "Nature",
+                "Adventure"
+              ],
+              "durationDays": 9,
+              "durationNights": 8,
+              "startDateFlexible": false,
+              "departureWindows": [
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2024-11-02T00:00:00Z",
+                  "schema:endDate": "2024-11-10T00:00:00Z"
+                },
+                {
+                  "@type": "beckn:TimePeriod",
+                  "schema:startDate": "2025-01-18T00:00:00Z",
+                  "schema:endDate": "2025-01-26T00:00:00Z"
+                }
+              ],
+              "startLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-70.8431, -53.0059]
+                },
+                "address": {
+                  "streetAddress": "Presidente Ibáñez Airport Arrivals",
+                  "addressLocality": "Punta Arenas",
+                  "addressRegion": "Magallanes",
+                  "postalCode": "6210427",
+                  "addressCountry": "CL"
+                }
+              },
+              "endLocation": {
+                "geo": {
+                  "type": "Point",
+                  "coordinates": [-70.8431, -53.0059]
+                },
+                "address": {
+                  "streetAddress": "Presidente Ibáñez Airport Departures",
+                  "addressLocality": "Punta Arenas",
+                  "addressRegion": "Magallanes",
+                  "postalCode": "6210427",
+                  "addressCountry": "CL"
+                }
+              },
+              "regionsCovered": [
+                "CL-Magallanes"
+              ],
+              "highlights": [
+                "Torres del Paine base trek",
+                "Glacier Grey boat tour",
+                "Puma wildlife safari",
+                "Patagonian estancia experience"
+              ],
+              "itinerary": [
+                {
+                  "day": 1,
+                  "title": "Arrive Punta Arenas & City Orientation",
+                  "description": "Airport pickup, gear check, and Strait of Magellan viewpoint.",
+                  "activities": [
+                    {
+                      "name": "City Orientation & Mirador Visit",
+                      "activityType": "Cultural",
+                      "startTime": "16:00:00",
+                      "endTime": "19:00:00",
+                      "included": true
+                    }
+                  ]
+                },
+                {
+                  "day": 3,
+                  "title": "Torres del Paine Base Trek",
+                  "description": "Full-day trek to the iconic granite towers.",
+                  "activities": [
+                    {
+                      "name": "Torres del Paine Base Trek",
+                      "activityType": "Trekking",
+                      "startTime": "07:00:00",
+                      "endTime": "18:00:00",
+                      "included": true
+                    }
+                  ]
+                },
+                {
+                  "day": 5,
+                  "title": "Glacier Grey & Puma Safari",
+                  "description": "Morning Glacier Grey boat tour followed by afternoon puma tracking.",
+                  "activities": [
+                    {
+                      "name": "Glacier Grey Boat Tour",
+                      "activityType": "Nature",
+                      "startTime": "09:00:00",
+                      "endTime": "12:00:00",
+                      "included": true
+                    },
+                    {
+                      "name": "Puma Wildlife Safari",
+                      "activityType": "Wildlife",
+                      "startTime": "16:00:00",
+                      "endTime": "19:30:00",
+                      "included": true
+                    }
+                  ]
+                }
+              ],
+              "inclusions": [
+                "Round-trip flights JFK⇄PUQ",
+                "Airport transfers and park transport",
+                "2 nights Punta Arenas hotel + 6 nights lodge stays",
+                "All breakfasts, 6 lunches, 5 dinners",
+                "Expert trekking guides and wildlife trackers"
+              ],
+              "exclusions": [
+                "International travel insurance",
+                "Park entry fees (payable on arrival)",
+                "Optional horseback riding or kayaking extensions"
+              ],
+              "difficultyLevel": "Challenging",
+              "activityPace": "Active",
+              "fitnessRequirements": "Ability to hike 15 km with elevation gain; exposure to high winds and cold.",
+              "ageRestriction": {
+                "minimumAge": 16,
+                "notes": "Under 18 requires guardian and medical fitness clearance."
+              },
+              "groupConfiguration": {
+                "minimumGroupSize": 6,
+                "maximumGroupSize": 12,
+                "singleSupplementAvailable": true,
+                "sharedRooming": true,
+                "childPolicy": "Participants under 18 share with guardian in hotels/lodges."
+              },
+              "sustainabilityPractices": [
+                "Leave No Trace compliance",
+                "Partnership with local estancias",
+                "Carbon offset contributions"
+              ],
+              "responsibleTravelNotes": "Stay on marked trails; respect wildlife-viewing distances.",
+              "requiredDocuments": [
+                "Passport valid 6 months",
+                "Chile tourist card",
+                "Travel insurance proof"
+              ],
+              "travelInsuranceRequired": true,
+              "visaAssistanceIncluded": false,
+              "safetyProtocols": [
+                "24x7 expedition helpline",
+                "Guides trained in wilderness first-aid",
+                "Satellite communication for remote segments"
+              ],
+              "covidPolicy": "Comply with Chilean health regulations; masks provided for shared transport if mandated.",
+              "cancellationPolicy": {
+                "policyType": "Strict",
+                "timeline": [
+                  {
+                    "deadlineDaysBeforeDeparture": 60,
+                    "penaltyPercent": 20
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 30,
+                    "penaltyPercent": 50
+                  },
+                  {
+                    "deadlineDaysBeforeDeparture": 14,
+                    "penaltyPercent": 75
+                  }
+                ],
+                "notes": "No refund within 7 days due to lodge commitments."
+              },
+              "paymentSchedule": [
+                {
+                  "milestone": "Deposit",
+                  "amountPercent": 30,
+                  "dueOffsetDays": 90
+                },
+                {
+                  "milestone": "Interim",
+                  "amountPercent": 30,
+                  "dueOffsetDays": 45
+                },
+                {
+                  "milestone": "Balance",
+                  "amountPercent": 40,
+                  "dueOffsetDays": 20
+                }
+              ],
+              "loyaltyEligible": true,
+              "testimonials": [
+                {
+                  "reviewerName": "Lucia Morales",
+                  "quote": "The guides balanced adventure and safety perfectly—spectacular wildlife sightings!",
+                  "rating": 5
+                }
+              ],
+              "mediaGallery": [
+                {
+                  "mediaType": "Image",
+                  "url": "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800",
+                  "caption": "Torres del Paine at sunrise"
+                },
+              ],
+              "additionalNotes": "Ice hiking add-on available on request; limited slots."
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "andesfrontiers-patagonia-9d-smallgroup",
+            "beckn:provider": "andesfrontiers-expeditions",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Patagonia Wilderness — Small Group Expedition",
+              "beckn:shortDesc": "Small group departures with full expedition support"
+            },
+            "beckn:items": [
+              "andesfrontiers-patagonia-9d"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 2800.00,
+              "applicableQuantity": {
+                "unitText": "Per Traveller",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "NetBanking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+
