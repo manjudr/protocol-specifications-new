@@ -1,0 +1,225 @@
+{
+  "context": {
+    "version": "2.0.0",
+    "action": "catalog_publish",
+    "domain": "beckn.one:travel:flights:*",
+    "timestamp": "2025-02-12T09:25:10Z",
+    "transaction_id": "a21b32f7-7d8c-4d0d-bc4d-1c8c9a8cbd61",
+    "message_id": "5f4e8b94-57e7-4b41-9031-4ad8a84c91e4",
+    "bpp_id": "flightnet.example.com",
+    "bpp_uri": "https://flightnet.example.com",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "catalogs": [
+      {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Catalog",
+        "beckn:id": "catalog-flight-del-blr-001",
+        "beckn:descriptor": {
+          "@type": "beckn:Descriptor",
+          "schema:name": "FlightNet Premium Routes — DEL ⇄ BLR",
+          "beckn:shortDesc": "Daily business-class flights between Delhi and Bengaluru",
+          "beckn:longDesc": "FlightNet showcases premium business and premium economy fares for seamless travel between Delhi (DEL) and Bengaluru (BLR) with lounge access and priority services."
+        },
+        "beckn:validity": {
+          "@type": "beckn:TimePeriod",
+          "schema:startDate": "2025-03-01T00:00:00Z",
+          "schema:endDate": "2025-05-31T23:59:59Z"
+        },
+        "beckn:items": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "flightnet-uk8501-del-blr-biz",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "UK 8501 — DEL ➜ BLR Business Class",
+              "beckn:shortDesc": "Vistara-operated Boeing 787 with lie-flat business class",
+              "beckn:longDesc": "Premium business-class cabin on UK 8501 offering lie-flat seats, priority check-in, lounge access, and curated in-flight dining between Delhi and Bengaluru."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "flight-service",
+              "schema:name": "Flight Service"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.8,
+              "beckn:ratingCount": 612
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "bap.net/travel",
+              "bap.net/flights"
+            ],
+            "beckn:provider": {
+              "beckn:id": "flightnet-air-services",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "FlightNet Air Services"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/FlightService/v1/context.jsonld",
+              "@type": "FlightService",
+              "carrierCode": "UK",
+              "carrierName": "Vistara",
+              "marketingFlightNumber": "8501",
+              "operatingCarrierCode": "UK",
+              "operatingCarrierName": "Vistara",
+              "operatingFlightNumber": "8501",
+              "flightDesignator": "UK8501",
+              "codeshare": false,
+              "origin": {
+                "airportCode": "DEL",
+                "airportName": "Indira Gandhi International Airport",
+                "cityCode": "DEL",
+                "cityName": "New Delhi",
+                "terminal": "T3",
+                "gate": "B12",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      77.0996,
+                      28.5562
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "IGI Airport Terminal 3",
+                    "addressLocality": "New Delhi",
+                    "addressRegion": "Delhi",
+                    "postalCode": "110037",
+                    "addressCountry": "IN"
+                  }
+                }
+              },
+              "destination": {
+                "airportCode": "BLR",
+                "airportName": "Kempegowda International Airport",
+                "cityCode": "BLR",
+                "cityName": "Bengaluru",
+                "terminal": "T2",
+                "gate": "A08",
+                "location": {
+                  "geo": {
+                    "type": "Point",
+                    "coordinates": [
+                      77.7051,
+                      13.1989
+                    ]
+                  },
+                  "address": {
+                    "streetAddress": "Terminal 2, Kempegowda International Airport",
+                    "addressLocality": "Devanahalli",
+                    "addressRegion": "Karnataka",
+                    "postalCode": "560300",
+                    "addressCountry": "IN"
+                  }
+                }
+              },
+              "departureDate": "2025-03-15",
+              "departureTime": "2025-03-15T08:30:00+05:30",
+              "arrivalDate": "2025-03-15",
+              "arrivalTime": "2025-03-15T11:15:00+05:30",
+              "durationMinutes": 165,
+              "cabinsOffered": [
+                "PremiumEconomy",
+                "Business"
+              ],
+              "cabinClass": "Business",
+              "fareFamily": "Flex",
+              "fareBasisCode": "J2FLX",
+              "bookingClass": "J",
+              "availableSeats": 6,
+              "seatPitchInches": 78,
+              "seatWidthInches": 22,
+              "amenities": [
+                "Lie-flat seats",
+                "Wi-Fi",
+                "In-seat power",
+                "Lounge access"
+              ],
+              "mealService": "PremiumMeal",
+              "specialServiceOffers": [
+                "AVML",
+                "BLML",
+                "WCHR"
+              ],
+              "baggageAllowance": {
+                "cabinBaggage": [
+                  {
+                    "pieces": 2,
+                    "weightKg": 12,
+                    "dimensionsCm": "55x35x25"
+                  }
+                ],
+                "checkedBaggage": [
+                  {
+                    "pieces": 2,
+                    "weightKg": 32,
+                    "dimensionLinearCm": 158
+                  }
+                ],
+                "notes": "Additional 10kg sports equipment allowance on request."
+              },
+              "changePolicy": "Changes permitted up to 1h before departure with INR 3000 fee plus fare difference.",
+              "refundPolicy": "Refundable with INR 3500 cancellation fee before departure; no refund after departure.",
+              "disruptionPolicy": "Rebooking on next available flight; hotel accommodation provided for delays over 6 hours.",
+              "aircraft": {
+                "equipmentCode": "789",
+                "equipmentName": "Boeing 787-9 Dreamliner",
+                "manufacturer": "Boeing",
+                "wifiOnboard": true,
+                "seatConfiguration": "1-2-1 in Business"
+              },
+              "flightStatus": "Scheduled",
+              "statusLastUpdated": "2025-02-12T08:50:00Z",
+              "operationalNotes": "Seasonal schedule; premium services guaranteed until 31 May 2025.",
+              "marketingMessages": [
+                "Earn double Club Vistara points on this sector",
+                "Complimentary chauffeur service in Bengaluru"
+              ]
+            }
+          }
+        ],
+        "beckn:offers": [
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "flightnet-uk8501-bizflex",
+            "beckn:provider": "flightnet-air-services",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "UK 8501 Business Flex Fare",
+              "beckn:shortDesc": "Fully flexible business-class fare with lounge access"
+            },
+            "beckn:items": [
+              "flightnet-uk8501-del-blr-biz"
+            ],
+            "beckn:price": {
+              "currency": "INR",
+              "value": 38500.00,
+              "applicableQuantity": {
+                "unitText": "Per Passenger",
+                "unitCode": "E52",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2025-03-01T00:00:00Z",
+              "schema:endDate": "2025-05-31T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
