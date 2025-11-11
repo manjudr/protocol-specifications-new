@@ -180,6 +180,292 @@
                             "contactlessCheckInAvailable": true,
                             "notes": "Includes access to spa hot tubs; boot dryers available on request."
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-explora-patagonia-cordillera-room",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Explora Patagonia — Cordillera View Room",
+                            "beckn:shortDesc": "All-inclusive lodge room overlooking Salto Chico waterfall",
+                            "beckn:longDesc": "Explora Patagonia offers Cordillera view rooms with guided explorations, gourmet dining, and spa access inside Torres del Paine National Park."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.9892,
+                                        -51.0667
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Sector Salto Chico, Torres del Paine",
+                                    "addressLocality": "Torres del Paine",
+                                    "addressRegion": "Magallanes",
+                                    "postalCode": "6170000",
+                                    "addressCountry": "CL"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T15:00:00Z",
+                                "schema:endDate": "2024-09-30T11:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.8,
+                            "beckn:ratingCount": 284
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-explora-patagonia",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Explora Patagonia"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Lodge",
+                            "roomType": "Cordillera View Room",
+                            "roomCategory": "Luxury",
+                            "inventoryCode": "CORDILLERA-EXPLORA",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": false
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 42,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Cordillera Paine View",
+                            "level": "Upper",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "11:00:00",
+                            "stayMinimumNights": 3,
+                            "stayMaximumNights": 7,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.9892,
+                                        -51.0667
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Sector Salto Chico",
+                                    "addressLocality": "Torres del Paine",
+                                    "addressRegion": "Magallanes",
+                                    "postalCode": "6170000",
+                                    "addressCountry": "CL"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Spa",
+                                "Restaurant",
+                                "Guided Explorations",
+                                "Horseback Riding"
+                            ],
+                            "highlightedInclusions": [
+                                "All meals and premium beverages",
+                                "Daily guided explorations",
+                                "Return transfers from Punta Arenas"
+                            ],
+                            "mealPlans": [
+                                "AllInclusive"
+                            ],
+                            "accessibilityFeatures": [
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children 10+ welcome year-round; younger guests upon request in select seasons.",
+                            "petPolicy": "Pets not permitted inside the national park.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Strict",
+                                "deadlineHoursBeforeCheckIn": 168,
+                                "penaltyDescription": "50% penalty within 7 days; non-refundable within 72h."
+                            },
+                            "guaranteePolicy": "50% deposit required; balance due 30 days prior to arrival.",
+                            "houseRules": [
+                                "Quiet hours 22:30-06:00",
+                                "Explorations depart 08:30 daily"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Biosphere Certified"
+                            ],
+                            "languagesSpoken": [
+                                "Spanish",
+                                "English"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes guided excursions, gear, and hydrotherapy pool access."
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-ecocamp-patagonia-superior-dome",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "EcoCamp Patagonia — Superior Dome",
+                            "beckn:shortDesc": "Geodesic dome suite with panoramic skylight and eco-friendly amenities",
+                            "beckn:longDesc": "EcoCamp Patagonia's superior domes deliver cosy geodesic suites with skylights for stargazing, eco-friendly heating, and guided W-trek support."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.9965,
+                                        -51.0752
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Sector Torres, EcoCamp Patagonia",
+                                    "addressLocality": "Torres del Paine",
+                                    "addressRegion": "Magallanes",
+                                    "postalCode": "6170000",
+                                    "addressCountry": "CL"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T15:00:00Z",
+                                "schema:endDate": "2024-09-15T10:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.6,
+                            "beckn:ratingCount": 256
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "ONDC",
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-ecocamp-patagonia",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "EcoCamp Patagonia"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "EcoCamp",
+                            "roomType": "Superior Dome",
+                            "roomCategory": "Premium",
+                            "inventoryCode": "SUP-DOME-ECOCAMP",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "Queen",
+                                "Single"
+                            ],
+                            "roomSize": {
+                                "value": 28,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Paine Massif View",
+                            "level": "Ground",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "10:00:00",
+                            "stayMinimumNights": 3,
+                            "stayMaximumNights": 7,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.9965,
+                                        -51.0752
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Sector Torres",
+                                    "addressLocality": "Torres del Paine",
+                                    "addressRegion": "Magallanes",
+                                    "postalCode": "6170000",
+                                    "addressCountry": "CL"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Yoga Dome",
+                                "Community Dome",
+                                "Guided Trek Support"
+                            ],
+                            "highlightedInclusions": [
+                                "Half-board meals",
+                                "Daily guided excursions",
+                                "Eco-friendly heating"
+                            ],
+                            "mealPlans": [
+                                "HalfBoard"
+                            ],
+                            "accessibilityFeatures": [
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children over 10 welcome in domes; family domes available on request.",
+                            "petPolicy": "Pets not permitted within the park; service animals handled case-by-case.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Strict",
+                                "deadlineHoursBeforeCheckIn": 168,
+                                "penaltyDescription": "50% penalty within 7 days; non-refundable within 72h."
+                            },
+                            "guaranteePolicy": "40% deposit to confirm; balance due 30 days prior.",
+                            "houseRules": [
+                                "Quiet hours 22:00-06:00",
+                                "Headlamps required after dark"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Biosphere Responsible Tourism"
+                            ],
+                            "languagesSpoken": [
+                                "Spanish",
+                                "English"
+                            ],
+                            "contactlessCheckInAvailable": false,
+                            "notes": "Includes yoga sessions, gear drying room, and reusable water flasks."
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -209,6 +495,70 @@
                             "@type": "beckn:TimePeriod",
                             "schema:startDate": "2024-03-01T00:00:00Z",
                             "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-explora-patagonia-allinclusive",
+                        "beckn:provider": "stayhub-explora-patagonia",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Cordillera View Room — All Inclusive Exploration",
+                            "beckn:shortDesc": "All-inclusive stay with guided explorations and premium beverages"
+                        },
+                        "beckn:items": [
+                            "stayhub-explora-patagonia-cordillera-room"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 520.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-ecocamp-patagonia-halfboard",
+                        "beckn:provider": "stayhub-ecocamp-patagonia",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Superior Dome — Half Board Trek Package",
+                            "beckn:shortDesc": "Half-board dome stay with daily guided treks and yoga sessions"
+                        },
+                        "beckn:items": [
+                            "stayhub-ecocamp-patagonia-superior-dome"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 380.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-15T23:59:59Z"
                         },
                         "beckn:acceptedPaymentMethod": [
                             "UPI",

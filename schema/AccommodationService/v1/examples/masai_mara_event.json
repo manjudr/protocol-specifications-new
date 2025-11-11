@@ -180,6 +180,314 @@
                             "contactlessCheckInAvailable": true,
                             "notes": "Guests receive complimentary conservation briefing on arrival."
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-mara-serena-river-suite",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Mara Serena Safari Lodge — River Suite",
+                            "beckn:shortDesc": "River-facing suite with private deck and sweeping savannah views",
+                            "beckn:longDesc": "Mara Serena Safari Lodge provides air-conditioned river suites perched above the Mara River with private decks, all meals, and personalised game drive scheduling."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        35.1008,
+                                        -1.4744
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Mara Serena Safari Lodge",
+                                    "addressLocality": "Masai Mara National Reserve",
+                                    "addressRegion": "Narok County",
+                                    "postalCode": "20500",
+                                    "addressCountry": "KE"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T12:00:00Z",
+                                "schema:endDate": "2024-08-31T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.7,
+                            "beckn:ratingCount": 612
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Kenya Tourism Board Network",
+                            "Safari Connect Kenya"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-mara-serena",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Mara Serena Safari Lodge"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Lodge",
+                            "roomType": "River Suite",
+                            "roomCategory": "Luxury",
+                            "inventoryCode": "RIV-SUITE-MARA",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 2,
+                                "maxOccupancy": 4,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 52,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Mara River View",
+                            "level": "Cliffside",
+                            "checkInTime": "14:00:00",
+                            "checkOutTime": "11:00:00",
+                            "checkInWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "12:00:00",
+                                "schema:endTime": "20:00:00"
+                            },
+                            "checkOutWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "06:00:00",
+                                "schema:endTime": "11:00:00"
+                            },
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 8,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        35.1008,
+                                        -1.4744
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Masai Mara National Reserve",
+                                    "addressLocality": "Narok County",
+                                    "addressRegion": "Rift Valley",
+                                    "postalCode": "20500",
+                                    "addressCountry": "KE"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Pool",
+                                "Spa",
+                                "Private Deck"
+                            ],
+                            "highlightedInclusions": [
+                                "Full-board meals",
+                                "Daily game drives",
+                                "Sundowner experience"
+                            ],
+                            "mealPlans": [
+                                "FullBoard"
+                            ],
+                            "accessibilityFeatures": [
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children under 12 enjoy 50% discount when sharing with adults.",
+                            "petPolicy": "No pets allowed; service animals permitted on prior notice.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Moderate",
+                                "deadlineHoursBeforeCheckIn": 96,
+                                "penaltyDescription": "50% penalty within 96h; no refund within 48h."
+                            },
+                            "guaranteePolicy": "35% deposit at booking; balance due 21 days before arrival.",
+                            "houseRules": [
+                                "Quiet hours 22:00-06:00",
+                                "Children must be supervised on viewing decks"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Eco Tourism Kenya Gold"
+                            ],
+                            "languagesSpoken": [
+                                "English",
+                                "Swahili",
+                                "Maasai"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Private deck with panoramic river views; includes laundry turnaround within 24h."
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-mara-intrepids-family-tent",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Mara Intrepids Tented Camp — Family Tent Suite",
+                            "beckn:shortDesc": "Spacious family tent with adjoining lounge and kids bush program",
+                            "beckn:longDesc": "Mara Intrepids Tented Camp caters to families with expansive canvas suites, dedicated safari guides, and immersive junior ranger activities."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        35.1142,
+                                        -1.4032
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Mara Intrepids Tented Camp, Talek River",
+                                    "addressLocality": "Masai Mara National Reserve",
+                                    "addressRegion": "Narok County",
+                                    "postalCode": "20500",
+                                    "addressCountry": "KE"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T12:00:00Z",
+                                "schema:endDate": "2024-08-31T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.7,
+                            "beckn:ratingCount": 540
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Kenya Tourism Board Network",
+                            "Safari Connect Kenya"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-mara-intrepids",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Mara Intrepids Tented Camp"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Camp",
+                            "roomType": "Family Tent Suite",
+                            "roomCategory": "Premium",
+                            "inventoryCode": "FAM-SUITE-INTREPIDS",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 3,
+                                "maxOccupancy": 5,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King",
+                                "Twin"
+                            ],
+                            "roomSize": {
+                                "value": 60,
+                                "unit": "sqm"
+                            },
+                            "roomView": "River View",
+                            "level": "Ground",
+                            "checkInTime": "13:00:00",
+                            "checkOutTime": "10:30:00",
+                            "checkInWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "11:00:00",
+                                "schema:endTime": "19:00:00"
+                            },
+                            "checkOutWindow": {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startTime": "05:30:00",
+                                "schema:endTime": "10:30:00"
+                            },
+                            "stayMinimumNights": 3,
+                            "stayMaximumNights": 10,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        35.1142,
+                                        -1.4032
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Talek River, Masai Mara",
+                                    "addressLocality": "Narok County",
+                                    "addressRegion": "Rift Valley",
+                                    "postalCode": "20500",
+                                    "addressCountry": "KE"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Pool",
+                                "Kids Club",
+                                "Private Guide"
+                            ],
+                            "highlightedInclusions": [
+                                "All meals and selected beverages",
+                                "Dedicated family safari guide",
+                                "Junior ranger bush program"
+                            ],
+                            "mealPlans": [
+                                "FullBoard"
+                            ],
+                            "accessibilityFeatures": [
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Family tents include complimentary junior ranger program for guests aged 6-12.",
+                            "petPolicy": "No pets permitted in the reserve; service animals welcome with KWS clearance.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Strict",
+                                "deadlineHoursBeforeCheckIn": 168,
+                                "penaltyDescription": "50% penalty within 7 days; non-refundable within 72h of arrival."
+                            },
+                            "guaranteePolicy": "40% deposit to confirm; balance due 30 days prior to arrival.",
+                            "houseRules": [
+                                "Quiet hours 21:30-05:30",
+                                "Children must be escorted by camp staff after dusk"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Eco Tourism Kenya Silver"
+                            ],
+                            "languagesSpoken": [
+                                "English",
+                                "Swahili"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes private family lounge tent and priority access to sunrise balloon safaris."
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -199,6 +507,70 @@
                         "beckn:price": {
                             "currency": "USD",
                             "value": 350.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-08-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-mara-serena-river-suite-fb",
+                        "beckn:provider": "stayhub-mara-serena",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "River Suite — Full Board Experience",
+                            "beckn:shortDesc": "Full-board suite with private deck, game drives, and sundowners"
+                        },
+                        "beckn:items": [
+                            "stayhub-mara-serena-river-suite"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 420.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-08-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-mara-intrepids-family-fb",
+                        "beckn:provider": "stayhub-mara-intrepids",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Family Tent Suite — Full Board",
+                            "beckn:shortDesc": "All-inclusive family tent with dedicated guide and kids bush program"
+                        },
+                        "beckn:items": [
+                            "stayhub-mara-intrepids-family-tent"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 480.00,
                             "applicableQuantity": {
                                 "unitText": "Per Night",
                                 "unitCode": "DAY",

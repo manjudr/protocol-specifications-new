@@ -179,6 +179,291 @@
                             "contactlessCheckInAvailable": true,
                             "notes": "Includes lagoon pool and fitness centre access; reef gear storage available."
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-daintree-ecolodge-bayang-treehouse",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Daintree EcoLodge — Bayang Treehouse",
+                            "beckn:shortDesc": "Rainforest treehouse with spa rituals and eco-certified experiences",
+                            "beckn:longDesc": "Daintree EcoLodge immerses guests in the rainforest canopy with elevated treehouses, inclusive spa rituals, and guided eco tours."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        145.3292,
+                                        -16.1931
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "3189 Mossman Daintree Road",
+                                    "addressLocality": "Daintree Rainforest",
+                                    "addressRegion": "Queensland",
+                                    "postalCode": "4873",
+                                    "addressCountry": "AU"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T14:00:00Z",
+                                "schema:endDate": "2024-09-30T11:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.4,
+                            "beckn:ratingCount": 186
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "ONDC",
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-daintree-ecolodge",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Daintree EcoLodge & Spa"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "EcoLodge",
+                            "roomType": "Bayang Treehouse",
+                            "roomCategory": "Premium",
+                            "inventoryCode": "TREEHOUSE-DAINTREE",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": false
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 44,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Rainforest Canopy",
+                            "level": "Elevated Boardwalk",
+                            "checkInTime": "14:00:00",
+                            "checkOutTime": "11:00:00",
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 5,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        145.3292,
+                                        -16.1931
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "3189 Mossman Daintree Road",
+                                    "addressLocality": "Daintree Rainforest",
+                                    "addressRegion": "Queensland",
+                                    "postalCode": "4873",
+                                    "addressCountry": "AU"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Spa",
+                                "Restaurant",
+                                "Rainforest Boardwalk",
+                                "Cultural Experiences"
+                            ],
+                            "highlightedInclusions": [
+                                "Daily breakfast with local produce",
+                                "Guided rainforest immersion",
+                                "60-minute spa ritual per stay"
+                            ],
+                            "mealPlans": [
+                                "BedAndBreakfast"
+                            ],
+                            "accessibilityFeatures": [
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children over 6 welcome; younger children on request.",
+                            "petPolicy": "Pets not permitted to protect wildlife; service animals by arrangement.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Moderate",
+                                "deadlineHoursBeforeCheckIn": 120,
+                                "penaltyDescription": "50% penalty within 5 days; non-refundable within 72h."
+                            },
+                            "guaranteePolicy": "50% deposit at booking; balance 14 days prior.",
+                            "houseRules": [
+                                "Quiet hours 21:00-07:00",
+                                "Boardwalk lighting off after 22:00 to protect fauna"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Advanced ECO Certification"
+                            ],
+                            "languagesSpoken": [
+                                "English"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Complimentary Indigenous cultural welcome on arrival; includes reusable water bottles."
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-crystalbrook-riley-ocean-room",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Crystalbrook Riley — Ocean View Room",
+                            "beckn:shortDesc": "Contemporary Cairns ocean-view room with lagoon pool access",
+                            "beckn:longDesc": "Crystalbrook Riley pairs sustainable luxury with panoramic Coral Sea views, lagoon pools, and rooftop bar access steps from the Esplanade."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        145.7674,
+                                        -16.9121
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "131-141 Esplanade",
+                                    "addressLocality": "Cairns",
+                                    "addressRegion": "Queensland",
+                                    "postalCode": "4870",
+                                    "addressCountry": "AU"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T15:00:00Z",
+                                "schema:endDate": "2024-09-30T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.5,
+                            "beckn:ratingCount": 298
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-crystalbrook-riley",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Crystalbrook Riley"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Hotel",
+                            "roomType": "Ocean View Room",
+                            "roomCategory": "Premium",
+                            "inventoryCode": "OCN-VIEW-RILEY",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 34,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Coral Sea View",
+                            "level": "12",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "11:00:00",
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 8,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        145.7674,
+                                        -16.9121
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "131-141 Esplanade",
+                                    "addressLocality": "Cairns",
+                                    "addressRegion": "Queensland",
+                                    "postalCode": "4870",
+                                    "addressCountry": "AU"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Lagoon Pool",
+                                "Rooftop Bar",
+                                "Spa",
+                                "Fitness Studio"
+                            ],
+                            "highlightedInclusions": [
+                                "Daily breakfast at Paper Crane",
+                                "Complimentary reef-ready hydration kit",
+                                "Rooftop bar welcome drink"
+                            ],
+                            "mealPlans": [
+                                "BedAndBreakfast"
+                            ],
+                            "accessibilityFeatures": [
+                                "Accessible rooms",
+                                "Elevator access"
+                            ],
+                            "childPolicy": "Children under 12 stay complimentary sharing with adults; breakfast charged separately.",
+                            "petPolicy": "Pets not permitted; service animals welcome.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Flexible",
+                                "deadlineHoursBeforeCheckIn": 48,
+                                "penaltyDescription": "First night charged within 48h or no-show."
+                            },
+                            "guaranteePolicy": "Credit card guarantee required; payment on departure.",
+                            "houseRules": [
+                                "Quiet hours 22:00-07:00",
+                                "Rooftop bar access restricted after 21:00 for under 18s"
+                            ],
+                            "sustainabilityCertifications": [
+                                "EarthCheck Silver"
+                            ],
+                            "languagesSpoken": [
+                                "English",
+                                "Mandarin"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes use of Crystalbrook bikes and complimentary reusable water bottles."
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -198,6 +483,70 @@
                         "beckn:price": {
                             "currency": "USD",
                             "value": 280.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-daintree-ecolodge-treehouse-bnb",
+                        "beckn:provider": "stayhub-daintree-ecolodge",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Bayang Treehouse — Breakfast & Spa Ritual",
+                            "beckn:shortDesc": "Bed & breakfast with spa ritual and rainforest immersion"
+                        },
+                        "beckn:items": [
+                            "stayhub-daintree-ecolodge-bayang-treehouse"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 320.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-crystalbrook-riley-ocean-bnb",
+                        "beckn:provider": "stayhub-crystalbrook-riley",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Ocean View Room — Breakfast & Rooftop Welcome",
+                            "beckn:shortDesc": "Breakfast-included ocean view stay with rooftop welcome drink"
+                        },
+                        "beckn:items": [
+                            "stayhub-crystalbrook-riley-ocean-room"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 260.00,
                             "applicableQuantity": {
                                 "unitText": "Per Night",
                                 "unitCode": "DAY",

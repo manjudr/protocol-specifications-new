@@ -181,6 +181,293 @@
                             "contactlessCheckInAvailable": true,
                             "notes": "Supplemental oxygen available 24/7; acclimatization tea on arrival."
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-inkaterra-pueblo-junior-suite",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Inkaterra Machu Picchu Pueblo — Junior Suite",
+                            "beckn:shortDesc": "Cloud-forest junior suite with private fireplace and hot springs access",
+                            "beckn:longDesc": "Inkaterra Machu Picchu Pueblo Hotel offers junior suites nestled within a private cloud forest reserve featuring fireplaces, plunge pools, and guided nature experiences."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.5455,
+                                        -13.1545
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Aguas Calientes S/N",
+                                    "addressLocality": "Machu Picchu Pueblo",
+                                    "addressRegion": "Cusco",
+                                    "postalCode": "08680",
+                                    "addressCountry": "PE"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T14:00:00Z",
+                                "schema:endDate": "2024-09-30T11:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.6,
+                            "beckn:ratingCount": 418
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "ONDC",
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-inkaterra-pueblo",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Inkaterra Machu Picchu Pueblo Hotel"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "EcoLodge",
+                            "roomType": "Junior Suite",
+                            "roomCategory": "Luxury",
+                            "inventoryCode": "JR-SUITE-INKATERRA",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 45,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Cloud Forest View",
+                            "level": "Garden",
+                            "checkInTime": "14:00:00",
+                            "checkOutTime": "11:00:00",
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 6,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.5455,
+                                        -13.1545
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Aguas Calientes S/N",
+                                    "addressLocality": "Urubamba Province",
+                                    "addressRegion": "Cusco",
+                                    "postalCode": "08680",
+                                    "addressCountry": "PE"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Spa",
+                                "Cloud Forest Trails",
+                                "Hot Springs Access",
+                                "Tea Lounge"
+                            ],
+                            "highlightedInclusions": [
+                                "Daily breakfast and dinner",
+                                "Guided twilight nature walk",
+                                "Welcome coca tea"
+                            ],
+                            "mealPlans": [
+                                "HalfBoard"
+                            ],
+                            "accessibilityFeatures": [
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children under 5 stay complimentary when sharing existing bedding.",
+                            "petPolicy": "Pets not permitted; service animals welcome with prior notice.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Moderate",
+                                "deadlineHoursBeforeCheckIn": 120,
+                                "penaltyDescription": "50% penalty within 5 days; non-refundable within 48h."
+                            },
+                            "guaranteePolicy": "50% deposit at booking; balance collected on arrival.",
+                            "houseRules": [
+                                "Quiet hours 22:00-07:00",
+                                "Nature trail access limited to guided times"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Rainforest Alliance Certified"
+                            ],
+                            "languagesSpoken": [
+                                "Spanish",
+                                "English",
+                                "Quechua"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Suite includes private fireplace and plunge pool; complimentary birdwatching tour each morning."
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-tambo-del-inka-deluxe-terrace",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Tambo del Inka — Deluxe Terrace Room",
+                            "beckn:shortDesc": "Sacred Valley resort room with private terrace and train access",
+                            "beckn:longDesc": "Tambo del Inka Luxury Collection Resort features deluxe terrace rooms overlooking the Vilcanota River, complete with private train station, spa, and farm-to-table dining."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.0915,
+                                        -13.3059
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Av. Ferrocarril S/N",
+                                    "addressLocality": "Urubamba",
+                                    "addressRegion": "Cusco",
+                                    "postalCode": "08660",
+                                    "addressCountry": "PE"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T15:00:00Z",
+                                "schema:endDate": "2024-09-30T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.7,
+                            "beckn:ratingCount": 362
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-tambo-del-inka",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Tambo del Inka, a Luxury Collection Resort"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Resort",
+                            "roomType": "Deluxe Terrace Room",
+                            "roomCategory": "Premium",
+                            "inventoryCode": "DLX-TERRACE-URUBAMBA",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 41,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Vilcanota River View",
+                            "level": "Ground",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "12:00:00",
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 7,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -72.0915,
+                                        -13.3059
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Av. Ferrocarril S/N",
+                                    "addressLocality": "Urubamba",
+                                    "addressRegion": "Cusco",
+                                    "postalCode": "08660",
+                                    "addressCountry": "PE"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Spa",
+                                "Pool",
+                                "Private Train Station",
+                                "Farm-to-Table Dining"
+                            ],
+                            "highlightedInclusions": [
+                                "Daily breakfast",
+                                "Exclusive access to private train lounge",
+                                "Guided Sacred Valley yoga session"
+                            ],
+                            "mealPlans": [
+                                "BedAndBreakfast"
+                            ],
+                            "accessibilityFeatures": [
+                                "Accessible rooms",
+                                "Elevator access"
+                            ],
+                            "childPolicy": "Children under 12 stay complimentary sharing with adults; breakfast included.",
+                            "petPolicy": "Pets not permitted; service animals allowed with prior notice.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Moderate",
+                                "deadlineHoursBeforeCheckIn": 96,
+                                "penaltyDescription": "50% penalty within 4 days; non-refundable within 48h."
+                            },
+                            "guaranteePolicy": "Credit card guarantee; first night charged 72h before arrival.",
+                            "houseRules": [
+                                "Quiet hours 22:00-07:00",
+                                "Train departures require 30-minute pre-boarding"
+                            ],
+                            "sustainabilityCertifications": [
+                                "EarthCheck Certified"
+                            ],
+                            "languagesSpoken": [
+                                "Spanish",
+                                "English"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes access to hydrotherapy circuit and organic garden tours."
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -200,6 +487,70 @@
                         "beckn:price": {
                             "currency": "USD",
                             "value": 450.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-inkaterra-pueblo-jr-suite-hb",
+                        "beckn:provider": "stayhub-inkaterra-pueblo",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Junior Suite — Half Board Forest Escape",
+                            "beckn:shortDesc": "Half-board suite with guided nature walk and plunge pool access"
+                        },
+                        "beckn:items": [
+                            "stayhub-inkaterra-pueblo-junior-suite"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 380.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-tambo-del-inka-deluxe-bnb",
+                        "beckn:provider": "stayhub-tambo-del-inka",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Deluxe Terrace Room — Breakfast & Train Lounge",
+                            "beckn:shortDesc": "Breakfast-inclusive terrace stay with private train lounge access"
+                        },
+                        "beckn:items": [
+                            "stayhub-tambo-del-inka-deluxe-terrace"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 320.00,
                             "applicableQuantity": {
                                 "unitText": "Per Night",
                                 "unitCode": "DAY",

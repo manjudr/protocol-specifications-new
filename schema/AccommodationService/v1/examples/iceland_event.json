@@ -177,6 +177,291 @@
                             "contactlessCheckInAvailable": true,
                             "notes": "Includes complimentary geothermal spa pass for stays 3 nights or longer."
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-blue-lagoon-retreat-suite",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "The Retreat at Blue Lagoon — Lava View Suite",
+                            "beckn:shortDesc": "Geothermal lagoon suite with private spa rituals and lagoon access",
+                            "beckn:longDesc": "The Retreat at Blue Lagoon offers lava view suites with private lagoon access, subterranean spa rituals, and chef-crafted tasting menus."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -22.4493,
+                                        63.8795
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Nordurljosavegur 9",
+                                    "addressLocality": "Blue Lagoon",
+                                    "addressRegion": "Southern Peninsula",
+                                    "postalCode": "240",
+                                    "addressCountry": "IS"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-09-01T15:00:00Z",
+                                "schema:endDate": "2025-03-31T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.8,
+                            "beckn:ratingCount": 364
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-blue-lagoon-retreat",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "The Retreat at Blue Lagoon Iceland"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Resort",
+                            "roomType": "Lava View Suite",
+                            "roomCategory": "Luxury",
+                            "inventoryCode": "LAVA-SUITE-BLUELAGOON",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "King"
+                            ],
+                            "roomSize": {
+                                "value": 60,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Lava Field View",
+                            "level": "Ground",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "12:00:00",
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 6,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -22.4493,
+                                        63.8795
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Nordurljosavegur 9",
+                                    "addressLocality": "Grindavik",
+                                    "addressRegion": "Southern Peninsula",
+                                    "postalCode": "240",
+                                    "addressCountry": "IS"
+                                }
+                            },
+                            "amenityFeature": [
+                                "Private Lagoon Access",
+                                "Subterranean Spa",
+                                "Fine Dining",
+                                "Aurora Wake-up",
+                                "Wellness Rituals"
+                            ],
+                            "highlightedInclusions": [
+                                "Daily breakfast",
+                                "Subterranean spa ritual",
+                                "Evening seven-course tasting menu"
+                            ],
+                            "mealPlans": [
+                                "HalfBoard"
+                            ],
+                            "accessibilityFeatures": [
+                                "Accessible rooms",
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Guests 12+ welcome in suites; younger guests on request.",
+                            "petPolicy": "Service animals permitted; pets not allowed.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Strict",
+                                "deadlineHoursBeforeCheckIn": 168,
+                                "penaltyDescription": "50% penalty within 7 days; non-refundable within 72h."
+                            },
+                            "guaranteePolicy": "Full prepayment required at booking; refundable per policy.",
+                            "houseRules": [
+                                "Quiet hours 22:00-07:00",
+                                "Spa reservations required in advance"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Nordic Swan Ecolabel"
+                            ],
+                            "languagesSpoken": [
+                                "Icelandic",
+                                "English"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes mineral-rich skin care amenities and guided Blue Lagoon float experience."
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-ion-adventure-lake-room",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "ION Adventure Hotel — Lake View Room",
+                            "beckn:shortDesc": "Adventure hotel room near Thingvellir with geothermal spa access",
+                            "beckn:longDesc": "ION Adventure Hotel provides lake view rooms with dramatic design, Northern Lights bar, and adventure concierge between Reykjavik and Thingvellir."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -21.2113,
+                                        64.1379
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Nesjavellir",
+                                    "addressLocality": "Thingvellir",
+                                    "addressRegion": "Southern Region",
+                                    "postalCode": "801",
+                                    "addressCountry": "IS"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-09-01T15:00:00Z",
+                                "schema:endDate": "2025-03-31T11:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.3,
+                            "beckn:ratingCount": 219
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-ion-adventure",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "ION Adventure Hotel"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Hotel",
+                            "roomType": "Lake View Room",
+                            "roomCategory": "Premium",
+                            "inventoryCode": "LAKE-ION-THINGVELLIR",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "Queen"
+                            ],
+                            "roomSize": {
+                                "value": 28,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Lake Thingvallavatn View",
+                            "level": "4",
+                            "checkInTime": "15:00:00",
+                            "checkOutTime": "11:00:00",
+                            "stayMinimumNights": 2,
+                            "stayMaximumNights": 6,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        -21.2113,
+                                        64.1379
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Nesjavellir",
+                                    "addressLocality": "Thingvellir",
+                                    "addressRegion": "Southern Region",
+                                    "postalCode": "801",
+                                    "addressCountry": "IS"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Northern Lights Bar",
+                                "Geothermal Pool",
+                                "Adventure Concierge",
+                                "Fitness Studio"
+                            ],
+                            "highlightedInclusions": [
+                                "Daily breakfast buffet",
+                                "Access to Lava Spa",
+                                "Evening aurora talk"
+                            ],
+                            "mealPlans": [
+                                "BedAndBreakfast"
+                            ],
+                            "accessibilityFeatures": [
+                                "Elevator access"
+                            ],
+                            "childPolicy": "Children under 12 share complimentary with existing bedding.",
+                            "petPolicy": "Pets not permitted; service animals welcome.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Flexible",
+                                "deadlineHoursBeforeCheckIn": 72,
+                                "penaltyDescription": "First night charged within 72h or no-show."
+                            },
+                            "guaranteePolicy": "Credit card guarantee; payment on departure.",
+                            "houseRules": [
+                                "Quiet hours 23:00-06:00",
+                                "Spa access closes at 22:00"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Green Globe Certified"
+                            ],
+                            "languagesSpoken": [
+                                "Icelandic",
+                                "English"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes free shuttle to Thingvellir National Park activities."
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -196,6 +481,70 @@
                         "beckn:price": {
                             "currency": "USD",
                             "value": 220.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-09-01T00:00:00Z",
+                            "schema:endDate": "2025-03-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-blue-lagoon-retreat-suite-hb",
+                        "beckn:provider": "stayhub-blue-lagoon-retreat",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Lava View Suite — Half Board Ritual",
+                            "beckn:shortDesc": "Half-board lagoon suite with subterranean spa ritual"
+                        },
+                        "beckn:items": [
+                            "stayhub-blue-lagoon-retreat-suite"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 680.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-09-01T00:00:00Z",
+                            "schema:endDate": "2025-03-31T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-ion-adventure-lake-bnb",
+                        "beckn:provider": "stayhub-ion-adventure",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Lake View Room — Bed & Breakfast",
+                            "beckn:shortDesc": "Breakfast-included lake view room with spa and aurora briefings"
+                        },
+                        "beckn:items": [
+                            "stayhub-ion-adventure-lake-room"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 280.00,
                             "applicableQuantity": {
                                 "unitText": "Per Night",
                                 "unitCode": "DAY",

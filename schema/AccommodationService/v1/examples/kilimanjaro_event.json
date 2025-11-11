@@ -170,6 +170,291 @@
                             "contactlessCheckInAvailable": true,
                             "notes": "Altitude acclimatization support available on request."
                         }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-machame-gate-expedition-tent",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Machame Gate Campsite — Expedition Tent",
+                            "beckn:shortDesc": "Pre-trek expedition tent pitched inside Kilimanjaro National Park",
+                            "beckn:longDesc": "Machame Gate Campsite provides expedition-grade tents, hearty meals, and porter assistance directly at the Machame trailhead for summit teams."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        37.2205,
+                                        -3.2143
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Machame Gate, Kilimanjaro National Park",
+                                    "addressLocality": "Machame",
+                                    "addressRegion": "Kilimanjaro Region",
+                                    "postalCode": "20200",
+                                    "addressCountry": "TZ"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T16:00:00Z",
+                                "schema:endDate": "2024-09-30T08:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.0,
+                            "beckn:ratingCount": 184
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "Safari Connect Kenya",
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-machame-gate",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Machame Gate Campsite"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Camp",
+                            "roomType": "Expedition Tent",
+                            "roomCategory": "Standard",
+                            "inventoryCode": "EXP-TENT-MACHAME",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 0,
+                                "maxOccupancy": 2,
+                                "extraBedsAllowed": false
+                            },
+                            "bedTypes": [
+                                "SleepingBag"
+                            ],
+                            "roomSize": {
+                                "value": 12,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Rainforest Canopy",
+                            "level": "Ground",
+                            "checkInTime": "16:00:00",
+                            "checkOutTime": "08:00:00",
+                            "stayMinimumNights": 1,
+                            "stayMaximumNights": 6,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        37.2205,
+                                        -3.2143
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Machame Gate",
+                                    "addressLocality": "Machame",
+                                    "addressRegion": "Kilimanjaro Region",
+                                    "postalCode": "20200",
+                                    "addressCountry": "TZ"
+                                }
+                            },
+                            "amenityFeature": [
+                                "Meals",
+                                "Equipment Storage",
+                                "Guide Briefing Hut",
+                                "Solar Lighting"
+                            ],
+                            "highlightedInclusions": [
+                                "Pre-trek briefing",
+                                "Hearty dinner & breakfast",
+                                "Porter assistance"
+                            ],
+                            "mealPlans": [
+                                "FullBoard"
+                            ],
+                            "accessibilityFeatures": [
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Not recommended for children under 12 due to altitude exposure.",
+                            "petPolicy": "Pets not permitted in the national park.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Flexible",
+                                "deadlineHoursBeforeCheckIn": 48,
+                                "penaltyDescription": "One night charge within 48h or no-show."
+                            },
+                            "guaranteePolicy": "Full prepayment required at confirmation; refundable per policy.",
+                            "houseRules": [
+                                "Quiet hours 21:00-05:30",
+                                "Summit gear must be stored in designated racks"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Tanzania National Parks Approved Operator"
+                            ],
+                            "languagesSpoken": [
+                                "English",
+                                "Swahili"
+                            ],
+                            "contactlessCheckInAvailable": false,
+                            "notes": "Includes expedition-grade tent, sleeping mats, and purified water."
+                        }
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "stayhub-aishi-machame-garden-room",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Aishi Machame Hotel — Garden Room",
+                            "beckn:shortDesc": "Boutique garden room ideal for pre and post trek recovery",
+                            "beckn:longDesc": "Aishi Machame Hotel offers tranquil garden rooms with pool access, hearty meals, and gear cleaning services near Moshi."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accommodation-room",
+                            "schema:name": "Accommodation — Room"
+                        },
+                        "beckn:availableAt": [
+                            {
+                                "@type": "beckn:Location",
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        37.3015,
+                                        -3.2168
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Machame Road, Shimbwe",
+                                    "addressLocality": "Moshi",
+                                    "addressRegion": "Kilimanjaro Region",
+                                    "postalCode": "25101",
+                                    "addressCountry": "TZ"
+                                }
+                            }
+                        ],
+                        "beckn:availabilityWindow": [
+                            {
+                                "@type": "beckn:TimePeriod",
+                                "schema:startDate": "2024-03-01T14:00:00Z",
+                                "schema:endDate": "2024-09-30T12:00:00Z"
+                            }
+                        ],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.1,
+                            "beckn:ratingCount": 212
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "ONDC",
+                            "Beckn Global Network"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "stayhub-aishi-machame",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "Aishi Machame Hotel"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccommodationService/v1/context.jsonld",
+                            "@type": "AccommodationService",
+                            "propertyType": "Hotel",
+                            "roomType": "Garden Room",
+                            "roomCategory": "Standard",
+                            "inventoryCode": "GARDEN-AISHI-MCH",
+                            "occupancy": {
+                                "maxAdults": 2,
+                                "maxChildren": 1,
+                                "maxOccupancy": 3,
+                                "extraBedsAllowed": true
+                            },
+                            "bedTypes": [
+                                "Queen"
+                            ],
+                            "roomSize": {
+                                "value": 28,
+                                "unit": "sqm"
+                            },
+                            "roomView": "Garden View",
+                            "level": "Ground",
+                            "checkInTime": "14:00:00",
+                            "checkOutTime": "11:00:00",
+                            "stayMinimumNights": 1,
+                            "stayMaximumNights": 4,
+                            "serviceLocation": {
+                                "geo": {
+                                    "type": "Point",
+                                    "coordinates": [
+                                        37.3015,
+                                        -3.2168
+                                    ]
+                                },
+                                "address": {
+                                    "streetAddress": "Machame Road, Shimbwe",
+                                    "addressLocality": "Moshi",
+                                    "addressRegion": "Kilimanjaro Region",
+                                    "postalCode": "25101",
+                                    "addressCountry": "TZ"
+                                }
+                            },
+                            "amenityFeature": [
+                                "WiFi",
+                                "Restaurant",
+                                "Pool",
+                                "Garden",
+                                "Gear Laundry"
+                            ],
+                            "highlightedInclusions": [
+                                "Hearty breakfast and dinner",
+                                "Complimentary gear cleaning",
+                                "Daily evening briefing"
+                            ],
+                            "mealPlans": [
+                                "HalfBoard"
+                            ],
+                            "accessibilityFeatures": [
+                                "Assisted check-in"
+                            ],
+                            "childPolicy": "Children under 8 share complimentary with existing bedding.",
+                            "petPolicy": "No pets allowed; service animals welcome with prior notice.",
+                            "smokingPolicy": "NonSmoking",
+                            "cancellationPolicy": {
+                                "policyType": "Flexible",
+                                "deadlineHoursBeforeCheckIn": 48,
+                                "penaltyDescription": "First night retained within 48h or no-show."
+                            },
+                            "guaranteePolicy": "Credit card guarantee; payment collected at check-in.",
+                            "houseRules": [
+                                "Quiet hours 22:00-06:00",
+                                "Pool closed after 20:00"
+                            ],
+                            "sustainabilityCertifications": [
+                                "Responsible Tourism Tanzania Certified"
+                            ],
+                            "languagesSpoken": [
+                                "English",
+                                "Swahili"
+                            ],
+                            "contactlessCheckInAvailable": true,
+                            "notes": "Includes access to evening campfire chats and optional coffee farm visit."
+                        }
                     }
                 ],
                 "beckn:offers": [
@@ -189,6 +474,70 @@
                         "beckn:price": {
                             "currency": "USD",
                             "value": 120.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-machame-gate-expedition-fullboard",
+                        "beckn:provider": "stayhub-machame-gate",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Expedition Tent — Full Board",
+                            "beckn:shortDesc": "Full-board expedition tent with porter support and gear staging"
+                        },
+                        "beckn:items": [
+                            "stayhub-machame-gate-expedition-tent"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 80.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Night",
+                                "unitCode": "DAY",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2024-03-01T00:00:00Z",
+                            "schema:endDate": "2024-09-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI",
+                            "CreditCard"
+                        ]
+                    },
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "stayhub-aishi-machame-garden-hb",
+                        "beckn:provider": "stayhub-aishi-machame",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Garden Room — Half Board",
+                            "beckn:shortDesc": "Half-board garden stay with gear cleaning and evening briefings"
+                        },
+                        "beckn:items": [
+                            "stayhub-aishi-machame-garden-room"
+                        ],
+                        "beckn:price": {
+                            "currency": "USD",
+                            "value": 110.00,
                             "applicableQuantity": {
                                 "unitText": "Per Night",
                                 "unitCode": "DAY",
