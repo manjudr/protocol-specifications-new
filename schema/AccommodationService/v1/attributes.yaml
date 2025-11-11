@@ -1,0 +1,283 @@
+openapi: 3.1.1
+info:
+  title: Accommodation — Lodging Service Attributes (v1)
+  version: 1.0.0
+  x-profile-id: profiles/hospitality/accommodation/v1/accommodation-service
+  description: >
+    Attribute schemas for accommodation and lodging services (Item.attributes).
+    These attributes extend Beckn core schemas with room, stay, and property metadata
+    required for hotel or short-stay discovery and booking flows.
+    Core Beckn fields (descriptor, media, price, availability, fulfillment timing, etc.)
+    must still be sourced from the Beckn core objects; this pack adds hospitality-specific
+    properties only.
+
+components:
+  schemas:
+    ########################################################################
+    # ITEM.ATTRIBUTES — AccommodationService (hospitality-specific only)
+    ########################################################################
+    AccommodationService:
+      type: object
+      additionalProperties: false
+      required:
+        - propertyType
+        - roomType
+        - occupancy
+        - checkInTime
+        - checkOutTime
+      x-jsonld:
+        "@context": ./context.jsonld
+        "@type": AccommodationService
+      properties:
+
+        propertyType:
+          type: string
+          enum: [Hotel, Resort, Hostel, Apartment, Villa, Homestay, GuestHouse, Motel]
+          description: Marketing classification of the property providing the stay.
+          example: Hotel
+          x-jsonld: { "@id": propertyType }
+
+        roomType:
+          type: string
+          description: Room or accommodation unit type presented to the traveler.
+          example: Deluxe King Room
+          x-jsonld: { "@id": roomType }
+
+        roomCategory:
+          type: string
+          description: Optional category code or tier (e.g., Standard, Premium, Suite).
+          example: Premium
+          x-jsonld: { "@id": roomCategory }
+
+        inventoryCode:
+          type: string
+          description: Provider/internal code used to map the room type in PMS/CRS.
+          example: DLX-KING-CITY
+          x-jsonld: { "@id": inventoryCode }
+
+        occupancy:
+          type: object
+          additionalProperties: false
+          required:
+            - maxAdults
+          description: Maximum guest occupancy and optional breakdown by age band.
+          properties:
+            maxAdults:
+              type: integer
+              minimum: 1
+              description: Maximum number of adult guests included.
+              example: 2
+            maxChildren:
+              type: integer
+              minimum: 0
+              description: Maximum number of children accommodated without extra charge.
+              example: 1
+            maxOccupancy:
+              type: integer
+              minimum: 1
+              description: Absolute cap on total guests (adults + children + extra beds).
+              example: 3
+            extraBedsAllowed:
+              type: boolean
+              description: Whether extra beds can be added to the room.
+              example: true
+          x-jsonld: { "@id": occupancy }
+
+        bedTypes:
+          type: array
+          items:
+            type: string
+            enum: [Single, Double, Queen, King, Twin, Bunk, SofaBed]
+          minItems: 1
+          description: Bed configuration(s) provided in the room.
+          example: ["King"]
+          x-jsonld: { "@id": bedTypes }
+
+        roomSize:
+          type: object
+          additionalProperties: false
+          required:
+            - value
+            - unit
+          description: Floor area of the room or accommodation unit.
+          properties:
+            value:
+              type: number
+              minimum: 0
+              description: Numeric size measurement.
+              example: 42
+            unit:
+              type: string
+              enum: [sqm, sqft]
+              description: Measurement unit.
+              example: sqm
+          x-jsonld: { "@id": roomSize }
+
+        roomView:
+          type: string
+          description: Primary room outlook or view (e.g., City View, Sea View, Garden View).
+          example: City View
+          x-jsonld: { "@id": roomView }
+
+        level:
+          type: string
+          description: Floor number or level descriptor for the room.
+          example: "12"
+          x-jsonld: { "@id": level }
+
+        checkInTime:
+          type: string
+          format: time
+          description: Default check-in time for arriving guests.
+          example: "14:00:00"
+          x-jsonld: { "@id": checkInTime }
+
+        checkOutTime:
+          type: string
+          format: time
+          description: Default check-out time for departing guests.
+          example: "12:00:00"
+          x-jsonld: { "@id": checkOutTime }
+
+        checkInWindow:
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/TimePeriod"
+            - type: object
+              description: Optional time window during which check-in is permitted.
+              x-jsonld: { "@id": checkInWindow }
+
+        checkOutWindow:
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/TimePeriod"
+            - type: object
+              description: Optional time window during which check-out is permitted.
+              x-jsonld: { "@id": checkOutWindow }
+
+        stayMinimumNights:
+          type: integer
+          minimum: 1
+          description: Minimum number of nights required for a booking.
+          example: 1
+          x-jsonld: { "@id": stayMinimumNights }
+
+        stayMaximumNights:
+          type: integer
+          minimum: 1
+          description: Maximum number of nights allowed per booking.
+          example: 14
+          x-jsonld: { "@id": stayMaximumNights }
+
+        serviceLocation:
+          allOf:
+            - $ref: "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/core.yaml#/components/schemas/Location"
+            - type: object
+              description: Physical location of the property (reuses Beckn Location schema).
+              x-jsonld: { "@id": serviceLocation }
+
+        amenityFeature:
+          type: array
+          items: { type: string }
+          description: Amenities available in-room or on-property (e.g., Wi-Fi, Pool, Gym).
+          example: ["Complimentary Wi-Fi", "Swimming Pool", "24x7 Reception"]
+          x-jsonld: { "@id": amenityFeature }
+
+        highlightedInclusions:
+          type: array
+          items: { type: string }
+          description: Key inclusions bundled with the stay (e.g., Breakfast, Airport pickup).
+          example: ["Breakfast buffet", "Complimentary airport transfer"]
+          x-jsonld: { "@id": highlightedInclusions }
+
+        mealPlans:
+          type: array
+          items: { type: string }
+          description: Meal plan(s) attached to the offer (e.g., RoomOnly, BedAndBreakfast, HalfBoard).
+          example: ["BedAndBreakfast"]
+          x-jsonld: { "@id": mealPlans }
+
+        accessibilityFeatures:
+          type: array
+          items: { type: string }
+          description: Accessibility accommodations (e.g., Wheelchair accessible, Roll-in shower).
+          example: ["Wheelchair accessible entrance", "Roll-in shower"]
+          x-jsonld: { "@id": accessibilityFeatures }
+
+        childPolicy:
+          type: string
+          description: Free-form description of child stay/meal policies.
+          example: "Children under 6 stay free when using existing bedding."
+          x-jsonld: { "@id": childPolicy }
+
+        petPolicy:
+          type: string
+          description: Policy describing pet allowances or restrictions.
+          example: "Small pets allowed with prior notice; INR 1000 cleaning fee."
+          x-jsonld: { "@id": petPolicy }
+
+        smokingPolicy:
+          type: string
+          enum: [Smoking, NonSmoking, Mixed]
+          description: Smoking policy applicable to the room.
+          example: NonSmoking
+          x-jsonld: { "@id": smokingPolicy }
+
+        cancellationPolicy:
+          type: object
+          additionalProperties: false
+          description: Cancellation terms attached to the room/plan.
+          properties:
+            policyType:
+              type: string
+              enum: [Flexible, Moderate, Strict, NonRefundable, Custom]
+              description: Classification of cancellation flexibility.
+              example: Flexible
+            deadlineHoursBeforeCheckIn:
+              type: integer
+              minimum: 0
+              description: Hours before check-in when cancellation remains penalty-free.
+              example: 24
+            penaltyDescription:
+              type: string
+              description: Human-readable penalty statement for late cancellation/no-show.
+              example: "One night charge for cancellations within 24h of arrival or no-show."
+          x-jsonld: { "@id": cancellationPolicy }
+
+        guaranteePolicy:
+          type: string
+          description: Deposit or guarantee requirements (e.g., credit card hold, advance payment).
+          example: "Card guarantee required; first night charged 48 hours before arrival."
+          x-jsonld: { "@id": guaranteePolicy }
+
+        houseRules:
+          type: array
+          items: { type: string }
+          description: Additional property rules (e.g., parties not allowed, quiet hours).
+          example: ["No parties or events", "Quiet hours between 22:00-07:00"]
+          x-jsonld: { "@id": houseRules }
+
+        sustainabilityCertifications:
+          type: array
+          items: { type: string }
+          description: Sustainability or eco-certifications held by the property.
+          example: ["LEED Gold", "EarthCheck Bronze"]
+          x-jsonld: { "@id": sustainabilityCertifications }
+
+        languagesSpoken:
+          type: array
+          items: { type: string }
+          description: Languages supported by front-desk or concierge staff.
+          example: ["English", "Hindi", "Kannada"]
+          x-jsonld: { "@id": languagesSpoken }
+
+        contactlessCheckInAvailable:
+          type: boolean
+          description: Indicates if digital/contactless check-in is supported.
+          example: true
+          x-jsonld: { "@id": contactlessCheckInAvailable }
+
+        notes:
+          type: string
+          description: Miscellaneous notes or highlights pertaining to the stay.
+          example: "Includes access to executive lounge with evening cocktails."
+          x-jsonld: { "@id": notes }
+

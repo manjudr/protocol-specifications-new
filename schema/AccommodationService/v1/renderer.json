@@ -1,0 +1,6 @@
+{
+  "$comment": "Renderer configuration for accommodation UI components - guides listing/detail presentation of rooms and property information.",
+  "description": "Renderer configuration for Accommodation Service UI components",
+  "version": "1.0.0"
+}
+

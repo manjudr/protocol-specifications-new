@@ -1,0 +1,326 @@
+{
+    "@context": {
+        "@version": 1.1,
+        "beckn": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/AccommodationService/v1/#",
+        "schema": "https://schema.org/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@graph": [
+        {
+            "@id": "beckn:AccommodationService",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Accommodation Service",
+            "rdfs:comment": "A lodging or stay service offered by a hospitality provider (e.g., hotel room, serviced apartment, villa)."
+        },
+        {
+            "@id": "beckn:OccupancySpecification",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Occupancy Specification",
+            "rdfs:comment": "Details describing guest occupancy limits and allowances for a lodging unit."
+        },
+        {
+            "@id": "beckn:CancellationPolicy",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Cancellation Policy",
+            "rdfs:comment": "Cancellation terms applicable to the accommodation service."
+        },
+        {
+            "@id": "beckn:propertyType",
+            "@type": "rdf:Property",
+            "rdfs:label": "Property type",
+            "rdfs:comment": "Category of the lodging property (Hotel, Resort, Hostel, Apartment, Villa, Homestay, GuestHouse, Motel).",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:roomType",
+            "@type": "rdf:Property",
+            "rdfs:label": "Room type",
+            "rdfs:comment": "Name of the room or accommodation unit presented to travelers.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:roomCategory",
+            "@type": "rdf:Property",
+            "rdfs:label": "Room category",
+            "rdfs:comment": "Tier or classification of the room (e.g., Standard, Premium, Suite).",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:inventoryCode",
+            "@type": "rdf:Property",
+            "rdfs:label": "Inventory code",
+            "rdfs:comment": "Provider-specific code mapping the room type within internal systems.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:occupancy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Occupancy",
+            "rdfs:comment": "Occupancy limits and allowances for the accommodation unit.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "beckn:OccupancySpecification"
+        },
+        {
+            "@id": "beckn:maxAdults",
+            "@type": "rdf:Property",
+            "rdfs:label": "Maximum adults",
+            "rdfs:comment": "Maximum number of adult guests included in the occupancy.",
+            "rdfs:domain": "beckn:OccupancySpecification",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:maxChildren",
+            "@type": "rdf:Property",
+            "rdfs:label": "Maximum children",
+            "rdfs:comment": "Maximum number of child guests accommodated without extra charge.",
+            "rdfs:domain": "beckn:OccupancySpecification",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:maxOccupancy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Maximum occupancy",
+            "rdfs:comment": "Total cap on guests combining adults, children, and extra beds.",
+            "rdfs:domain": "beckn:OccupancySpecification",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:extraBedsAllowed",
+            "@type": "rdf:Property",
+            "rdfs:label": "Extra beds allowed",
+            "rdfs:comment": "Whether extra beds can be added to the accommodation unit.",
+            "rdfs:domain": "beckn:OccupancySpecification",
+            "schema:rangeIncludes": "schema:Boolean"
+        },
+        {
+            "@id": "beckn:bedTypes",
+            "@type": "rdf:Property",
+            "rdfs:label": "Bed types",
+            "rdfs:comment": "Types of beds available in the accommodation unit (e.g., King, Twin).",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:roomSize",
+            "@type": "rdf:Property",
+            "rdfs:label": "Room size",
+            "rdfs:comment": "Floor area of the accommodation unit.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:QuantitativeValue"
+        },
+        {
+            "@id": "beckn:roomView",
+            "@type": "rdf:Property",
+            "rdfs:label": "Room view",
+            "rdfs:comment": "Primary view or outlook from the room (e.g., City View, Sea View).",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:level",
+            "@type": "rdf:Property",
+            "rdfs:label": "Level",
+            "rdfs:comment": "Floor number or level descriptor for the accommodation unit.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:checkInTime",
+            "@type": "rdf:Property",
+            "rdfs:label": "Check-in time",
+            "rdfs:comment": "Default check-in time for guests.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Time"
+        },
+        {
+            "@id": "beckn:checkOutTime",
+            "@type": "rdf:Property",
+            "rdfs:label": "Check-out time",
+            "rdfs:comment": "Default check-out time for guests.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Time"
+        },
+        {
+            "@id": "beckn:checkInWindow",
+            "@type": "rdf:Property",
+            "rdfs:label": "Check-in window",
+            "rdfs:comment": "Time period during which check-in is permitted.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:StructuredValue"
+        },
+        {
+            "@id": "beckn:checkOutWindow",
+            "@type": "rdf:Property",
+            "rdfs:label": "Check-out window",
+            "rdfs:comment": "Time period during which check-out is permitted.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:StructuredValue"
+        },
+        {
+            "@id": "beckn:stayMinimumNights",
+            "@type": "rdf:Property",
+            "rdfs:label": "Minimum nights",
+            "rdfs:comment": "Minimum length of stay required for booking.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:stayMaximumNights",
+            "@type": "rdf:Property",
+            "rdfs:label": "Maximum nights",
+            "rdfs:comment": "Maximum length of stay allowed per booking.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:serviceLocation",
+            "@type": "rdf:Property",
+            "rdfs:label": "Service location",
+            "rdfs:comment": "Location of the property providing the accommodation service.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Place"
+        },
+        {
+            "@id": "beckn:amenityFeature",
+            "@type": "rdf:Property",
+            "rdfs:label": "Amenity feature",
+            "rdfs:comment": "Amenities available in-room or on the property.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:highlightedInclusions",
+            "@type": "rdf:Property",
+            "rdfs:label": "Highlighted inclusions",
+            "rdfs:comment": "Important inclusions bundled with the stay (e.g., breakfast, transfers).",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:mealPlans",
+            "@type": "rdf:Property",
+            "rdfs:label": "Meal plans",
+            "rdfs:comment": "Meal plan identifiers associated with the stay (RoomOnly, BedAndBreakfast, HalfBoard).",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:accessibilityFeatures",
+            "@type": "rdf:Property",
+            "rdfs:label": "Accessibility features",
+            "rdfs:comment": "Accessibility accommodations offered for the room or property.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:childPolicy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Child policy",
+            "rdfs:comment": "Description of child stay and meal policies.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:petPolicy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Pet policy",
+            "rdfs:comment": "Policy for allowing pets at the property.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:smokingPolicy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Smoking policy",
+            "rdfs:comment": "Smoking restrictions applicable to the room.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:cancellationPolicy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Cancellation policy",
+            "rdfs:comment": "Cancellation policy linked with the stay.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "beckn:CancellationPolicy"
+        },
+        {
+            "@id": "beckn:policyType",
+            "@type": "rdf:Property",
+            "rdfs:label": "Policy type",
+            "rdfs:comment": "Classification of the cancellation policy flexibility.",
+            "rdfs:domain": "beckn:CancellationPolicy",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:deadlineHoursBeforeCheckIn",
+            "@type": "rdf:Property",
+            "rdfs:label": "Deadline hours before check-in",
+            "rdfs:comment": "Hours before check-in when cancellation remains penalty-free.",
+            "rdfs:domain": "beckn:CancellationPolicy",
+            "schema:rangeIncludes": "schema:Integer"
+        },
+        {
+            "@id": "beckn:penaltyDescription",
+            "@type": "rdf:Property",
+            "rdfs:label": "Penalty description",
+            "rdfs:comment": "Description of the penalty applied for late cancellation or no-show.",
+            "rdfs:domain": "beckn:CancellationPolicy",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:guaranteePolicy",
+            "@type": "rdf:Property",
+            "rdfs:label": "Guarantee policy",
+            "rdfs:comment": "Deposit or payment guarantee requirements for the booking.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:houseRules",
+            "@type": "rdf:Property",
+            "rdfs:label": "House rules",
+            "rdfs:comment": "Additional property rules applicable to the stay.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:sustainabilityCertifications",
+            "@type": "rdf:Property",
+            "rdfs:label": "Sustainability certifications",
+            "rdfs:comment": "Environmental or sustainability certifications held by the property.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:languagesSpoken",
+            "@type": "rdf:Property",
+            "rdfs:label": "Languages spoken",
+            "rdfs:comment": "Languages supported by the property's staff.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        },
+        {
+            "@id": "beckn:contactlessCheckInAvailable",
+            "@type": "rdf:Property",
+            "rdfs:label": "Contactless check-in available",
+            "rdfs:comment": "Indicates whether contactless or digital check-in is provided.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Boolean"
+        },
+        {
+            "@id": "beckn:notes",
+            "@type": "rdf:Property",
+            "rdfs:label": "Notes",
+            "rdfs:comment": "Miscellaneous notes or highlights about the accommodation service.",
+            "rdfs:domain": "beckn:AccommodationService",
+            "schema:rangeIncludes": "schema:Text"
+        }
+    ]
+}

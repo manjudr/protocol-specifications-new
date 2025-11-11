@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.org/profiles/hospitality/accommodation/v1/profile.json",
+  "title": "Accommodation — Lodging Service Attribute Pack (v1)",
+  "description": "Bundle of attribute schemas for hospitality accommodations: Item (AccommodationService) with operational hints for discovery and booking. Uses ./context.jsonld for JSON-LD mappings and ./vocab.jsonld for lodging terms.",
+  "type": "object",
+  "additionalProperties": false,
+  "$comment": "JSON-LD context: ./context.jsonld ; Lodging vocab: ./vocab.jsonld",
+  "properties": {
+    "AccommodationService": {
+      "$ref": "./attributes.yaml#/components/schemas/AccommodationService"
+    }
+  },
+  "required": ["AccommodationService"],
+
+  "operational_hints": {
+    "indexHints": [
+      "beckn:id",
+      "beckn:descriptor.schema:name",
+      "beckn:descriptor.beckn:shortDesc",
+      "beckn:descriptor.beckn:longDesc",
+      "beckn:descriptor.schema:category",
+      "beckn:availableAt",
+      "beckn:itemAttributes.propertyType",
+      "beckn:itemAttributes.roomType",
+      "beckn:itemAttributes.roomCategory",
+      "beckn:itemAttributes.occupancy.maxAdults",
+      "beckn:itemAttributes.occupancy.maxChildren",
+      "beckn:itemAttributes.bedTypes",
+      "beckn:itemAttributes.roomView",
+      "beckn:itemAttributes.amenityFeature",
+      "beckn:itemAttributes.highlightedInclusions",
+      "beckn:itemAttributes.mealPlans",
+      "beckn:itemAttributes.smokingPolicy",
+      "beckn:itemAttributes.stayMinimumNights",
+      "beckn:itemAttributes.stayMaximumNights",
+      "beckn:itemAttributes.serviceLocation"
+    ],
+
+    "piiHints": {
+      "fields": [
+        "message.order.billing.name",
+        "message.order.billing.email",
+        "message.order.billing.phone",
+        "message.order.payments[].params.*",
+        "message.order.fulfillments[].customer.person.name",
+        "message.order.fulfillments[].customer.contact.*",
+        "beckn:orderAttributes.guestList",
+        "beckn:orderAttributes.specialRequests"
+      ],
+      "treatment": "Treat as sensitive; restrict indexing, redact in logs, encrypt when persisted.",
+      "notes": "Hospitality payloads may contain guest identities, contact details, and special requests. Discovery/catalog payloads usually contain no PII; PII appears post-confirm or during status updates."
+    },
+
+    "api_response_config": {
+      "description": "Recommended field sets for API responses across list and detail scenarios.",
+      "max_items_per_page": 500,
+      "max_offers_per_item": 5,
+      "minimal_fields": {
+        "item_attributes": [
+          "beckn:id",
+          "beckn:descriptor.schema:name",
+          "beckn:descriptor.beckn:shortDesc",
+          "beckn:itemAttributes.propertyType",
+          "beckn:itemAttributes.roomType",
+          "beckn:itemAttributes.roomView",
+          "beckn:itemAttributes.amenityFeature",
+          "beckn:itemAttributes.mealPlans",
+          "beckn:availableAt"
+        ],
+        "offer_attributes": [
+          "beckn:id",
+          "beckn:descriptor.schema:name",
+          "beckn:price.currency",
+          "beckn:price.value",
+          "beckn:validity.end"
+        ]
+      },
+      "notes": "Minimal fields target search results and list cards. Use optional query parameters to request expanded fields (full amenities, policies) when required."
+    },
+
+    "discover": {
+      "supported_filters": [
+        "text_search",
+        "jsonpath_filters",
+        "geo_distance_filter"
+      ],
+      "default_sort": [
+        "distance.asc",
+        "beckn:offerAttributes.priceSpecification.price.asc",
+        "beckn:rating.beckn:ratingValue.desc"
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,72 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "beckn": "./vocab.jsonld#",
+
+    "AccommodationService": "beckn:AccommodationService",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "price": "schema:price",
+    "priceCurrency": "schema:priceCurrency",
+    "identifier": "schema:identifier",
+    "image": "schema:image",
+    "url": "schema:url",
+    "telephone": "schema:telephone",
+    "email": "schema:email",
+    "areaServed": "schema:areaServed",
+    "serviceLocation": "schema:serviceLocation",
+    "geo": "schema:geo",
+    "latitude": "schema:latitude",
+    "longitude": "schema:longitude",
+
+    "propertyType": "beckn:propertyType",
+    "roomType": "beckn:roomType",
+    "roomCategory": "beckn:roomCategory",
+    "inventoryCode": "beckn:inventoryCode",
+    "occupancy": "beckn:occupancy",
+    "bedTypes": "beckn:bedTypes",
+    "roomSize": "beckn:roomSize",
+    "roomView": "beckn:roomView",
+    "level": "beckn:level",
+    "checkInTime": "beckn:checkInTime",
+    "checkOutTime": "beckn:checkOutTime",
+    "checkInWindow": "beckn:checkInWindow",
+    "checkOutWindow": "beckn:checkOutWindow",
+    "stayMinimumNights": "beckn:stayMinimumNights",
+    "stayMaximumNights": "beckn:stayMaximumNights",
+    "amenityFeature": "beckn:amenityFeature",
+    "highlightedInclusions": "beckn:highlightedInclusions",
+    "mealPlans": "beckn:mealPlans",
+    "accessibilityFeatures": "beckn:accessibilityFeatures",
+    "childPolicy": "beckn:childPolicy",
+    "petPolicy": "beckn:petPolicy",
+    "smokingPolicy": "beckn:smokingPolicy",
+    "cancellationPolicy": "beckn:cancellationPolicy",
+    "guaranteePolicy": "beckn:guaranteePolicy",
+    "houseRules": "beckn:houseRules",
+    "sustainabilityCertifications": "beckn:sustainabilityCertifications",
+    "languagesSpoken": "beckn:languagesSpoken",
+    "contactlessCheckInAvailable": "beckn:contactlessCheckInAvailable",
+    "notes": "beckn:notes",
+
+    "maxAdults": "beckn:maxAdults",
+    "maxChildren": "beckn:maxChildren",
+    "maxOccupancy": "beckn:maxOccupancy",
+    "extraBedsAllowed": "beckn:extraBedsAllowed",
+
+    "value": "schema:value",
+    "unit": "schema:unitCode",
+
+    "policyType": "beckn:policyType",
+    "deadlineHoursBeforeCheckIn": "beckn:deadlineHoursBeforeCheckIn",
+    "penaltyDescription": "beckn:penaltyDescription"
+  },
+
+  "@graph": []
+}
+
