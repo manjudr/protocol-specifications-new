@@ -132,11 +132,541 @@
                 "supportNotes": "Serviceable through Nikon Kenya authorized centers."
               },
               "crossSellSuggestions": [
+                "gearhub-safari-camera-kit",
                 "gearhub-safari-daypack",
                 "gearhub-safari-clothing-set"
               ],
               "returnPolicyNotes": "30-day returns accepted if lenses remain scratch-free.",
               "additionalNotes": "Highly recommended for Great Migration spectators."
+            }
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "gearhub-safari-camera-kit",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Canon Safari Pro Camera Kit",
+              "beckn:shortDesc": "Weather-sealed DSLR bundle tuned for wildlife photography",
+              "beckn:longDesc": "Comprehensive Canon safari kit with telephoto lens, dual batteries, and rugged case for capturing Masai Mara game drives and balloon safaris."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-photography",
+              "schema:name": "Photography Accessories"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.9,
+              "beckn:ratingCount": 284
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Safari Connect Kenya",
+              "Mombasa Coastal Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "gearhub-photo-lab",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "GearHub Photo Lab Nairobi"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Camera",
+              "brand": "Canon",
+              "modelNumber": "SAFARI-CAM-KIT",
+              "compatibility": [
+                "Great Migration Safari",
+                "Hot Air Balloon Safari",
+                "Mambosa Beach Day"
+              ],
+              "materials": [
+                "Magnesium Alloy Body",
+                "Weather-sealed Lens"
+              ],
+              "colorOptions": [
+                "Black"
+              ],
+              "dimensions": {
+                "notes": "Body 139x105x79 mm with 100-400mm lens attached."
+              },
+              "weightGrams": 1200,
+              "capacity": "24 MP DSLR body with 4K wildlife video capture",
+              "keyFeatures": [
+                "Dual battery pack",
+                "Image stabilization telephoto lens",
+                "Dust and moisture sealing",
+                "High-speed continuous shooting"
+              ],
+              "usageScenarios": [
+                "Great Migration Safari",
+                "Hot Air Balloon Safari",
+                "Mambosa Beach Day"
+              ],
+              "includedItems": [
+                "DSLR camera body",
+                "100-400mm telephoto lens",
+                "High-speed memory cards",
+                "Dual battery charger",
+                "Weatherproof hard case"
+              ],
+              "warranty": {
+                "durationMonths": 24,
+                "coverage": "Manufacturer defects and sensor calibration",
+                "serviceChannels": [
+                  "Walk-in",
+                  "Mail-in"
+                ]
+              },
+              "careInstructions": [
+                "Store in provided dry box when not in use",
+                "Wipe lens with microfiber cloth after each game drive",
+                "Recharge batteries fully before excursions"
+              ],
+              "safetyInformation": [
+                "Use neck strap while shooting from vehicles",
+                "Avoid direct dust exposure when changing lenses"
+              ],
+              "certifications": [
+                "CE",
+                "RoHS"
+              ],
+              "sustainabilityNotes": "Packaging uses recycled foam inserts; printed manuals replaced with QR code.",
+              "lifecycle": {
+                "launchDate": "2024-01-20",
+                "supportNotes": "Firmware updates applied at GearHub Photo Lab service desk."
+              },
+              "crossSellSuggestions": [
+                "gearhub-binoculars-pro-10x42",
+                "gearhub-safari-daypack",
+                "gearhub-snorkeling-gear-set"
+              ],
+              "returnPolicyNotes": "Return or exchange within 15 days if shutter count under 1,500 frames.",
+              "additionalNotes": "Includes on-site photography orientation at camp check-in."
+            }
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "gearhub-safari-clothing-set",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Columbia Safari Clothing Set",
+              "beckn:shortDesc": "Lightweight neutral apparel bundle for daily game drives",
+              "beckn:longDesc": "Breathable Columbia safari clothing set featuring UV protection, convertible pants, and ventilated sun hat tailored for Masai Mara excursions."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-apparel",
+              "schema:name": "Travel Apparel"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.6,
+              "beckn:ratingCount": 342
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Kenya Tourism Board Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "gearhub-outfitters",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "GearHub Safari Outfitters"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Apparel",
+              "brand": "Columbia",
+              "modelNumber": "SAFARI-APP-2024",
+              "compatibility": [
+                "Great Migration Safari",
+                "Hot Air Balloon Safari"
+              ],
+              "materials": [
+                "Ripstop Nylon",
+                "Organic Cotton"
+              ],
+              "colorOptions": [
+                "Sandstone",
+                "Olive"
+              ],
+              "dimensions": {
+                "notes": "Includes unisex sizes XS-XXL with adjustable waistband."
+              },
+              "weightGrams": 800,
+              "capacity": "Moisture-wicking fabric with UPF 50 protection",
+              "keyFeatures": [
+                "Convertible zip-off pants",
+                "Ventilated sun hat",
+                "Insect-repellent treatment",
+                "Quick-dry shirt"
+              ],
+              "usageScenarios": [
+                "Game drives",
+                "Bush walks",
+                "Evening camp experiences"
+              ],
+              "includedItems": [
+                "Long-sleeve safari shirt",
+                "Convertible safari pants",
+                "Wide-brim sun hat",
+                "Neck gaiter"
+              ],
+              "warranty": {
+                "durationMonths": 12,
+                "coverage": "Manufacturing defects and seam failures",
+                "serviceChannels": [
+                  "Mail-in"
+                ]
+              },
+              "careInstructions": [
+                "Machine wash cold and line dry",
+                "Avoid fabric softeners to preserve repellant finish",
+                "Do not bleach"
+              ],
+              "safetyInformation": [
+                "Use hat drawcord during balloon safaris",
+                "Keep away from open flames at camp"
+              ],
+              "certifications": [
+                "OEKO-TEX 100"
+              ],
+              "sustainabilityNotes": "Fabric uses 65% recycled fibers with bluesign-approved dyes.",
+              "lifecycle": {
+                "launchDate": "2024-02-01",
+                "supportNotes": "Repellent refresh treatment offered at GearHub outlets."
+              },
+              "crossSellSuggestions": [
+                "gearhub-safari-daypack",
+                "gearhub-reef-safe-sunscreen"
+              ],
+              "returnPolicyNotes": "Size exchanges accepted within 30 days if unworn and tags intact.",
+              "additionalNotes": "Includes packing checklist tailored for Masai Mara temperatures."
+            }
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "gearhub-snorkeling-gear-set",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Cressi Coastal Snorkeling Gear Set",
+              "beckn:shortDesc": "Marine snorkeling kit for Mombasa reef excursions",
+              "beckn:longDesc": "Cressi snorkeling bundle with mask, fins, snorkel, and mesh bag designed for warm-water experiences along the Kenyan coast."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-water",
+              "schema:name": "Water Sports Accessories"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.5,
+              "beckn:ratingCount": 221
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Mombasa Coastal Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "gearhub-coastal",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "GearHub Coastal Outfitters"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "SnorkelingGear",
+              "brand": "Cressi",
+              "modelNumber": "SNORKEL-SET-2024",
+              "compatibility": [
+                "Coastal Snorkeling",
+                "Mambosa Beach Day"
+              ],
+              "materials": [
+                "Tempered Glass",
+                "Silicone",
+                "Thermoplastic Rubber"
+              ],
+              "colorOptions": [
+                "Ocean Blue",
+                "Coral"
+              ],
+              "dimensions": {
+                "notes": "Mask fits face sizes 54-64 cm; fins available in EU 36-45."
+              },
+              "weightGrams": 500,
+              "capacity": "Dry-top snorkel with purge valve and anti-fog mask",
+              "keyFeatures": [
+                "Dry-top snorkel",
+                "Anti-fog tempered glass lens",
+                "Adjustable open-heel fins",
+                "Mesh carry bag"
+              ],
+              "usageScenarios": [
+                "Coastal Snorkeling",
+                "Reef boat excursions"
+              ],
+              "includedItems": [
+                "Mask",
+                "Snorkel",
+                "Open-heel fins",
+                "Mesh carry bag"
+              ],
+              "warranty": {
+                "durationMonths": 12,
+                "coverage": "Manufacturer defects on seals and straps",
+                "serviceChannels": [
+                  "Walk-in"
+                ]
+              },
+              "careInstructions": [
+                "Rinse with fresh water after use",
+                "Dry in shade before storage",
+                "Avoid hot surfaces that can warp fins"
+              ],
+              "safetyInformation": [
+                "Practice in shallow water before deep excursions",
+                "Use reef-safe sunscreen to protect marine life"
+              ],
+              "certifications": [
+                "CE"
+              ],
+              "sustainabilityNotes": "Packaging contains 80% recycled plastic mesh and FSC-certified tags.",
+              "lifecycle": {
+                "launchDate": "2024-01-05",
+                "supportNotes": "Replacement straps available via GearHub coastal kiosks."
+              },
+              "crossSellSuggestions": [
+                "gearhub-reef-safe-sunscreen",
+                "gearhub-safari-daypack"
+              ],
+              "returnPolicyNotes": "Returns accepted within 15 days if unused and in original packaging.",
+              "additionalNotes": "Complimentary fit session at Mombasa pickup point."
+            }
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "gearhub-safari-daypack",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Osprey Safari Day Pack 20L",
+              "beckn:shortDesc": "Lightweight day pack for game drives and excursions",
+              "beckn:longDesc": "Ergonomic 20-liter Osprey day pack with hydration sleeve, rain cover, and secure camera compartments for Masai Mara and coastal outings."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-bags",
+              "schema:name": "Travel Bags"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.7,
+              "beckn:ratingCount": 298
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Safari Connect Kenya",
+              "Mombasa Coastal Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "gearhub-pack-supply",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "GearHub Pack Supply"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Backpack",
+              "brand": "Osprey",
+              "modelNumber": "DAYPACK-20L",
+              "compatibility": [
+                "Great Migration Safari",
+                "Hot Air Balloon Safari",
+                "Mambosa Beach Day"
+              ],
+              "materials": [
+                "Recycled Nylon",
+                "Ripstop Polyester"
+              ],
+              "colorOptions": [
+                "Khaki",
+                "Charcoal"
+              ],
+              "dimensions": {
+                "notes": "48 x 26 x 20 cm with adjustable torso length."
+              },
+              "weightGrams": 400,
+              "capacity": "20-liter pack with hydration bladder sleeve and camera insert",
+              "keyFeatures": [
+                "Stowaway rain cover",
+                "Padded camera insert",
+                "Breathable back panel",
+                "Side water bottle pockets"
+              ],
+              "usageScenarios": [
+                "Daily game drives",
+                "Cultural walkabouts",
+                "Beach excursions"
+              ],
+              "includedItems": [
+                "20L backpack",
+                "Removable camera cube",
+                "Rain cover"
+              ],
+              "warranty": {
+                "durationMonths": 24,
+                "coverage": "Manufacturer defects and zipper failures",
+                "serviceChannels": [
+                  "Walk-in",
+                  "Mail-in"
+                ]
+              },
+              "careInstructions": [
+                "Spot clean with mild soap and air dry",
+                "Remove camera insert before rain exposure",
+                "Store without heavy loads to preserve frame"
+              ],
+              "safetyInformation": [
+                "Secure straps during balloon flights",
+                "Distribute weight evenly to avoid strain"
+              ],
+              "certifications": [
+                "bluesign"
+              ],
+              "sustainabilityNotes": "Main fabrics made from 100% recycled PET bottles.",
+              "lifecycle": {
+                "launchDate": "2024-02-20",
+                "supportNotes": "Lifetime repair program honored by GearHub Pack Supply."
+              },
+              "crossSellSuggestions": [
+                "gearhub-binoculars-pro-10x42",
+                "gearhub-safari-camera-kit"
+              ],
+              "returnPolicyNotes": "30-day returns accepted if tags intact and signs of wear absent.",
+              "additionalNotes": "Includes checklist card for daily safari essentials."
+            }
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Item",
+            "beckn:id": "gearhub-reef-safe-sunscreen",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Badger Reef-Safe Sunscreen SPF 30",
+              "beckn:shortDesc": "Mineral sunscreen safe for marine ecosystems",
+              "beckn:longDesc": "Broad-spectrum reef-safe sunscreen formulated with non-nano zinc oxide, ideal for coastal snorkeling days in Mombasa."
+            },
+            "beckn:category": {
+              "@type": "schema:CategoryCode",
+              "schema:codeValue": "accessories-care",
+              "schema:name": "Personal Care Accessories"
+            },
+            "beckn:availableAt": [],
+            "beckn:rateable": true,
+            "beckn:rating": {
+              "@type": "beckn:Rating",
+              "beckn:ratingValue": 4.4,
+              "beckn:ratingCount": 198
+            },
+            "beckn:isActive": true,
+            "beckn:networkId": [
+              "Mombasa Coastal Network"
+            ],
+            "beckn:provider": {
+              "beckn:id": "gearhub-coastal",
+              "beckn:descriptor": {
+                "@type": "beckn:Descriptor",
+                "schema:name": "GearHub Coastal Outfitters"
+              }
+            },
+            "beckn:itemAttributes": {
+              "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+              "@type": "AccessoriesService",
+              "accessoryType": "Sunscreen",
+              "brand": "Badger",
+              "modelNumber": "REEF-SPF30",
+              "compatibility": [
+                "Mambosa Beach Day",
+                "Coastal Snorkeling"
+              ],
+              "materials": [
+                "Non-nano Zinc Oxide",
+                "Organic Sunflower Oil"
+              ],
+              "colorOptions": [
+                "Natural"
+              ],
+              "dimensions": {
+                "notes": "90 ml aluminum tube with screw cap."
+              },
+              "weightGrams": 150,
+              "capacity": "SPF 30 broad spectrum protection with 80-minute water resistance",
+              "keyFeatures": [
+                "Reef-safe mineral formulation",
+                "Water-resistant for 80 minutes",
+                "Fragrance free",
+                "Biodegradable packaging"
+              ],
+              "usageScenarios": [
+                "Beach excursions",
+                "Snorkeling tours",
+                "Boat transfers"
+              ],
+              "includedItems": [
+                "90 ml sunscreen tube"
+              ],
+              "warranty": {
+                "durationMonths": 6,
+                "coverage": "Replacement for manufacturing defects in packaging",
+                "serviceChannels": [
+                  "Walk-in"
+                ]
+              },
+              "careInstructions": [
+                "Store below 30°C",
+                "Reapply every 2 hours or after swimming",
+                "Close cap tightly to prevent leakage"
+              ],
+              "safetyInformation": [
+                "For external use only",
+                "Avoid contact with eyes"
+              ],
+              "certifications": [
+                "FDA OTC",
+                "Reef Safe Certified"
+              ],
+              "sustainabilityNotes": "Aluminum tube and cardboard box are fully recyclable.",
+              "lifecycle": {
+                "launchDate": "2024-01-15",
+                "supportNotes": "Batch traceability available via QR code on packaging."
+              },
+              "crossSellSuggestions": [
+                "gearhub-snorkeling-gear-set",
+                "gearhub-safari-daypack"
+              ],
+              "returnPolicyNotes": "Non-returnable once opened; unopened tubes returnable within 14 days.",
+              "additionalNotes": "Recommended by GearHub marine specialists for reef excursions."
             }
           }
         ],
@@ -167,6 +697,171 @@
               "@type": "beckn:TimePeriod",
               "schema:startDate": "2024-03-01T00:00:00Z",
               "schema:endDate": "2024-05-31T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "gearhub-safari-camera-kit-offer",
+            "beckn:provider": "gearhub-photo-lab",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Safari Pro Camera Kit — Photographer Bundle",
+              "beckn:shortDesc": "Includes field orientation and spare memory cards"
+            },
+            "beckn:items": [
+              "gearhub-safari-camera-kit"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 450.00,
+              "applicableQuantity": {
+                "unitText": "Per Kit",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "gearhub-safari-clothing-set-offer",
+            "beckn:provider": "gearhub-outfitters",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Safari Clothing Set — Outfit Bundle",
+              "beckn:shortDesc": "Includes complimentary insect-repellent treatment renewal"
+            },
+            "beckn:items": [
+              "gearhub-safari-clothing-set"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 85.00,
+              "applicableQuantity": {
+                "unitText": "Per Set",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-08-31T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "gearhub-snorkeling-gear-set-offer",
+            "beckn:provider": "gearhub-coastal",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Coastal Snorkeling Gear — Reef Package",
+              "beckn:shortDesc": "Includes complimentary anti-fog solution and mesh drying bag"
+            },
+            "beckn:items": [
+              "gearhub-snorkeling-gear-set"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 65.00,
+              "applicableQuantity": {
+                "unitText": "Per Kit",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "gearhub-safari-daypack-offer",
+            "beckn:provider": "gearhub-pack-supply",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Safari Day Pack 20L — Field Bundle",
+              "beckn:shortDesc": "Includes rain cover and camera insert orientation"
+            },
+            "beckn:items": [
+              "gearhub-safari-daypack"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 45.00,
+              "applicableQuantity": {
+                "unitText": "Per Pack",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
+            },
+            "beckn:acceptedPaymentMethod": [
+              "UPI",
+              "CreditCard",
+              "Wallet"
+            ]
+          },
+          {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "gearhub-reef-safe-sunscreen-offer",
+            "beckn:provider": "gearhub-coastal",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Reef-Safe Sunscreen — Beach Bundle",
+              "beckn:shortDesc": "Includes travel-sized refill tube with every purchase"
+            },
+            "beckn:items": [
+              "gearhub-reef-safe-sunscreen"
+            ],
+            "beckn:price": {
+              "currency": "USD",
+              "value": 18.00,
+              "applicableQuantity": {
+                "unitText": "Per Tube",
+                "unitCode": "EA",
+                "unitQuantity": 1
+              }
+            },
+            "beckn:validity": {
+              "@type": "beckn:TimePeriod",
+              "schema:startDate": "2024-03-01T00:00:00Z",
+              "schema:endDate": "2024-09-30T23:59:59Z"
             },
             "beckn:acceptedPaymentMethod": [
               "UPI",
