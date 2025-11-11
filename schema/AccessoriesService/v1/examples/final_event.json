@@ -1,0 +1,177 @@
+{
+    "context": {
+        "version": "2.0.0",
+        "action": "catalog_publish",
+        "domain": "beckn.one:retail:accessories:*",
+        "timestamp": "2025-02-12T10:05:20Z",
+        "transaction_id": "6f1d5b8c-ef13-4cc1-8da1-2d53a291af27",
+        "message_id": "c75ff13b-254d-45a6-9f0b-8b6d2c9c0b52",
+        "bpp_id": "gearhub.example.com",
+        "bpp_uri": "https://gearhub.example.com",
+        "ttl": "PT30S"
+    },
+    "message": {
+        "catalogs": [
+            {
+                "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                "@type": "beckn:Catalog",
+                "beckn:id": "catalog-accessories-urban-001",
+                "beckn:descriptor": {
+                    "@type": "beckn:Descriptor",
+                    "schema:name": "GearHub Urban Essentials",
+                    "beckn:shortDesc": "Travel adapters, organizers, and gadget add-ons for urban professionals",
+                    "beckn:longDesc": "GearHub curates premium accessories built for frequent travellers—featuring universal adapters, tech organizers, and sustainably crafted gear."
+                },
+                "beckn:validity": {
+                    "@type": "beckn:TimePeriod",
+                    "schema:startDate": "2025-02-15T00:00:00Z",
+                    "schema:endDate": "2025-08-31T23:59:59Z"
+                },
+                "beckn:items": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Item",
+                        "beckn:id": "gearhub-traveladapter-45w",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Nomad 45W Universal Travel Adapter",
+                            "beckn:shortDesc": "Compact 45W USB-C travel adapter with surge protection",
+                            "beckn:longDesc": "Charge laptops, tablets, and phones worldwide with the Nomad 45W adapter featuring interchangeable plugs, dual USB-C ports, and built-in surge protection."
+                        },
+                        "beckn:category": {
+                            "@type": "schema:CategoryCode",
+                            "schema:codeValue": "accessories-travel",
+                            "schema:name": "Travel Accessories"
+                        },
+                        "beckn:availableAt": [],
+                        "beckn:rateable": true,
+                        "beckn:rating": {
+                            "@type": "beckn:Rating",
+                            "beckn:ratingValue": 4.6,
+                            "beckn:ratingCount": 512
+                        },
+                        "beckn:isActive": true,
+                        "beckn:networkId": [
+                            "bap.net/retail",
+                            "bap.net/accessories"
+                        ],
+                        "beckn:provider": {
+                            "beckn:id": "gearhub-urban",
+                            "beckn:descriptor": {
+                                "@type": "beckn:Descriptor",
+                                "schema:name": "GearHub Urban Outlet"
+                            }
+                        },
+                        "beckn:itemAttributes": {
+                            "@context": "https://raw.githubusercontent.com/manjudr/protocol-specifications-new/refs/heads/agentic-demo-spec/schema/AccessoriesService/v1/context.jsonld",
+                            "@type": "AccessoriesService",
+                            "accessoryType": "TravelAdapter",
+                            "brand": "Nomad",
+                            "modelNumber": "NA-TRVL-45W",
+                            "compatibility": [
+                                "USB-C devices",
+                                "110-240V power outlets"
+                            ],
+                            "compatibilityNotes": "Supports Type A/B/C/E/F/G/I/L outlets; not grounded for high-power appliances.",
+                            "materials": [
+                                "Aluminum",
+                                "TPU"
+                            ],
+                            "colorOptions": [
+                                "Matte Black",
+                                "Silver"
+                            ],
+                            "dimensions": {
+                                "lengthMm": 65,
+                                "widthMm": 50,
+                                "heightMm": 45,
+                                "notes": "Collapsible prongs reduce packed size."
+                            },
+                            "weightGrams": 180,
+                            "capacity": "Outputs up to 45W USB-C PD",
+                            "keyFeatures": [
+                                "Dual USB-C PD ports",
+                                "Surge and overheat protection",
+                                "Foldable plug design"
+                            ],
+                            "usageScenarios": [
+                                "International travel",
+                                "Remote work hubs",
+                                "Business lounges"
+                            ],
+                            "includedItems": [
+                                "Universal adapter",
+                                "Carrying pouch",
+                                "Instruction manual"
+                            ],
+                            "warranty": {
+                                "durationMonths": 24,
+                                "coverage": "Manufacturing defects and electrical failures under normal use.",
+                                "serviceChannels": [
+                                    "Mail-in",
+                                    "Walk-in"
+                                ]
+                            },
+                            "careInstructions": [
+                                "Disconnect from mains when not in use",
+                                "Wipe with dry cloth only"
+                            ],
+                            "safetyInformation": [
+                                "Certified CE / FCC",
+                                "Do not exceed 45W total output"
+                            ],
+                            "certifications": [
+                                "RoHS",
+                                "BIS"
+                            ],
+                            "sustainabilityNotes": "Packaging uses recycled cardboard and soy-based inks.",
+                            "lifecycle": {
+                                "launchDate": "2025-01-15",
+                                "supportNotes": "Firmware updates for power management delivered via USB-C."
+                            },
+                            "crossSellSuggestions": [
+                                "gearhub-techorganizer-lite",
+                                "gearhub-cablekit-essentials"
+                            ],
+                            "returnPolicyNotes": "Eligible for 30-day hassle-free returns; item must be in original packaging.",
+                            "additionalNotes": "Pair with GearHub cable kit for best results."
+                        }
+                    }
+                ],
+                "beckn:offers": [
+                    {
+                        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+                        "@type": "beckn:Offer",
+                        "beckn:id": "gearhub-traveladapter-45w-offer",
+                        "beckn:provider": "gearhub-urban",
+                        "beckn:descriptor": {
+                            "@type": "beckn:Descriptor",
+                            "schema:name": "Nomad 45W Adapter — Launch Offer",
+                            "beckn:shortDesc": "Introductory price with 10% loyalty bonus"
+                        },
+                        "beckn:items": [
+                            "gearhub-traveladapter-45w"
+                        ],
+                        "beckn:price": {
+                            "currency": "INR",
+                            "value": 4499.00,
+                            "applicableQuantity": {
+                                "unitText": "Per Unit",
+                                "unitCode": "EA",
+                                "unitQuantity": 1
+                            }
+                        },
+                        "beckn:validity": {
+                            "@type": "beckn:TimePeriod",
+                            "schema:startDate": "2025-02-15T00:00:00Z",
+                            "schema:endDate": "2025-04-30T23:59:59Z"
+                        },
+                        "beckn:acceptedPaymentMethod": [
+                            "UPI"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
