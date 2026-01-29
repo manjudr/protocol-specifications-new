@@ -1,11 +1,11 @@
 openapi: 3.1.1
 info:
-  title: Beckn Protocol V2 API
+  title: Beckn Protocol V2.0 API Specification
   description: |
     The API specification of Beckn Protocol covering the four stages of an order lifecycle:
     - Discovery: Discovery of catalogs
-    - Ordering: Price negotiation, terms negotiation, and order creation
-    - Fulfillment: Order tracking, status updates, order 
+    - Ordering: Price negotiation, terms negotiation, and order confirmation
+    - Fulfillment: Order tracking, status updates, order updates and cancellation
     - Post-fulfillment: Rating, feedback, and customer support
   version: 2.0.0
   contact:
@@ -20,9 +20,9 @@ paths:
     get:
       summary: Discover catalogs on a network
       description: |
-        Search and discover catalogs on a network. Supports text search, JSONPath-based filtering (RFC 9535), or both together with automatic schema adaptation. This endpoint returns an **ACK/NACK** confirming receipt/validation. Can be implemented by any entity hosting catalogs. 
+        Search and discover catalogs across an open network. This endpoint can be implemented by Catalog Discovery Services, and BPPs. Supports text search, JSONPath-based filtering (RFC 9535), or both together with automatic schema adaptation. This endpoint returns an **ACK/NACK** confirming receipt/validation. Can be implemented by any entity hosting catalogs. 
       operationId: discoverCatalog
-      tags: [Discovery]
+      tags: [CDS, BPP]
       requestBody:
         required: true
         content:
@@ -42,20 +42,16 @@ paths:
                 $ref: '#/components/examples/discover_multi_schema_search'
       responses:
         '200':
-          description: ACK — received the discover request (validation passed)
+          description: ACK — Successful acknowledgement of a catalog discovery request. Upon receiving this, the BAP should expect an on_discover callback. 
           content:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/tags/core-v2.0.0-rc2/schema/core/v2/attributes.yaml#/components/schemas/AckResponse'
-              examples:
-                discover_electronics_catalog:
-                  $ref: '#/components/examples/on_discover_electronics_catalog'
-                discover_grocery_catalog:
-                  $ref: '#/components/examples/on_discover_grocery_catalog'
         '400':
           $ref: '#/components/responses/Ack400'
         '500':
           $ref: '#/components/responses/Ack500'
+          
   /beckn/on_discover:
     post:
       summary: Callback response to `discover` request
