@@ -21,7 +21,6 @@ components:
         "@context": ./context.jsonld
         "@type": PaymentSettlement
       properties:
-
         settlementAccounts:
           type: array
           description: List of settlement details (Bank, VPA, etc.) for the entity.
@@ -45,11 +44,11 @@ components:
                 description: Bank account number.
                 example: "1234567890123"
                 x-jsonld: { "@id": accountNumber }
-              ifscCode:
+              branchCode:
                 type: string
-                description: Bank IFSC code.
+                description: Bank Branch code.
                 example: "HDFC0001234"
-                x-jsonld: { "@id": ifscCode }
+                x-jsonld: { "@id": branchCode }
               bankName:
                 type: string
                 description: Name of the bank.
@@ -64,6 +63,6 @@ components:
                 type: string
                 format: uri
                 description: URL for payment processing/redirection.
-                example: "https://payments.example.com/pay?transaction_id=123&amount=100"
+                example: "https://payments.example.com/pay?transactionId=123&amount=100"
                 x-jsonld: { "@id": "schema:url" }
 
