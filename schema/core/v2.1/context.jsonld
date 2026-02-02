@@ -101,7 +101,7 @@
     "errorCode": "beckn:errorCode",
     "errorDetails": "beckn:errorDetails",
     "errorMessage": "beckn:errorMessage",
-    "expires_at": "beckn:expires_at",
+    "expiresAt": "beckn:expiresAt",
     "feedback": "beckn:feedback",
     "form": "beckn:form",
     "fulfillment": "beckn:fulfillment",
@@ -206,7 +206,7 @@
     "supportInfo": "beckn:supportInfo",
     "taxID": "beckn:taxID",
     "telephone": "schema:telephone",
-    "tl_method": "beckn:tl_method",
+    "tlMethod": "beckn:tlMethod",
     "trackingStatus": {
       "@id": "beckn:trackingStatus",
       "@type": "@id",
@@ -226,36 +226,33 @@
     "unitText": "beckn:unitText",
     "updatedAt": "beckn:updatedAt",
     "validity": "beckn:validity",
-    "value": "beckn:value"
+    "value": "beckn:value",
+    "Feature": "beckn:Feature",
+    "Policy": "beckn:Policy",
+    "Constraint": "beckn:Constraint",
+    "Participant": "beckn:Participant",
+    "Skill": "beckn:Skill",
+    "Credential": "beckn:Credential",
+    "Instruction": "beckn:Instruction",
+    "Entitlement": "beckn:Entitlement",
+    "Alert": "beckn:Alert",
+    "PriceComponent": "beckn:PriceComponent",
+    "State": "beckn:State",
+    "FulfillmentStop": "beckn:FulfillmentStop",
+    "features": "beckn:features",
+    "policies": "beckn:policies",
+    "constraints": "beckn:constraints",
+    "participants": "beckn:participants",
+    "skills": "beckn:skills",
+    "credentials": "beckn:credentials",
+    "instructions": "beckn:instructions",
+    "entitlements": "beckn:entitlements",
+    "alerts": "beckn:alerts",
+    "priceComponents": "beckn:priceComponents",
+    "state": "beckn:state",
+    "stops": "beckn:stops",
+    "stopType": "beckn:stopType",
+    "severity": "beckn:severity"
   },
-  "@graph": [
-    {
-      "@id": "beckn:Catalog",
-      "owl:equivalentClass": "schema:ProductCollection"
-    },
-    {
-      "@id": "beckn:Item",
-      "owl:equivalentClass": "schema:Product"
-    },
-    {
-      "@id": "beckn:Offer",
-      "owl:equivalentClass": "schema:Offer"
-    },
-    {
-      "@id": "beckn:Provider",
-      "owl:equivalentClass": "schema:Organization"
-    },
-    {
-      "@id": "beckn:Order",
-      "owl:equivalentClass": "schema:Order"
-    },
-    {
-      "@id": "beckn:Fulfillment",
-      "owl:equivalentClass": "schema:ParcelDelivery"
-    },
-    {
-      "@id": "beckn:Payment",
-      "owl:equivalentClass": "schema:Payment"
-    }
-  ]
+  "@graph": []
 }

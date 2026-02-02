@@ -1,7 +1,7 @@
 {
   "@context": {
     "@version": 1.1,
-    "beckn": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/#",
+    "beckn": "https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/tags/core-v2.0.0-rc2/main/schema/core/v2/#",
     "schema": "https://schema.org/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -66,14 +66,14 @@
       "@id": "beckn:Quantity",
       "@type": "rdfs:Class",
       "rdfs:label": "Quantity",
-      "rdfs:comment": "A quantitative value specifying units, codes, and quantity constraints.",
+      "rdfs:comment": "A quantitative value specifying units, codes, and quantity constraints",
       "schema:rangeIncludes": "schema:QuantitativeValue"
     },
     {
       "@id": "beckn:Buyer",
       "@type": "rdfs:Class",
       "rdfs:label": "Buyer",
-      "rdfs:comment": "A person or organization purchasing items; identity via attribute packs."
+      "rdfs:comment": "A person or organization purchasing items; identity via attribute packs"
     },
     {
       "@id": "beckn:Descriptor",
@@ -1257,8 +1257,11 @@
       "@id": "beckn:networkId",
       "@type": "rdf:Property",
       "rdfs:label": "Network ID",
-      "rdfs:comment": "Network identifiers for the BAP that offers this item.",
-      "rdfs:domain": "beckn:Item",
+      "rdfs:comment": "A unique identifier representing a group of platforms. By default, it is the url of the network registry on the Beckn network",
+      "rdfs:domain": [
+        "beckn:Context",
+        "beckn:Item"
+      ],
       "schema:rangeIncludes": "schema:Text"
     },
     {
@@ -1590,15 +1593,15 @@
       ]
     },
     {
-      "@id": "beckn:tl_method",
+      "@id": "beckn:tlMethod",
       "@type": "rdf:Property",
-      "rdfs:label": "Tracking transport method",
-      "rdfs:comment": "Transport/method used to access the tracking handle.",
+      "rdfs:label": "Transport layer method",
+      "rdfs:comment": "Transport layer method used to access the tracking handle.",
       "rdfs:domain": "beckn:Tracking",
       "schema:rangeIncludes": "schema:Text"
     },
     {
-      "@id": "beckn:expires_at",
+      "@id": "beckn:expiresAt",
       "@type": "rdf:Property",
       "rdfs:label": "Expires at",
       "rdfs:comment": "Expiry timestamp for the tracking handle.",
@@ -1739,6 +1742,249 @@
       "rdfs:label": "Long description",
       "rdfs:comment": "Detailed description text.",
       "rdfs:domain": "beckn:Descriptor",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:Feature",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Feature",
+      "rdfs:comment": "A generic capability/amenity/attribute of an offering or provider (e.g., accessibility, connectivity, inclusions).",
+      "rdfs:subClassOf": "schema:DefinedTerm"
+    },
+    {
+      "@id": "beckn:Policy",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Policy",
+      "rdfs:comment": "A generic policy artifact describing rules/terms applicable to providers, offerings, orders, or fulfillments.",
+      "rdfs:subClassOf": "schema:CreativeWork"
+    },
+    {
+      "@id": "beckn:Constraint",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Constraint",
+      "rdfs:comment": "A generic quantitative or logical constraint applicable to an item or offer (e.g., max duration, max distance, limits).",
+      "rdfs:subClassOf": "schema:Intangible"
+    },
+    {
+      "@id": "beckn:Participant",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Participant",
+      "rdfs:comment": "A participant in a transaction with a role (buyer, recipient, rider, patient, operator, etc.).",
+      "rdfs:subClassOf": "schema:Person"
+    },
+    {
+      "@id": "beckn:Skill",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Skill",
+      "rdfs:comment": "A skill/competency term applicable to a participant or provider agent.",
+      "rdfs:subClassOf": "schema:DefinedTerm"
+    },
+    {
+      "@id": "beckn:Credential",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Credential",
+      "rdfs:comment": "A credential or qualification held by a participant (license, certification, permit, badge, etc.).",
+      "rdfs:subClassOf": "schema:EducationalOccupationalCredential"
+    },
+    {
+      "@id": "beckn:Instruction",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Instruction",
+      "rdfs:comment": "Contextual instructions associated with a fulfillment stop, order, or location (e.g., access, pickup, handover).",
+      "rdfs:subClassOf": "schema:CreativeWork"
+    },
+    {
+      "@id": "beckn:Entitlement",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Entitlement",
+      "rdfs:comment": "An entitlement/access artifact issued as part of an order (ticket, boarding pass, voucher, permit, token).",
+      "rdfs:subClassOf": "schema:Ticket"
+    },
+    {
+      "@id": "beckn:Alert",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Alert",
+      "rdfs:comment": "An alert/notice affecting services, orders, or fulfillments (delay, cancellation, recall, advisory).",
+      "rdfs:subClassOf": "schema:Event"
+    },
+    {
+      "@id": "beckn:PriceComponent",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Price component",
+      "rdfs:comment": "A component/line item contributing to a total price (tax, fee, surcharge, discount).",
+      "rdfs:subClassOf": "schema:PriceSpecification"
+    },
+    {
+      "@id": "beckn:State",
+      "@type": "rdfs:Class",
+      "rdfs:label": "State",
+      "rdfs:comment": "A generic state label for an entity (order state, fulfillment state, payment state) with extensible vocabularies.",
+      "rdfs:subClassOf": "schema:DefinedTerm"
+    },
+    {
+      "@id": "beckn:FulfillmentStop",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Fulfillment stop",
+      "rdfs:comment": "A typed stop/milestone within a fulfillment plan, with location/time/instructions.",
+      "rdfs:subClassOf": "schema:Intangible"
+    },
+    {
+      "@id": "beckn:features",
+      "@type": "rdf:Property",
+      "rdfs:label": "Features",
+      "rdfs:comment": "Features/capabilities applicable to an entity.",
+      "rdfs:domain": [
+        "beckn:Item",
+        "beckn:Offer",
+        "beckn:Provider",
+        "beckn:Fulfillment"
+      ],
+      "schema:rangeIncludes": "beckn:Feature"
+    },
+    {
+      "@id": "beckn:policies",
+      "@type": "rdf:Property",
+      "rdfs:label": "Policies",
+      "rdfs:comment": "Policies applicable to an entity.",
+      "rdfs:domain": [
+        "beckn:Provider",
+        "beckn:Item",
+        "beckn:Offer",
+        "beckn:Order",
+        "beckn:Fulfillment"
+      ],
+      "schema:rangeIncludes": "beckn:Policy"
+    },
+    {
+      "@id": "beckn:constraints",
+      "@type": "rdf:Property",
+      "rdfs:label": "Constraints",
+      "rdfs:comment": "Constraints/limits applicable to an item or offer.",
+      "rdfs:domain": [
+        "beckn:Item",
+        "beckn:Offer"
+      ],
+      "schema:rangeIncludes": "beckn:Constraint"
+    },
+    {
+      "@id": "beckn:participants",
+      "@type": "rdf:Property",
+      "rdfs:label": "Participants",
+      "rdfs:comment": "Participants associated with an order or fulfillment.",
+      "rdfs:domain": [
+        "beckn:Order",
+        "beckn:Fulfillment"
+      ],
+      "schema:rangeIncludes": "beckn:Participant"
+    },
+    {
+      "@id": "beckn:skills",
+      "@type": "rdf:Property",
+      "rdfs:label": "Skills",
+      "rdfs:comment": "Skills associated with a participant.",
+      "rdfs:domain": [
+        "beckn:Participant"
+      ],
+      "schema:rangeIncludes": "beckn:Skill"
+    },
+    {
+      "@id": "beckn:credentials",
+      "@type": "rdf:Property",
+      "rdfs:label": "Credentials",
+      "rdfs:comment": "Credentials associated with a participant.",
+      "rdfs:domain": [
+        "beckn:Participant"
+      ],
+      "schema:rangeIncludes": "beckn:Credential"
+    },
+    {
+      "@id": "beckn:instructions",
+      "@type": "rdf:Property",
+      "rdfs:label": "Instructions",
+      "rdfs:comment": "Instructions applicable to an entity (e.g., stop-level access/pickup/handover instructions).",
+      "rdfs:domain": [
+        "beckn:Order",
+        "beckn:Fulfillment",
+        "beckn:FulfillmentStop",
+        "beckn:Location"
+      ],
+      "schema:rangeIncludes": "beckn:Instruction"
+    },
+    {
+      "@id": "beckn:entitlements",
+      "@type": "rdf:Property",
+      "rdfs:label": "Entitlements",
+      "rdfs:comment": "Entitlements issued under an order or fulfillment.",
+      "rdfs:domain": [
+        "beckn:Order",
+        "beckn:Fulfillment"
+      ],
+      "schema:rangeIncludes": "beckn:Entitlement"
+    },
+    {
+      "@id": "beckn:alerts",
+      "@type": "rdf:Property",
+      "rdfs:label": "Alerts",
+      "rdfs:comment": "Alerts applicable to a provider, order, or fulfillment.",
+      "rdfs:domain": [
+        "beckn:Provider",
+        "beckn:Order",
+        "beckn:Fulfillment"
+      ],
+      "schema:rangeIncludes": "beckn:Alert"
+    },
+    {
+      "@id": "beckn:priceComponents",
+      "@type": "rdf:Property",
+      "rdfs:label": "Price components",
+      "rdfs:comment": "Breakdown line items that compose a total price.",
+      "rdfs:domain": [
+        "beckn:PriceSpecification",
+        "beckn:Invoice"
+      ],
+      "schema:rangeIncludes": "beckn:PriceComponent"
+    },
+    {
+      "@id": "beckn:state",
+      "@type": "rdf:Property",
+      "rdfs:label": "State",
+      "rdfs:comment": "The current state of an entity.",
+      "rdfs:domain": [
+        "beckn:Order",
+        "beckn:Fulfillment",
+        "beckn:Payment",
+        "beckn:Tracking"
+      ],
+      "schema:rangeIncludes": "beckn:State"
+    },
+    {
+      "@id": "beckn:stops",
+      "@type": "rdf:Property",
+      "rdfs:label": "Stops",
+      "rdfs:comment": "Stops/milestones within a fulfillment plan.",
+      "rdfs:domain": [
+        "beckn:Fulfillment"
+      ],
+      "schema:rangeIncludes": "beckn:FulfillmentStop"
+    },
+    {
+      "@id": "beckn:stopType",
+      "@type": "rdf:Property",
+      "rdfs:label": "Stop type",
+      "rdfs:comment": "A typed role/kind of fulfillment stop (pickup, dropoff, hub, checkpoint, etc.).",
+      "rdfs:domain": [
+        "beckn:FulfillmentStop"
+      ],
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
+      "@id": "beckn:severity",
+      "@type": "rdf:Property",
+      "rdfs:label": "Severity",
+      "rdfs:comment": "Severity level for an alert.",
+      "rdfs:domain": [
+        "beckn:Alert"
+      ],
       "schema:rangeIncludes": "schema:Text"
     }
   ]
