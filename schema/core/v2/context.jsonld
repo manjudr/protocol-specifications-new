@@ -228,5 +228,34 @@
     "validity": "beckn:validity",
     "value": "beckn:value"
   },
-  "@graph": []
+  "@graph": [
+    {
+      "@id": "beckn:Catalog",
+      "owl:equivalentClass": "schema:ProductCollection"
+    },
+    {
+      "@id": "beckn:Item",
+      "owl:equivalentClass": "schema:Product"
+    },
+    {
+      "@id": "beckn:Offer",
+      "owl:equivalentClass": "schema:Offer"
+    },
+    {
+      "@id": "beckn:Provider",
+      "owl:equivalentClass": "schema:Organization"
+    },
+    {
+      "@id": "beckn:Order",
+      "owl:equivalentClass": "schema:Order"
+    },
+    {
+      "@id": "beckn:Fulfillment",
+      "owl:equivalentClass": "schema:ParcelDelivery"
+    },
+    {
+      "@id": "beckn:Payment",
+      "owl:equivalentClass": "schema:Payment"
+    }
+  ]
 }
