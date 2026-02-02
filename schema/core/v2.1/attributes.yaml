@@ -200,6 +200,21 @@ components:
       - '@type'
       - beckn:id
       type: object
+    CancellationOutcome:
+      type: object
+      properties:
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+    CancellationPolicy:
+      type: object
+      properties:
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+    CancellationReason:
+      type: object
+      properties:
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
     Catalog:
       additionalProperties: false
       properties:
@@ -516,6 +531,10 @@ components:
       - beckn:id
       - beckn:descriptor
       type: object
+    Feedback:
+      description: Feedback
+      type: object
+      # TODO: Define the schema
     Form:
       description: Describes a form
       properties:
@@ -1808,9 +1827,7 @@ components:
       type: object
     SupportInfo:
       additionalProperties: false
-      description: 'Canonical support contact for an entity, mapped to schema.org ContactPoint.
-
-        '
+      description: 'Canonical support contact for an entity, mapped to schema.org ContactPoint.'
       example:
         channels:
         - web
@@ -1874,6 +1891,12 @@ components:
         schema:name: $.name
         schema:telephone: $.phone
         schema:url: $.url
+    SupportMethod:
+      type: string
+      # TODO : Taken from support endpoints. Define this schema
+    SupportTicket:
+      type: object
+      # TODO : Taken from support endpoints. Define this schema
     TimePeriod:
       anyOf:
       - required:
@@ -2002,7 +2025,6 @@ components:
         beckn:trackingStatus: $.trackingStatus
         schema:deliveryMethod: $.tl_method
         schema:target: $.url
-
 
     # ---------- Result model ----------
     CatalogProcessingResult:
