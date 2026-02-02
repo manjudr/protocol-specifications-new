@@ -16,14 +16,26 @@ components:
   schemas:
     Catalog:
       type: object
-      required: ["@context", "@type", "beckn:id", "beckn:descriptor", "beckn:bppId", "beckn:bppUri", "beckn:items"]
+      required:
+        [
+          "@context",
+          "@type",
+          "beckn:id",
+          "beckn:descriptor",
+          "beckn:bppId",
+          "beckn:bppUri",
+          "beckn:items",
+        ]
       additionalProperties: false
       properties:
         "@context":
           type: string
           format: uri
           description: JSON-LD context URI for the core Catalog schema
-          enum: ["https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld"]
+          enum:
+            [
+              "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
+            ]
         "@type":
           type: string
           description: Type of the catalog
@@ -33,7 +45,7 @@ components:
           description: Unique identifier for the catalog
           example: "catalog-electronics-001"
         "beckn:descriptor":
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         "beckn:providerId":
           type: string
           description: Reference to the provider that owns this catalog
@@ -48,12 +60,12 @@ components:
           description: BPP (Beckn Protocol Provider) URI endpoint
           example: "https://bpp.example.com"
         "beckn:validity":
-          $ref: '#/components/schemas/TimePeriod'
+          $ref: "#/components/schemas/TimePeriod"
         "beckn:isActive":
           type: boolean
           description: Whether the catalog is active
           default: true
-        beckn:items:  # semantic entities
+        beckn:items: # semantic entities
           type: array
           description: >
             Array of beckn core Item entities in this catalog, returned directly without
@@ -65,14 +77,25 @@ components:
 
     Item:
       type: object
-      required: ["@context", "@type", "beckn:id", "beckn:descriptor", "beckn:provider", "beckn:itemAttributes"]
+      required:
+        [
+          "@context",
+          "@type",
+          "beckn:id",
+          "beckn:descriptor",
+          "beckn:provider",
+          "beckn:itemAttributes",
+        ]
       additionalProperties: false
       properties:
         "@context":
           type: string
           format: uri
           description: JSON-LD context URI for the core Item schema
-          enum: ["https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld"]
+          enum:
+            [
+              "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
+            ]
         "@type":
           type: string
           description: Type of the core item
@@ -82,25 +105,25 @@ components:
           description: Unique identifier for the item
           example: "gaming-laptop-001"
         "beckn:descriptor":
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         "beckn:category":
-          $ref: '#/components/schemas/CategoryCode'
+          $ref: "#/components/schemas/CategoryCode"
         "beckn:availableAt":
           type: array
           items:
-            $ref: '#/components/schemas/Location'
+            $ref: "#/components/schemas/Location"
           description: Physical locations where the item is available
         "beckn:availabilityWindow":
           type: array
           items:
-            $ref: '#/components/schemas/TimePeriod'
+            $ref: "#/components/schemas/TimePeriod"
           description: Time periods when the item is available
         "beckn:rateable":
           type: boolean
           description: Whether the item can be rated by customers
           example: true
         "beckn:rating":
-          $ref: '#/components/schemas/Rating'
+          $ref: "#/components/schemas/Rating"
         "beckn:isActive":
           type: boolean
           description: Whether the item is active
@@ -112,9 +135,9 @@ components:
           description: Array of network identifiers for the BAP (Beckn App Provider) that offers this item
           example: ["bap.net/electronics", "bap.net/tech"]
         "beckn:provider":
-          $ref: '#/components/schemas/Provider'
+          $ref: "#/components/schemas/Provider"
         "beckn:itemAttributes":
-          $ref: '#/components/schemas/Attributes'
+          $ref: "#/components/schemas/Attributes"
 
     Offer:
       type: object
@@ -170,22 +193,23 @@ components:
         beckn:validity:
           $ref: "#/components/schemas/TimePeriod"
           description: Offer validity window
-          x-jsonld: { "@id": "schema:availabilityStarts|schema:availabilityEnds" }
+          x-jsonld:
+            { "@id": "schema:availabilityStarts|schema:availabilityEnds" }
         beckn:price:
           $ref: "#/components/schemas/PriceSpecification"
           description: Price snapshot; detailed models can live in offerAttributes
           x-jsonld: { "@id": "schema:priceSpecification" }
-        beckn:eligibleRegion: 
+        beckn:eligibleRegion:
           type: array
           items:
-            $ref: '#/components/schemas/Location'
+            $ref: "#/components/schemas/Location"
           description: Regions where the offer is eligible
         beckn:acceptedPaymentMethod:
-          $ref: '#/components/schemas/AcceptedPaymentMethod'
+          $ref: "#/components/schemas/AcceptedPaymentMethod"
         beckn:offerAttributes:
           $ref: "#/components/schemas/Attributes"
-          description: Attribute Pack attachment (pricing models, discounts, rail terms, etc.)          
-              
+          description: Attribute Pack attachment (pricing models, discounts, rail terms, etc.)
+
     Attributes:
       type: object
       description: >
@@ -204,14 +228,23 @@ components:
         "@type":
           type: string
           description: JSON-LD type within the domain schema
-          example: "beckn:ElectronicItem"              
+          example: "beckn:ElectronicItem"
 
     AcceptedPaymentMethod:
       type: array
       description: Payment methods accepted for this offer
       items:
         type: string
-        enum: ["UPI", "CREDIT_CARD", "DEBIT_CARD", "WALLET", "BANK_TRANSFER", "CASH", "APPLE_PAY"]
+        enum:
+          [
+            "UPI",
+            "CREDIT_CARD",
+            "DEBIT_CARD",
+            "WALLET",
+            "BANK_TRANSFER",
+            "CASH",
+            "APPLE_PAY",
+          ]
       example: ["UPI", "Card", "Wallet"]
       x-jsonld: { "@id": "beckn:acceptedPaymentMethod" }
 
@@ -225,22 +258,22 @@ components:
           description: Unique identifier for the provider
           example: "tech-store-001"
         "beckn:descriptor":
-          $ref: '#/components/schemas/Descriptor'
+          $ref: "#/components/schemas/Descriptor"
         "beckn:validity":
-          $ref: '#/components/schemas/TimePeriod'
+          $ref: "#/components/schemas/TimePeriod"
         "beckn:locations":
           type: array
           items:
-            $ref: '#/components/schemas/Location'
+            $ref: "#/components/schemas/Location"
           description: Physical locations where the provider operates
         "beckn:rateable":
           type: boolean
           description: Whether the provider can be rated by customers
           example: true
         "beckn:rating":
-          $ref: '#/components/schemas/Rating'
+          $ref: "#/components/schemas/Rating"
         "beckn:providerAttributes":
-          $ref: '#/components/schemas/Attributes'
+          $ref: "#/components/schemas/Attributes"
 
     Quantity:
       type: object
@@ -278,9 +311,13 @@ components:
       additionalProperties: true
       properties:
         currency: { type: string, description: ISO 4217 code }
-        value:    { type: number, description: Total value for this price specification }
+        value:
+          {
+            type: number,
+            description: Total value for this price specification,
+          }
         applicableQuantity:
-          $ref: '#/components/schemas/Quantity'
+          $ref: "#/components/schemas/Quantity"
           x-jsonld: { "@id": "schema:eligibleQuantity" }
         components:
           type: array
@@ -288,12 +325,17 @@ components:
           items:
             type: object
             properties:
-              type: { type: string, enum: ["UNIT","TAX","DELIVERY","DISCOUNT","FEE","SURCHARGE"] }
+              type:
+                {
+                  type: string,
+                  enum:
+                    ["UNIT", "TAX", "DELIVERY", "DISCOUNT", "FEE", "SURCHARGE"],
+                }
               value: { type: number }
               currency: { type: string }
               description: { type: string }
       x-jsonld: { "@id": "schema:PriceSpecification" }
-      
+
     Eligibility:
       type: object
       properties:
@@ -412,7 +454,7 @@ components:
       required: [error]
       properties:
         error:
-          $ref: '#/components/schemas/Error'
+          $ref: "#/components/schemas/Error"
 
     Error:
       type: object
@@ -443,7 +485,7 @@ components:
           type: string
           enum: [ACK, NACK]
         error:
-          $ref: '#/components/schemas/Error'
+          $ref: "#/components/schemas/Error"
       required: [transaction_id, timestamp, ack_status]
       allOf:
         - if:
@@ -474,11 +516,11 @@ components:
           type: string
           enum: ["beckn:Location"]
         geo:
-          $ref: '#/components/schemas/GeoJSONGeometry'
+          $ref: "#/components/schemas/GeoJSONGeometry"
         address:
           oneOf:
             - type: string
-            - $ref: '#/components/schemas/Address'
+            - $ref: "#/components/schemas/Address"
           description: Optional human-readable address for the same place/area.
       required: [geo]
       additionalProperties: false
@@ -492,7 +534,13 @@ components:
             geo:
               type: Polygon
               coordinates:
-                - [[77.6100, 12.9200], [77.6400, 12.9200], [77.6400, 12.9500], [77.6100, 12.9500], [77.6100, 12.9200]]
+                - [
+                    [77.6100, 12.9200],
+                    [77.6400, 12.9200],
+                    [77.6400, 12.9500],
+                    [77.6100, 12.9500],
+                    [77.6100, 12.9200],
+                  ]
 
     # Address schema from discover.yaml
     Address:
@@ -570,7 +618,7 @@ components:
           description: >
             Member geometries when `type` is **GeometryCollection**.
           items:
-            $ref: '#/components/schemas/GeoJSONGeometry'
+            $ref: "#/components/schemas/GeoJSONGeometry"
         bbox:
           type: array
           description: Optional bounding box `[west, south, east, north]` in degrees.
@@ -586,13 +634,22 @@ components:
           value:
             type: Polygon
             coordinates:
-              - [[77.6100, 12.9200], [77.6400, 12.9200], [77.6400, 12.9500], [77.6100, 12.9500], [77.6100, 12.9200]]
+              - [
+                  [77.6100, 12.9200],
+                  [77.6400, 12.9200],
+                  [77.6400, 12.9500],
+                  [77.6100, 12.9500],
+                  [77.6100, 12.9200],
+                ]
         geometry_collection:
           value:
             type: GeometryCollection
             geometries:
               - { type: Point, coordinates: [77.60, 12.95] }
-              - { type: LineString, coordinates: [[77.60, 12.95], [77.62, 12.97]] }
+              - {
+                  type: LineString,
+                  coordinates: [[77.60, 12.95], [77.62, 12.97]],
+                }
 
     # --------------------------------
     # ORDER (core)
@@ -624,7 +681,21 @@ components:
         beckn:orderStatus:
           type: string
           description: Order status/state
-          enum: ["CREATED","PENDING","CONFIRMED","INPROGRESS","PARTIALLYFULFILLED","COMPLETED","CANCELLED","REJECTED","FAILED","RETURNED","REFUNDED","ONHOLD"]
+          enum:
+            [
+              "CREATED",
+              "PENDING",
+              "CONFIRMED",
+              "INPROGRESS",
+              "PARTIALLYFULFILLED",
+              "COMPLETED",
+              "CANCELLED",
+              "REJECTED",
+              "FAILED",
+              "RETURNED",
+              "REFUNDED",
+              "ONHOLD",
+            ]
           x-jsonld: { "@id": "beckn:orderStatus" }
 
         beckn:orderNumber:
@@ -658,7 +729,7 @@ components:
           x-jsonld: { "@id": "schema:priceSpecification" }
 
         beckn:invoice:
-          $ref: '#/components/schemas/Invoice/properties/beckn:id'
+          $ref: "#/components/schemas/Invoice/properties/beckn:id"
           description: Invoice reference/summary
           x-jsonld: { "@id": "schema:Invoice" }
 
@@ -708,7 +779,17 @@ components:
     Invoice:
       type: object
       additionalProperties: false
-      required: ["@context","@type","beckn:id","beckn:number","beckn:issueDate","beckn:totals","beckn:payee","beckn:payer"]
+      required:
+        [
+          "@context",
+          "@type",
+          "beckn:id",
+          "beckn:number",
+          "beckn:issueDate",
+          "beckn:totals",
+          "beckn:payee",
+          "beckn:payer",
+        ]
       # A commercial document snapshot for billing/tax. Rich tax regimes go in attribute packs.
       properties:
         "@context":
@@ -750,7 +831,7 @@ components:
           x-jsonld: { "@id": "schema:priceSpecification" }
         beckn:invoiceAttributes:
           $ref: "#/components/schemas/Attributes"
-          description: Attribute Pack for tax regime (e.g., GST/VAT), e-invoice refs, legal boilerplate, etc. 
+          description: Attribute Pack for tax regime (e.g., GST/VAT), e-invoice refs, legal boilerplate, etc.
 
     # ---------------------------------
     # FULFILLMENT (core)
@@ -760,7 +841,7 @@ components:
     Fulfillment:
       type: object
       additionalProperties: false
-      required: ["@context","@type","beckn:mode"]
+      required: ["@context", "@type", "beckn:mode"]
       properties:
         "@context":
           type: string
@@ -781,7 +862,7 @@ components:
           x-jsonld: { "@id": "beckn:fulfillmentStatus" }
         beckn:mode:
           type: string
-          enum: ["DELIVERY","PICKUP","RESERVATION","DIGITAL"]
+          enum: ["DELIVERY", "PICKUP", "RESERVATION", "DIGITAL"]
           description: |
             DELIVERY    → last-mile / parcel logistics
             PICKUP      → customer collects from a place
@@ -789,15 +870,15 @@ components:
             DIGITAL     → digital good / license access
           x-jsonld: { "@id": "beckn:mode" }
         trackingAction:
-          $ref: '#/components/schemas/TrackAction'
+          $ref: "#/components/schemas/TrackAction"
           description: >
             Tracking entrypoint for this fulfillment, modeled as schema.org TrackAction.
             Use target.url for a clickable tracking URL; may also include deliveryMethod.
           x-jsonld:
-            '@type': 'schema:TrackAction'
+            "@type": "schema:TrackAction"
         beckn:deliveryAttributes:
           $ref: "#/components/schemas/Attributes"
-          description: > 
+          description: >
             Bundle of attributes for the chosen mode: 
             # DELIVERY: endpoints, slot windows, route & events → map to schema:ParcelDelivery / schema:DeliveryEvent
             # PICKUP: pickupPlace, counter codes, time windows → map to schema:Place + schema:openingHoursSpecification
@@ -808,7 +889,7 @@ components:
       type: object
       description: Minimal schema.org TrackAction for clickable tracking.
       x-jsonld:
-        '@type': 'schema:TrackAction'
+        "@type": "schema:TrackAction"
       properties:
         id:
           type: string
@@ -819,8 +900,8 @@ components:
           format: uri
           description: Tracking page URL
           x-jsonld:
-            '@id': 'schema:url'
-      additionalProperties: true            
+            "@id": "schema:url"
+      additionalProperties: true
 
     # -----------------------------
     # PAYMENT (core)
@@ -828,7 +909,7 @@ components:
     Payment:
       type: object
       additionalProperties: false
-      required: ["@context","@type","beckn:paymentStatus"]
+      required: ["@context", "@type", "beckn:paymentStatus"]
       # Core payment semantics: rail + status + references. Rail payloads live in payment packs (UPI/Card/BNPL/Wallet).
       properties:
         "@context":
@@ -846,14 +927,34 @@ components:
         beckn:paymentStatus:
           type: string
           description: Payment lifecycle status (Pending | Authorized | Captured | Failed | Refunded | PartialRefund …)
-          enum: ["INITIATED","PENDING","AUTHORIZED","CAPTURED","COMPLETED","FAILED","CANCELLED","REFUNDED","PARTIALLY_REFUNDED","CHARGEBACK","DISPUTED","EXPIRED","REVERSED","VOIDED","SETTLED","ON_HOLD","ADJUSTED"]
+          enum:
+            [
+              "INITIATED",
+              "PENDING",
+              "AUTHORIZED",
+              "CAPTURED",
+              "COMPLETED",
+              "FAILED",
+              "CANCELLED",
+              "REFUNDED",
+              "PARTIALLY_REFUNDED",
+              "CHARGEBACK",
+              "DISPUTED",
+              "EXPIRED",
+              "REVERSED",
+              "VOIDED",
+              "SETTLED",
+              "ON_HOLD",
+              "ADJUSTED",
+            ]
           x-jsonld: { "@id": "beckn:paymentStatus" }
         beckn:amount:
           type: object
           description: Amount associated with this payment action
           properties:
-            currency: { type: string, x-jsonld: { "@id": "schema:priceCurrency" } }
-            value:    { type: number, x-jsonld: { "@id": "schema:price" } }
+            currency:
+              { type: string, x-jsonld: { "@id": "schema:priceCurrency" } }
+            value: { type: number, x-jsonld: { "@id": "schema:price" } }
         beckn:paymentURL:
           type: string
           format: uri
@@ -871,16 +972,16 @@ components:
           description: When the last terminal event (capture/refund) happened
           x-jsonld: { "@id": "schema:paymentDueDate" } # closest temporal anchor for payment events
         beckn:acceptedPaymentMethod:
-          $ref: '#/components/schemas/AcceptedPaymentMethod'
+          $ref: "#/components/schemas/AcceptedPaymentMethod"
         beckn:beneficiary:
           type: string
           description: Who will be the beneficiary or recipient of the payment
-          enum: ["BPP","BAP","BUYER"]
+          enum: ["BPP", "BAP", "BUYER"]
           example: "BPP"
           x-jsonld: { "@id": "schema:beneficiary" }
         beckn:paymentAttributes:
           $ref: "#/components/schemas/Attributes"
-          description: > 
+          description: >
             Rail-specific attribute pack (e.g., UPI: VPA/UTR; CARD: token/3DS; BNPL: plan/schedule)
 
     # -----------------------------
@@ -889,7 +990,7 @@ components:
     Buyer:
       type: object
       additionalProperties: false
-      required: ["@context","@type","beckn:id"]
+      required: ["@context", "@type", "beckn:id"]
       # A minimal entity that can represent either a Person or an Organization.
       # Full identity, contact, or KYC details are supplied via buyer attribute packs.
       properties:
@@ -907,7 +1008,8 @@ components:
           x-jsonld: { "@id": "schema:identifier" }
         beckn:role:
           type: string
-          enum: ["BUYER","SELLER","INTERMEDIARY","PAYER","PAYEE","FULFILLER"]
+          enum:
+            ["BUYER", "SELLER", "INTERMEDIARY", "PAYER", "PAYEE", "FULFILLER"]
           description: The functional role of the buyer in the transaction.
           x-jsonld: { "@id": "schema:roleName" }
         beckn:displayName:
@@ -929,7 +1031,7 @@ components:
           x-jsonld: { "@id": "schema:taxID" }
         beckn:buyerAttributes:
           $ref: "#/components/schemas/Attributes"
-          description: > 
+          description: >
             Attribute Pack reference for richer identity:
             # buyer/identity.v1 (contact details: email, phone, address)
             # buyer/org-ids.v1 (LEI, GSTIN, ISIN, CUSIP…)
@@ -973,7 +1075,8 @@ components:
           description: Available support channels.
           items:
             type: string
-            enum: ["PHONE","EMAIL","WEB","CHAT","WHATSAPP","IN_APP","OTHER"]
+            enum:
+              ["PHONE", "EMAIL", "WEB", "CHAT", "WHATSAPP", "IN_APP", "OTHER"]
       example:
         name: "Acme Support"
         phone: "+91-80-1234-5678"
@@ -982,13 +1085,13 @@ components:
         hours: "Mon–Sat 09:00–20:00 IST"
         channels: ["web", "phone", "email"]
       x-jsonld:
-        '@type': 'schema:ContactPoint'
-        'schema:contactType': '"Customer Support"'
-        'schema:telephone': '$.phone'
-        'schema:email': '$.email'
-        'schema:url': '$.url'
-        'schema:name': '$.name'
-        'schema:hoursAvailable': '$.hours'
+        "@type": "schema:ContactPoint"
+        "schema:contactType": '"Customer Support"'
+        "schema:telephone": "$.phone"
+        "schema:email": "$.email"
+        "schema:url": "$.url"
+        "schema:name": "$.name"
+        "schema:hoursAvailable": "$.hours"
 
     Tracking:
       type: object
@@ -1008,7 +1111,7 @@ components:
         tl_method:
           type: string
           enum: [http/get, http/post, http/redirect, ws/handle, custom]
-          description: Transport/method used to access the tracking handle.  # mirrors legacy tl_method concept
+          description: Transport/method used to access the tracking handle. # mirrors legacy tl_method concept
         url:
           type: string
           format: uri
@@ -1026,15 +1129,15 @@ components:
         trackingStatus: "active"
         expires_at: "2025-10-16T18:30:00Z"
       x-jsonld:
-        '@type': 'schema:TrackAction'
-        'schema:target':    '$.url'           # URL to track → EntryPoint(target)
-        'schema:deliveryMethod': '$.tl_method'
-        'beckn:trackingStatus': '$.trackingStatus'
+        "@type": "schema:TrackAction"
+        "schema:target": "$.url" # URL to track → EntryPoint(target)
+        "schema:deliveryMethod": "$.tl_method"
+        "beckn:trackingStatus": "$.trackingStatus"
 
     RatingInput:
       type: object
       additionalProperties: false
-      required: ["@context","@type","id","ratingValue"]
+      required: ["@context", "@type", "id", "ratingValue"]
       properties:
         "@context":
           type: string
@@ -1049,7 +1152,7 @@ components:
           description: Target entity ID being rated (order/item/fulfillment/provider/agent).
         ratingValue:
           type: number
-          description: Numeric rating value (legacy usually 1–5).  # remains permissive
+          description: Numeric rating value (legacy usually 1–5). # remains permissive
           minimum: 0
         bestRating:
           type: number
@@ -1070,12 +1173,12 @@ components:
               type: array
               items: { type: string }
       x-jsonld:
-        '@type': 'schema:Rating'
-        'schema:itemReviewed': '$.id'
-        'schema:ratingValue':  '$.value'
-        'schema:bestRating':   '$.best'
-        'schema:worstRating':  '$.worst'
-    
+        "@type": "schema:Rating"
+        "schema:itemReviewed": "$.id"
+        "schema:ratingValue": "$.value"
+        "schema:bestRating": "$.best"
+        "schema:worstRating": "$.worst"
+
     Form:
       description: Describes a form
       type: object
