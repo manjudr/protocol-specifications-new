@@ -71,9 +71,7 @@
       "@context": {
         "UPI": "beckn:UPI",
         "CREDIT_CARD": "beckn:CREDIT_CARD",
-        "CREDIT-CARD": "beckn:CREDIT_CARD",
         "DEBIT_CARD": "beckn:DEBIT_CARD",
-        "DEBIT-CARD": "beckn:DEBIT_CARD",
         "WALLET": "beckn:WALLET",
         "BANK_TRANSFER": "beckn:BANK_TRANSFER",
         "BANK-TRANSFER": "beckn:BANK_TRANSFER",
