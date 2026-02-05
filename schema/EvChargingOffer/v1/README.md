@@ -1,5 +1,10 @@
 # EV Charging — Charging Offer Definition Bundle (v1)
 
+<p align="center">
+  <img src="../../../assets/images/svgs/migration-notice.svg" alt="Migration notice" />
+</p>
+
+
 This bundle defines **EV-specific attribute extensions for Offer** (commercial terms). It reuses Beckn core objects and adds only domain-specific attributes relevant to charging tariffs and policies.
 
 Attach these schemas as follows:
