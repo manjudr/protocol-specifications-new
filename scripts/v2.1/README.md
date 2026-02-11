@@ -125,6 +125,48 @@ components:
       # ...
 ```
 
+## build-vocab/
+
+Contains the vocabulary builder script that ensures all `beckn:` IRIs referenced in `context.jsonld` exist in `vocab.jsonld`. See [build-vocab/README.md](build-vocab/README.md) for detailed documentation.
+
+### Quick Start
+
+```bash
+# Generate updated vocabulary with missing IRIs
+python3 scripts/v2.1/build-vocab/update_vocab_from_context.py
+
+# Preview what would be added (dry run)
+python3 scripts/v2.1/build-vocab/update_vocab_from_context.py --dry-run
+```
+
+### What It Does
+
+1. Extracts all `beckn:` IRIs from `schema/core/v2.1/context.jsonld`
+2. Identifies which IRIs are missing from `schema/core/v2.1/vocab.jsonld`
+3. Infers vocabulary metadata from `schema/core/v2.1/attributes.yaml`:
+   - `@type` (rdfs:Class, rdf:Property, or schema:Enumeration)
+   - `rdfs:label` (humanized name)
+   - `rdfs:comment` (from schema/property descriptions)
+   - `rdfs:domain` (where properties appear)
+   - `schema:rangeIncludes` (property value types)
+4. Writes updated vocabulary to `schema/core/v2.1/updated.vocab.jsonld`
+
+### Key Features
+
+- **Purely structural transformation**: Uses strict, deterministic rules
+- **Case-sensitive**: Treats `beckn:OrderCreated` and `beckn:orderCreated` as independent
+- **Non-destructive**: Never overwrites original vocab.jsonld
+- **Enum scoping**: Properly handles scoped enum members with parent typing
+- **Safe defaults**: Uses placeholders when metadata cannot be inferred
+
+## context-checker/
+
+Contains the context coverage checker that validates all schema keywords from `attributes.yaml` have corresponding IRIs in `context.jsonld`. See [context-checker/README.md](context-checker/README.md) for details.
+
+## vocab-bc-check/
+
+Contains backward compatibility checker for vocabulary files between v2 and v2.1. See [vocab-bc-check/check_vocab_bc.py](vocab-bc-check/check_vocab_bc.py) for details.
+
 ## network-scaffold/
 
 Contains scripts for network provisioning and scaffolding. See [network-scaffold/README.md](network-scaffold/README.md) for details.

@@ -1,6 +1,6 @@
 openapi: 3.1.1
 info:
-  title: Beckn Protocol V2.0 API Specification
+  title: Beckn Protocol V2.1 API Specification
   description: |
     The API specification of Beckn Protocol covering the four stages of an order lifecycle:
     - Discovery: Discovery of catalogs
@@ -19,9 +19,9 @@ paths:
 # Discovery APIs
   /beckn/discover:
     get:
-      summary: Discover catalogs on a network
+      summary: Discover catalogs on a network.
       description: |
-        Search and discover catalogs on an open network. This endpoint can be implemented by Catalog Discovery Services, and BPPs. Supports text search, JSONPath-based filtering (RFC 9535), or both together with automatic schema adaptation. This endpoint returns an **ACK/NACK** confirming receipt/validation. Can be implemented by any entity hosting catalogs. 
+        Search and discover catalogs on an open network. This endpoint can be implemented by Catalog Discovery Services, and BPPs. Supports text search, JSONPath-based filtering (RFC 9535), or both together with automatic schema adaptation. This endpoint returns an **ACK/NACK** confirming receipt/validation. Can be implemented by any entity hosting catalogs.
       operationId: discoverCatalog
       tags: [Catalog Discovery Service, BPP]
       requestBody:
@@ -70,6 +70,7 @@ paths:
                 $ref: '#/components/schemas/OnDiscoverMessage'
             examples:
               $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/examples/v2.1/on_discover.examples.yaml'
+      responses:
         '200':
           $ref: '#/components/responses/Ack200'
         '400':
@@ -81,7 +82,7 @@ paths:
   /beckn/select:
     post:
       summary: BAP requests for quote
-      description: 'The BAP selects the items, item quantities, associated offers, coupon codes, sometimes a proposed bid against a specfic selection, and requests the BPP to provide a quote. This action is performed without sharing any PII of the consumer. This action is particularly useful when the BAP and BPP have an ongoing commercial agreement independent of their users, that allows special rates and entitlements to their respective users. This action is also used for placing anonymous bids on a selection of items, especially during auctions.'
+      description: The BAP selects the items, item quantities, associated offers, coupon codes, sometimes a proposed bid against a specfic selection, and requests the BPP to provide a quote. This action is performed without sharing any PII of the consumer. This action is particularly useful when the BAP and BPP have an ongoing commercial agreement independent of their users, that allows special rates and entitlements to their respective users. This action is also used for placing anonymous bids on a selection of items, especially during auctions.
       tags: [BPP]
       requestBody:
         required: true
@@ -108,7 +109,7 @@ paths:
   /beckn/on_select:
     post:
       summary: BPP sends quote with optional additional forms
-      description: 'The BPP calculates the total cost, evaluates offers, verifies coupon codes, the proposed bid (if allowed) against a specfic selection, and generates a quote. At this stage, it is also recommended for the BPP to check the inventory for the availability of the items, or the serviceability of the order. In the case of auctions, the BPP can return the value of the highest bid to prompt the BAP user to match the bid or outbid the current value. Furthermore, in some cases, the BPP may require additional information to be provided initiate the order, sometimes even on external websites. In those cases, the BPP provides links to external forms that need to be filled and submitted before proceeding with the order.'
+      description: The BPP calculates the total cost, evaluates offers, verifies coupon codes, the proposed bid (if allowed) against a specfic selection, and generates a quote. At this stage, it is also recommended for the BPP to check the inventory for the availability of the items, or the serviceability of the order. In the case of auctions, the BPP can return the value of the highest bid to prompt the BAP user to match the bid or outbid the current value. Furthermore, in some cases, the BPP may require additional information to be provided initiate the order, sometimes even on external websites. In those cases, the BPP provides links to external forms that need to be filled and submitted before proceeding with the order.
       tags: [BAP]
       requestBody:
         required: true
@@ -270,7 +271,7 @@ paths:
   /beckn/on_status:
     post:
       summary: BPP sends the latest state of the order with fulfillment status.
-      description: BPP sends the latest state of the order with fulfillment status. The BPP can independently call this endpoint any number of times without the BAP explicitly requesting it. However, the BPP must receive at least one `status` request from the BAP to initiate the on_status callback stream. The purpose of this endpoint is to notify the BAP users about any changes in the state of fulfillment. Typical scenarios include - the Order being picked up, the order being on its way, order almost at the door, etc. **Note - This endpoint is _NOT_ for real-time tracking - only status updates worth notifying the user through say, a push notification. So it is strongly recommended for BAPs to NOT long poll the BPP with `status` requests.**
+      description: BPP sends the latest state of the order with fulfillment status. The BPP can independently call this endpoint any number of times without the BAP explicitly requesting it. However, the BPP must receive at least one `status` request from the BAP to initiate the on_status callback stream. The purpose of this endpoint is to notify the BAP users about any changes in the state of fulfillment. Typical scenarios include - the Order being picked up, the order being on its way, order almost at the door, etc. **Note - This endpoint is _NOT_ for real-time tracking - only status updates worth notifying the user through say, a push notification. So it is strongly recommended for BAPs to NOT long poll the BPP with `status` requests.** 
       tags: [BAP]
       requestBody:
         required: true
@@ -813,12 +814,8 @@ paths:
 components:
   schemas:
     DiscoverMessage:
-      type: object
-      required:
-        - intent
-      properties:
-        intent:
-          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/Intent'
+      $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/DiscoveryIntent'
+        
 
     OnDiscoverMessage:
       type: object
@@ -945,7 +942,6 @@ components:
         - tracking
       properties:
         tracking:
-          tracking:
           allOf:
             - $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/TrackAction'
             - required: [orderId, refId]
@@ -1045,17 +1041,22 @@ components:
           $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/Feedback'
 
     RateConfirmMessage:
-      order:
-        type: object
-        properties:
-          beckn:id:
-            $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/Order/properties/id'
-      ratings:
-        type: array
-        items:
-          - $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/Rating'
-      feedback:
-        $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/Feedback'   
+      type: object
+      required:
+        - order
+        - ratings
+      properties:
+        order:
+          type: object
+          properties:
+            beckn:id:
+              $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/Order/properties/id'
+        ratings:
+          type: array
+          items:
+            - $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/Rating'
+        feedback:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/draft/schema/core/v2.1/attributes.yaml#/components/schemas/Feedback'
 
     OnRateConfirmMessage:
       type: object
@@ -1181,6 +1182,42 @@ components:
           description: Per-catalog processing results
           items:
             $ref: '#/components/schemas/CatalogProcessingResult'
+
+    CatalogProcessingResult:
+      type: object
+      required:
+        - catalogId
+        - status
+      properties:
+        catalogId:
+          type: string
+          description: Identifier of the catalog being processed
+        status:
+          type: string
+          enum: [accepted, rejected, processing]
+          description: Processing status of the catalog
+        errors:
+          type: array
+          description: List of errors encountered during processing
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              message:
+                type: string
+              path:
+                type: string
+        stats:
+          type: object
+          description: Derived statistics about the catalog
+          properties:
+            itemCount:
+              type: integer
+            providerCount:
+              type: integer
+            categoryCount:
+              type: integer
 
   responses:
     Ack200:
