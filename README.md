@@ -21,14 +21,20 @@ This repository is intentionally kept **minimal and stable by design** — analo
 ```
 protocol-specifications-v2/
 ├── api/
+│   ├── README.md
+│   ├── v2/
+│   │   └── beckn.yaml          # OpenAPI 3.1.1 — Beckn Protocol API envelope v2.0.0
 │   └── v2.0.1/
 │       ├── beckn.yaml          # OpenAPI 3.1.1 — Beckn Protocol API envelope v2.0.1
 │       └── README.md
 ├── schema/
+│   ├── README.md
 │   └── v2.0.1/
 │       ├── vocab.jsonld        # Beckn core OWL vocabulary
 │       ├── context.jsonld      # Beckn core JSON-LD context
 │       └── README.md
+├── GOVERNANCE.md
+├── LICENSE
 └── README.md
 ```
 
