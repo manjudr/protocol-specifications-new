@@ -12,60 +12,61 @@ info:
     url: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
 
 paths:
-  /beckn/{action}:
+  /beckn/{becknEndpoint}:
     get:
-      summary: Dispatch a Beckn protocol action on HTTP GET endpoint
+      summary: Dispatch a Beckn protocol action on an HTTP GET endpoint (Body Mode or Query Mode)
       description: |
-        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network. The `{action}` path parameter identifies the specific operation being performed within any supported Beckn interaction domain.
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network. The `{becknEndpoint}` path parameter identifies the specific operation being performed within any supported Beckn interaction domain.
 
         This endpoint supports two mutually exclusive modes:
 
-        **Body Mode** — The action payload is sent as a JSON request body and the signature is transmitted in the `Authorization` header:
-        `GET /beckn/{action}` with `Authorization: {Signature}` header and `RequestAction` body.
+        **Body Mode** — The action payload is sent as a JSON request body (`RequestContainer`) and the Beckn Signature is transmitted in the `Authorization` header:
+        `GET /beckn/{becknEndpoint}` with `Authorization: {Signature}` header and `RequestContainer` body.
+        Used for server-to-server interactions where the caller has a registered callback endpoint and expects an asynchronous callback in return.
 
         **Query Mode** — The action payload and signature are both expressed as URL query parameters, making the entire request a self-contained URL suitable for QR codes, deep links, bookmarkable pages, frontend UIs, IoT/embedded clients, and browser-triggered interactions:
-        `GET /beckn/{action}?Authorization={Signature}&RequestAction={RequestActionQuery}`
+        `GET /beckn/{becknEndpoint}?Authorization={Signature}&RequestAction={RequestActionQuery}`
         In Query Mode, the caller MUST NOT expect a callback. The server acknowledges receipt with an `Ack` (HTTP 200) but will not send an asynchronous callback to the caller. Query Mode is designed for stateless, one-way interactions where the originating client (e.g. a browser or QR code scanner) has no registered callback endpoint.
 
         These two modes are mutually exclusive. If `Authorization` and `RequestAction` are present as query parameters, the request body MUST be absent and the `Authorization` header MUST be absent. If the request body is present, both query parameters MUST be absent.
 
         This endpoint may be implemented by any Beckn Network Participant — including Beckn Application Platforms (BAPs), Beckn Provider Platforms (BPPs), Catalog Discovery Services, Catalog Publishing Services, and Registries (which follow the DeDi — Decentralized Directory — protocol for network participant lookup and public key resolution). Each participant may selectively support a subset of actions appropriate to their role.
 
-        The server responds synchronously with an `Ack` (HTTP 200) confirming receipt and successful signature validation, indicating that an asynchronous callback will follow. An `AckNoCallback` (HTTP 409) indicates the request was received but no callback will follow due to a business constraint. A `NackBadRequest` (HTTP 400), `NackUnauthorized` (HTTP 401), or `ServerError` (HTTP 500) indicates that the request could not be accepted.
+        The server responds synchronously with an `Ack` (HTTP 200) confirming receipt and successful signature validation, indicating that an asynchronous callback will follow (Body Mode). An `AckNoCallback` (HTTP 409) indicates the request was received but no callback will follow due to a business constraint. A `NackBadRequest` (HTTP 400), `NackUnauthorized` (HTTP 401), or `ServerError` (HTTP 500) indicates that the request could not be accepted.
       parameters:
-        - name: action
+        - name: becknEndpoint
           in: path
           required: true
           schema:
-            $ref: '#/components/schemas/Action'
+            $ref: "#/components/schemas/BecknEndpoint"
         # Body Mode — Authorization in header (mutually exclusive with Query Mode parameters)
         - name: Authorization
           in: header
           required: false
           description: Beckn Signature authentication header (Body Mode only). See `#/components/schemas/Signature` for the expected structure.
           schema:
-            $ref: '#/components/schemas/Signature'
+            $ref: "#/components/schemas/Signature"
         # Query Mode — Authorization and RequestAction both in query string (mutually exclusive with Body Mode)
-        - $ref: '#/components/parameters/AuthorizationQuery'
-        - $ref: '#/components/parameters/RequestActionQuery'
+        - $ref: "#/components/parameters/AuthorizationQuery"
+        - $ref: "#/components/parameters/RequestActionQuery"
       requestBody:
         required: false
         description: Body Mode only — MUST be absent when query parameters are used.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RequestAction'
+              $ref: "#/components/schemas/RequestContainer"
       responses:
-        '200':
-          $ref: '#/components/responses/Ack'
-        '400':
-          $ref: '#/components/responses/NackBadRequest'
-        '401':
-          $ref: '#/components/responses/NackUnauthorized'
-        '409':
-          $ref: '#/components/responses/AckNoCallback'
-        '500':
-          $ref: '#/components/responses/ServerError'
+        "200":
+          $ref: "#/components/responses/Ack"
+        "400":
+          $ref: "#/components/responses/NackBadRequest"
+        "401":
+          $ref: "#/components/responses/NackUnauthorized"
+        "409":
+          $ref: "#/components/responses/AckNoCallback"
+        "500":
+          $ref: "#/components/responses/ServerError"
     post:
       summary: Dispatch a Beckn protocol action on an HTTP POST endpoint
       description: |
@@ -79,64 +80,381 @@ paths:
 
         The server responds synchronously with an `Ack` (HTTP 200) confirming receipt and successful signature validation, indicating that an asynchronous callback will follow. An `AckNoCallback` (HTTP 409) indicates the request was received but no callback will follow due to a business constraint (e.g. agents not found, inventory unavailable, store closed). A `NackBadRequest` (HTTP 400), `NackUnauthorized` (HTTP 401), or `ServerError` (HTTP 500) indicates that the request could not be accepted.
       parameters:
-        - $ref: '#/components/parameters/AuthorizationHeader'
-        - name: action
+        - $ref: "#/components/parameters/AuthorizationHeader"
+        - name: becknEndpoint
           in: path
           required: true
           schema:
-            $ref: '#/components/schemas/Action'
+            $ref: "#/components/schemas/BecknEndpoint"
       requestBody:
         required: true
         content:
           application/json:
             schema:
               oneOf:
-                - $ref: '#/components/schemas/RequestAction'
-                - $ref: '#/components/schemas/CallbackAction'
+                - $ref: "#/components/schemas/RequestContainer"
+                - $ref: "#/components/schemas/CallbackContainer"
       responses:
-        '200':
-          $ref: '#/components/responses/Ack'
-        '400':
-          $ref: '#/components/responses/NackBadRequest'
-        '401':
-          $ref: '#/components/responses/NackUnauthorized'
-        '409':
-          $ref: '#/components/responses/AckNoCallback'
-        '500':
-          $ref: '#/components/responses/ServerError'
+        "200":
+          $ref: "#/components/responses/Ack"
+        "400":
+          $ref: "#/components/responses/NackBadRequest"
+        "401":
+          $ref: "#/components/responses/NackUnauthorized"
+        "409":
+          $ref: "#/components/responses/AckNoCallback"
+        "500":
+          $ref: "#/components/responses/ServerError"
 
 components:
   schemas:
-    Action:
-      $ref: 'https://schema.beckn.io/Action/ref'
-
-    Signature:
-      $ref: 'https://schema.beckn.io/Signature/ref'
-
-    RequestAction:
-      $ref: 'https://schema.beckn.io/RequestAction/ref'
-
-    RequestActionQuery:
-      $ref: 'https://schema.beckn.io/RequestActionQuery/ref'
-
-    CallbackAction:
-      $ref: 'https://schema.beckn.io/CallbackAction/ref'
-
-  responses:
     Ack:
-      $ref: 'https://schema.beckn.io/Ack/ref'
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+            - ACK
+            - NACK
+        signature:
+          $ref: "#/components/schemas/CounterSignature"
+      required:
+        - status
+        - signature
 
     AckNoCallback:
-      $ref: 'https://schema.beckn.io/AckNoCallback/ref'
+      allOf:
+        - $ref: "#/components/schemas/Ack"
+        - properties:
+            error:
+
+    AsyncError:
+      description: Container schema for errors returned during a callback
+      allOf:
+        - $ref: "#/components/schemas/Error"
+        - properties:
+            "@context":
+              type: string
+              default: "https://schema.beckn.io/"
+            "@type":
+              type: string
+              default: "AsyncError"
+          additionalProperties: true
+
+    BecknEndpoint:
+      title: Beckn Transaction Endpoint
+      description: Beckn protocol endpoint identifier. Standard endpoint values are maintained in an external repository. Additional actions may be added by implementations for domain-specific use cases.
+      properties:
+        type: string
+        # Pattern rules:
+        # - MUST start with prefix "beckn/"
+        # - lowercase only
+        # - segments separated by "/" (any depth)
+        # - no leading "/" and no trailing "/"
+        # - no consecutive "//"
+        # - allowed chars inside a segment: lowercase letters and underscores only
+        # - no digits, no hyphens, no dots, no colons, no spaces
+        pattern: '^beckn\/[a-z_]+(?:\/[a-z_]+)*$'
+
+    Context:
+      description:
+        Every API call in beckn protocol MUST contain a context. It provides a high-level overview to the receiver about the nature of the intended transaction. Typically, it is the BAP that sets the transaction context based on the consumer's location and action on their UI. But sometimes, during unsolicited callbacks, the BPP also sets the transaction context but it is usually the same as the context of a previous full-cycle, request-callback interaction between the BAP and the BPP. The context object contains four types of fields. <ol><li>Demographic information about the transaction using fields like `domain`, `country`, and `region`.</li><li>Addressing details like the sending and receiving platform's
+        ID and API URL.</li><li>Interoperability information like the protocol version that implemented by the sender and,</li><li>Transaction
+        details like the method being called at the receiver's endpoint, the transaction_id that represents an end-to-end
+        user session at the BAP, a message ID to pair requests with callbacks, a timestamp to capture sending times, a ttl
+        to specifiy the validity of the request, and a key to encrypt information if necessary.</li></ol> This object must
+        be passed in every interaction between a BAP and a BPP. In HTTP/S implementations, it is not necessary to send the
+        context during the synchronous response. However, in asynchronous protocols, the context must be sent during all interactions,
+      type: object
+      properties:
+        action:
+          $ref: "#/components/schemas/BecknEndpoint"
+        bapId:
+          description:
+            A globally unique identifier of the BAP, Typically it is the fully qualified domain name (FQDN) of
+            the BAP
+          type: string
+        bapUri:
+          description: API URL of the BAP for accepting callbacks from BPPs.
+          type: string
+          format: uri
+        bppId:
+          description:
+            A globally unique identifier of the BAP, Typically it is the fully qualified domain name (FQDN) of
+            the BAP
+          type: string
+        bppUri:
+          description: API URL of the BPP for accepting calls from BAPs.
+          type: string
+          format: uri
+        messageId:
+          description:
+            This is a unique value which persists during a request / callback cycle. Since beckn protocol APIs
+            are asynchronous, BAPs need a common value to match an incoming callback from a BPP to an earlier call. This value
+            can also be used to ignore duplicate messages coming from the BPP. It is recommended to generate a fresh message_id
+            for every new interaction. When sending unsolicited callbacks, BPPs must generate a new message_id.
+          type: string
+          format: uuid
+        networkId:
+          description:
+            A unique identifier representing a group of platforms. By default, it is the url of the network registry
+            on the Beckn network
+          type: string
+        timestamp:
+          description: Time of request generation in RFC3339 format
+          type: string
+          format: date-time
+        transactionId:
+          description:
+            This is a unique value which persists across all API calls from `search` through `confirm`. This is
+            done to indicate an active user session across multiple requests. The BPPs can use this value to push personalized
+            recommendations, and dynamic offerings related to an ongoing transaction despite being unaware of the user active
+            on the BAP.
+          type: string
+          format: uuid
+        try:
+          description:
+            A flag to indicate that this request is intended to 'try' an operation. Typically set to `false` by
+            default, but set to `true` when negotiating terms, updating or cancelling an active order. When set to `true`,
+            the receiver must respond with the expected consequences as per the terms of service initially agreed between
+            the BAP and the BPP during the `init/on_init` cycle. For example, A BAP will set this flag to `true` when requesting
+            the BPP to cancel the order. Upon receiving this the BPP could respond with updated cost, cancellation fees, reasons
+            for cancellation, a cancellation form, payment links, and any additional notifications or prompts informing the
+            BAP about future consequences if continued (like an account ban, or reduced rating). When both participants are
+            ready to continue the transaction, this flag MUST be set back to `false`.
+          type: boolean
+          default: false
+        ttl:
+          description: The duration in ISO8601 format after timestamp for which this message holds valid
+          type: string
+        version:
+          description: Version of beckn protocol being used by the sender
+          type: string
+          default: 2.0.0
+        lineage:
+          description: |
+            An optional array of causal attribution records asserting that this Beckn transaction was triggered by one or more upstream Beckn interactions. Present only at transaction boundaries — when a new transaction is initiated as a direct consequence of an upstream interaction. MUST NOT be populated within subsequent steps of the same transaction, and MUST NOT be propagated by downstream responses (e.g. `on_search`).
+
+            Per current Beckn profiles, this array MUST contain **at most one entry** when present. See `#/components/schemas/LineageEntry` for the entry structure and usage rules.
+          type: array
+          maxItems: 1
+          items:
+            $ref: "#/components/schemas/LineageEntry"
+
+    CounterSignature:
+      title: Beckn HTTP Counter-Signature
+      description: |
+        A signed receipt transmitted in the synchronous `Ack` response body, proving that the receiver authenticated, received, and processed the inbound request. It is the schema realisation of the Signed Receipt of Receipt concept proposed in [Issue #69 — Strengthening Non-Repudiation and Causality in Beckn Transactions](https://github.com/beckn/protocol-specifications-v2/issues/69).
+
+        `CounterSignature` shares the same wire format as `Signature` (see `#/components/schemas/Signature`) but differs in three important ways:
+
+        | Aspect | `Signature` | `CounterSignature` |
+        |---|---|---|
+        | **Signer** | Request sender (BAP/BPP) | Response receiver (BPP/BAP) |
+        | **Transmitted in** | Inbound `Authorization` header | `Ack.signature` field in the synchronous HTTP response body |
+        | **`digest`** | BLAKE2b-512 of the **inbound request** body | BLAKE2b-512 of the **Ack response** body |
+        | **`(request-digest)`** | Not present | MUST be present — BLAKE2b-512 of the **inbound request** body |
+        | **`(message-id)`** | Not present | MUST be present — the `messageId` from the inbound request `Context` |
+        | **`headers`** | `"(created) (expires) digest"` | `"(created) (expires) digest (request-digest) (message-id)"` |
+
+        **Signing string for `CounterSignature`:**
+        ```
+        (created): {unixTimestamp}
+        (expires): {unixTimestamp}
+        digest: BLAKE-512={base64DigestOfAckBody}
+        (request-digest): BLAKE-512={base64DigestOfInboundRequestBody}
+        (message-id): {messageId}
+        ```
+
+        **Format:**
+        ```
+        Signature keyId="{subscriberId}|{uniqueKeyId}|{algorithm}",algorithm="{algorithm}",created="{unixTimestamp}",expires="{unixTimestamp}",headers="(created) (expires) digest (request-digest) (message-id)",signature="{base64Signature}"
+        ```
+
+        The verifier (the original sender of the request) MUST:
+        1. Recompute the BLAKE2b-512 digest of the Ack body and verify it matches `digest`.
+        2. Recompute the BLAKE2b-512 digest of their own request body and verify it matches `(request-digest)`.
+        3. Verify that `(message-id)` matches the `messageId` they sent in their request `Context`.
+        4. Resolve the receiver's public key from the registry using the `keyId` and verify the Ed25519 signature.
+      allOf:
+        - $ref: "#/components/schemas/Signature"
+      example: 'Signature keyId="example-bpp.com|74b43deb-236e-4498-8f5a-ca75d6c67b9d|ed25519",algorithm="ed25519",created="1641287900",expires="1641291500",headers="(created) (expires) digest (request-digest) (message-id)",signature="mX3sHA+9gileOkXYJXh4Jg8tK0gEEMbf9yCPnFpbldhrAY+NErqL9WD+Vav7TE5tyVXGXBle9ONZi2W7o144eQ=="'
+
+    CallbackContainer:
+      type: object
+      properties:
+        context:
+          $ref: "#/components/schemas/Context"
+        inReplyTo:
+          description: |
+            Cryptographic binding to the parent request that triggered this callback. SHOULD be included in all `on_<action>` callbacks to establish verifiable request–response causality for the asynchronous leg of the interaction. See `#/components/schemas/InReplyTo`.
+          $ref: "#/components/schemas/InReplyTo"
+        oneOf:
+          - type: object
+            properties:
+              message:
+                $ref: "#/components/schemas/Message"
+            required: message
+          - type: object
+            properties:
+              error:
+                $ref: "#/components/schemas/AsyncError"
+            required: error
+      required:
+        - context
+        - inReplyTo
+
+    Error:
+      description: Container schema for errors
+      type: object
+      properties:
+        errorCode:
+          type: string
+        errorMessage:
+          type: string
+
+    InReplyTo:
+      title: In-Reply-To Reference
+      description: |
+        A cryptographic binding that ties an asynchronous `on_<action>` callback to the specific inbound request that triggered it. Implements [Issue #69 Proposal #1 — Cryptographic Request–Response Binding](https://github.com/beckn/protocol-specifications-v2/issues/69).
+
+        Including `inReplyTo` in a callback allows the receiver (typically the BAP) to verify that the callback was produced in direct response to a specific earlier request, establishing **bilateral non-repudiation for the asynchronous leg** of a Beckn interaction. It is strictly **conversational** — it links a callback to its parent within the same transaction and MUST NOT be used to link across transaction boundaries (use `context.lineage` for cross-transaction causality).
+
+        **Verification steps for the recipient of the callback:**
+        1. Recompute the BLAKE2b-512 digest of the original request body and compare it to `digest`.
+        2. Confirm that `messageId` matches the `messageId` from the original request `Context`.
+
+        Together, these two checks prove that the callback sender received **exactly the request bytes** that were originally sent.
+      type: object
+      properties:
+        messageId:
+          description: The `messageId` of the parent request from its `Context`. Enables correlation between the async callback and the originating request.
+          type: string
+          format: uuid
+        digest:
+          description: |
+            BLAKE2b-512 hash of the parent request body bytes, encoded in Base64 and prefixed with the algorithm identifier.
+
+            Format: `BLAKE-512={base64EncodedHash}`
+
+            Example: `BLAKE-512=b6lf6lRgOweajukcvcLsagQ2T60+85kRh/Rd2bdS+TG/5ALebOEgDJfyCrre/1+BMu5nA94o4DT3pTFXuUg7sw==`
+          type: string
+          pattern: "^BLAKE-512=[A-Za-z0-9+/]+=*$"
+      required:
+        - messageId
+        - digest
+
+    LineageEntry:
+      title: Lineage Entry
+      description: |
+        A single causal attribution record asserting that the Beckn transaction in which this entry appears was **triggered by** a specific upstream Beckn interaction. Implements [Issue #69 Proposal #3 — Lineage for Cascading Beckn Transactions](https://github.com/beckn/protocol-specifications-v2/issues/69).
+
+        `LineageEntry` is used exclusively at **transaction boundaries** — when a network participant initiates a brand-new Beckn transaction as a direct consequence of an upstream Beckn interaction (e.g. a restaurant starting a logistics transaction after accepting a food order). It MUST NOT be included within the subsequent request/response steps of the same transaction; it is not a message history or a propagation chain.
+
+        The entry provides enough information for any party to independently verify the causal claim:
+        - `transactionId` and `messageId` identify the upstream interaction without revealing its payload.
+        - `digest` cryptographically binds the lineage assertion to the exact upstream message bytes, enabling dispute resolution.
+
+        **Cardinality rules (per Issue #69):**
+        - `context.lineage` is defined as an array for forward compatibility.
+        - Current Beckn profiles restrict `lineage` to **exactly one entry** when present.
+        - Downstream responses (e.g. `on_search` in the triggered transaction) use `inReplyTo` only and MUST NOT propagate `lineage`.
+      type: object
+      properties:
+        action:
+          description: The Beckn endpoint (action) of the upstream message that caused this transaction to be initiated.
+          $ref: "#/components/schemas/BecknEndpoint"
+        transactionId:
+          description: The `transactionId` of the upstream Beckn transaction, taken from its `Context`.
+          type: string
+          format: uuid
+        messageId:
+          description: The `messageId` of the specific upstream message (e.g. `confirm`) that directly triggered the creation of this transaction.
+          type: string
+          format: uuid
+        digest:
+          description: |
+            BLAKE2b-512 hash of the upstream message body bytes, encoded in Base64 and prefixed with the algorithm identifier. Enables any verifying party to confirm that the causal assertion refers to exact, unaltered upstream message bytes.
+
+            Format: `BLAKE-512={base64EncodedHash}`
+
+            Example: `BLAKE-512=b6lf6lRgOweajukcvcLsagQ2T60+85kRh/Rd2bdS+TG/5ALebOEgDJfyCrre/1+BMu5nA94o4DT3pTFXuUg7sw==`
+          type: string
+          pattern: "^BLAKE-512=[A-Za-z0-9+/]+=*$"
+      required:
+        - action
+        - transactionId
+        - messageId
+        - digest
+
+    Message:
+      description: The Message object is an open container that accompanies every Context in a Beckn API call. Concrete payload constraints are defined in the core schema repository, which directly references the specific payload schemas.
+      type: object
+      additionalProperties: true
 
     NackBadRequest:
-      $ref: 'https://schema.beckn.io/NackBadRequest/ref'
+      allOf:
+        - $ref: "#/components/schemas/Ack"
+        - properties:
+            status:
+              type: string
+              const: NACK
+            error:
+              $ref: "#/components/schemas/Error"
 
     NackUnauthorized:
-      $ref: 'https://schema.beckn.io/NackUnauthorized/ref'
+      allOf:
+        - $ref: "#/components/schemas/Ack"
+        - properties:
+            status:
+              type: string
+              const: NACK
+            error:
+              $ref: "#/components/schemas/Error"
+
+    RequestContainer:
+      type: object
+      properties:
+        context:
+          $ref: "#/components/schemas/Context"
+        message:
+          $ref: "#/components/schemas/Message"
+      required:
+        - context
+        - message
 
     ServerError:
-      $ref: 'https://schema.beckn.io/ServerError/ref'
+      description: Internal server error returned as a response to a Beckn API call
+      type: object
+
+    Signature:
+      title: Beckn HTTP Signature
+      description: |
+        A digitally signed authentication credential transmitted in the HTTP `Authorization` header (or `X-Gateway-Authorization` for Beckn Gateways). The value follows the HTTP Signature scheme defined in [draft-cavage-http-signatures-12](https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures-12) and as profiled by [BECKN-006](https://github.com/beckn/protocol-specifications/blob/master/docs/BECKN-006-Signing-Beckn-APIs-In-HTTP-Draft-01.md).
+
+        **Format:**
+        ```
+        Signature keyId="{subscriberId}|{uniqueKeyId}|{algorithm}",algorithm="{algorithm}",created="{unixTimestamp}",expires="{unixTimestamp}",headers="{signedHeaders}",signature="{base64Signature}"
+        ```
+
+        **Attributes:**
+
+        | Attribute   | Description |
+        |-------------|-------------|
+        | `keyId`     | Composite key identifier with three pipe-delimited (`\|`) components: `{subscriberId}` (typically the FQDN of the subscriber), `{uniqueKeyId}` (UUID assigned by the registry when the subscriber key entry was created), and `{algorithm}` (the signing algorithm, e.g. `ed25519`). |
+        | `algorithm` | The signing algorithm. MUST be `ed25519` as per current Beckn specification. |
+        | `created`   | Unix timestamp (integer) indicating when the signature was created. A signature whose `created` value is in the future MUST NOT be processed. |
+        | `expires`   | Unix timestamp (integer) indicating when the signature expires. A signature whose `expires` value is in the past MUST NOT be processed. The difference between `expires` and `created` SHOULD equal the TTL of the request. The `expires` value MUST NOT exceed the expiry of the signing key registered in the registry. |
+        | `headers`   | Space-separated list of HTTP header names and pseudo-headers whose values are included in the signing string. MUST include `(created)`, `(expires)`, and `digest`. |
+        | `signature` | Base64-encoded Ed25519 signature over the signing string. The signing string is formed by concatenating `(created): {value}\n(expires): {value}\ndigest: BLAKE-512={digest}`, where the digest is a BLAKE2b-512 hash of the request body encoded in Base64. |
+
+        **Example:**
+        ```
+        Signature keyId="example-bap.com|ae3ea24b-cfec-495e-81f8-044aaef164ac|ed25519",algorithm="ed25519",created="1641287875",expires="1641291475",headers="(created) (expires) digest",signature="cjbhP0PFyrlSCNszJM1F/YmHDVAWsZqJUPzojnE/7TJU3fJ/rmIlgaUHEr5E0/2PIyf0tpSnWtT6cyNNlpmoAQ=="
+        ```
+      type: string
+      pattern: '^Signature keyId="[^|"]+\|[^|"]+\|[^"]+",algorithm="[^"]+",created="\d+",expires="\d+",headers="[^"]+",signature="[A-Za-z0-9+/]+=*"$'
+      example: 'Signature keyId="example-bap.com|ae3ea24b-cfec-495e-81f8-044aaef164ac|ed25519",algorithm="ed25519",created="1641287875",expires="1641291475",headers="(created) (expires) digest",signature="cjbhP0PFyrlSCNszJM1F/YmHDVAWsZqJUPzojnE/7TJU3fJ/rmIlgaUHEr5E0/2PIyf0tpSnWtT6cyNNlpmoAQ=="'
 
   parameters:
     AuthorizationHeader:
@@ -145,7 +463,7 @@ components:
       required: true
       description: Beckn Signature authentication header. See `#/components/schemas/Signature` for the expected structure.
       schema:
-        $ref: 'https://schema.beckn.io/Signature/ref'
+        $ref: "#/components/schemas/Signature"
 
     AuthorizationQuery:
       name: Authorization
@@ -153,12 +471,46 @@ components:
       required: false
       description: Beckn Signature passed as a query parameter (GET Query Mode only). See `#/components/schemas/Signature` for the expected structure.
       schema:
-        $ref: 'https://schema.beckn.io/Signature/ref'
+        $ref: "#/components/schemas/Signature"
 
     RequestActionQuery:
       name: RequestAction
       in: query
       required: false
-      description: Beckn action payload passed as a query parameter (GET Query Mode only). See `https://schema.beckn.io/RequestActionQuery/ref` for the expected structure.
-      schema:
-        $ref: 'https://schema.beckn.io/RequestActionQuery/ref'
+      description: Beckn action payload passed as a query parameter (GET Query Mode only). See `#/components/schemas/RequestActionQuery` for the expected structure.
+
+  responses:
+    Ack:
+      description: Receipt confirmed; signature valid; asynchronous callback will follow.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Ack"
+
+    AckNoCallback:
+      description: Request received but no callback will follow (e.g. agents not found, inventory unavailable, store closed).
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AckNoCallback"
+
+    NackBadRequest:
+      description: Malformed or invalid request; the server could not parse or validate the payload.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NackBadRequest"
+
+    NackUnauthorized:
+      description: Invalid or missing authentication credentials; signature could not be verified.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NackUnauthorized"
+
+    ServerError:
+      description: Internal failure on the network participant's platform; the request could not be processed.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ServerError"
