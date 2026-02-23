@@ -3,7 +3,7 @@ info:
   title: Beckn Protocol API Specification Version 2
   description: |
     The API specification of Beckn Protocol covering the known interaction domains of a Beckn-enabled network. Current domains include Discovery, Ordering, Fulfillment, and Post-Fulfillment. The protocol is being actively extended to cover additional domains including Reconciliation & Settlement, Observability, Reputation Ledger, and Issue & Grievance Management.
-  version: 2.0.1
+  version: 2.0.0
   contact:
     name: Beckn Protocol
     url: https://beckn.io
