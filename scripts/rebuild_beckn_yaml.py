@@ -1,30 +1,22 @@
 #!/usr/bin/env python3
 """
-rebuild_beckn_yaml.py — Refactor api/v2.0.0/beckn.yaml so that each endpoint's
-requestBody points to the canonical schema IRI at schema.beckn.io instead of
-an inline {ActionName}Request schema defined inside the same file.
+rebuild_beckn_yaml.py — Generate api/v2.0.0/beckn.yaml from the two source files:
 
-Before (current state):
-  /beckn/discover:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DiscoverRequest'   ← local inline
+  Source 1:  api/v2.0.0/components/io/core.yaml
+             Abstract IO spec — defines the generic endpoint structure, auth,
+             and response codes (GET + POST).
 
-After (desired state):
-  /beckn/discover:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: 'https://schema.beckn.io/DiscoverAction/v2.0'   ← canonical IRI
+  Source 2:  api/v2.0.0/components/schema/core.yaml
+             Transport-layer schemas, parameters, and responses (Ack, Signature,
+             Error, NackBadRequest, etc.).
 
-The script also removes the now-redundant {ActionName}Request schemas from
-components.schemas (DiscoverRequest, OnDiscoverRequest, SelectRequest, etc.)
-while preserving all transport-layer schemas (Ack, Error, Signature, Context, …).
+The generator:
+  1. Reads `io/core.yaml` for the abstract endpoint template (GET + POST operations).
+  2. Reads `schema/core.yaml` for the concrete components block.
+  3. Expands the single generic `/beckn/{becknEndpoint}` path into 20 concrete
+     per-action paths (discover, on_discover, select, …, on_support), each with:
+       requestBody.$ref: 'https://schema.beckn.io/{Action}Action/v2.0'
+  4. Writes `api/v2.0.0/beckn.yaml` with an AUTO-GENERATED header.
 
 Usage:
     cd /path/to/protocol-specifications-v2
@@ -32,75 +24,61 @@ Usage:
 """
 
 import argparse
+import copy
 import os
 import sys
 
 import yaml  # pyyaml
 
 # ---------------------------------------------------------------------------
-# Path → canonical action class name mapping
+# Paths
+# ---------------------------------------------------------------------------
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(SCRIPT_DIR)
+IO_CORE_YAML = os.path.join(REPO_ROOT, "api", "v2.0.0", "components", "io", "core.yaml")
+SCHEMA_CORE_YAML = os.path.join(REPO_ROOT, "api", "v2.0.0", "components", "schema", "core.yaml")
+OUTPUT_YAML = os.path.join(REPO_ROOT, "api", "v2.0.0", "beckn.yaml")
+
+# ---------------------------------------------------------------------------
+# Action mapping — order matters (determines path order in output file)
 # ---------------------------------------------------------------------------
 
 NAMESPACE_BASE = "https://schema.beckn.io"
 VERSION = "v2.0"
 
-# Mapping: Beckn path segment → Action class name in schema.beckn.io
-PATH_TO_ACTION: dict[str, str] = {
-    "discover":    "DiscoverAction",
-    "on_discover": "OnDiscoverAction",
-    "select":      "SelectAction",
-    "on_select":   "OnSelectAction",
-    "init":        "InitAction",
-    "on_init":     "OnInitAction",
-    "confirm":     "ConfirmAction",
-    "on_confirm":  "OnConfirmAction",
-    "status":      "StatusAction",
-    "on_status":   "OnStatusAction",
-    "track":       "TrackAction",
-    "on_track":    "OnTrackAction",
-    "update":      "UpdateAction",
-    "on_update":   "OnUpdateAction",
-    "cancel":      "CancelAction",
-    "on_cancel":   "OnCancelAction",
-    "rate":        "RateAction",
-    "on_rate":     "OnRateAction",
-    "support":     "SupportAction",
-    "on_support":  "OnSupportAction",
-}
+# Ordered list of (beckn_endpoint_segment, ActionClassName)
+ACTIONS: list[tuple[str, str]] = [
+    ("discover",    "DiscoverAction"),
+    ("on_discover", "OnDiscoverAction"),
+    ("select",      "SelectAction"),
+    ("on_select",   "OnSelectAction"),
+    ("init",        "InitAction"),
+    ("on_init",     "OnInitAction"),
+    ("confirm",     "ConfirmAction"),
+    ("on_confirm",  "OnConfirmAction"),
+    ("status",      "StatusAction"),
+    ("on_status",   "OnStatusAction"),
+    ("track",       "TrackAction"),
+    ("on_track",    "OnTrackAction"),
+    ("update",      "UpdateAction"),
+    ("on_update",   "OnUpdateAction"),
+    ("cancel",      "CancelAction"),
+    ("on_cancel",   "OnCancelAction"),
+    ("rate",        "RateAction"),
+    ("on_rate",     "OnRateAction"),
+    ("support",     "SupportAction"),
+    ("on_support",  "OnSupportAction"),
+]
 
-# Schemas to REMOVE from components.schemas (the old inline action wrappers)
-# These are replaced by external $ref to schema.beckn.io
-SCHEMAS_TO_REMOVE = {
-    "DiscoverRequest",
-    "OnDiscoverRequest",
-    "SelectRequest",
-    "OnSelectRequest",
-    "InitRequest",
-    "OnInitRequest",
-    "ConfirmRequest",
-    "OnConfirmRequest",
-    "StatusRequest",
-    "OnStatusRequest",
-    "TrackRequest",
-    "OnTrackRequest",
-    "UpdateRequest",
-    "OnUpdateRequest",
-    "CancelRequest",
-    "OnCancelRequest",
-    "RateRequest",
-    "OnRateRequest",
-    # support endpoint uses "SupportActionRequest" in the YAML, not "SupportRequest"
-    "SupportActionRequest",
-    "OnSupportRequest",
-}
-
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
 
 def canonical_iri(action_class: str) -> str:
     return f"{NAMESPACE_BASE}/{action_class}/{VERSION}"
 
+
+# ---------------------------------------------------------------------------
+# YAML dumper — preserves insertion order, no sorting, literal strings
+# ---------------------------------------------------------------------------
 
 class _IndentDumper(yaml.Dumper):
     def increase_indent(self, flow=False, indentless=False):
@@ -111,6 +89,7 @@ def _literal_presenter(dumper, data):
     if "\n" in data:
         return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
     return dumper.represent_scalar("tag:yaml.org,2002:str", data)
+
 
 _IndentDumper.add_representer(str, _literal_presenter)
 
@@ -126,116 +105,181 @@ def dump_yaml(data: dict) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Main transformation
+# Generator
 # ---------------------------------------------------------------------------
 
-def transform(spec: dict) -> tuple[dict, list[str]]:
+def load_yaml(path: str) -> dict:
+    with open(path, "r", encoding="utf-8") as fh:
+        return yaml.safe_load(fh)
+
+
+def resolve_io_refs(io_spec: dict, schema_components: dict) -> dict:
     """
-    Apply the refactoring to the parsed OpenAPI spec dict.
-    Returns (modified_spec, list_of_log_messages).
+    Replace the `$ref: "../schema/core.yaml#/components/..."` JSON References
+    in `io_spec.components` with the inlined values from `schema_components`.
     """
-    log: list[str] = []
-    paths: dict = spec.get("paths") or {}
-    components: dict = spec.get("components") or {}
-    schemas: dict = components.get("schemas") or {}
+    comp = io_spec.get("components", {})
+    # io/core.yaml has components.schemas/parameters/responses as $ref strings
+    # pointing to ../schema/core.yaml#/components/...
+    # We replace each with the resolved dict from schema_core.
+    resolved = {}
+    for key, value in comp.items():
+        if isinstance(value, dict) and "$ref" in value:
+            # e.g. {"$ref": "../schema/core.yaml#/components/schemas"}
+            ref = value["$ref"]
+            # Extract the fragment: "../schema/core.yaml#/components/schemas" → "schemas"
+            if "#/components/" in ref:
+                fragment_key = ref.split("#/components/")[-1]
+                resolved[key] = schema_components.get(fragment_key, {})
+            else:
+                resolved[key] = value
+        else:
+            resolved[key] = value
+    return resolved
 
-    # ── 1. Rewrite requestBody $refs in paths ─────────────────────────────────
-    for path_key, path_item in paths.items():
-        # path_key is e.g. '/beckn/discover'
-        # Extract the action segment: last segment after final /
-        segment = path_key.lstrip("/").split("/")[-1]  # e.g. 'discover'
 
-        if segment not in PATH_TO_ACTION:
-            log.append(f"  SKIP  path {path_key!r} (no action mapping)")
-            continue
+def build_concrete_path(
+    endpoint: str,
+    action_class: str,
+    abstract_path_item: dict,
+) -> dict:
+    """
+    Build a concrete path item for /beckn/{endpoint} (POST only).
 
-        action_class = PATH_TO_ACTION[segment]
-        iri = canonical_iri(action_class)
+    The abstract io/core.yaml has GET + POST under a single path. For the
+    generated beckn.yaml we only emit POST (the standard Beckn action call
+    pattern). The GET (Query Mode) path is retained as-is in io/core.yaml
+    and is not replicated per-action — it lives at the abstract level.
 
-        # All Beckn paths use POST
-        post_op = path_item.get("post") or {}
-        request_body = post_op.get("requestBody") or {}
-        content = request_body.get("content") or {}
-        json_content = content.get("application/json") or {}
-        schema_entry = json_content.get("schema") or {}
+    requestBody.$ref is replaced with the canonical schema.beckn.io IRI.
+    """
+    post_op = abstract_path_item.get("post", {})
+    # Deep-copy so mutations don't affect the template
+    concrete_post = copy.deepcopy(post_op)
 
-        old_ref = schema_entry.get("$ref", "<none>")
-        schema_entry["$ref"] = iri
-        log.append(f"  ✅  {path_key}: {old_ref!r} → {iri!r}")
+    # Rewrite requestBody schema ref
+    try:
+        rb = concrete_post["requestBody"]["content"]["application/json"]["schema"]
+        rb["$ref"] = canonical_iri(action_class)
+    except KeyError:
+        pass  # no requestBody → leave as-is
 
-    # ── 2. Remove redundant action-wrapper schemas ─────────────────────────────
-    removed: list[str] = []
-    for name in list(schemas.keys()):
-        if name in SCHEMAS_TO_REMOVE:
-            del schemas[name]
-            removed.append(name)
+    # Update summary and description to be action-specific
+    action_name = action_class.replace("Action", "")  # e.g. "Discover"
+    concrete_post["summary"] = (
+        concrete_post.get("summary", "").replace(
+            "Dispatch a Beckn protocol action", f"Beckn {action_name}"
+        )
+        or f"Beckn {action_name}"
+    )
+    # Replace generic operationId if present
+    if "operationId" in concrete_post:
+        concrete_post["operationId"] = endpoint.replace("_", "")  # e.g. "discover", "onDiscover"
 
-    if removed:
-        log.append(f"\n  Removed {len(removed)} action-wrapper schemas from components.schemas:")
-        for name in sorted(removed):
-            log.append(f"    - {name}")
-    else:
-        log.append("\n  No action-wrapper schemas to remove (already clean?).")
+    return {"post": concrete_post}
 
-    return spec, log
+
+def generate(io_spec: dict, schema_spec: dict) -> dict:
+    """
+    Produce the full beckn.yaml spec dict.
+    """
+    schema_components = schema_spec.get("components", {})
+    abstract_path_item = io_spec.get("paths", {}).get("/beckn/{becknEndpoint}", {})
+
+    # ── Build ordered paths dict ──────────────────────────────────────────────
+    paths: dict = {}
+    for endpoint, action_class in ACTIONS:
+        path_key = f"/beckn/{endpoint}"
+        paths[path_key] = build_concrete_path(endpoint, action_class, abstract_path_item)
+
+    # ── Resolve components ────────────────────────────────────────────────────
+    components = resolve_io_refs(io_spec, schema_components)
+
+    # ── Build output spec ─────────────────────────────────────────────────────
+    out: dict = {
+        "openapi": io_spec.get("openapi", "3.1.1"),
+        "info": {
+            **io_spec.get("info", {}),
+            "title": "Beckn Protocol API",
+            "description": (
+                "The API specification of Beckn Protocol — a fully resolved, concrete OpenAPI\n"
+                "specification with one named path per known Beckn endpoint.\n"
+                "\n"
+                "Each Beckn Network Participant (BAP, BPP, Registry, CDS, CPS) receives\n"
+                "a request and receives a synchronous `Ack` (HTTP 200). The actual response\n"
+                "arrives as a separate callback on the caller's registered callback endpoint\n"
+                "using the corresponding `on_<action>` endpoint.\n"
+                "\n"
+                "AUTO-GENERATED — DO NOT EDIT DIRECTLY.\n"
+                "Sources: api/v2.0.0/components/io/core.yaml | api/v2.0.0/components/schema/core.yaml\n"
+                "Regenerate: `cd protocol-specifications-v2 && python3 scripts/rebuild_beckn_yaml.py`\n"
+            ),
+        },
+        "paths": paths,
+        "components": components,
+    }
+
+    return out
 
 
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
-def main():
-    parser = argparse.ArgumentParser(
-        description=(
-            "Refactor api/v2.0.0/beckn.yaml so each endpoint requestBody points to\n"
-            "https://schema.beckn.io/{Action}Action/v2.0 instead of an inline schema."
-        ),
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-    )
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__,
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--dry-run", action="store_true",
-                        help="Print what would change without writing the file.")
+                        help="Print the generated spec to stdout; don't write the file.")
     args = parser.parse_args()
 
-    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    yaml_path = os.path.join(repo_root, "api", "v2.0.0", "beckn.yaml")
+    for path in (IO_CORE_YAML, SCHEMA_CORE_YAML):
+        if not os.path.exists(path):
+            print(f"ERROR: source not found: {path}", file=sys.stderr)
+            sys.exit(1)
 
-    if not os.path.exists(yaml_path):
-        print(f"ERROR: beckn.yaml not found at {yaml_path}", file=sys.stderr)
-        sys.exit(1)
+    print(f"Reading io spec:     {IO_CORE_YAML}", file=sys.stderr)
+    print(f"Reading schema spec: {SCHEMA_CORE_YAML}", file=sys.stderr)
 
-    print(f"\nRefactoring: {yaml_path}")
-    print(f"{'[DRY-RUN] ' if args.dry_run else ''}Mode: {'dry-run' if args.dry_run else 'write'}\n")
+    io_spec = load_yaml(IO_CORE_YAML)
+    schema_spec = load_yaml(SCHEMA_CORE_YAML)
 
-    with open(yaml_path, "r", encoding="utf-8") as f:
-        spec = yaml.safe_load(f)
+    out = generate(io_spec, schema_spec)
 
-    if not spec or not isinstance(spec, dict):
-        print("ERROR: Failed to parse beckn.yaml as a YAML dict.", file=sys.stderr)
-        sys.exit(1)
-
-    spec, log_lines = transform(spec)
-
-    print("\n".join(log_lines))
-
-    if args.dry_run:
-        print("\n[DRY-RUN] No files written.")
-        return
-
-    # Build the header comment
     header = (
         "# AUTO-GENERATED — DO NOT EDIT DIRECTLY\n"
-        "# Sources: api/v2.0.0/components/io/core.yaml  |  api/v2.0.0/components/schema/core.yaml  |  github.com/beckn/core_schema\n"
+        "# Sources:\n"
+        "#   api/v2.0.0/components/io/core.yaml      — abstract IO / endpoint template\n"
+        "#   api/v2.0.0/components/schema/core.yaml  — transport-layer schemas\n"
+        "#   https://schema.beckn.io                  — action schemas (external IRIs)\n"
         "# Regenerate: cd protocol-specifications-v2 && python3 scripts/rebuild_beckn_yaml.py\n"
         "#\n"
     )
+    content = header + dump_yaml(out)
 
-    content = dump_yaml(spec)
+    # Log summary
+    print(f"\nGenerated {len(out['paths'])} paths:", file=sys.stderr)
+    for path_key in out["paths"]:
+        action_seg = path_key.split("/")[-1]
+        action_cls = dict(ACTIONS).get(action_seg, "?")
+        iri = canonical_iri(action_cls)
+        print(f"  {path_key:30s}  → {iri}", file=sys.stderr)
 
-    with open(yaml_path, "w", encoding="utf-8") as f:
-        f.write(header)
-        f.write(content)
+    schemas_kept = list(out.get("components", {}).get("schemas", {}).keys())
+    print(f"\nTransport schemas ({len(schemas_kept)}): {', '.join(schemas_kept)}", file=sys.stderr)
 
-    print(f"\n✅  Written: {yaml_path}")
+    if args.dry_run:
+        print("\n--- DRY-RUN OUTPUT ---")
+        print(content)
+        print("--- END DRY-RUN ---\n")
+        print("(No file written — pass without --dry-run to write)", file=sys.stderr)
+        return
+
+    with open(OUTPUT_YAML, "w", encoding="utf-8") as fh:
+        fh.write(content)
+
+    lines = content.count("\n")
+    print(f"\nWritten: {OUTPUT_YAML}  ({lines} lines)", file=sys.stderr)
 
 
 if __name__ == "__main__":

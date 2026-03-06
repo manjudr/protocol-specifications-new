@@ -1,34 +1,25 @@
 # AUTO-GENERATED — DO NOT EDIT DIRECTLY
-# Sources: api/v2.0.0/components/io/core.yaml  |  api/v2.0.0/components/schema/core.yaml  |  github.com/beckn/core_schema
+# Sources:
+#   api/v2.0.0/components/io/core.yaml      — abstract IO / endpoint template
+#   api/v2.0.0/components/schema/core.yaml  — transport-layer schemas
+#   https://schema.beckn.io                  — action schemas (external IRIs)
 # Regenerate: cd protocol-specifications-v2 && python3 scripts/rebuild_beckn_yaml.py
 #
 openapi: 3.1.1
 info:
-  title: Beckn Protocol API Specification Version 2
+  title: Beckn Protocol API
   description: |
     The API specification of Beckn Protocol — a fully resolved, concrete OpenAPI
     specification with one named path per known Beckn endpoint.
 
-    **Interaction model:** All Beckn interactions are asynchronous. The caller sends
+    Each Beckn Network Participant (BAP, BPP, Registry, CDS, CPS) receives
     a request and receives a synchronous `Ack` (HTTP 200). The actual response
     arrives as a separate callback on the caller's registered callback endpoint
     using the corresponding `on_<action>` endpoint.
 
-    **Authentication:** All requests MUST carry a Beckn Signature in the
-    `Authorization` header. See the `Signature` schema for the expected format.
-
-    ---
-
-    ⚠️ **THIS FILE IS AUTO-GENERATED. Do not edit directly.**
-
-    | Source | Path |
-    |--------|------|
-    | Abstract IO spec | `api/v2.0.0/components/io/core.yaml` |
-    | Transport schemas | `api/v2.0.0/components/schema/core.yaml` |
-    | Data model schemas | `https://github.com/beckn/core_schema` |
-    | Generator | `scripts/generate_endpoints.py` |
-
-    Regenerate: `cd protocol-specifications-v2 && python3 scripts/generate_endpoints.py`
+    AUTO-GENERATED — DO NOT EDIT DIRECTLY.
+    Sources: api/v2.0.0/components/io/core.yaml | api/v2.0.0/components/schema/core.yaml
+    Regenerate: `cd protocol-specifications-v2 && python3 scripts/rebuild_beckn_yaml.py`
   version: 2.0.0
   contact:
     name: Beckn Protocol
@@ -39,16 +30,20 @@ info:
 paths:
   /beckn/discover:
     post:
-      summary: Discover — BAP sends a discovery request
-      description: |-
-        BAP sends a discovery intent to one or more BPPs to find catalogs matching the consumer's requirements. The intent may carry a free-text query, structured filters, spatial constraints, or media inputs.
+      summary: Beckn Discover on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_discover
-      tags:
-        - Discover
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -68,16 +63,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_discover:
     post:
-      summary: On-Discover — BPP returns matching catalogs
-      description: |-
-        BPP responds to a discover request with catalogs that match the expressed intent. Each catalog contains the provider's items, offers, fulfillment options, and pricing.
+      summary: Beckn OnDiscover on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_discover
-      tags:
-        - Discover
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -97,16 +96,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/select:
     post:
-      summary: Select — BAP selects items and requests a quote
-      description: |-
-        BAP sends the consumer's selected items and asks the BPP to generate a draft contract with pricing, taxes, and available fulfillment options.
+      summary: Beckn Select on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_select
-      tags:
-        - Select
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -126,16 +129,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_select:
     post:
-      summary: On-Select — BPP returns a draft contract with quote
-      description: |-
-        BPP responds with a draft contract reflecting the selected items, computed pricing, applicable taxes, and fulfillment options.
+      summary: Beckn OnSelect on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_select
-      tags:
-        - Select
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -155,16 +162,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/init:
     post:
-      summary: Init — BAP submits billing and fulfillment details
-      description: |-
-        BAP submits the consumer's billing address, chosen fulfillment option, and preferred payment method to initiate an order.
+      summary: Beckn Init on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_init
-      tags:
-        - Init
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -184,16 +195,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_init:
     post:
-      summary: On-Init — BPP returns final terms and payment instructions
-      description: |-
-        BPP responds with the final order terms, complete price breakdown, and payment/settlement instructions. The consumer reviews these terms before confirming.
+      summary: Beckn OnInit on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_init
-      tags:
-        - Init
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -213,16 +228,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/confirm:
     post:
-      summary: Confirm — BAP confirms the order
-      description: |-
-        BAP confirms the order after the consumer has reviewed and accepted the final terms returned in on_init. This creates a binding order.
+      summary: Beckn Confirm on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_confirm
-      tags:
-        - Confirm
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -242,16 +261,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_confirm:
     post:
-      summary: On-Confirm — BPP acknowledges order confirmation
-      description: |-
-        BPP acknowledges the confirmed order and returns the active contract with the assigned order identifier and fulfillment state.
+      summary: Beckn OnConfirm on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_confirm
-      tags:
-        - Confirm
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -271,16 +294,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/status:
     post:
-      summary: Status — BAP queries current order status
-      description: |-
-        BAP requests the current status of a previously confirmed order by providing the order identifier.
+      summary: Beckn Status on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_status
-      tags:
-        - Status
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -300,16 +327,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_status:
     post:
-      summary: On-Status — BPP returns current order status
-      description: |-
-        BPP returns the current state of the order, including the latest fulfillment stage, tracking state, and any active alerts.
+      summary: Beckn OnStatus on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_status
-      tags:
-        - Status
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -329,16 +360,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/track:
     post:
-      summary: Track — BAP requests a real-time tracking link
-      description: |-
-        BAP requests a real-time tracking URL or WebSocket handle for an active fulfillment leg.
+      summary: Beckn Track on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_track
-      tags:
-        - Track
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -358,16 +393,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_track:
     post:
-      summary: On-Track — BPP returns tracking information
-      description: |-
-        BPP returns a tracking URL, WebSocket handle, or embedded real-time tracking feed for the active fulfillment.
+      summary: Beckn OnTrack on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_track
-      tags:
-        - Track
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -387,16 +426,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/update:
     post:
-      summary: Update — BAP updates an active order
-      description: |-
-        BAP requests a modification to an active order, such as changing the fulfillment address, adjusting quantities, or adding items.
+      summary: Beckn Update on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_update
-      tags:
-        - Update
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -416,16 +459,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_update:
     post:
-      summary: On-Update — BPP returns the updated contract
-      description: |-
-        BPP returns the updated contract reflecting the applied changes, including any pricing adjustments.
+      summary: Beckn OnUpdate on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_update
-      tags:
-        - Update
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -445,16 +492,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/cancel:
     post:
-      summary: Cancel — BAP cancels an active order
-      description: |-
-        BAP cancels an active order, providing a cancellation reason code as defined in the applicable cancellation policy.
+      summary: Beckn Cancel on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_cancel
-      tags:
-        - Cancel
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -474,16 +525,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_cancel:
     post:
-      summary: On-Cancel — BPP confirms order cancellation
-      description: |-
-        BPP confirms the cancellation and returns the final contract state, including any applicable refund terms.
+      summary: Beckn OnCancel on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_cancel
-      tags:
-        - Cancel
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -503,16 +558,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/rate:
     post:
-      summary: Rate — BAP submits ratings and feedback
-      description: |-
-        BAP submits one or more ratings for entities in the completed order (item, fulfillment, provider, or agent), optionally with feedback form submissions.
+      summary: Beckn Rate on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_rate
-      tags:
-        - Rate
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -532,16 +591,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_rate:
     post:
-      summary: On-Rate — BPP returns rating forms
-      description: |-
-        BPP returns rating forms for the BAP to present to the consumer, enabling collection of structured feedback.
+      summary: Beckn OnRate on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_rate
-      tags:
-        - Rate
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -561,16 +624,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/support:
     post:
-      summary: Support — BAP requests support contact information
-      description: |-
-        BAP requests support contact details for a specific order or entity. The consumer may also initiate a support callback request.
+      summary: Beckn Support on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BAP → BPP
-      operationId: beckn_support
-      tags:
-        - Support
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -590,16 +657,20 @@ paths:
           $ref: '#/components/responses/ServerError'
   /beckn/on_support:
     post:
-      summary: On-Support — BPP returns support contact details
-      description: |-
-        BPP returns support contact information including email address, telephone number, chat endpoint, and available support channels.
+      summary: Beckn OnSupport on an HTTP POST endpoint
+      description: |
+        Universal endpoint for dispatching any Beckn protocol action across a Beckn-enabled network.
 
-        **Direction:** BPP → BAP (async callback)
-      operationId: beckn_on_support
-      tags:
-        - Support
+        The request body MUST conform to `BecknAction` — the unified schema for all Beckn requests and callbacks. The `action` value in the path (and in `context.action`) determines which message content schema applies.
+
+        All requests MUST be authenticated using a valid Beckn Signature in the `Authorization` header.
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeader'
+        - name: becknEndpoint
+          in: path
+          required: true
+          schema:
+            $ref: https://schema.beckn.io/BecknEndpoint/v2.0
       requestBody:
         required: true
         content:
@@ -651,6 +722,21 @@ components:
               allOf:
                 - $ref: '#/components/schemas/Error'
               description: Optional error detail explaining why no callback will follow.
+    AsyncError:
+      title: Asynchronous Error
+      description: |
+        Error returned asynchronously during a callback. Wraps the base `Error` schema with
+        JSON-LD type annotations.
+      allOf:
+        - $ref: '#/components/schemas/Error'
+        - properties:
+            '@context':
+              type: string
+              default: https://schema.beckn.io/
+            '@type':
+              type: string
+              default: AsyncError
+          additionalProperties: true
     CounterSignature:
       title: Beckn HTTP Counter-Signature
       description: |
@@ -694,6 +780,36 @@ components:
         errorMessage:
           type: string
           description: Human-readable error description.
+    InReplyTo:
+      title: In-Reply-To Reference
+      description: |
+        A cryptographic binding that ties an asynchronous `on_<action>` callback to the specific
+        inbound request that triggered it. Implements
+        [Issue #69 Proposal #1 — Cryptographic Request–Response Binding](https://github.com/beckn/protocol-specifications-v2/issues/69).
+
+        Including `inReplyTo` in a callback establishes **bilateral non-repudiation for the
+        asynchronous leg** of a Beckn interaction. It is strictly conversational — it links a
+        callback to its parent within the same transaction. Use `context.lineage` for
+        cross-transaction causality.
+
+        **Verification steps:**
+        1. Recompute the BLAKE2b-512 digest of the original request body and compare to `digest`.
+        2. Confirm `messageId` matches the `messageId` from the original request `Context`.
+      type: object
+      properties:
+        messageId:
+          description: The `messageId` of the parent request from its `Context`.
+          type: string
+          format: uuid
+        digest:
+          description: |
+            BLAKE2b-512 hash of the parent request body, Base64-encoded with algorithm prefix.
+            Format: `BLAKE-512={base64EncodedHash}`
+          type: string
+          pattern: ^BLAKE-512=[A-Za-z0-9+/]+=*$
+      required:
+        - messageId
+        - digest
     NackBadRequest:
       title: NACK — Bad Request
       description: Malformed or invalid request; the server could not parse or validate
