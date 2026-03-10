@@ -1,6 +1,6 @@
 # 📚 Contributing Domain-specific Schemas
 
-> This document has been copied from `schemas/README.md` folder. All content below this is to be reviewed and updated. 
+> This document is maintained in `docs/governance/CONTRIBUTING_SCHEMAS.md`. For contributing to the core protocol schemas in `beckn/schemas`, follow the guidelines below.
 
 ---
 

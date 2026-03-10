@@ -1,4 +1,4 @@
-# Beckn Protocol V2.0 Spec Authoring Style Guide \[DRAFT\]
+# Beckn Protocol V2.0 Spec Authoring Style Guide
 
 ## For core protocol authors & maintainers, and for anyone publishing domain / network schema packs & API profiles
 
