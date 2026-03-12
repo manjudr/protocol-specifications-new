@@ -47,28 +47,30 @@ OUTPUT_YAML = os.path.join(REPO_ROOT, "api", "v2.0.0", "beckn.yaml")
 NAMESPACE_BASE = "https://schema.beckn.io"
 VERSION = "v2.0"
 
-# Ordered list of (beckn_endpoint_segment, ActionClassName)
+# Ordered list of (beckn_endpoint_value, ActionClassName)
+# beckn_endpoint_value matches the BecknEndpoint schema const values
+# (full beckn/-prefixed strings, e.g. "beckn/discover").
 ACTIONS: list[tuple[str, str]] = [
-    ("discover",    "DiscoverAction"),
-    ("on_discover", "OnDiscoverAction"),
-    ("select",      "SelectAction"),
-    ("on_select",   "OnSelectAction"),
-    ("init",        "InitAction"),
-    ("on_init",     "OnInitAction"),
-    ("confirm",     "ConfirmAction"),
-    ("on_confirm",  "OnConfirmAction"),
-    ("status",      "StatusAction"),
-    ("on_status",   "OnStatusAction"),
-    ("track",       "TrackAction"),
-    ("on_track",    "OnTrackAction"),
-    ("update",      "UpdateAction"),
-    ("on_update",   "OnUpdateAction"),
-    ("cancel",      "CancelAction"),
-    ("on_cancel",   "OnCancelAction"),
-    ("rate",        "RateAction"),
-    ("on_rate",     "OnRateAction"),
-    ("support",     "SupportAction"),
-    ("on_support",  "OnSupportAction"),
+    ("beckn/discover",    "DiscoverAction"),
+    ("beckn/on_discover", "OnDiscoverAction"),
+    ("beckn/select",      "SelectAction"),
+    ("beckn/on_select",   "OnSelectAction"),
+    ("beckn/init",        "InitAction"),
+    ("beckn/on_init",     "OnInitAction"),
+    ("beckn/confirm",     "ConfirmAction"),
+    ("beckn/on_confirm",  "OnConfirmAction"),
+    ("beckn/status",      "StatusAction"),
+    ("beckn/on_status",   "OnStatusAction"),
+    ("beckn/track",       "TrackAction"),
+    ("beckn/on_track",    "OnTrackAction"),
+    ("beckn/update",      "UpdateAction"),
+    ("beckn/on_update",   "OnUpdateAction"),
+    ("beckn/cancel",      "CancelAction"),
+    ("beckn/on_cancel",   "OnCancelAction"),
+    ("beckn/rate",        "RateAction"),
+    ("beckn/on_rate",     "OnRateAction"),
+    ("beckn/support",     "SupportAction"),
+    ("beckn/on_support",  "OnSupportAction"),
 ]
 
 
@@ -173,8 +175,10 @@ def build_concrete_path(
         or f"Beckn {action_name}"
     )
     # Replace generic operationId if present
+    # endpoint is now "beckn/discover" → strip "beckn/" prefix, then remove underscores
     if "operationId" in concrete_post:
-        concrete_post["operationId"] = endpoint.replace("_", "")  # e.g. "discover", "onDiscover"
+        bare = endpoint.split("/", 1)[-1]  # e.g. "discover", "on_discover"
+        concrete_post["operationId"] = bare.replace("_", "")  # e.g. "discover", "ondiscover"
 
     return {"post": concrete_post}
 
@@ -184,12 +188,14 @@ def generate(io_spec: dict, schema_spec: dict) -> dict:
     Produce the full beckn.yaml spec dict.
     """
     schema_components = schema_spec.get("components", {})
-    abstract_path_item = io_spec.get("paths", {}).get("/beckn/{becknEndpoint}", {})
+    abstract_path_item = io_spec.get("paths", {}).get("/{becknEndpoint}", {})
 
     # ── Build ordered paths dict ──────────────────────────────────────────────
+    # endpoint is now a full beckn/-prefixed value (e.g. "beckn/discover"),
+    # so the path key is simply "/{endpoint}" → "/beckn/discover".
     paths: dict = {}
     for endpoint, action_class in ACTIONS:
-        path_key = f"/beckn/{endpoint}"
+        path_key = f"/{endpoint}"
         paths[path_key] = build_concrete_path(endpoint, action_class, abstract_path_item)
 
     # ── Resolve components ────────────────────────────────────────────────────
@@ -259,11 +265,12 @@ def main() -> None:
 
     # Log summary
     print(f"\nGenerated {len(out['paths'])} paths:", file=sys.stderr)
+    # Build a lookup: path_key → action_class
+    path_to_action = {f"/{ep}": cls for ep, cls in ACTIONS}
     for path_key in out["paths"]:
-        action_seg = path_key.split("/")[-1]
-        action_cls = dict(ACTIONS).get(action_seg, "?")
+        action_cls = path_to_action.get(path_key, "?")
         iri = canonical_iri(action_cls)
-        print(f"  {path_key:30s}  → {iri}", file=sys.stderr)
+        print(f"  {path_key:35s}  → {iri}", file=sys.stderr)
 
     schemas_kept = list(out.get("components", {}).get("schemas", {}).keys())
     print(f"\nTransport schemas ({len(schemas_kept)}): {', '.join(schemas_kept)}", file=sys.stderr)

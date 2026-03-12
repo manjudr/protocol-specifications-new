@@ -24,7 +24,7 @@ info:
     url: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
 
 paths:
-  /beckn/{becknEndpoint}:
+  /{becknEndpoint}:
     get:
       summary: Dispatch a Beckn protocol action on an HTTP GET endpoint (Body Mode or Query Mode)
       description: |
