@@ -19,11 +19,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "priya.nair@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Priya Nair"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -32,13 +27,6 @@
               77.6245,
               12.9352
             ]
-          },
-          "address": {
-            "streetAddress": "No. 45, 3rd Cross, 5th Block",
-            "addressLocality": "Koramangala",
-            "addressRegion": "Karnataka",
-            "postalCode": "560034",
-            "addressCountry": "IN"
           }
         }
       }

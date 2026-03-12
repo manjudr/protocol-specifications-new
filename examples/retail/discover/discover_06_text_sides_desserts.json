@@ -19,11 +19,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "deepa.krishna@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Deepa Krishna"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -32,13 +27,6 @@
               77.5726,
               13.003
             ]
-          },
-          "address": {
-            "streetAddress": "No. 89, 6th Cross, Malleshwaram",
-            "addressLocality": "Malleshwaram",
-            "addressRegion": "Karnataka",
-            "postalCode": "560055",
-            "addressCountry": "IN"
           }
         }
       }

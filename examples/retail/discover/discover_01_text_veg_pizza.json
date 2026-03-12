@@ -19,11 +19,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "arjun.sharma@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Arjun Sharma"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -32,13 +27,6 @@
               77.5946,
               12.9716
             ]
-          },
-          "address": {
-            "streetAddress": "Apt 204, Sunrise Heights, 12 MG Road",
-            "addressLocality": "Bangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "560001",
-            "addressCountry": "IN"
           }
         }
       }

@@ -1,7 +1,7 @@
 {
-  "$schema": "https://schema.beckn.io/OnSelectAction/v2.0",
+  "$schema": "https://schema.beckn.io/SelectAction/v2.0",
   "context": {
-    "action": "beckn/on_select",
+    "action": "beckn/select",
     "bapId": "food-app.example.com",
     "bapUri": "https://food-app.example.com/beckn",
     "bppId": "zomato.com",
@@ -9,9 +9,9 @@
     "networkId": "beckn:retail-network:in",
     "version": "2.0.0",
     "ttl": "PT30S",
-    "messageId": "onsel-msg-005",
-    "timestamp": "2026-03-10T12:01:01.800Z",
-    "transactionId": "txn-0005-2026-dominos-pizza"
+    "messageId": "sel-msg-007",
+    "timestamp": "2026-03-10T14:01:00.000Z",
+    "transactionId": "txn-0007-2026-dominos-pizza"
   },
   "message": {
     "contract": {
@@ -20,57 +20,77 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
-          "id": "vikram.patel@food-app.example.com",
           "role": "consumer",
-          "displayName": "Vikram Patel"
+          "id": "session-consumer-22204"
         },
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
-          "id": "store-dominos-blr-koramangala",
+          "id": "store-dominos-blr-mgroad",
           "role": "provider",
-          "displayName": "Domino's — Koramangala"
+          "displayName": "Domino's \u2014 MG Road"
         }
       ],
       "items": [
         {
           "lineId": "line-001",
-          "itemId": "item-nonveg-chicken-fiesta",
-          "offerId": "offer-chicken-fiesta-medium",
+          "itemId": "item-nonveg-keema-do-pyaza",
+          "offerId": "offer-keema-do-pyaza-large",
           "quantity": {
             "unitCode": "EA",
             "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 695,
+            "value": 1095,
             "components": [
               {
                 "type": "UNIT",
-                "value": 695,
+                "value": 1095,
                 "currency": "INR",
-                "description": "Medium Chicken Fiesta"
+                "description": "Large Keema Do Pyaza"
               }
             ]
           }
         },
         {
           "lineId": "line-002",
-          "itemId": "item-side-chicken-wings",
-          "offerId": "offer-chicken-wings",
+          "itemId": "item-dip-cheesy-jalapeno",
+          "offerId": "offer-cheesy-jalapeno-dip",
           "quantity": {
             "unitCode": "EA",
             "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 179,
+            "value": 25,
             "components": [
               {
                 "type": "UNIT",
-                "value": 179,
+                "value": 25,
                 "currency": "INR",
-                "description": "Chicken Wings"
+                "description": "Cheesy Jalapeno Dip"
+              }
+            ]
+          }
+        },
+        {
+          "lineId": "line-003",
+          "itemId": "item-bev-7up-300ml",
+          "offerId": "offer-7up-300ml",
+          "quantity": {
+            "unitCode": "EA",
+            "unitQuantity": 1
+          },
+          "price": {
+            "currency": "INR",
+            "value": 30,
+            "components": [
+              {
+                "type": "UNIT",
+                "value": 30,
+                "currency": "INR",
+                "description": "7UP 300ml"
               }
             ]
           }
@@ -80,7 +100,7 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Fulfillment",
-          "id": "fulfillment-delivery-tower",
+          "id": "fulfillment-delivery-plot",
           "mode": {
             "@context": "https://schema.beckn.io/",
             "@type": "beckn:FulfillmentMode",
@@ -105,7 +125,7 @@
             {
               "@context": "https://schema.beckn.io/",
               "@type": "beckn:Participant",
-              "id": "vikram.patel@food-app.example.com",
+              "id": "session-consumer-22204",
               "role": "recipient"
             }
           ],
@@ -119,25 +139,25 @@
                 "@type": "beckn:FulfillmentStageEndpoint",
                 "location": {
                   "@type": "beckn:Location",
-                  "id": "store-dominos-blr-koramangala",
+                  "id": "store-dominos-blr-mgroad",
                   "geo": {
                     "type": "Point",
                     "coordinates": [
-                      77.6245,
-                      12.9352
+                      77.5946,
+                      12.9716
                     ]
                   },
                   "address": {
-                    "streetAddress": "No. 80/1, 5th Block, 80 Feet Road",
-                    "addressLocality": "Koramangala",
+                    "streetAddress": "No. 15, Ground Floor, MG Road",
+                    "addressLocality": "Bangalore",
                     "addressRegion": "Karnataka",
-                    "postalCode": "560034",
+                    "postalCode": "560001",
                     "addressCountry": "IN"
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T12:30:00.000Z",
-                  "end": "2026-03-10T12:35:00.000Z"
+                  "start": "2026-03-10T14:30:00.000Z",
+                  "end": "2026-03-10T14:35:00.000Z"
                 }
               },
               "end": {
@@ -148,64 +168,18 @@
                   "geo": {
                     "type": "Point",
                     "coordinates": [
-                      77.7499,
-                      12.9698
+                      77.6461,
+                      12.9121
                     ]
-                  },
-                  "address": {
-                    "streetAddress": "Tower C, Prestige Shantiniketan",
-                    "addressLocality": "Whitefield",
-                    "addressRegion": "Karnataka",
-                    "postalCode": "560066",
-                    "addressCountry": "IN"
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T12:40:00.000Z",
-                  "end": "2026-03-10T12:55:00.000Z"
+                  "start": "2026-03-10T14:40:00.000Z",
+                  "end": "2026-03-10T14:55:00.000Z"
                 }
               }
             }
           ]
-        }
-      ],
-      "contractValue": {
-        "currency": "INR",
-        "value": 914,
-        "components": [
-          {
-            "type": "UNIT",
-            "value": 695,
-            "currency": "INR",
-            "description": "1x Medium Chicken Fiesta"
-          },
-          {
-            "type": "UNIT",
-            "value": 179,
-            "currency": "INR",
-            "description": "1x Chicken Wings"
-          },
-          {
-            "type": "DELIVERY",
-            "value": 40,
-            "currency": "INR",
-            "description": "Delivery fee"
-          }
-        ]
-      },
-      "quotes": [
-        {
-          "@context": "https://schema.beckn.io/",
-          "@type": "beckn:Quote",
-          "id": "quote-005",
-          "price": {
-            "currency": "INR",
-            "value": 914
-          },
-          "validity": {
-            "start": "2026-03-10T12:01:01Z",
-            "end": "2026-03-10T12:16:01Z"
-          }
         }
       ]
     }

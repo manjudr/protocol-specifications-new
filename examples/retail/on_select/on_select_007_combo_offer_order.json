@@ -1,7 +1,7 @@
 {
-  "$schema": "https://schema.beckn.io/SelectAction/v2.0",
+  "$schema": "https://schema.beckn.io/OnSelectAction/v2.0",
   "context": {
-    "action": "beckn/select",
+    "action": "beckn/on_select",
     "bapId": "food-app.example.com",
     "bapUri": "https://food-app.example.com/beckn",
     "bppId": "zomato.com",
@@ -9,9 +9,9 @@
     "networkId": "beckn:retail-network:in",
     "version": "2.0.0",
     "ttl": "PT30S",
-    "messageId": "sel-msg-004",
-    "timestamp": "2026-03-10T11:01:00.000Z",
-    "transactionId": "txn-0004-2026-dominos-pizza"
+    "messageId": "onsel-msg-007",
+    "timestamp": "2026-03-10T14:01:01.800Z",
+    "transactionId": "txn-0007-2026-dominos-pizza"
   },
   "message": {
     "contract": {
@@ -20,59 +20,77 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
-          "id": "sunita.rao@food-app.example.com",
           "role": "consumer",
-          "displayName": "Sunita Rao",
-          "telephone": "+917654321098",
-          "email": "sunita.rao@example.com"
+          "id": "session-consumer-22204"
         },
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
           "id": "store-dominos-blr-mgroad",
           "role": "provider",
-          "displayName": "Domino's — MG Road"
+          "displayName": "Domino's \u2014 MG Road"
         }
       ],
       "items": [
         {
           "lineId": "line-001",
-          "itemId": "item-veg-extravaganza",
-          "offerId": "offer-veg-extravaganza-large",
+          "itemId": "item-nonveg-keema-do-pyaza",
+          "offerId": "offer-keema-do-pyaza-large",
           "quantity": {
             "unitCode": "EA",
-            "unitQuantity": 2
+            "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 2190,
+            "value": 1095,
             "components": [
               {
                 "type": "UNIT",
                 "value": 1095,
                 "currency": "INR",
-                "description": "Large Veg Extravaganza"
+                "description": "Large Keema Do Pyaza"
               }
             ]
           }
         },
         {
           "lineId": "line-002",
-          "itemId": "item-dip-cheesy",
-          "offerId": "offer-cheesy-dip",
+          "itemId": "item-dip-cheesy-jalapeno",
+          "offerId": "offer-cheesy-jalapeno-dip",
           "quantity": {
             "unitCode": "EA",
-            "unitQuantity": 2
+            "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 50,
+            "value": 25,
             "components": [
               {
                 "type": "UNIT",
                 "value": 25,
                 "currency": "INR",
-                "description": "Cheesy Dip"
+                "description": "Cheesy Jalapeno Dip"
+              }
+            ]
+          }
+        },
+        {
+          "lineId": "line-003",
+          "itemId": "item-bev-7up-300ml",
+          "offerId": "offer-7up-300ml",
+          "quantity": {
+            "unitCode": "EA",
+            "unitQuantity": 1
+          },
+          "price": {
+            "currency": "INR",
+            "value": 30,
+            "components": [
+              {
+                "type": "UNIT",
+                "value": 30,
+                "currency": "INR",
+                "description": "7UP 300ml"
               }
             ]
           }
@@ -82,7 +100,7 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Fulfillment",
-          "id": "fulfillment-delivery-no.2",
+          "id": "fulfillment-delivery-plot",
           "mode": {
             "@context": "https://schema.beckn.io/",
             "@type": "beckn:FulfillmentMode",
@@ -107,7 +125,7 @@
             {
               "@context": "https://schema.beckn.io/",
               "@type": "beckn:Participant",
-              "id": "sunita.rao@food-app.example.com",
+              "id": "session-consumer-22204",
               "role": "recipient"
             }
           ],
@@ -138,8 +156,8 @@
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T11:30:00.000Z",
-                  "end": "2026-03-10T11:35:00.000Z"
+                  "start": "2026-03-10T14:30:00.000Z",
+                  "end": "2026-03-10T14:35:00.000Z"
                 }
               },
               "end": {
@@ -150,25 +168,63 @@
                   "geo": {
                     "type": "Point",
                     "coordinates": [
-                      77.5992,
-                      12.9734
+                      77.6461,
+                      12.9121
                     ]
-                  },
-                  "address": {
-                    "streetAddress": "No. 23, Brigade Road, Opp. Forum Mall",
-                    "addressLocality": "Bangalore",
-                    "addressRegion": "Karnataka",
-                    "postalCode": "560001",
-                    "addressCountry": "IN"
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T11:40:00.000Z",
-                  "end": "2026-03-10T11:55:00.000Z"
+                  "start": "2026-03-10T14:40:00.000Z",
+                  "end": "2026-03-10T14:55:00.000Z"
                 }
               }
             }
           ]
+        }
+      ],
+      "contractValue": {
+        "currency": "INR",
+        "value": 1190,
+        "components": [
+          {
+            "type": "UNIT",
+            "value": 1095,
+            "currency": "INR",
+            "description": "1x Large Keema Do Pyaza"
+          },
+          {
+            "type": "UNIT",
+            "value": 25,
+            "currency": "INR",
+            "description": "1x Cheesy Jalapeno Dip"
+          },
+          {
+            "type": "UNIT",
+            "value": 30,
+            "currency": "INR",
+            "description": "1x 7UP 300ml"
+          },
+          {
+            "type": "DELIVERY",
+            "value": 40,
+            "currency": "INR",
+            "description": "Delivery fee"
+          }
+        ]
+      },
+      "quotes": [
+        {
+          "@context": "https://schema.beckn.io/",
+          "@type": "beckn:Quote",
+          "id": "quote-007",
+          "price": {
+            "currency": "INR",
+            "value": 1190
+          },
+          "validity": {
+            "start": "2026-03-10T14:01:01Z",
+            "end": "2026-03-10T14:16:01Z"
+          }
         }
       ]
     }

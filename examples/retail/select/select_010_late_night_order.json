@@ -9,9 +9,9 @@
     "networkId": "beckn:retail-network:in",
     "version": "2.0.0",
     "ttl": "PT30S",
-    "messageId": "sel-msg-003",
-    "timestamp": "2026-03-10T10:01:00.000Z",
-    "transactionId": "txn-0003-2026-dominos-pizza"
+    "messageId": "sel-msg-010",
+    "timestamp": "2026-03-10T17:01:00.000Z",
+    "transactionId": "txn-0010-2026-dominos-pizza"
   },
   "message": {
     "contract": {
@@ -20,59 +20,56 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
-          "id": "rahul.mehta@food-app.example.com",
           "role": "consumer",
-          "displayName": "Rahul Mehta",
-          "telephone": "+918765432109",
-          "email": "rahul.mehta@example.com"
+          "id": "session-consumer-63498"
         },
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
-          "id": "store-dominos-blr-indiranagar",
+          "id": "store-dominos-blr-mgroad",
           "role": "provider",
-          "displayName": "Domino's — Indiranagar"
+          "displayName": "Domino's \u2014 MG Road"
         }
       ],
       "items": [
         {
           "lineId": "line-001",
-          "itemId": "item-nonveg-chicken-dominator",
-          "offerId": "offer-chicken-dominator-regular",
+          "itemId": "item-veg-farmhouse",
+          "offerId": "offer-farmhouse-large",
           "quantity": {
             "unitCode": "EA",
             "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 835,
+            "value": 895,
             "components": [
               {
                 "type": "UNIT",
-                "value": 835,
+                "value": 895,
                 "currency": "INR",
-                "description": "Regular Chicken Dominator"
+                "description": "Large Farmhouse"
               }
             ]
           }
         },
         {
           "lineId": "line-002",
-          "itemId": "item-side-stuffed-garlic-breadsticks",
-          "offerId": "offer-stuffed-garlic-breadsticks",
+          "itemId": "item-side-garlic-breadsticks",
+          "offerId": "offer-garlic-breadsticks",
           "quantity": {
             "unitCode": "EA",
             "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 145,
+            "value": 99,
             "components": [
               {
                 "type": "UNIT",
-                "value": 145,
+                "value": 99,
                 "currency": "INR",
-                "description": "Stuffed Garlic Breadsticks"
+                "description": "Garlic Breadsticks"
               }
             ]
           }
@@ -103,7 +100,7 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Fulfillment",
-          "id": "fulfillment-delivery-flat",
+          "id": "fulfillment-delivery-no.1",
           "mode": {
             "@context": "https://schema.beckn.io/",
             "@type": "beckn:FulfillmentMode",
@@ -128,7 +125,7 @@
             {
               "@context": "https://schema.beckn.io/",
               "@type": "beckn:Participant",
-              "id": "rahul.mehta@food-app.example.com",
+              "id": "session-consumer-63498",
               "role": "recipient"
             }
           ],
@@ -142,25 +139,25 @@
                 "@type": "beckn:FulfillmentStageEndpoint",
                 "location": {
                   "@type": "beckn:Location",
-                  "id": "store-dominos-blr-indiranagar",
+                  "id": "store-dominos-blr-mgroad",
                   "geo": {
                     "type": "Point",
                     "coordinates": [
-                      77.6408,
-                      12.9784
+                      77.5946,
+                      12.9716
                     ]
                   },
                   "address": {
-                    "streetAddress": "No. 12, CMH Road, 1st Stage",
-                    "addressLocality": "Indiranagar",
+                    "streetAddress": "No. 15, Ground Floor, MG Road",
+                    "addressLocality": "Bangalore",
                     "addressRegion": "Karnataka",
-                    "postalCode": "560038",
+                    "postalCode": "560001",
                     "addressCountry": "IN"
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T10:30:00.000Z",
-                  "end": "2026-03-10T10:35:00.000Z"
+                  "start": "2026-03-10T17:30:00.000Z",
+                  "end": "2026-03-10T17:35:00.000Z"
                 }
               },
               "end": {
@@ -171,21 +168,14 @@
                   "geo": {
                     "type": "Point",
                     "coordinates": [
-                      77.6408,
-                      12.9784
+                      77.5846,
+                      12.9302
                     ]
-                  },
-                  "address": {
-                    "streetAddress": "Flat 7B, Greenview Apartments, CMH Road",
-                    "addressLocality": "Indiranagar",
-                    "addressRegion": "Karnataka",
-                    "postalCode": "560038",
-                    "addressCountry": "IN"
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T10:40:00.000Z",
-                  "end": "2026-03-10T10:55:00.000Z"
+                  "start": "2026-03-10T17:40:00.000Z",
+                  "end": "2026-03-10T17:55:00.000Z"
                 }
               }
             }

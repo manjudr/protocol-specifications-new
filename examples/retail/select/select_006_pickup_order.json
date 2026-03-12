@@ -20,18 +20,15 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
-          "id": "deepa.krishna@food-app.example.com",
           "role": "consumer",
-          "displayName": "Deepa Krishna",
-          "telephone": "+915432109876",
-          "email": "deepa.krishna@example.com"
+          "id": "session-consumer-34401"
         },
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
           "id": "store-dominos-blr-indiranagar",
           "role": "provider",
-          "displayName": "Domino's — Indiranagar"
+          "displayName": "Domino's \u2014 Indiranagar"
         }
       ],
       "items": [
@@ -86,7 +83,7 @@
             {
               "@context": "https://schema.beckn.io/",
               "@type": "beckn:Participant",
-              "id": "deepa.krishna@food-app.example.com",
+              "id": "session-consumer-34401",
               "role": "recipient"
             }
           ],
@@ -132,13 +129,6 @@
                       77.5726,
                       13.003
                     ]
-                  },
-                  "address": {
-                    "streetAddress": "No. 89, 6th Cross, Malleshwaram",
-                    "addressLocality": "Malleshwaram",
-                    "addressRegion": "Karnataka",
-                    "postalCode": "560055",
-                    "addressCountry": "IN"
                   }
                 },
                 "time": {

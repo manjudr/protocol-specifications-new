@@ -1,7 +1,7 @@
 {
-  "$schema": "https://schema.beckn.io/OnSelectAction/v2.0",
+  "$schema": "https://schema.beckn.io/SelectAction/v2.0",
   "context": {
-    "action": "beckn/on_select",
+    "action": "beckn/select",
     "bapId": "food-app.example.com",
     "bapUri": "https://food-app.example.com/beckn",
     "bppId": "zomato.com",
@@ -9,8 +9,8 @@
     "networkId": "beckn:retail-network:in",
     "version": "2.0.0",
     "ttl": "PT30S",
-    "messageId": "onsel-msg-009",
-    "timestamp": "2026-03-10T16:01:01.800Z",
+    "messageId": "sel-msg-009",
+    "timestamp": "2026-03-10T16:01:00.000Z",
     "transactionId": "txn-0009-2026-dominos-pizza"
   },
   "message": {
@@ -20,16 +20,15 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
-          "id": "ravi.kumar@food-app.example.com",
           "role": "consumer",
-          "displayName": "Ravi Kumar"
+          "id": "session-consumer-96295"
         },
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
           "id": "store-dominos-blr-indiranagar",
           "role": "provider",
-          "displayName": "Domino's — Indiranagar"
+          "displayName": "Domino's \u2014 Indiranagar"
         }
       ],
       "items": [
@@ -126,7 +125,7 @@
             {
               "@context": "https://schema.beckn.io/",
               "@type": "beckn:Participant",
-              "id": "ravi.kumar@food-app.example.com",
+              "id": "session-consumer-96295",
               "role": "recipient"
             }
           ],
@@ -172,13 +171,6 @@
                       77.6674,
                       12.8392
                     ]
-                  },
-                  "address": {
-                    "streetAddress": "Unit 5, Salarpuria Symbiosis",
-                    "addressLocality": "Electronic City",
-                    "addressRegion": "Karnataka",
-                    "postalCode": "560100",
-                    "addressCountry": "IN"
                   }
                 },
                 "time": {
@@ -188,51 +180,6 @@
               }
             }
           ]
-        }
-      ],
-      "contractValue": {
-        "currency": "INR",
-        "value": 813,
-        "components": [
-          {
-            "type": "UNIT",
-            "value": 495,
-            "currency": "INR",
-            "description": "1x Regular Chicken Pepperoni"
-          },
-          {
-            "type": "UNIT",
-            "value": 179,
-            "currency": "INR",
-            "description": "1x Chicken Wings"
-          },
-          {
-            "type": "UNIT",
-            "value": 99,
-            "currency": "INR",
-            "description": "1x Choco Lava Cake"
-          },
-          {
-            "type": "DELIVERY",
-            "value": 40,
-            "currency": "INR",
-            "description": "Delivery fee"
-          }
-        ]
-      },
-      "quotes": [
-        {
-          "@context": "https://schema.beckn.io/",
-          "@type": "beckn:Quote",
-          "id": "quote-009",
-          "price": {
-            "currency": "INR",
-            "value": 813
-          },
-          "validity": {
-            "start": "2026-03-10T16:01:01Z",
-            "end": "2026-03-10T16:16:01Z"
-          }
         }
       ]
     }

@@ -19,11 +19,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "meena.iyer@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Meena Iyer"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -32,13 +27,6 @@
               77.5846,
               12.9302
             ]
-          },
-          "address": {
-            "streetAddress": "No. 17, 4th Main, Jayanagar",
-            "addressLocality": "Jayanagar",
-            "addressRegion": "Karnataka",
-            "postalCode": "560041",
-            "addressCountry": "IN"
           }
         }
       }

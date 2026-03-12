@@ -22,11 +22,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "sunita.rao@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Sunita Rao"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -35,13 +30,6 @@
               77.5992,
               12.9734
             ]
-          },
-          "address": {
-            "streetAddress": "No. 23, Brigade Road, Opp. Forum Mall",
-            "addressLocality": "Bangalore",
-            "addressRegion": "Karnataka",
-            "postalCode": "560001",
-            "addressCountry": "IN"
           }
         }
       }

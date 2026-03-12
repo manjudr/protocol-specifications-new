@@ -9,9 +9,9 @@
     "networkId": "beckn:retail-network:in",
     "version": "2.0.0",
     "ttl": "PT30S",
-    "messageId": "onsel-msg-003",
-    "timestamp": "2026-03-10T10:01:01.800Z",
-    "transactionId": "txn-0003-2026-dominos-pizza"
+    "messageId": "onsel-msg-009",
+    "timestamp": "2026-03-10T16:01:01.800Z",
+    "transactionId": "txn-0009-2026-dominos-pizza"
   },
   "message": {
     "contract": {
@@ -20,78 +20,77 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
-          "id": "rahul.mehta@food-app.example.com",
           "role": "consumer",
-          "displayName": "Rahul Mehta"
+          "id": "session-consumer-96295"
         },
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
           "id": "store-dominos-blr-indiranagar",
           "role": "provider",
-          "displayName": "Domino's — Indiranagar"
+          "displayName": "Domino's \u2014 Indiranagar"
         }
       ],
       "items": [
         {
           "lineId": "line-001",
-          "itemId": "item-nonveg-chicken-dominator",
-          "offerId": "offer-chicken-dominator-regular",
+          "itemId": "item-nonveg-chicken-pepperoni",
+          "offerId": "offer-chicken-pepperoni-regular",
           "quantity": {
             "unitCode": "EA",
             "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 835,
+            "value": 495,
             "components": [
               {
                 "type": "UNIT",
-                "value": 835,
+                "value": 495,
                 "currency": "INR",
-                "description": "Regular Chicken Dominator"
+                "description": "Regular Chicken Pepperoni"
               }
             ]
           }
         },
         {
           "lineId": "line-002",
-          "itemId": "item-side-stuffed-garlic-breadsticks",
-          "offerId": "offer-stuffed-garlic-breadsticks",
+          "itemId": "item-side-chicken-wings",
+          "offerId": "offer-chicken-wings",
           "quantity": {
             "unitCode": "EA",
             "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 145,
+            "value": 179,
             "components": [
               {
                 "type": "UNIT",
-                "value": 145,
+                "value": 179,
                 "currency": "INR",
-                "description": "Stuffed Garlic Breadsticks"
+                "description": "Chicken Wings"
               }
             ]
           }
         },
         {
           "lineId": "line-003",
-          "itemId": "item-bev-pepsi-300ml",
-          "offerId": "offer-pepsi-300ml",
+          "itemId": "item-dessert-choco-lava-cake",
+          "offerId": "offer-choco-lava-cake",
           "quantity": {
             "unitCode": "EA",
             "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 30,
+            "value": 99,
             "components": [
               {
                 "type": "UNIT",
-                "value": 30,
+                "value": 99,
                 "currency": "INR",
-                "description": "Pepsi 300ml"
+                "description": "Choco Lava Cake"
               }
             ]
           }
@@ -101,7 +100,7 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Fulfillment",
-          "id": "fulfillment-delivery-flat",
+          "id": "fulfillment-delivery-unit",
           "mode": {
             "@context": "https://schema.beckn.io/",
             "@type": "beckn:FulfillmentMode",
@@ -126,7 +125,7 @@
             {
               "@context": "https://schema.beckn.io/",
               "@type": "beckn:Participant",
-              "id": "rahul.mehta@food-app.example.com",
+              "id": "session-consumer-96295",
               "role": "recipient"
             }
           ],
@@ -157,8 +156,8 @@
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T10:30:00.000Z",
-                  "end": "2026-03-10T10:35:00.000Z"
+                  "start": "2026-03-10T16:30:00.000Z",
+                  "end": "2026-03-10T16:35:00.000Z"
                 }
               },
               "end": {
@@ -169,21 +168,14 @@
                   "geo": {
                     "type": "Point",
                     "coordinates": [
-                      77.6408,
-                      12.9784
+                      77.6674,
+                      12.8392
                     ]
-                  },
-                  "address": {
-                    "streetAddress": "Flat 7B, Greenview Apartments, CMH Road",
-                    "addressLocality": "Indiranagar",
-                    "addressRegion": "Karnataka",
-                    "postalCode": "560038",
-                    "addressCountry": "IN"
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T10:40:00.000Z",
-                  "end": "2026-03-10T10:55:00.000Z"
+                  "start": "2026-03-10T16:40:00.000Z",
+                  "end": "2026-03-10T16:55:00.000Z"
                 }
               }
             }
@@ -192,25 +184,25 @@
       ],
       "contractValue": {
         "currency": "INR",
-        "value": 1050,
+        "value": 813,
         "components": [
           {
             "type": "UNIT",
-            "value": 835,
+            "value": 495,
             "currency": "INR",
-            "description": "1x Regular Chicken Dominator"
+            "description": "1x Regular Chicken Pepperoni"
           },
           {
             "type": "UNIT",
-            "value": 145,
+            "value": 179,
             "currency": "INR",
-            "description": "1x Stuffed Garlic Breadsticks"
+            "description": "1x Chicken Wings"
           },
           {
             "type": "UNIT",
-            "value": 30,
+            "value": 99,
             "currency": "INR",
-            "description": "1x Pepsi 300ml"
+            "description": "1x Choco Lava Cake"
           },
           {
             "type": "DELIVERY",
@@ -224,14 +216,14 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Quote",
-          "id": "quote-003",
+          "id": "quote-009",
           "price": {
             "currency": "INR",
-            "value": 1050
+            "value": 813
           },
           "validity": {
-            "start": "2026-03-10T10:01:01Z",
-            "end": "2026-03-10T10:16:01Z"
+            "start": "2026-03-10T16:01:01Z",
+            "end": "2026-03-10T16:16:01Z"
           }
         }
       ]

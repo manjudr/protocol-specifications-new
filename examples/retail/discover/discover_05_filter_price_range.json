@@ -22,11 +22,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "vikram.patel@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Vikram Patel"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -35,13 +30,6 @@
               77.7499,
               12.9698
             ]
-          },
-          "address": {
-            "streetAddress": "Tower C, Prestige Shantiniketan",
-            "addressLocality": "Whitefield",
-            "addressRegion": "Karnataka",
-            "postalCode": "560066",
-            "addressCountry": "IN"
           }
         }
       }

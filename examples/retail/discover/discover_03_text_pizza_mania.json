@@ -19,11 +19,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "rahul.mehta@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Rahul Mehta"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -32,13 +27,6 @@
               77.6408,
               12.9784
             ]
-          },
-          "address": {
-            "streetAddress": "Flat 7B, Greenview Apartments, CMH Road",
-            "addressLocality": "Indiranagar",
-            "addressRegion": "Karnataka",
-            "postalCode": "560038",
-            "addressCountry": "IN"
           }
         }
       }

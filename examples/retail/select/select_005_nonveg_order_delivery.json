@@ -9,9 +9,9 @@
     "networkId": "beckn:retail-network:in",
     "version": "2.0.0",
     "ttl": "PT30S",
-    "messageId": "sel-msg-002",
-    "timestamp": "2026-03-10T09:01:00.000Z",
-    "transactionId": "txn-0002-2026-dominos-pizza"
+    "messageId": "sel-msg-005",
+    "timestamp": "2026-03-10T12:01:00.000Z",
+    "transactionId": "txn-0005-2026-dominos-pizza"
   },
   "message": {
     "contract": {
@@ -20,59 +20,56 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
-          "id": "priya.nair@food-app.example.com",
           "role": "consumer",
-          "displayName": "Priya Nair",
-          "telephone": "+919845123456",
-          "email": "priya.nair@example.com"
+          "id": "session-consumer-27373"
         },
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Participant",
           "id": "store-dominos-blr-koramangala",
           "role": "provider",
-          "displayName": "Domino's — Koramangala"
+          "displayName": "Domino's \u2014 Koramangala"
         }
       ],
       "items": [
         {
           "lineId": "line-001",
-          "itemId": "item-veg-peppy-paneer",
-          "offerId": "offer-peppy-paneer-medium",
+          "itemId": "item-nonveg-chicken-fiesta",
+          "offerId": "offer-chicken-fiesta-medium",
           "quantity": {
             "unitCode": "EA",
             "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 595,
+            "value": 695,
             "components": [
               {
                 "type": "UNIT",
-                "value": 595,
+                "value": 695,
                 "currency": "INR",
-                "description": "Medium Peppy Paneer"
+                "description": "Medium Chicken Fiesta"
               }
             ]
           }
         },
         {
           "lineId": "line-002",
-          "itemId": "item-dessert-choco-lava-cake",
-          "offerId": "offer-choco-lava-cake",
+          "itemId": "item-side-chicken-wings",
+          "offerId": "offer-chicken-wings",
           "quantity": {
             "unitCode": "EA",
-            "unitQuantity": 2
+            "unitQuantity": 1
           },
           "price": {
             "currency": "INR",
-            "value": 198,
+            "value": 179,
             "components": [
               {
                 "type": "UNIT",
-                "value": 99,
+                "value": 179,
                 "currency": "INR",
-                "description": "Choco Lava Cake"
+                "description": "Chicken Wings"
               }
             ]
           }
@@ -82,7 +79,7 @@
         {
           "@context": "https://schema.beckn.io/",
           "@type": "beckn:Fulfillment",
-          "id": "fulfillment-delivery-no.4",
+          "id": "fulfillment-delivery-tower",
           "mode": {
             "@context": "https://schema.beckn.io/",
             "@type": "beckn:FulfillmentMode",
@@ -107,7 +104,7 @@
             {
               "@context": "https://schema.beckn.io/",
               "@type": "beckn:Participant",
-              "id": "priya.nair@food-app.example.com",
+              "id": "session-consumer-27373",
               "role": "recipient"
             }
           ],
@@ -138,8 +135,8 @@
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T09:30:00.000Z",
-                  "end": "2026-03-10T09:35:00.000Z"
+                  "start": "2026-03-10T12:30:00.000Z",
+                  "end": "2026-03-10T12:35:00.000Z"
                 }
               },
               "end": {
@@ -150,21 +147,14 @@
                   "geo": {
                     "type": "Point",
                     "coordinates": [
-                      77.6245,
-                      12.9352
+                      77.7499,
+                      12.9698
                     ]
-                  },
-                  "address": {
-                    "streetAddress": "No. 45, 3rd Cross, 5th Block",
-                    "addressLocality": "Koramangala",
-                    "addressRegion": "Karnataka",
-                    "postalCode": "560034",
-                    "addressCountry": "IN"
                   }
                 },
                 "time": {
-                  "start": "2026-03-10T09:40:00.000Z",
-                  "end": "2026-03-10T09:55:00.000Z"
+                  "start": "2026-03-10T12:40:00.000Z",
+                  "end": "2026-03-10T12:55:00.000Z"
                 }
               }
             }

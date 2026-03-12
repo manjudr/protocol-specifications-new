@@ -22,11 +22,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "ravi.kumar@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Ravi Kumar"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -35,13 +30,6 @@
               77.6674,
               12.8392
             ]
-          },
-          "address": {
-            "streetAddress": "Unit 5, Salarpuria Symbiosis",
-            "addressLocality": "Electronic City",
-            "addressRegion": "Karnataka",
-            "postalCode": "560100",
-            "addressCountry": "IN"
           }
         }
       }

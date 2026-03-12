@@ -19,11 +19,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "kiran.joshi@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Kiran Joshi"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -32,13 +27,6 @@
               77.6461,
               12.9121
             ]
-          },
-          "address": {
-            "streetAddress": "Plot 12, Sector 3, HSR Layout",
-            "addressLocality": "HSR Layout",
-            "addressRegion": "Karnataka",
-            "postalCode": "560102",
-            "addressCountry": "IN"
           }
         }
       }

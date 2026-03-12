@@ -36,11 +36,6 @@
       "consumer": {
         "@context": "https://schema.beckn.io/",
         "@type": "beckn:Consumer",
-        "id": "anjali.singh@food-app.example.com",
-        "descriptor": {
-          "@type": "beckn:Descriptor",
-          "name": "Anjali Singh"
-        },
         "location": {
           "@type": "beckn:Location",
           "geo": {
@@ -49,13 +44,6 @@
               77.5973,
               12.9655
             ]
-          },
-          "address": {
-            "streetAddress": "42, Lavelle Road, Richmond Town",
-            "addressLocality": "Richmond Town",
-            "addressRegion": "Karnataka",
-            "postalCode": "560025",
-            "addressCountry": "IN"
           }
         }
       }
