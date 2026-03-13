@@ -54,25 +54,26 @@ Schemas that fail T1 (not directly in a message body) still live in `schemas/sch
 
 ### 1. `Context`
 
+> **Style note:** All `Context` property names are **camelCase** per the v2.0 style guide, matching `schemas/schema/Context/v2.0/attributes.yaml`.
+
 | Property | Type | Required | Justification |
 |----------|------|----------|---------------|
-| `domain` | `string` | ✅ | Every Beckn network is scoped to a domain. Without `domain`, routing is impossible. |
-| `action` | `string (enum)` | ✅ | The action tells the receiver which message payload schema to apply. Without it, no dispatch. |
-| `version` | `string` | ✅ | Backward compatibility gating — receivers use this to route to the correct handler. |
-| `bap_id` | `string` | ✅ | Identity of the Beckn Application Platform. Required for routing callbacks. |
-| `bap_uri` | `string (uri)` | ✅ | Callback URI for the BAP. Without this, the BPP cannot call back. |
-| `bpp_id` | `string` | ✅ (in callbacks) | Identity of the BPP. Required for the BAP to verify the callback origin. |
-| `bpp_uri` | `string (uri)` | ✅ (in callbacks) | BPP's endpoint. Required for routing. |
-| `transaction_id` | `string (uuid)` | ✅ | Ties all messages in a single transaction together. Non-repudiation anchor. |
-| `message_id` | `string (uuid)` | ✅ | Unique per-message identifier. Required for deduplication and `InReplyTo` binding. |
+| `action` | `$ref BecknEndpoint` | ✅ | The action tells the receiver which message payload schema to apply. Without it, no dispatch. |
+| `bapId` | `string` | ✅ | Identity of the Beckn Application Platform (FQDN). Required for routing callbacks. |
+| `bapUri` | `string (uri)` | ✅ | Callback URI for the BAP. Without this, the BPP cannot call back. |
+| `bppId` | `string` | ✅ (in callbacks) | Identity of the BPP (FQDN). Required for the BAP to verify the callback origin. |
+| `bppUri` | `string (uri)` | ✅ (in callbacks) | BPP's endpoint. Required for routing. |
+| `transactionId` | `string (uuid)` | ✅ | Ties all messages in a single transaction together. Non-repudiation anchor. |
+| `messageId` | `string (uuid)` | ✅ | Unique per-message identifier. Required for deduplication and `InReplyTo` binding. |
 | `timestamp` | `string (date-time)` | ✅ | Used in signature verification and replay attack prevention. |
-| `ttl` | `string (ISO 8601 duration)` | ✅ | Defines message validity window for signature expiry enforcement. |
-| `key` | `string` | ❌ | Deprecated in 2.0. Key resolution is via registry. |
-| `location` | `Location` | ❌ | Move to domain packs. Too domain-specific to be a first-class context field. |
-| `lineage` | `LineageEntry[]` | ❌ | Defined in `schemas/schema/LineageEntry`. Referenced as optional extension. |
+| `version` | `string` | ✅ | Backward compatibility gating — receivers use this to route to the correct handler. |
+| `ttl` | `string (ISO 8601 duration)` | ❌ | Defines message validity window for signature expiry enforcement. |
+| `networkId` | `string` | ❌ | Scopes the request to a specific Beckn network. Optional — defaults to default network. |
+| `try` | `boolean` | ❌ | **Two-phase negotiation flag.** `true` = preview consequences without committing state. `false` (default) = commit the action. Applicable to `update`, `cancel`, `rate`, `support`. This is an on-ground learning from production deployments. |
+| `lineage` | `LineageEntry[]` | ❌ | Cross-transaction causal attribution. Max 1 entry. Defined in `schemas/schema/LineageEntry`. |
 
-**Source:** Ravi's version ([`beckn-ravis-original-version.yaml`](../api/v2.0.0/beckn-ravis-original-version.yaml)) — uses external `$ref` to `schema/core/v2.1/attributes.yaml#Context`  
-**Author:** Ravi Prakash  
+**Canonical source:** [`schemas/schema/Context/v2.0/attributes.yaml`](../../schemas/schema/Context/v2.0/attributes.yaml) — `$id: https://schema.beckn.io/Context/v2.0`  
+**Note:** Property names are camelCase (`bapId`, `bapUri`, `bppId`, `bppUri`, `transactionId`, `messageId`, `networkId`). The `try` flag is a first-class `Context` property (on-ground learning from production); it is NOT an inline override at the endpoint level.  
 **Proposed `$id`:** `https://schema.beckn.io/Context/v2.0`
 
 ---
