@@ -55,22 +55,24 @@ Schemas that fail T1 (not directly in a message body) still live in `schemas/sch
 ### 1. `Context`
 
 > **Style note:** All `Context` property names are **camelCase** per the v2.0 style guide, matching `schemas/schema/Context/v2.0/attributes.yaml`.
+>
+> **On-ground experience:** All fields below are REQUIRED. Production deployments have demonstrated that partial context causes routing failures, replay attacks, and non-repudiation gaps. No context field may be omitted.
 
 | Property | Type | Required | Justification |
 |----------|------|----------|---------------|
 | `action` | `$ref BecknEndpoint` | ✅ | The action tells the receiver which message payload schema to apply. Without it, no dispatch. |
-| `bapId` | `string` | ✅ | Identity of the Beckn Application Platform (FQDN). Required for routing callbacks. |
-| `bapUri` | `string (uri)` | ✅ | Callback URI for the BAP. Without this, the BPP cannot call back. |
-| `bppId` | `string` | ✅ (in callbacks) | Identity of the BPP (FQDN). Required for the BAP to verify the callback origin. |
-| `bppUri` | `string (uri)` | ✅ (in callbacks) | BPP's endpoint. Required for routing. |
-| `transactionId` | `string (uuid)` | ✅ | Ties all messages in a single transaction together. Non-repudiation anchor. |
-| `messageId` | `string (uuid)` | ✅ | Unique per-message identifier. Required for deduplication and `InReplyTo` binding. |
-| `timestamp` | `string (date-time)` | ✅ | Used in signature verification and replay attack prevention. |
-| `version` | `string` | ✅ | Backward compatibility gating — receivers use this to route to the correct handler. |
-| `ttl` | `string (ISO 8601 duration)` | ❌ | Defines message validity window for signature expiry enforcement. |
-| `networkId` | `string` | ❌ | Scopes the request to a specific Beckn network. Optional — defaults to default network. |
-| `try` | `boolean` | ❌ | **Two-phase negotiation flag.** `true` = preview consequences without committing state. `false` (default) = commit the action. Applicable to `update`, `cancel`, `rate`, `support`. This is an on-ground learning from production deployments. |
-| `lineage` | `LineageEntry[]` | ❌ | Cross-transaction causal attribution. Max 1 entry. Defined in `schemas/schema/LineageEntry`. |
+| `bapId` | `string` | ✅ | Identity of the Beckn Application Platform (FQDN). Without it, the BPP cannot verify the caller's identity or route callbacks correctly. |
+| `bapUri` | `string (uri)` | ✅ | Callback URI for the BAP. Without this, the BPP cannot call back — the async flow breaks entirely. |
+| `bppId` | `string` | ✅ | Identity of the BPP. Required for the BAP to verify the callback origin and prevent spoofing. |
+| `bppUri` | `string (uri)` | ✅ | BPP's endpoint. Required for routing direct calls from the BAP. |
+| `transactionId` | `string (uuid)` | ✅ | Ties all messages in a single transaction together. Non-repudiation anchor. Without it, the BAP cannot correlate callbacks to their originating requests. |
+| `messageId` | `string (uuid)` | ✅ | Unique per-message identifier. Required for deduplication, idempotency enforcement, and `InReplyTo` binding. Production experience: duplicate messages without a stable `messageId` caused double-processing and double-charging. |
+| `timestamp` | `string (date-time)` | ✅ | Used in signature verification and replay attack prevention. Without it, signatures cannot be validated and the system is vulnerable to replay attacks. |
+| `version` | `string` | ✅ | Backward compatibility gating — receivers use this to route to the correct handler version. Without it, 2.0-rc1 and 2.0.0 implementations cannot coexist on the same network. |
+| `ttl` | `string (ISO 8601 duration)` | ✅ | Defines message validity window. Without it, stale messages (e.g., from network delays, retries) cannot be rejected, leading to ghost transactions. |
+| `networkId` | `string` | ✅ | Scopes the request to a specific Beckn network. Without it, multi-network deployments cannot disambiguate which network a request is addressed to. |
+| `try` | `boolean` | ✅ | **Two-phase negotiation flag.** `true` = preview consequences without committing state. `false` = commit. Without an explicit `try` value, receivers cannot distinguish preview from commit — production systems defaulted to accidental commits. |
+| `lineage` | `LineageEntry[]` | ✅ | Cross-transaction causal attribution (max 1 entry). Required for audit trails, non-repudiation, and agentic transaction chains. Without lineage, cascaded or AI-triggered transactions cannot be traced back to their origin. |
 
 **Canonical source:** [`schemas/schema/Context/v2.0/attributes.yaml`](../../schemas/schema/Context/v2.0/attributes.yaml) — `$id: https://schema.beckn.io/Context/v2.0`  
 **Note:** Property names are camelCase (`bapId`, `bapUri`, `bppId`, `bppUri`, `transactionId`, `messageId`, `networkId`). The `try` flag is a first-class `Context` property (on-ground learning from production); it is NOT an inline override at the endpoint level.  
