@@ -1001,7 +1001,13 @@ components:
       properties:
         catalogs:
           type: array
-          description: Array of catalogs matching the discovery request
+          description: |
+            Array of catalogs matching the discovery request.
+            Note: Each catalog's `items` array carries `oneOf [Item, Resource]` entries:
+            - `Item` — legacy 2.0-rc1 catalog item (backward compatible)
+            - `Resource` — new cross-domain resource abstraction (generalized)
+            Both types share the common `id` + `descriptor` surface for display rendering.
+            See `https://schema.beckn.io/Catalog/v2.0` for the full Catalog schema.
           items:
             $ref: 'https://schema.beckn.io/Catalog/v2.0'
 

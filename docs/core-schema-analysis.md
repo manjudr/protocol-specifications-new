@@ -90,7 +90,7 @@ Schemas that fail T1 (not directly in a message body) still live in `schemas/sch
 | `descriptor` | `Descriptor` | ✅ | Human-readable name and description. Required for display in all UIs. |
 | `bppId` | `string` | ✅ | Links catalog to its owning BPP. Required for routing `select` after discovery. |
 | `bppUri` | `string (uri)` | ✅ | BPP endpoint for all post-discovery actions. |
-| `items` | `Item[]` | ✅ (bc compat) | Backward compatible with 2.0-rc1. MUST remain to preserve interoperability with existing BAPs. |
+| `items` | `oneOf [Item, Resource][]` | ✅ | Array of items in the catalog. Each entry is either a legacy `Item` (2.0-rc1 backward compat) or a new cross-domain `Resource`. Using `oneOf [Item, Resource]` allows old BAPs to continue sending/receiving `Item` objects while new implementations use the more abstract `Resource`. Both types share a common `id` + `descriptor` surface. |
 | `offers` | `Offer[]` | ✅ (bc compat) | Backward compatible with 2.0-rc1. |
 | `providers` | `Provider[]` | ✅ | A catalog may be hosted by a CDS on behalf of multiple BPPs. Provider association is required. |
 | `validity` | `TimePeriod` | ❌ | Optional. Defined in `schemas/schema/TimePeriod`. Referenced via `$ref`. |
