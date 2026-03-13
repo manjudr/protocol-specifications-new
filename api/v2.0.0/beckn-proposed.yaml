@@ -959,6 +959,683 @@ components:
   # ─── Message Schemas ──────────────────────────────────────────────
 
   schemas:
+    AbhishekCatalog:
+      $id: https://schema.beckn.io/AbhishekCatalog/v2.0
+      type: object
+      description: |
+        Discovery container returned in /on_discover.
+        Backward compatible:
+        - legacy: `beckn:items[]` and legacy `beckn:offers[]`
+        - new: `beckn:resources[]` and new `beckn:offers[]` (generalized)
+      required: ["@context", "@type", "beckn:id", "beckn:descriptor", "beckn:bppId", "beckn:bppUri"]
+      anyOf:
+        - required: ["beckn:resources"]
+        - required: ["beckn:items"]
+        - required: ["beckn:offers"]
+      additionalProperties: false
+      properties:
+        "@context":
+          type: string
+          format: uri
+        "@type":
+          type: string
+          enum: ["beckn:Catalog"]
+        beckn:id:
+          type: string
+        beckn:descriptor:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Descriptor'
+        beckn:bppId:
+          type: string
+        beckn:bppUri:
+          type: string
+          format: uri
+        beckn:validity:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/TimePeriod'
+        beckn:isActive:
+          type: boolean
+          default: true
+          description: Whether the catalog is active.
+        beckn:resources:
+          type: array
+          items: { $ref: '#/components/schemas/AbhishekResource' }
+        beckn:items:
+          type: array
+          description: Legacy items (backward compatibility)
+          items: { $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Item' }
+        beckn:offers:
+          type: array
+          description: Mixed array of legacy Offer and new generalized Offer.
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/AbhishekOffer'
+              - $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Offer'
+        beckn:availableTo:
+          type: array
+          description: >
+            Optional visibility constraint indicating which network participants
+            (by participantId / networkId / role) are allowed to discover or
+            transact on this entity.
+
+            If omitted, the entity is assumed to be visible to all participants
+            in the addressed network(s).
+          items:
+            type: object
+            required: [type, id]
+            properties:
+              type:
+                type: string
+                enum: [NETWORK, PARTICIPANT, ROLE]
+                description: Scope of visibility constraint.
+              id:
+                type: string
+                description: Identifier of the network, participant, or role.
+
+    AbhishekCatalogProcessingResult:
+      $id: https://schema.beckn.io/AbhishekCatalogProcessingResult/v2.0
+      type: object
+      required: [catalog_id, status]
+      properties:
+        catalog_id: { type: string }
+        status: { type: string, enum: [ACCEPTED, REJECTED, PARTIAL] }
+        item_count: { type: integer, minimum: 0 }
+        warnings:
+          type: array
+          items: { $ref: '#/components/schemas/AbhishekProcessingNotice' }
+        error:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Error'
+
+    AbhishekCatalogPublishRequest:
+      $id: https://schema.beckn.io/AbhishekCatalogPublishRequest/v2.0
+      type: object
+      required: [context, message]
+      properties:
+        context:
+          allOf:
+            - $ref: '#/components/schemas/AbhishekDiscoveryContext'
+            - type: object
+              properties:
+                action:
+                  type: string
+                  enum: [catalog_publish]
+        message:
+          type: object
+          required: [catalogs]
+          properties:
+            catalogs:
+              type: array
+              minItems: 1
+              items: { $ref: '#/components/schemas/AbhishekCatalog' }
+
+    AbhishekCatalogPublishResponse:
+      $id: https://schema.beckn.io/AbhishekCatalogPublishResponse/v2.0
+      type: object
+      required: [context, message]
+      properties:
+        context:
+          allOf:
+            - $ref: '#/components/schemas/AbhishekDiscoveryContext'
+            - type: object
+              properties:
+                action:
+                  type: string
+                  enum: [on_catalog_publish]
+        message:
+          type: object
+          properties:
+            results:
+              type: array
+              items: { $ref: '#/components/schemas/AbhishekCatalogProcessingResult' }
+
+    AbhishekCommitment:
+      $id: https://schema.beckn.io/AbhishekCommitment/v2.0
+      type: object
+      description: |
+        A single committed entity in the contract.
+        Typically references either:
+        - a Resource (what is being committed)
+        - an Offer (under which terms)
+      required: ["@context", "@type", beckn:ref, beckn:refType]
+      properties:
+        "@context":
+          type: string
+          format: uri
+          description: JSON-LD context URI for the core Resource schema
+        "@type":
+          type: string
+          description: Type of the core Resource
+          enum: ["beckn:Commitment"]
+        beckn:ref:
+          type: string
+          description: Identifier of the committed entity.
+        beckn:refType:
+          type: string
+          enum: [RESOURCE, OFFER, OTHER]
+        beckn:quantity:
+          type: number
+          description: Quantity/extent, if applicable.
+
+    AbhishekConsideration:
+      $id: https://schema.beckn.io/AbhishekConsideration/v2.0
+      type: object
+      description: >
+        Generalized representation of value exchanged under a Contract.
+
+        Consideration is domain-neutral and may represent:
+        - Monetary value
+        - Credits / tokens
+        - Asset transfer
+        - Service exchange
+        - Compliance artifact
+      required: ["@context", "@type", beckn:type, beckn:status]
+      properties:
+        "@context":
+          type: string
+          format: uri
+          description: JSON-LD context URI for the core Resource schema
+        "@type":
+          type: string
+          description: Type of the core Resource
+          enum: ["beckn:Consideration"]
+        beckn:type:
+          type: string
+          enum: [MONETARY, TOKEN, CREDIT, ASSET, SERVICE, OTHER]
+        beckn:status:
+          type: string
+          enum: [PROPOSED, AGREED, PENDING, SETTLED, FAILED, CANCELLED]
+        beckn:amount:
+          type: object
+          description: Optional amount/value structure
+          additionalProperties: true
+        beckn:considerationAttributes:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Attributes'
+
+    AbhishekContract:
+      $id: https://schema.beckn.io/AbhishekContract/v2.0
+      type: object
+      description: >
+        A digitally agreed commitment between two or more participants
+        governing the exchange of economic or non-economic value.
+
+        Contract is the canonical post-confirmation object in the generalized
+        Beckn v2.1 protocol. It replaces the commerce-specific Order construct
+        while preserving backward compatibility at the API layer.
+
+        A Contract binds:
+          - Commitments (what is agreed)
+          - Consideration (value promised)
+          - Performance (how execution occurs)
+          - Settlements (how consideration is discharged)
+
+        The model is domain-neutral and supports commerce, hiring,
+        energy markets, carbon exchanges, data access, mobility,
+        subscriptions, and other use cases.
+      required:
+        - "@context"
+        - "@type"
+        - beckn:id
+        - beckn:status
+        - beckn:parties
+      properties:
+        "@context":
+          type: string
+          format: uri
+          description: JSON-LD context URI for the generalized Contract schema.
+        "@type":
+          type: string
+          description: JSON-LD type of the object.
+          enum: ["beckn:Contract"]
+        beckn:id:
+          type: string
+          description: >
+            Globally unique identifier for this Contract instance.
+        beckn:status:
+          type: string
+          description: >
+            Current lifecycle state of the contract reflecting
+            overall progression and execution state.
+          enum: [DRAFT, PENDING, CONFIRMED, IN_PROGRESS, COMPLETED, CANCELLED, FAILED, TERMINATED]
+        beckn:parties:
+          type: array
+          description: >
+            Participants bound by this Contract along with their roles.
+            A Contract must have at least two parties.
+          minItems: 2
+          items:
+            type: object
+            required:
+              - beckn:participantId
+              - beckn:role
+            properties:
+              beckn:participantId:
+                type: string
+                description: Unique identifier of the participant.
+              beckn:role:
+                type: string
+                description: >
+                  Role played by this participant within the contract
+                  (e.g., BUYER, SELLER, PROVIDER, CONSUMER, EMPLOYER,
+                  EMPLOYEE, PRODUCER, GRID_OPERATOR, etc.)
+        beckn:commitments:
+          type: array
+          description: >
+            Structured commitments governed by this contract.
+          minItems: 1
+          items:
+            type: object
+            required:
+              - beckn:ref
+              - beckn:refType
+            properties:
+              beckn:ref:
+                type: string
+                description: Identifier of the committed entity.
+              beckn:refType:
+                type: string
+                enum: [RESOURCE, OFFER, OTHER]
+                description: Type of entity being committed.
+              beckn:quantity:
+                type: number
+                description: Quantity or extent of the commitment, if applicable.
+              beckn:commitmentAttributes:
+                $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Attributes'
+        beckn:consideration:
+          type: array
+          description: >
+            Value agreed to be exchanged under this contract.
+          items:
+            $ref: '#/components/schemas/AbhishekConsideration'
+        beckn:performance:
+          type: array
+          description: >
+            Execution units of the contract.
+          items:
+            $ref: '#/components/schemas/AbhishekPerformance'
+        beckn:settlements:
+          type: array
+          description: >
+            Records representing discharge of agreed consideration.
+          items:
+            $ref: '#/components/schemas/AbhishekSettlement'
+        beckn:contractAttributes:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Attributes'
+          description: >
+            Domain-specific extension attributes associated with this contract.
+
+    AbhishekDiscoverRequest:
+      $id: https://schema.beckn.io/AbhishekDiscoverRequest/v2.0
+      type: object
+      required: [context]
+      properties:
+        context:
+          allOf:
+            - $ref: '#/components/schemas/AbhishekDiscoveryContext'
+            - type: object
+              properties:
+                action:
+                  type: string
+                  enum: [discover]
+        message:
+          type: object
+          description: Discover payload containing search criteria
+          properties:
+            text_search: { type: string }
+            filters:
+              type: object
+              properties:
+                type: { type: string, enum: [jsonpath], default: jsonpath }
+                expression: { type: string }
+              required: [type, expression]
+            spatial:
+              type: array
+              items: { $ref: '#/components/schemas/AbhishekSpatialConstraint' }
+            media_search:
+              $ref: '#/components/schemas/AbhishekMediaSearch'
+          anyOf:
+            - required: [text_search]
+            - required: [filters]
+            - required: [spatial]
+            - required: [filters, spatial]
+
+    AbhishekDiscoverResponse:
+      $id: https://schema.beckn.io/AbhishekDiscoverResponse/v2.0
+      type: object
+      required: [context, message]
+      properties:
+        context:
+          allOf:
+            - $ref: '#/components/schemas/AbhishekDiscoveryContext'
+            - type: object
+              properties:
+                action:
+                  type: string
+                  enum: [on_discover]
+        message:
+          type: object
+          properties:
+            catalogs:
+              type: array
+              items: { $ref: '#/components/schemas/AbhishekCatalog' }
+
+    AbhishekDiscoveryContext:
+      $id: https://schema.beckn.io/AbhishekDiscoveryContext/v2.0
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/refs/heads/master/api/transaction/build/transaction.yaml#/components/schemas/Context'
+        - type: object
+          description: Beckn Context extended for Discovery.
+          properties:
+            schema_context:
+              type: array
+              items: { type: string, format: uri }
+              description: Optional JSON-LD context URLs indicating entity types to search across
+
+    AbhishekMediaInput:
+      $id: https://schema.beckn.io/AbhishekMediaInput/v2.0
+      type: object
+      required: [type, url]
+      properties:
+        id: { type: string }
+        type: { type: string, enum: [image, audio, video] }
+        url: { type: string, format: uri }
+        contentType: { type: string }
+        textHint: { type: string }
+        language: { type: string }
+        startMs: { type: integer }
+        endMs: { type: integer }
+      additionalProperties: false
+
+    AbhishekMediaSearch:
+      $id: https://schema.beckn.io/AbhishekMediaSearch/v2.0
+      type: object
+      properties:
+        media:
+          type: array
+          items: { $ref: '#/components/schemas/AbhishekMediaInput' }
+        options: { $ref: '#/components/schemas/AbhishekMediaSearchOptions' }
+      additionalProperties: false
+
+    AbhishekMediaSearchOptions:
+      $id: https://schema.beckn.io/AbhishekMediaSearchOptions/v2.0
+      type: object
+      properties:
+        goals:
+          type: array
+          items:
+            type: string
+            enum: [visual-similarity, visual-object-detect, text-from-image, text-from-audio, semantic-audio-match, semantic-video-match]
+        augment_text_search: { type: boolean, default: true }
+        restrict_results_to_media_proximity: { type: boolean, default: false }
+      additionalProperties: false
+
+    AbhishekOffer:
+      $id: https://schema.beckn.io/AbhishekOffer/v2.0
+      type: object
+      description: >
+        A generalized, cross-domain Offer that captures the terms under which
+        one or more Resources may be committed.
+
+        Core intent:
+        - Support multiple terms/eligibility/constraints/price points for the same Resource(s)
+        - Support dynamic / on-the-fly offers (e.g., bundling, combinational discounts,
+          eligibility changes, capacity-aware pricing)
+
+        This mirrors the role of Offer in current Beckn (and schema.org patterns),
+        but keeps the shape minimal and composable via `beckn:offerAttributes`.
+      required: ["@context", "@type", "beckn:id", "beckn:proposer", "beckn:status"]
+      properties:
+        "@context":
+          type: string
+          format: uri
+          description: JSON-LD context URI for the core Offer schema
+        "@type":
+          type: string
+          description: Type of the core Offer
+          enum: ["beckn:Offer"]
+        beckn:id:
+          type: string
+          description: Unique identifier of the offer.
+        beckn:status:
+          type: string
+          description: Current lifecycle state of the offer.
+          enum: [ACTIVE, EXPIRED, WITHDRAWN]
+        beckn:proposer:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Provider'
+        beckn:resourceRefs:
+          type: array
+          description: References (IDs) to resources covered by this offer.
+          items: { type: string }
+        beckn:addOnRefs:
+          type: array
+          description: IDs of optional extra Offers or Resources that can be attached.
+          items: { type: string }
+        beckn:proposedConsideration:
+          type: object
+          description: Optional proposed exchange value (monetary or otherwise).
+          additionalProperties: true
+        beckn:validity:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/TimePeriod'
+        beckn:availableTo:
+          type: array
+          description: >
+            Optional visibility constraint indicating which network participants
+            (by participantId / networkId / role) are allowed to discover or
+            transact on this entity.
+
+            If omitted, the entity is assumed to be visible to all participants
+            in the addressed network(s).
+          items:
+            type: object
+            required: [type, id]
+            properties:
+              type:
+                type: string
+                enum: [NETWORK, PARTICIPANT, ROLE]
+                description: Scope of visibility constraint.
+              id:
+                type: string
+                description: Identifier of the network, participant, or role.
+        beckn:offerAttributes:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Attributes'
+
+    AbhishekPerformance:
+      $id: https://schema.beckn.io/AbhishekPerformance/v2.0
+      type: object
+      description: |
+        Generalized execution/performance unit. This is where downstream objects bind:
+        - Fulfillment-like details (where/when/how)
+        - Tracking handles
+        - Support touchpoints
+        - Status updates
+
+        Domain packs can attach rich fields via `beckn:performanceAttributes`.
+      required: ["@context", "@type", beckn:id, beckn:status]
+      properties:
+        "@context":
+          type: string
+          format: uri
+          description: JSON-LD context URI for the core Resource schema
+        "@type":
+          type: string
+          description: Type of the core Resource
+          enum: ["beckn:Performance"]
+        beckn:id:
+          type: string
+        beckn:status:
+          type: string
+          description: Execution state of this performance unit.
+          enum: [PLANNED, IN_PROGRESS, COMPLETED, FAILED, CANCELLED]
+        beckn:mode:
+          type: string
+          enum: [DELIVERY, SERVICE, ACCESS, TRANSFER, EXECUTION, OTHER]
+        beckn:commitmentRefs:
+          type: array
+          description: Commitments fulfilled by this performance.
+          items:
+            type: string
+        beckn:performanceAttributes:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Attributes'
+
+    AbhishekProcessingNotice:
+      $id: https://schema.beckn.io/AbhishekProcessingNotice/v2.0
+      type: object
+      required: [code, message]
+      properties:
+        code: { type: string }
+        message: { type: string }
+        details:
+          type: object
+          additionalProperties: true
+
+
+    # ─── End of Abhishek schemas ───
+
+    AbhishekResource:
+      $id: https://schema.beckn.io/AbhishekResource/v2.0
+      type: object
+      description: >
+        A minimal, domain-neutral abstraction representing any discoverable,
+        referenceable, or committable unit of value, capability, service,
+        entitlement, or asset within the network.
+
+        Examples:
+        - A retail product SKU, a mobility ride, a job role, a carbon credit unit,
+          a dataset/API entitlement, a training course, a clinic service slot.
+
+        Designed for composability through `beckn:resourceAttributes` where
+        domain packs can plug in their specific fields without changing the core.
+      required: ["@context", "@type", "beckn:id", "beckn:descriptor"]
+      properties:
+        "@context":
+          type: string
+          format: uri
+          description: JSON-LD context URI for the core Resource schema
+        "@type":
+          type: string
+          description: Type of the core Resource
+          enum: ["beckn:Resource"]
+        beckn:id:
+          type: string
+          description: Globally unique identifier of the resource.
+        beckn:descriptor:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Descriptor'
+        beckn:provider:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Provider'
+        beckn:isAvailable:
+          type: boolean
+          default: true
+          description: |
+            Whether the resource is currently available for discovery/commitment.
+            This allows temporary suspension without deleting the resource.
+        beckn:availableTo:
+          type: array
+          description: >
+            Optional visibility constraint indicating which network participants
+            (by participantId / networkId / role) are allowed to discover or
+            transact on this entity.
+
+            If omitted, the entity is assumed to be visible to all participants
+            in the addressed network(s).
+          items:
+            type: object
+            required: [type, id]
+            properties:
+              type:
+                type: string
+                enum: [NETWORK, PARTICIPANT, ROLE]
+                description: Scope of visibility constraint.
+              id:
+                type: string
+                description: Identifier of the network, participant, or role.
+        beckn:resourceAttributes:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Attributes'
+
+    AbhishekSettlement:
+      $id: https://schema.beckn.io/AbhishekSettlement/v2.0
+      type: object
+      description: >
+        Represents the discharge of agreed consideration under a Contract.
+
+        Settlement may occur via:
+          - Monetary payment
+          - Token or credit transfer
+          - Asset movement
+          - Capacity allocation
+          - Service exchange
+          - Other domain-specific mechanisms.
+      required:
+        - "@context"
+        - "@type"
+        - beckn:type
+        - beckn:status
+      properties:
+        "@context":
+          type: string
+          format: uri
+          description: JSON-LD context URI for the core Resource schema
+        "@type":
+          type: string
+          description: Type of the core Resource
+          enum: ["beckn:Settlement"]
+        beckn:type:
+          type: string
+          enum: [MONETARY, TOKEN, CREDIT, ASSET, SERVICE, OTHER]
+        beckn:status:
+          type: string
+          enum: [INITIATED, PENDING, COMPLETED, FAILED, CANCELLED]
+        beckn:amount:
+          type: object
+          description: >
+            Applicable for monetary or token settlements.
+          additionalProperties: true
+        beckn:considerationRefs:
+          type: array
+          description: Consideration obligations discharged by this settlement.
+          items:
+            type: string
+        beckn:settlementRef:
+          type: string
+          description: >
+            External transaction reference (e.g., payment gateway ID,
+            blockchain tx hash, clearing reference).
+        beckn:settlementAttributes:
+          $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Attributes'
+
+    AbhishekSpatialConstraint:
+      $id: https://schema.beckn.io/AbhishekSpatialConstraint/v2.0
+      type: object
+      required: [op, targets]
+      properties:
+        op:
+          type: string
+          enum: [s_within, s_contains, s_intersects, s_disjoint, s_overlaps, s_crosses, s_touches, s_equals, s_dwithin]
+        targets:
+          oneOf:
+            - type: string
+            - type: array
+              items: { type: string }
+        geometry: { $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/GeoJSONGeometry' }
+        distanceMeters: { type: number, minimum: 0 }
+        quantifier:
+          type: string
+          enum: [any, all, none]
+          default: any
+      additionalProperties: false
+
+    AbhishekTransactionContext:
+      $id: https://schema.beckn.io/AbhishekTransactionContext/v2.0
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications/refs/heads/master/api/transaction/build/transaction.yaml#/components/schemas/Context'
+        - type: object
+          description: Beckn Context extended for Transaction flows.
+          properties:
+            network_id:
+              type: array
+              items: { type: string }
+              description: Optional list of addressed networks (routing/allowlisting)
+            schema_context:
+              type: array
+              items: { type: string, format: uri }
+              description: Optional JSON-LD context URLs relevant to entities in this transaction
+
     Ack:
       $id: #/components/schemas/Ack/v2.0
       title: Acknowledgement
@@ -978,6 +1655,30 @@ components:
             - $ref: '#/components/schemas/CounterSignature'
           description: |
             Counter-signature proving the receiver authenticated and processed the inbound request.
+
+    AckNeedConfirm:
+      $id: https://schema.beckn.io/AckNeedConfirm/v2.0
+      title: Acknowledgement — Needs Confirmation
+      description: |
+        Used in two-stage negotiation (context.try: true) where the BPP responds to a
+        cancel or update request with the consequences/terms of the requested action.
+        The BAP must then submit a second request (context.try: false) to commit.
+
+        This response carries a 200 HTTP status but signals that no state change occurred —
+        only the consequences/terms are returned for the BAP's consideration.
+
+        The `consequences` object contains domain-specific details about what will happen
+        if the BAP proceeds to commit (e.g. refund amount, penalty, updated pricing).
+      allOf:
+        - $ref: '#/components/schemas/Ack'
+        - type: object
+          properties:
+            consequences:
+              type: object
+              description: |
+                Domain-specific consequences of committing the requested action.
+                May include cancellation policy, refund terms, updated quote, penalties, etc.
+              additionalProperties: true
 
     AckNoCallback:
       $id: #/components/schemas/AckNoCallback/v2.0
@@ -1102,15 +1803,24 @@ components:
           description: Array of beckn core Item entities in this catalog
           type: array
           items:
-            $ref: "https://schema.beckn.io/Item/v2.0"
+            oneOf:
+              - $ref: 'https://schema.beckn.io/Item/v2.0'
+              - $ref: '#/components/schemas/AbhishekResource'
         offers:
           type: array
           items:
             $ref: "https://schema.beckn.io/Offer/v2.0"
         providerId:
-          description: Reference to the provider that owns this catalog
-          type: string
-          example: tech-store-001
+          description: |
+            Identifier or full object of the provider that owns this catalog.
+            - String: reference by ID (lightweight, for CDS indexing)
+            - Provider object: full provider details (for direct BPP responses)
+          oneOf:
+            - type: string
+              description: Provider ID string reference
+              example: tech-store-001
+            - $ref: 'https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/attributes.yaml#/components/schemas/Provider'
+              description: Full provider object
         validity:
           description: The time period during which this catalog is valid
           allOf:
@@ -1271,6 +1981,7 @@ components:
           oneOf:
           - type: string
             description: A single code describing the status of the contract.
+            enum: [DRAFT, ACTIVE, CANCELLED, COMPLETE, PENDING, CONFIRMED, IN_PROGRESS, COMPLETED, FAILED, TERMINATED]
           - type: object
             properties:
               '@context':
