@@ -1009,7 +1009,7 @@ components:
       properties:
         intent:
           allOf:
-            - $ref: 'https://schema.beckn.io/Intent/v2.0'
+            - $ref: '#/components/schemas/Intent'
       required:
         - intent
 
@@ -1026,7 +1026,7 @@ components:
         catalogs:
           type: array
           items:
-            $ref: 'https://schema.beckn.io/Catalog/v2.0'
+            $ref: '#/components/schemas/Catalog'
       required:
         - catalogs
 
@@ -1044,7 +1044,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1060,7 +1060,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1076,7 +1076,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1093,7 +1093,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1110,7 +1110,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1127,7 +1127,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1167,7 +1167,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1183,7 +1183,7 @@ components:
       properties:
         tracking:
           allOf:
-            - $ref: 'https://schema.beckn.io/TrackingRequest/v2.0'
+            - $ref: '#/components/schemas/TrackingRequest'
       required:
         - tracking
 
@@ -1200,7 +1200,7 @@ components:
       properties:
         tracking:
           allOf:
-            - $ref: 'https://schema.beckn.io/Tracking/v2.0'
+            - $ref: '#/components/schemas/Tracking'
       required:
         - tracking
 
@@ -1217,7 +1217,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1234,7 +1234,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1251,7 +1251,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1268,7 +1268,7 @@ components:
       properties:
         contract:
           allOf:
-            - $ref: 'https://schema.beckn.io/Contract/v2.0'
+            - $ref: '#/components/schemas/Contract'
       required:
         - contract
 
@@ -1286,7 +1286,7 @@ components:
         ratingInputs:
           type: array
           items:
-            $ref: 'https://schema.beckn.io/RatingInput/v2.0'
+            $ref: '#/components/schemas/RatingInput'
       required:
         - ratingInputs
 
@@ -1304,7 +1304,7 @@ components:
         ratingForms:
           type: array
           items:
-            $ref: 'https://schema.beckn.io/RatingForm/v2.0'
+            $ref: '#/components/schemas/RatingForm'
       required:
         - ratingForms
 
@@ -1321,7 +1321,7 @@ components:
       properties:
         supportRequest:
           allOf:
-            - $ref: 'https://schema.beckn.io/SupportRequest/v2.0'
+            - $ref: '#/components/schemas/SupportRequest'
       required:
         - supportRequest
 
@@ -1338,7 +1338,7 @@ components:
       properties:
         supportInfo:
           allOf:
-            - $ref: 'https://schema.beckn.io/SupportInfo/v2.0'
+            - $ref: '#/components/schemas/SupportInfo'
       required:
         - supportInfo
 
@@ -1815,6 +1815,537 @@ components:
         where `digest` is a BLAKE2b-512 hash of the request body, Base64-encoded.
       type: string
       pattern: '^Signature keyId="[^|"]+\|[^|"]+\|[^"]+",algorithm="[^"]+",created="\d+",expires="\d+",headers="[^"]+",signature="[A-Za-z0-9+/]+=*"$'
+
+
+    Catalog:
+      $id: https://schema.beckn.io/Catalog/v2.0
+      $schema: "https://json-schema.org/draft/2020-12/schema"
+      description: Catalog schema for Beckn Protocol v2.0.1
+      title: Catalog
+      x-tags: [common]
+      type: object
+      properties:
+        '@context':
+          description: JSON-LD context URI for the core Catalog schema
+          type: string
+          format: uri
+          const: "https://schema.beckn.io/"
+        '@type':
+          description: Type of the catalog
+          type: string
+          const: beckn:Catalog
+        bppId:
+          description: BPP (Beckn Protocol Provider) identifier that publishes this catalog
+          type: string
+          example: bpp.example.com
+        bppUri:
+          description: BPP (Beckn Protocol Provider) URI endpoint
+          type: string
+          format: uri
+          example: "https://bpp.example.com"
+        descriptor:
+          description: A verbal summary of the catalog for humans, AI agents, etc to read and understand the context.
+          allOf:
+          - $ref: "https://schema.beckn.io/Descriptor/v2.0"
+        id:
+          description: Unique identifier for the catalog
+          type: string
+          example: catalog-electronics-001
+        isActive:
+          description: Whether the catalog is active
+          type: boolean
+          default: true
+        items:
+          description: Array of beckn core Item entities in this catalog
+          type: array
+          items:
+            $ref: "https://schema.beckn.io/Item/v2.0"
+        offers:
+          type: array
+          items:
+            $ref: "https://schema.beckn.io/Offer/v2.0"
+        providerId:
+          description: Reference to the provider that owns this catalog
+          type: string
+          example: tech-store-001
+        validity:
+          description: The time period during which this catalog is valid
+          allOf:
+          - $ref: "https://schema.beckn.io/TimePeriod/v2.0"
+      required:
+      - '@context'
+      - '@type'
+      - id
+      - descriptor
+      - bppId
+      - bppUri
+      - items
+      additionalProperties: false
+
+    Contract:
+      $id: https://schema.beckn.io/Contract/v2.0
+      $schema: https://json-schema.org/draft/2020-12/schema
+      description: This is a JSON-LD compliant, linked-data schema that specifies a generic multi-party, digitally
+        signed Contract between a set of participants. based on the vocabulary defined in the @context. By default,
+        it is the most generic form of contract i.e beckn:Contract. However, based on the mapping being used
+        in @context, it could take values like retail:Order, mobility:Reservation, healthcare:Appointment, and
+        so on, which will be defined as sub-classes of beckn:Contract.
+      title: Contract
+      type: object
+      properties:
+        '@context':
+          description: A URL to the reference vocabulary where this schema has been defined. If missing, this
+            field defaults to `https://schema.beckn.io/`. It allows applications to fetch the mapping between
+            the simple JSON keys of this class and absolute Beckn IRIs (Internationalized Resource Identifiers),
+            allowing conversion of standard Beckn JSON payload into linked data.
+          type: string
+          format: uri
+          const: https://schema.beckn.io/
+        '@type':
+          description: A Beckn IRI on the vocabulary defined in the @context. Must start with "beckn:" followed
+            by URL-safe identifier characters.
+          type: string
+          pattern: ^beckn:[A-Za-z0-9._~-]+$
+          default: beckn:Contract
+        id:
+          description: A UUID string generated at the BPP endpoint at any stage before the confirmation of the
+            order i.e before `/on_confirm` callback. This value is intended typically for indexing or filtering.
+            While the chances of a UUID collision are rare, it is recommended to use a combination of `bppId`,
+            `providerId` and `id` to allow for global uniqueness.
+          type: string
+          format: uuid
+        displayId:
+          description: A human-readable / Agent-readable identifier of the contract intended for display or
+            printing. This value may or may not be different from `id` which is intended purely for machine-readability.
+            Typically, this value is generated after the confirmation of the order at the BPP's end.
+          type: string
+        items:
+          description: The items of value i.e resources, specified in this contract. Depending upon the context,
+            these resources could be a combination physical objects, virtual objects, services, time slots,
+            distance travelled, alloted space, and many more.
+          type: array
+          items:
+            $ref: https://schema.beckn.io/ContractItem/v2.0
+          minItems: 1
+        status:
+          description: The current state of the contract. Depending on the context, it could be just a code
+            or a detailed description of state.
+          oneOf:
+          - type: string
+            description: A single code describing the status of the contract.
+          - type: object
+            properties:
+              '@context':
+                type: string
+                format: uri
+                const: https://schema.beckn.io/
+              '@type':
+                type: string
+                pattern: ^beckn:[A-Za-z0-9._~-]+$
+            additionalProperties: true
+        contractValue:
+          description: An object that captures the total value of the contract including a breakup of the items,
+            discounts, fulfillment charges, and any other additional charges relevant to that context.
+          oneOf:
+          - $ref: https://schema.beckn.io/PriceSpecification/v2.0
+          - type: object
+            properties:
+              '@context':
+                type: string
+                format: uri
+                const: https://schema.beckn.io/
+              '@type':
+                type: string
+                pattern: ^beckn:[A-Za-z0-9._~-]+$
+            additionalProperties: true
+        participants:
+          description: The participants involved in the contract. Contracts are not always between two individuals.
+            Several entities may play a specific role in the creation, fulfillment, and post-fulfillment of
+            the contract.
+          type: array
+          items:
+            $ref: https://schema.beckn.io/Participant/v2.0
+        entitlements:
+          type: array
+          items:
+            $ref: https://schema.beckn.io/Entitlement/v2.0
+        fulfillments:
+          description: Describes the acts performed by each participant to fulfill the contract
+          type: array
+          items:
+            $ref: https://schema.beckn.io/Fulfillment/v2.0
+      required:
+      - '@type'
+      - participants
+      - items
+      additionalProperties: false
+      x-tags:
+      - common
+
+    Intent:
+      $id: https://schema.beckn.io/Intent/v2.0
+      $schema: "https://json-schema.org/draft/2020-12/schema"
+      description: A declaration of an intent to discover catalogs.
+      title: Intent
+      x-tags: [common]
+      type: object
+      properties:
+        textSearch:
+          description: Free text search query for items
+          type: string
+          example: gaming laptop premium tech
+        filters:
+          description: Filter criteria for items
+          type: object
+          properties:
+            type:
+              description: Type of filter expression
+              type: string
+              enum:
+              - jsonpath
+              default: jsonpath
+            expression:
+              description: Filter expression based on the specified type
+              type: string
+              example: $[?(@.rating.value >= 4.0 && @.electronic.brand.name == 'Premium Tech')]
+          required:
+          - type
+          - expression
+        spatial:
+          description: Optional array of spatial constraints (CQL2-JSON semantics).
+          type: array
+          items:
+            $ref: "https://schema.beckn.io/SpatialConstraint/v2.0"
+        media_search:
+          $ref: "https://schema.beckn.io/MediaSearch/v2.0"
+      anyOf:
+      - required:
+        - textSearch
+      - required:
+        - filters
+      - required:
+        - spatial
+      - required:
+        - filters
+        - spatial
+      additionalProperties: false
+
+    RatingForm:
+      $id: https://schema.beckn.io/RatingForm/v2.0
+      $schema: "https://json-schema.org/draft/2020-12/schema"
+      description: A form designed to capture rating and feedback from a user. This can be used by both BAP and BPP to fetch ratings
+        and feedback of their respective users.
+      title: RatingForm
+      x-tags: [common]
+      type: object
+      properties:
+        '@context':
+          type: string
+          format: uri
+          const: "https://schema.beckn.io/"
+        '@type':
+          type: string
+          default: RatingForm
+          x-jsonld:
+            '@id': beckn:RatingForm
+          target:
+            description: The entity being rated
+            type: object
+            properties:
+              '@context':
+                type: string
+                format: uri
+                const: "https://schema.beckn.io/"
+              '@type':
+                type: string
+                default: RatingTarget
+                x-jsonld:
+                  '@id': beckn:RatingTarget
+              id:
+                description: IF of the entity being rated (order/item/fulfillment/provider/agent).
+                type: string
+              ratingTargetType:
+                description: What is being rated. This can be any entity in the order lifecycle that influenced the overall experience
+                  of the user
+                type: string
+                enum:
+                - Order
+                - Fulfillment
+                - FulfillmentStage
+                - Provider
+                - Agent
+          range:
+            oneOf:
+            - type: object
+              properties:
+                bestRating:
+                  description: Maximum of the rating scale (default 5 if omitted).
+                  type: number
+                worstRating:
+                  description: Minimum of the rating scale (default 1 or 0 if omitted).
+                  type: number
+            - type: array
+              description: A custom rating range indexed from 0 to n
+              properties:
+                index:
+                  type: integer
+                  minimum: 0
+                value:
+                  $ref: "https://schema.beckn.io/Descriptor/v2.0"
+          feedbackForm:
+            description: A feedback form sent along with a rating request
+            allOf:
+            - $ref: "https://schema.beckn.io/Form/v2.0"
+          feedbackRequired:
+            type: boolean
+            description: Specifies whether feedback after rating is required for acceptance of rating
+        required:
+        - '@context'
+        - '@type'
+        - target
+        - feedbackRequired
+      additionalProperties: false
+
+    RatingInput:
+      $id: https://schema.beckn.io/RatingInput/v2.0
+      $schema: "https://json-schema.org/draft/2020-12/schema"
+      description: A form designed to capture rating and feedback from a user. This can be used by both BAP and BPP to fetch ratings
+        and feedback of their respective users.
+      title: RatingInput
+      x-tags: [common]
+      type: object
+      properties:
+        '@context':
+          type: string
+          format: uri
+          const: "https://schema.beckn.io/"
+        '@type':
+          type: string
+          default: RatingForm
+          x-jsonld:
+            '@id': beckn:RatingForm
+        target:
+          description: The entity being rated
+          type: object
+          properties:
+            '@context':
+              type: string
+              format: uri
+              const: "https://schema.beckn.io/"
+            '@type':
+              type: string
+              default: RatingTarget
+              x-jsonld:
+                '@id': beckn:RatingTarget
+            id:
+              description: IF of the entity being rated (order/item/fulfillment/provider/agent).
+              type: string
+            category:
+              description: What is being rated. This can be any entity in the order lifecycle that influenced the overall experience
+                of the user
+              type: string
+              enum:
+              - Order
+              - Fulfillment
+              - FulfillmentStage
+              - Provider
+              - Agent
+          required:
+          - '@context'
+          - '@type'
+          - id
+          - category
+        range:
+          oneOf:
+          - type: object
+            properties:
+              bestRating:
+                description: Maximum of the rating scale (default 5 if omitted).
+                type: number
+              worstRating:
+                description: Minimum of the rating scale (default 1 or 0 if omitted).
+                type: number
+          - type: array
+            description: A custom rating range indexed from 0 to n
+            properties:
+              index:
+                type: integer
+                minimum: 0
+              value:
+                $ref: "https://schema.beckn.io/Descriptor/v2.0"
+        feedbackFormSubmission:
+          description: The submission to the feedback form sent along with a rating request
+          allOf:
+          - $ref: "https://schema.beckn.io/FormSubmission/v2.0"
+      required:
+      - '@context'
+      - '@type'
+      - target
+      - range
+      additionalProperties: false
+
+    SupportInfo:
+      $id: https://schema.beckn.io/SupportInfo/v2.0
+      $schema: "https://json-schema.org/draft/2020-12/schema"
+      description: Canonical support contact for an entity, mapped to schema.org ContactPoint.
+      title: SupportInfo
+      x-tags: [common]
+      type: object
+      properties:
+        '@context':
+          type: string
+          format: uri
+          default: "https://schema.beckn.io/"
+        '@type':
+          type: string
+          default: beckn:SupportInfo
+        channels:
+          description: Available support channels.
+          type: array
+          items:
+            type: string
+            enum:
+            - PHONE
+            - EMAIL
+            - WEB
+            - CHAT
+            - WHATSAPP
+            - IN_APP
+            - OTHER
+        email:
+          description: Support email address.
+          type: string
+          format: email
+        hoursAvailable:
+          description: Human-readable support hours (local time)
+          type: string
+        name:
+          description: Name of the support organization or contact.
+          type: string
+        telephone:
+          description: Telephone number.
+          type: string
+        chat:
+          description: Embeddable chat endpoint for support.
+          type: string
+          format: uri
+        url:
+          description: Generic URL to a support page.
+          type: string
+          format: uri
+        callbackStatus:
+          description: Status of a support callback request. Indicates whether a callback has been requested, scheduled, or completed.
+          type: string
+      required:
+      - '@context'
+      - '@type'
+      additionalProperties: false
+
+    SupportRequest:
+      $id: https://schema.beckn.io/SupportRequest/v2.0
+      $schema: https://json-schema.org/draft/2020-12/schema
+      description: Support request by a user. If no field is set, the user can expect a public support contact
+        info
+      title: SupportRequest
+      type: object
+      properties:
+        '@context':
+          type: string
+          format: uri
+          default: https://schema.beckn.io/
+        '@type':
+          type: string
+          const: Support
+        orderId:
+          description: The order against which support is required
+          type: string
+        ticketIds:
+          description: IDs of support ticket if open
+          type: array
+          items:
+            $ref: https://schema.beckn.io/SupportTicket/v2.0#/properties/id
+        callbackPhone:
+          description: Telephone number of the user for callback.
+          type: string
+      required:
+      - '@context'
+      - '@type'
+      additionalProperties: false
+      x-tags:
+      - common
+
+    TrackingRequest:
+      $id: https://schema.beckn.io/TrackingRequest/v2.0
+      $schema: "https://json-schema.org/draft/2020-12/schema"
+      description: Schema definition for TrackingRequest in the Beckn Protocol v2.0.1
+      title: TrackingRequest
+      x-tags: [common]
+      type: object
+      properties:
+        id:
+          description: Tracking reference identifier
+          type: string
+        callbackUrl:
+          description: Optional callback URL for streaming tracking coordinates/updates
+          type: string
+          format: uri
+        modeHint:
+          description: Optional delivery mode for the tracking handle.
+          type: string
+          enum:
+          - LINK_ONLY
+          - DEEP_LINK
+          - WEBHOOK
+          - WS_HANDLE
+        trackingDataSchema:
+          description: A JSON Schema (2020-12) that describes the structure of trackingData payloads.
+          $ref: "https://json-schema.org/draft/2020-12/schema"
+      required:
+      - id
+      additionalProperties: false
+
+    Tracking:
+      $id: https://schema.beckn.io/Tracking/v2.0
+      $schema: https://json-schema.org/draft/2020-12/schema
+      description: Non-streaming tracking handle per legacy semantics (url/transport/status).
+      title: Tracking
+      type: object
+      properties:
+        '@context':
+          description: TBD
+          type: string
+          format: uri
+          default: https://schema.beckn.io/
+        '@type':
+          description: TBD
+          type: string
+          default: beckn:Tracking
+        expiresAt:
+          description: ISO 8601 expiry timestamp for the tracking handle.
+          type: string
+          format: date-time
+        trackingStatus:
+          type: string
+          enum:
+          - ACTIVE
+          - DISABLED
+          - COMPLETED
+        url:
+          description: Link/handle to off-network tracking UI or endpoint.
+          type: string
+          format: uri
+      required:
+      - '@context'
+      - '@type'
+      - url
+      - trackingStatus
+      x-jsonld:
+        '@type': schema:TrackAction
+        trackingStatus: $.trackingStatus
+        schema:target: $.url
+      additionalProperties: false
+      x-tags:
+      - common
 
   # ─── Responses ────────────────────────────────────────────────────
   responses:
