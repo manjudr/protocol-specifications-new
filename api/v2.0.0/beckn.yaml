@@ -324,7 +324,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: https://schema.beckn.io/TrackAction/v2.0
+              $ref: https://schema.beckn.io/TrackAction/v2.1
       responses:
         '200':
           $ref: '#/components/responses/Ack'
