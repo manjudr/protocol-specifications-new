@@ -1067,6 +1067,11 @@ components:
           oneOf:
             - $ref: 'https://schema.beckn.io/Organization/v2.0'
             - $ref: 'https://schema.beckn.io/Person/v2.0'
+        items:
+          description: Array of catalog items.Preserved for backward compatibility
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
         resources:
             description: Array of generalized Resource entities in this catalog (new model)
             type: array
@@ -1127,7 +1132,7 @@ components:
             $ref: '#/components/schemas/CatalogProcessingResult'
 
     CatalogProcessingResult:
-      $id: #/components/schemas/CatalogProcessingResult/v2.0
+      $id: 'https://schema.beckn.io/CatalogProcessingResult/v2.0'
       description: Processing result for a single catalog submission.
       type: object
       required: [catalogId, status]
@@ -1200,16 +1205,17 @@ components:
             - type: object
               properties:
                 action:
-                  type: string
-                  enum: [on_catalog_publish]
+                  const: 'on_catalog_publish'
+                  
         message:
           type: object
           properties:
             results:
               type: array
-              items: { $ref: '#/components/schemas/CatalogProcessingResult' }
+              items:
+                $ref: '#/components/schemas/CatalogProcessingResult'
 
-    CategoryCode: # move to schema.beckn.io
+    CategoryCode:
       description: |
         Category code.
         Source: main/schema/core/v2/attributes.yaml#CategoryCode
@@ -1920,7 +1926,7 @@ components:
           - contract:
               $ref: '#/components/schemas/Contract'
 
-    OnCancelConfirmMessage:
+    OnCancelConfirmAction:
       description: |
         On cancel confirm message from Ravi's version.
         Source: beckn-ravis-original-version.yaml#OnCancelConfirmMessage
@@ -1928,6 +1934,41 @@ components:
       required:
         - cancelAction
       properties:
+        oneOf:
+          - order:
+              allOf:
+                - $ref: 'https://schema.beckn.io/Order/v2.0'
+                - 'beckn:orderStatus':
+                    const: 'CANCELLED'
+          - contract:
+              allOf:
+                - $ref: '#/components/schemas/Contract'
+                - if:
+                    # v2.1 discriminator: status is a Descriptor object (type: object)
+                    # rather than a plain string (type: string as in v2.0)
+                    properties:
+                      status:
+                        type: object
+                    required: [status]
+                  then:
+                    # v2.1 — status is either string "CANCELLED" or Descriptor{code:"CANCELLED"}
+                    properties:
+                      status:
+                        oneOf:
+                          - type: string
+                            const: CANCELLED
+                          - type: object
+                            required: [code]
+                            properties:
+                              code:
+                                type: string
+                                const: CANCELLED
+                  else:
+                    # v2.0 — status must be the plain string "CANCELLED"
+                    properties:
+                      status:
+                        type: string
+                        const: CANCELLED
         cancelAction:
           type: object
           properties:
