@@ -22,7 +22,7 @@ info:
     ```
 
     ## (NEW) `context.try` — Sandbox Mode
-    The `try` flag on the `Context` object (defined in `https://schema.beckn.io/Context/v2.0`)
+    The `try` flag on the `Context` object (defined in `#/components/schemas/Context`)
     indicates a sandbox mode being enabled on the network participant:
     - `context.try: true` — Request to test an endpoint without liabilities
       **before** committing. The receiver responds with expected consequences without changing state.
@@ -86,7 +86,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0' # TODO: fetch this from schema.beckn.io/Context/v2.0
+                    - $ref: '#/components/schemas/Context' # TODO: fetch this from schema.beckn.io/Context/v2.0
                     - type: object
                       properties:
                         action:
@@ -126,7 +126,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -169,7 +169,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -209,7 +209,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -248,7 +248,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -288,7 +288,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -326,7 +326,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -366,7 +366,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -409,7 +409,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -452,7 +452,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -491,7 +491,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -528,7 +528,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -571,7 +571,7 @@ paths:
               required: [context, message]
               properties:
                 context:
-                  $ref: 'https://schema.beckn.io/Context/v2.0'
+                  $ref: '#/components/schemas/Context'
                 message:
                   oneOf:
                     - $ref: '#/components/schemas/UpdateInitMessage'
@@ -609,7 +609,7 @@ paths:
               required: [context, message]
               properties:
                 context:
-                  $ref: 'https://schema.beckn.io/Context/v2.0'
+                  $ref: '#/components/schemas/Context'
                 message:
                   oneOf:
                     - $ref: '#/components/schemas/OnUpdateInitAction'
@@ -646,7 +646,7 @@ paths:
               required: [context, message]
               properties:
                 context:
-                  $ref: 'https://schema.beckn.io/Context/v2.0'
+                  $ref: '#/components/schemas/Context'
                 message:
                   oneOf:
                     - $ref: '#/components/schemas/CancelInitAction'
@@ -683,7 +683,7 @@ paths:
               required: [context, message]
               properties:
                 context:
-                  $ref: 'https://schema.beckn.io/Context/v2.0'
+                  $ref: '#/components/schemas/Context'
                 message:
                   oneOf:
                     - $ref: '#/components/schemas/CancelInitAction'
@@ -724,7 +724,7 @@ paths:
               required: [context, message]
               properties:
                 context:
-                  $ref: 'https://schema.beckn.io/Context/v2.0'
+                  $ref: '#/components/schemas/Context'
                 message:
                   $ref: '#/components/schemas/RateAction'
       responses:
@@ -758,7 +758,7 @@ paths:
               required: [context, message]
               properties:
                 context:
-                  $ref: 'https://schema.beckn.io/Context/v2.0'
+                  $ref: '#/components/schemas/Context'
                 message:
                   $ref: '#/components/schemas/OnRateAction'
       responses:
@@ -794,7 +794,7 @@ paths:
               required: [context, message]
               properties:
                 context:
-                  $ref: 'https://schema.beckn.io/Context/v2.0'
+                  $ref: '#/components/schemas/Context'
                 message:
                   $ref: '#/components/schemas/SupportAction'
       responses:
@@ -828,7 +828,7 @@ paths:
               required: [context, message]
               properties:
                 context:
-                  $ref: 'https://schema.beckn.io/Context/v2.0'
+                  $ref: '#/components/schemas/Context'
                 message:
                   $ref: '#/components/schemas/OnSupportAction'
       responses:
@@ -866,7 +866,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -903,7 +903,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Context/v2.0'
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -944,7 +944,6 @@ components:
     # ─────────────────────────────────────────────────────────────────────
     # ACTION SCHEMAS — xAction and On-xAction message payloads
     # ─────────────────────────────────────────────────────────────────────
-
     CancelAction:
       $id: https://schema.beckn.io/CancelAction/v2.0
       title: Cancel Action
@@ -1029,7 +1028,7 @@ components:
               minItems: 1
         context:
           allOf:
-            - $ref: 'https://schema.beckn.io/Context/v2.0'
+            - $ref: '#/components/schemas/Context'
             - type: object
               properties:
                 action:
@@ -1049,14 +1048,14 @@ components:
       description: |
         Beckn /beckn/confirm message payload. Sent by a BAP to a BPP to confirm
         a contract, finalising the transaction terms agreed during the
-        select–init negotiation cycle.
+        select-init negotiation cycle.
         (Context wrapper stripped; only the message-content portion is inlined.)
       oneOf:
         - type: object
           required: [order]
           properties:
             order:
-              - $ref: 'https://schema.beckn.io/Order/v2.0'
+              $ref: 'https://schema.beckn.io/Order/v2.0'
         - type: object
           required: [contract]
           properties:
@@ -1221,40 +1220,6 @@ components:
       required:
         - ratingForms
 
-
-    OnRateMessage:
-      $id: 'https://schema.beckn.io/OnRateMessage/v2.0'
-      description: |
-        Rating acknowledgement with optional aggregate snapshot.
-        - `context.try: true` — returns the rating form/criteria.
-        - `context.try: false` — confirms rating was received and recorded.
-      type: object
-      properties:
-        received:
-          type: boolean
-          default: true
-          description: Confirms the rating was received and processed.
-        aggregate:
-          type: object
-          description: Optional aggregated rating snapshot for display
-          properties:
-            count:
-              type: integer
-              minimum: 0
-            value:
-              type: number
-              minimum: 0
-            bestRating:
-              type: number
-              minimum: 0
-            worstRating:
-              type: number
-              minimum: 0
-        feedbackForm:
-          $ref: 'https://schema.beckn.io/Form/v2.1'
-        ratingForm:
-          $ref: '#/components/schemas/RatingForm'
-
     # ── Support Messages ────────────────────────────────────────────
 
     OnSelectAction:
@@ -1387,21 +1352,26 @@ components:
 
     RateAction:
       $id: https://schema.beckn.io/RateAction/v2.0
-      title: Rate Action
+      title: RateAction
       description: |
         Beckn /beckn/rate message payload. Sent by a BAP to a BPP to submit
         one or more rating inputs for entities in a completed contract
         (order, fulfillment, item, provider, agent, support).
         (Context wrapper stripped; only the message-content portion is inlined.)
-      type: object
-      additionalProperties: true
-      properties:
-        ratingInputs:
-          type: array
-          items:
-            $ref: '#/components/schemas/RatingInput'
-      required:
-        - ratingInputs
+      oneOf:
+        - type: object
+          ratings:
+            $ref: 'https://schema.beckn.io/RatingInput/v2.0'
+        - type: object
+          additionalProperties: true
+          properties:
+            ratingInputs:
+              type: array
+              items:
+                $ref: '#/components/schemas/RatingInput'
+          required:
+            - ratingInputs
+      
 
     SelectAction:
       $id: https://schema.beckn.io/SelectAction/v2.0
@@ -1534,7 +1504,7 @@ components:
                 trackingAttributes:
                   description: Domain-specific extension attributes for this Tracking.
                   allOf:
-                    - $ref: 'https://schema.beckn.io/Attributes/v2.0'
+                    - $ref: '#/components/schemas/Attributes'
                     - required:
                         - '@context'
                         - '@type'
@@ -1604,6 +1574,28 @@ components:
               type: string
               default: AsyncError
           additionalProperties: true
+    
+    Attributes:
+      $id: #/components/schemas/Attributes
+      description: JSON-LD aware container for domain-specific attributes of an Item. MUST include @context
+        (URI) and @type (compact or full IRI). Any additional properties are allowed and interpreted per the
+        provided JSON-LD context.
+      title: Attributes
+      type: object
+      properties:
+        '@context':
+          description: Use case specific JSON-LD context URI
+          type: string
+          format: uri
+        '@type':
+          description: JSON-LD type defined within the context
+          type: string
+      required:
+      - '@context'
+      - '@type'
+      additionalProperties: true
+      x-tags:
+      - common
 
     Catalog:
       $id: https://schema.beckn.io/Catalog/v2.1
@@ -1611,76 +1603,73 @@ components:
       description: Catalog schema for Beckn Protocol v2.0.1 — oneOf legacy (v2.0) or new (v2.1) catalog format
       title: Catalog
       x-tags: [common]
-      oneOf:
-        - $ref: 'https://schema.beckn.io/Catalog/v2.0'
-        - type: object
-          description: New v2.1 catalog format with resources and extended visibility controls.
-          properties:
-            bppId:
-              description: BPP (Beckn Protocol Provider) identifier that publishes this catalog
-              type: string
-              example: bpp.example.com
-            bppUri:
-              description: BPP (Beckn Protocol Provider) URI endpoint
-              type: string
-              format: uri
-              example: "https://bpp.example.com"
-            descriptor:
-              description: Human / Agent-readable description of this catalog
-              allOf:
-              - $ref: "https://schema.beckn.io/Descriptor/v2.0"
-            id:
-              description: Unique identifier for the catalog
-              type: string
-              example: catalog-electronics-001
-            isActive:
-              description: Whether the catalog is active
-              type: boolean
-              default: true
-            offers:
-              type: array
-              items:
-                $ref: "#/components/schemas/Offer"
-            resources:
-              description: Array of generalized Resource entities in this catalog (new model)
-              type: array
-              items:
-                $ref: '#/components/schemas/Resource'
-            provider:
-              description: The provider of the catalog
-              allOf:
-                - $ref: "#/components/schemas/Provider"
-            visibleTo:
-              type: array
-              description: >
-                Optional visibility constraint indicating which network participants
-                (by participantId / networkId / role) are allowed to discover or
-                transact on this catalog.
+      type: object
+      properties:
+        bppId:
+          description: BPP (Beckn Protocol Provider) identifier that publishes this catalog
+          type: string
+          example: bpp.example.com
+        bppUri:
+          description: BPP (Beckn Protocol Provider) URI endpoint
+          type: string
+          format: uri
+          example: "https://bpp.example.com"
+        descriptor:
+          description: Human / Agent-readable description of this catalog
+          allOf:
+          - $ref: "#/components/schemas/Descriptor"
+        id:
+          description: Unique identifier for the catalog
+          type: string
+          example: catalog-electronics-001
+        isActive:
+          description: Whether the catalog is active
+          type: boolean
+          default: true
+        offers:
+          type: array
+          items:
+            $ref: "#/components/schemas/Offer"
+        resources:
+          description: Array of generalized Resource entities in this catalog (new model)
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+        provider:
+          description: The provider of the catalog
+          allOf:
+            - $ref: "#/components/schemas/Provider"
+        visibleTo:
+          type: array
+          description: >
+            Optional visibility constraint indicating which network participants
+            (by participantId / networkId / role) are allowed to discover or
+            transact on this catalog.
 
-                If omitted, the catalog is assumed to be visible to all participants
-                in the addressed network(s).
-              items:
-                type: object
-                required: [type, id]
-                properties:
-                  type:
-                    type: string
-                    enum: [NETWORK, PARTICIPANT, ROLE]
-                    description: Scope of visibility constraint.
-                  id:
-                    type: string
-                    description: Identifier of the network, participant, or role.
-            validity:
-              description: The time period during which this catalog is valid
-              allOf:
-              - $ref: "https://schema.beckn.io/TimePeriod/v2.0"
-          oneOf:
-            - required: [items]
-            - required: [resources]
-          required:
-          - id
-          - descriptor
-          additionalProperties: false
+            If omitted, the catalog is assumed to be visible to all participants
+            in the addressed network(s).
+          items:
+            type: object
+            required: [type, id]
+            properties:
+              type:
+                type: string
+                enum: [NETWORK, PARTICIPANT, ROLE]
+                description: Scope of visibility constraint.
+              id:
+                type: string
+                description: Identifier of the network, participant, or role.
+        validity:
+          description: The time period during which this catalog is valid
+          allOf:
+          - $ref: "#/components/schemas/TimePeriod"
+      oneOf:
+        - required: [items]
+        - required: [resources]
+      required:
+      - id
+      - descriptor
+      additionalProperties: false
 
     CatalogOnPublishMessage:
       $id: 'https:schema.beckn.io/CatalogOnPublishMessage/v2.0'
@@ -1773,13 +1762,90 @@ components:
           type: string
         status:
           description: The status of this consideration
-          $ref: 'https://schema.beckn.io/Descriptor/v2.0'
+          $ref: '#/components/schemas/Descriptor'
         considerationAttributes:
           description: >
             Domain-specific attributes of this consideration. For monetary considerations,
             use the PriceSpecification schema to capture total value with breakup.
             For other consideration types, use a generic Attributes bag.
-          $ref: 'https://schema.beckn.io/Attributes/v2.0'
+          $ref: '#/components/schemas/Attributes'
+
+    Context:
+      $id: "#/components/schemas/Context"
+      description: >-
+        Every API call in Beckn protocol has a context. It contains addressing information like the bap/bpp identifiers and API base urls, the protocol version implemented by the sender, the method being called, the transaction_id that represents an end-to-end user session at the BAP, a message ID to pair requests with callbacks, a timestamp to capture sending times, a ttl to specify the validity of the request, and a key to encrypt information if necessary.
+      title: Context
+      x-tags: [common]
+      type: object
+      properties:
+        action:
+          description: The Beckn endpoint being called. Must conform to BecknEndpoint format.
+          $ref: "https://schema.beckn.io/BecknEndpoint/v2.0"
+        bapId:
+          description: A globally unique identifier of the BAP. Typically the fully qualified domain name (FQDN) of the BAP.
+          type: string
+        bapUri:
+          description: API URL of the BAP for accepting callbacks from BPPs.
+          type: string
+          format: uri
+        bppId:
+          description: A globally unique identifier of the BPP. Typically the fully qualified domain name (FQDN) of the BPP.
+          type: string
+        bppUri:
+          description: API URL of the BPP for accepting calls from BAPs.
+          type: string
+          format: uri
+        messageId:
+          description: >-
+            A unique value which persists during a request/callback cycle. BAPs use
+            this value to match an incoming callback from a BPP to an earlier call.
+            Generate a fresh message_id for every new interaction.
+          type: string
+          format: uuid
+        networkId:
+          description: A unique identifier representing a group of platforms. By default, the URL of the network registry on the Beckn network.
+          type: string
+        timestamp:
+          description: Time of request generation in RFC3339 format.
+          type: string
+          format: date-time
+        transactionId:
+          description: >-
+            A unique value which persists across all API calls from discover through
+            confirm. Used to indicate an active user session across multiple requests.
+          type: string
+          format: uuid
+        try:
+          description: A flag to indicate that this request is intended to try an operation in sandbox mode
+          type: boolean
+          default: false
+        ttl:
+          description: The duration in ISO8601 format after timestamp for which this message holds valid.
+          type: string
+        version:
+          description: Version of Beckn protocol being used by the sender.
+          type: string
+          default: 2.0.0
+        lineage:
+          description: >-
+            An optional array of causal attribution records asserting that this
+            Beckn transaction was triggered by one or more upstream Beckn interactions.
+            Present only at transaction boundaries. MUST NOT be populated within
+            subsequent steps of the same transaction. Per current Beckn profiles,
+            this array MUST contain at most one entry when present.
+          type: array
+          maxItems: 1
+          items:
+            $ref: https://schema.beckn.io/LineageEntry/v2.0
+      required:
+      - action
+      - bapId
+      - bapUri
+      - messageId
+      - timestamp
+      - transactionId
+      - version
+      additionalProperties: false
 
     Contract:
       $id: https://schema.beckn.io/Contract/v2.1
@@ -1821,11 +1887,6 @@ components:
         descriptor:
           description: Describes the nature of the contract in human / agent readable terms
           $ref: '#/components/schemas/Descriptor'
-        displayId:
-          description: A human-readable / Agent-readable identifier of the contract intended for display or
-            printing. This value may or may not be different from `id` which is intended purely for machine-readability.
-            Typically, this value is generated after the confirmation of the order at the BPP's end.
-          type: string
         commitments:
           type: array
           description: >
@@ -1839,7 +1900,9 @@ components:
           items:
             $ref: '#/components/schemas/Consideration'
         participants:
-          description: The participants involved in the contract. Contracts are not always between two individuals.
+          description: |
+            The participants involved in the contract. Contracts are not always between two individuals.
+            
             Several entities may play a specific role in the creation, fulfillment, and post-fulfillment of
             the contract.
           type: array
@@ -1896,7 +1959,7 @@ components:
             Use beckn:LogisticsContract for hyperlocal physical delivery. Use the generic Attributes schema for
             other fulfillment types where no well-known domain schema exists.
           allOf:
-            - $ref: 'https://schema.beckn.io/Attributes/v2.0'
+            - $ref: '#/components/schemas/Attributes'
             - required:
                 - '@context'
                 - '@type'
@@ -1985,7 +2048,7 @@ components:
           description: >
             Domain-specific extension attributes for this commitment.
           allOf:
-            - $ref: 'https://schema.beckn.io/Attributes/v2.0'
+            - $ref: '#/components/schemas/Attributes'
             - required:
                 - '@context'
                 - '@type'
@@ -2036,7 +2099,7 @@ components:
         - $ref: '#/components/schemas/Signature'
 
     Descriptor:
-      $id: "https://schema.beckn.io/Descriptor/v2.1"
+      $id: "#/components/schemas/Descriptor"
       $schema: "https://json-schema.org/draft/2020-12/schema"
       description: Schema definition for Descriptor in the Beckn Protocol v2.0.1
       title: Descriptor
@@ -2084,6 +2147,43 @@ components:
       required:
       - '@type'
       additionalProperties: false
+
+      Entitlement:
+        $id: https://schema.beckn.io/Entitlement/v2.0
+        description: A contractually granted, policy-governed right that allows a specific party to access, use, or claim a defined economic resource within stated scope and validity constraints. It represents the enforceable permission created by an order, independent of the credential used to exercise it.
+        title: Entitlement
+        type: object
+        properties:
+          '@context':
+            description: CPD
+            type: string
+            format: uri
+            default: https://schema.beckn.io/
+          '@type':
+            description: The domain-specific type of entitlement that allows domains to extend this schema
+            type: string
+            default: beckn:Entitlement
+          id:
+            description: A unique identifier for this entitlement within the entitlement provider's namespace
+            type: string
+          resource:
+            description: The resource being availed or accessed against this entitlement
+            $ref: '#/components/schemas/Resource/properties/id'
+          descriptor:
+            description: Human-readable information regarding the entitlement like QR-code images, attached documents containing terms and conditions, video or audio files instructing the user on how to use the entitlement
+            $ref: #/components/schemas/Descriptor
+          credentials:
+            type: array
+            items:
+              $ref: '#/components/schemas/Descriptor'
+        additionalProperties: true
+        required:
+        - '@context'
+        - '@type'
+        - id
+        - descriptor
+        x-tags:
+        - common
 
     Error:
       $id: '#/components/schemas/Error/v2.0'
@@ -2134,7 +2234,7 @@ components:
             Use beckn:LogisticsContract for hyperlocal physical delivery. Use the generic Attributes schema for
             other fulfillment types where no well-known domain schema exists.
           allOf:
-            - $ref: 'https://schema.beckn.io/Attributes/v2.0'
+            - $ref: '#/components/schemas/Attributes'
             - required:
                 - '@context'
                 - '@type'
@@ -2160,14 +2260,51 @@ components:
                     - NetworkParticipant
                     - EscrowAgent
                     - Guarantor
-          oneOf:
-          - $ref: '#/components/schemas/Consumer'
-          - $ref: '#/components/schemas/Provider'
-          - $ref: '#/components/schemas/NetworkParticipant'
-          - $ref: '#/components/schemas/Attributes'
+    
+    GeoJSONGeometry:
+      $id: #/components/schemas/GeoJSONGeometry
+      description: "**GeoJSON geometry** per RFC 7946. Coordinates are in **EPSG:4326 (WGS-84)** and MUST follow\
+        \ **[longitude, latitude, (altitude?)]** order.\nSupported types: - Point, LineString, Polygon - MultiPoint,\
+        \ MultiLineString, MultiPolygon - GeometryCollection (uses `geometries` instead of `coordinates`)\n\
+        Notes: - For rectangles, use a Polygon with a single linear ring where the first\n  and last positions\
+        \ are identical.\n- Circles are **not native** to GeoJSON. For circular searches, use\n  `SpatialConstraint`\
+        \ with `op: s_dwithin` and a Point + `distanceMeters`,\n  or approximate the circle as a Polygon.\n\
+        - Optional `bbox` is `[west, south, east, north]` in degrees.\n"
+      title: GeoJSONGeometry
+      type: object
+      properties:
+        bbox:
+          description: Optional bounding box `[west, south, east, north]` in degrees.
+          type: array
+          minItems: 4
+          maxItems: 4
+        coordinates:
+          description: Coordinates per RFC 7946 for all types **except** GeometryCollection. Order is **[lon,
+            lat, (alt)]**. For Polygons, this is an array of linear rings; each ring is an array of positions.
+          type: array
+        geometries:
+          description: Member geometries when `type` is **GeometryCollection**.
+          type: array
+          items:
+            $ref: '#/components/schemas/GeoJSONGeometry'
+        type:
+          type: string
+          enum:
+          - Point
+          - LineString
+          - Polygon
+          - MultiPoint
+          - MultiLineString
+          - MultiPolygon
+          - GeometryCollection
+      required:
+      - type
+      additionalProperties: true
+      x-tags:
+      - common
 
     Performance:
-      $id: "https://schema.beckn.io/Fulfillment/v2.2"
+      $id: "https://schema.beckn.io/Performance/v2.2"
       description: |
         Generalized execution/performance unit. This is where downstream objects bind:
         - Fulfillment-like details (where/when/how)
@@ -2192,7 +2329,7 @@ components:
           description: Domain-specific context in which this fulfillment is taking place
           type: string
           format: uri
-          const: 'https://schema.beckn.io/Fulfillment/v2.1/context.jsonld'
+          const: 'https://schema.beckn.io/Performance/v2.1/context.jsonld'
         '@type':
           description: JSON-LD type.
           type: string
@@ -2203,7 +2340,7 @@ components:
           x-jsonld:
             '@id': 'beckn:id'
         status:
-          $ref: 'https://schema.beckn.io/Descriptor/v2.1'
+          $ref: '#/components/schemas/Descriptor'
           description: >
             Current status of this fulfillment, expressed as a Descriptor.
             Use Descriptor.code for machine-readable status values.
@@ -2222,7 +2359,7 @@ components:
             hyperlocal physical delivery. Use the generic Attributes schema for
             other fulfillment types where no well-known domain schema exists.
           allOf:
-            - $ref: 'https://schema.beckn.io/Attributes/v2.0'
+            - $ref: '#/components/schemas/Attributes'
             - properties:
                 '@context':
                   description: Domain-specific context in which this fulfillment is taking place
@@ -2236,7 +2373,11 @@ components:
                 '@type':
                   description: JSON-LD type.
                   type: string
-                  default: 'Fulfillment'
+                  examples:
+                    - 'HyperlocalDelivery'
+                    - 'OnDemandRide'
+                    - 'P2PEnergyTransfer'
+                    - 'Fulfillment'
       required:
         - '@context'
         - '@type'
@@ -2271,8 +2412,7 @@ components:
 
     Intent:
       $id: https://schema.beckn.io/Intent/v2.0
-      $schema: "https://json-schema.org/draft/2020-12/schema"
-      description: A declaration of an intent to discover catalogs.
+      description: A declaration of an intent to transact
       title: Intent
       x-tags: [common]
       type: object
@@ -2304,7 +2444,7 @@ components:
           items:
             $ref: "https://schema.beckn.io/SpatialConstraint/v2.0"
         media_search:
-          $ref: "https://schema.beckn.io/MediaSearch/v2.0"
+          $ref: "#/components/schemas/MediaSearch"
       anyOf:
       - required:
         - textSearch
@@ -2330,11 +2470,11 @@ components:
           type: string
           enum: ["beckn:Location"]
         geo:
-          $ref: 'https://schema.beckn.io/GeoJSONGeometry/v2.0'
+          $ref: '#/components/schemas/GeoJSONGeometry'
         address:
           oneOf:
             - type: string
-            - $ref: 'https://schema.beckn.io/Address/v2.0'
+            - $ref: '#/components/schemas/Address'
 
     MediaInput:
       $id: https://schema.beckn.io/MediaInput/v2.0
@@ -2352,7 +2492,7 @@ components:
       additionalProperties: false
 
     MediaSearch:
-      $id: https://schema.beckn.io/MediaSearch/v2.0
+      $id: #/components/schemas/MediaSearch
       type: object
       properties:
         media:
@@ -2376,94 +2516,92 @@ components:
 
     Offer:
       $id: 'https://schema.beckn.io/Offer/v2.1'
-      oneOf:
-        - $ref: 'https://schema.beckn.io/Offer/v2.0'
-        - $ref: 'https://schema.beckn.io/Offer/v2.1'
-          type: object
+      type: object
+      description: |
+        A generalized, cross-domain Offer that captures the terms under which
+        one or more Resources may be committed.
+
+        Core intent:
+        - Support multiple terms/eligibility/constraints/price points for the same Resource(s)
+        - Support dynamic / on-the-fly offers (e.g., bundling, combinational discounts,
+          eligibility changes, capacity-aware pricing)
+
+        This mirrors the role of Offer in current Beckn (and schema.org patterns),
+        but keeps the shape minimal and composable via `beckn:offerAttributes`.
+      required: ["@context", "@type", "beckn:id", "beckn:proposer", "beckn:status"]
+      properties:
+        "@context":
+          type: string
+          format: uri
+          description: JSON-LD context URI for the core Offer schema
+          enum: ["https://schema.beckn.io/Offer/v2.2/context.jsonld"]
+        "@type":
+          type: string
+          description: Type of the core Offer
+          enum: ["beckn:Offer"]
+        id:
+          type: string
+          description: Unique identifier of the offer.
+        descriptor:
+          description: Human / agent-readable description of this offer.
+          $ref: '#/components/schemas/Descriptor'
+        provider:
           description: >
-            A generalized, cross-domain Offer that captures the terms under which
-            one or more Resources may be committed.
+            Provider of this offer.
+            - If the offer is published by the same provider as the item it is associated with,
+              use only the provider's `id` (string reference).
+            - If the offer is published by a different provider, include the full Provider object.
+          oneOf:
+            - type: object
+              description: Same provider as the item — identified by id only.
+              required: [id]
+              properties:
+                id:
+                  type: string
+                  description: Identifier of the provider (same as the item's provider).
+            - $ref: '#/components/schemas/Provider'
+        resourceIds:
+          type: array
+          description: References (IDs) to resources covered by this offer.
+          items:
+            $ref: '#/components/schemas/Resource/properties/id'
+        addOnIds:
+          type: array
+          description: IDs of optional extra Offers or Resources that can be attached.
+          items:
+            $ref: '#/components/schemas/AddOn/properties/id'
+        considerationIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Consideration/properties/id'
+        fulfillmentIds:
+          description: Details regarding the fulfillment of this offer
+          $ref: '#/components/schemas/Consideration'
+        validity:
+          $ref: '#/components/schemas/TimePeriod'
+        availableTo:
+          type: array
+          description: >
+            Optional visibility constraint indicating which network participants
+            (by participantId / networkId / role) are allowed to discover or
+            transact on this entity.
 
-            Core intent:
-            - Support multiple terms/eligibility/constraints/price points for the same Resource(s)
-            - Support dynamic / on-the-fly offers (e.g., bundling, combinational discounts,
-              eligibility changes, capacity-aware pricing)
-
-            This mirrors the role of Offer in current Beckn (and schema.org patterns),
-            but keeps the shape minimal and composable via `beckn:offerAttributes`.
-          required: ["@context", "@type", "beckn:id", "beckn:proposer", "beckn:status"]
-          properties:
-            "@context":
-              type: string
-              format: uri
-              description: JSON-LD context URI for the core Offer schema
-              enum: ["https://schema.beckn.io/Offer/v2.2/context.jsonld"]
-            "@type":
-              type: string
-              description: Type of the core Offer
-              enum: ["beckn:Offer"]
-            id:
-              type: string
-              description: Unique identifier of the offer.
-            descriptor:
-              description: Human / agent-readable description of this offer.
-              $ref: '#/components/schemas/Descriptor'
-            provider:
-              description: >
-                Provider of this offer.
-                - If the offer is published by the same provider as the item it is associated with,
-                  use only the provider's `id` (string reference).
-                - If the offer is published by a different provider, include the full Provider object.
-              oneOf:
-                - type: object
-                  description: Same provider as the item — identified by id only.
-                  required: [id]
-                  properties:
-                    id:
-                      type: string
-                      description: Identifier of the provider (same as the item's provider).
-                - $ref: '#/components/schemas/Provider'
-            resourceIds:
-              type: array
-              description: References (IDs) to resources covered by this offer.
-              items:
-                $ref: '#/components/schemas/Resource/properties/id'
-            addOnIds:
-              type: array
-              description: IDs of optional extra Offers or Resources that can be attached.
-              items:
-                $ref: '#/components/schemas/AddOn/properties/id'
-            considerationIds:
-              type: array
-              items:
-                $ref: '#/components/schemas/Consideration/properties/id'
-            fulfillmentIds:
-              description: Details regarding the fulfillment of this offer
-              $ref: '#/components/schemas/Consideration'
-            validity:
-              $ref: 'https://schema.beckn.io/TimePeriod/v2.1'
-            availableTo:
-              type: array
-              description: >
-                Optional visibility constraint indicating which network participants
-                (by participantId / networkId / role) are allowed to discover or
-                transact on this entity.
-
-                If omitted, the entity is assumed to be visible to all participants
-                in the addressed network(s).
-              items:
-                type: object
-                required: [type, id]
-                properties:
-                  type:
-                    type: string
-                    enum: [NETWORK, PARTICIPANT, ROLE]
-                    description: Scope of visibility constraint.
-                  id:
-                    type: string
-                    description: Identifier of the network, participant, or role.
-            offerAttributes:
-              $ref: 'https://schema.beckn.io/Attributes/v2.0'
+            If omitted, the entity is assumed to be visible to all participants
+            in the addressed network(s).
+          items:
+            type: object
+            required: [type, id]
+            properties:
+              type:
+                type: string
+                enum: [NETWORK, PARTICIPANT, ROLE]
+                description: Scope of visibility constraint.
+              id:
+                type: string
+                description: Identifier of the network, participant, or role.
+        offerAttributes:
+          $ref: '#/components/schemas/Attributes'
+          
 
     PriceSpecification:
       type: object
@@ -2512,42 +2650,39 @@ components:
 
 
     Provider:
-      $id: "https://schema.beckn.io/Provider/v2.1"
-      oneOf:
-        - $ref: 'https://schema.beckn.io/Provider/v2.0'
-        - type: object
-          description: Schema definition for Provider in the Beckn Protocol v2.0.1
-          title: Provider
-          x-tags: [common]
-          properties:
-            '@context':
-              type: string
-              format: uri
-              default: "https://schema.beckn.io/"
-            '@type':
-              type: string
-              const: beckn:Provider
-            descriptor:
-              $ref: "#/components/schemas/Descriptor"
-            id:
-              description: Unique identifier for the provider
-              type: string
-              example: tech-store-001
-            locations:
-              description: Physical locations where the provider operates
-              type: array
-              items:
-                $ref: "https://schema.beckn.io/Location/v2.0"
-            policies:
-              type: array
-              items:
-                $ref: "https://schema.beckn.io/Policy/v2.0"
-            providerAttributes:
-              $ref: "https://schema.beckn.io/Attributes/v2.0"
-          required:
-          - id
-          - descriptor
-          additionalProperties: false
+      type: object
+      description: Schema definition for Provider in the Beckn Protocol v2.0.1
+      title: Provider
+      x-tags: [common]
+      properties:
+        '@context':
+          type: string
+          format: uri
+          default: "https://schema.beckn.io/"
+        '@type':
+          type: string
+          const: beckn:Provider
+        descriptor:
+          $ref: "#/components/schemas/Descriptor"
+        id:
+          description: Unique identifier for the provider
+          type: string
+          example: tech-store-001
+        locations:
+          description: Physical locations where the provider operates
+          type: array
+          items:
+            $ref: "#components/schemas/Location"
+        policies:
+          type: array
+          items:
+            $ref: "https://schema.beckn.io/Policy/v2.0"
+        providerAttributes:
+          $ref: "#/components/schemas/Attributes"
+      required:
+      - id
+      - descriptor
+      additionalProperties: false
 
     RatingForm: # Move to schema.beckn.io/RatingForm/v2.0
       $id: https://schema.beckn.io/RatingForm/v2.0
@@ -2606,7 +2741,7 @@ components:
                     type: integer
                     minimum: 0
                   value:
-                    $ref: "https://schema.beckn.io/Descriptor/v2.1"
+                    $ref: "#/components/schemas/Descriptor"
         feedbackForm:
           description: A feedback form sent along with a rating request
           $ref: "https://schema.beckn.io/Form/v2.1"
@@ -2637,7 +2772,7 @@ components:
     Rating:
       $id: https://schema.beckn.io/Rating
       oneOf:
-        - $ref: 'https://schema.beckn.io/Rating/v2.0'
+        - $ref: '#/components/schemas/Rating'
         - title: Rating
           type: object
           description: Aggregated rating information for an entity. Aligns with schema.org/AggregateRating semantics.
@@ -2698,7 +2833,7 @@ components:
           $ref: '#/components/schemas/Descriptor'
         resourceAttributes:
           description: All the properties of a resource that describe its value, its terms of usage, fulfillment, and consideration
-          $ref: 'https://schema.beckn.io/Attributes/v2.0'
+          $ref: '#/components/schemas/Attributes'
 
     Settlement:
       type: object
@@ -2741,7 +2876,7 @@ components:
           items:
             $ref: '#/components/schemas/SettlementAction'
         settlementAttributes:
-          $ref: 'https://schema.beckn.io/Attributes/v2.0'
+          $ref: '#/components/schemas/Attributes'
 
 
     SettlementAction:
@@ -2791,7 +2926,7 @@ components:
         eligibleInstrument:
           $ref: '#/components/schemas/SettlementInstrument'
         schedule:
-          $ref: 'https://schema.beckn.io/Schedule/v2.0'
+          $ref: '#/components/schemas/Schedule'
         from:
           $ref: '#/components/schemas/Participant'
         to:
@@ -2799,7 +2934,7 @@ components:
         eligibleMethods:
           type: array
           items:
-            $ref: 'https://schema.beckn.io/SettlementMethod/v2.0'
+            $ref: '#/components/schemas/SettlementMethod'
         settlementTermAttributes:
           $ref: '#/components/schemas/Attributes'
         updatedAt:
@@ -2808,7 +2943,7 @@ components:
           $ref: '#/components/schemas/Participant'
 
     Schedule:
-      $id: https://schema.beckn.io/Schedule/v2.0
+      $id: #/components/schemas/Schedule
       $schema: "https://json-schema.org/draft/2020-12/schema"
       title: Schedule
       description: >
@@ -2960,7 +3095,7 @@ components:
         A digitally signed authentication credential in the HTTP `Authorization` header.
         Follows draft-cavage-http-signatures-12 as profiled by BECKN-006.
 
-        Format:
+        format:
         ```
         Signature keyId="{subscriberId}|{uniqueKeyId}|{algorithm}",
           algorithm="{algorithm}",created="{unixTimestamp}",expires="{unixTimestamp}",
