@@ -46,12 +46,6 @@ info:
     name: CC-BY-NC-SA 4.0 International
     url: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
 
-servers:
-  - url: https://staging-api.becknprotocol.io
-    description: Staging server
-  - url: http://localhost:8080
-    description: Local development server
-
 tags:
   - name: Discovery
     description: Discover catalogs across a Beckn network
