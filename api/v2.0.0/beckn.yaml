@@ -1268,15 +1268,6 @@ components:
       required:
         - tracking
 
-    OnTrackMessage:
-      $id: #/components/schemas/OnTrackMessage/v2.0
-      description: Real-time tracking response with URL or tracking handle.
-      type: object
-      required: [tracking]
-      properties:
-        tracking:
-          $ref: '#/components/schemas/Tracking'
-
     OnUpdateAction:
       $id: https://schema.beckn.io/OnUpdateAction/v2.0
       title: On Update Action
@@ -1322,7 +1313,7 @@ components:
       
 
     SelectAction:
-      $id: https://schema.beckn.io/SelectAction/v2.0
+      $id: 'https://schema.beckn.io/SelectAction/v2.0'
       title: Select Action
       description: |
         Beckn /beckn/select message payload. Sent by a BAP to a BPP to select
@@ -1333,7 +1324,7 @@ components:
           required: [order]
           properties:
             order:
-              - $ref: 'https://schema.beckn.io/Order/v2.0'
+              $ref: 'https://schema.beckn.io/Order/v2.0'
         - type: object
           required: [contract]
           properties:
@@ -1506,6 +1497,73 @@ components:
     # CORE DATA SCHEMAS — Reusable types, domain objects, and infrastructure
     # ─────────────────────────────────────────────────────────────────────
 
+    AddOn:
+      type: object
+      description: Add-on to a catalog item
+      properties:
+        id:
+          type: string
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
+        addOnAttributes:
+          description: >
+            Domain-specific extension attributes for this add-on.
+          allOf:
+            - $ref: '#/components/schemas/Attributes'
+            - required:
+                - '@context'
+                - '@type'
+            - properties:
+                '@context':
+                  description: Domain-specific context in which this add-on exists
+                  type: string
+                  format: uri
+                  examples:
+                    - 'https://schema.beckn.io/FnbAddOn/v2.0/context.jsonld'
+                    - 'https://schema.beckn.io/GroceryAddOn/v2.0/context.jsonld'
+                    - 'https://schema.beckn.io/RideAddOn/v2.0/context.jsonld'
+                '@type':
+                  description: JSON-LD type corresponding to the context
+                  type: string
+                  examples:
+                    - FnbAddOn
+                    - GroceryAddOn
+                    - RideAddOn
+    Address:
+      $id: https://schema.beckn.io/Address/v2.0
+      description: '**Postal address** aligned with schema.org `PostalAddress`. Use for human-readable addresses.
+        Geometry lives in `Location.geo` as GeoJSON.'
+      title: Address
+      type: object
+      properties:
+        addressCountry:
+          description: Country name or ISO-3166-1 alpha-2 code.
+          type: string
+          example: IN
+        addressLocality:
+          description: City/locality.
+          type: string
+          example: Bengaluru
+        addressRegion:
+          description: State/region/province.
+          type: string
+          example: Karnataka
+        extendedAddress:
+          description: Address extension (apt/suite/floor, C/O).
+          type: string
+          example: Apt 4B
+        postalCode:
+          description: Postal/ZIP code.
+          type: string
+          example: '560001'
+        streetAddress:
+          description: Street address (building name/number and street).
+          type: string
+          example: 123 Tech Street
+      additionalProperties: false
+      x-tags:
+      - common
+
     AsyncError: 
       title: Asynchronous Error
       description: |
@@ -1523,7 +1581,7 @@ components:
           additionalProperties: true
     
     Attributes:
-      $id: #/components/schemas/Attributes
+      $id: 'https://schema.beckn.io/Attributes/v2.0'
       description: JSON-LD aware container for domain-specific attributes of an Item. MUST include @context
         (URI) and @type (compact or full IRI). Any additional properties are allowed and interpreted per the
         provided JSON-LD context.
@@ -2210,7 +2268,7 @@ components:
                     - Guarantor
     
     GeoJSONGeometry:
-      $id: #/components/schemas/GeoJSONGeometry
+      $id: 'https://schema.beckn.io/GeoJSONGeometry/v2.0'
       description: "**GeoJSON geometry** per RFC 7946. Coordinates are in **EPSG:4326 (WGS-84)** and MUST follow\
         \ **[longitude, latitude, (altitude?)]** order.\nSupported types: - Point, LineString, Polygon - MultiPoint,\
         \ MultiLineString, MultiPolygon - GeometryCollection (uses `geometries` instead of `coordinates`)\n\
@@ -2332,7 +2390,7 @@ components:
       additionalProperties: false
 
     InReplyTo:
-      $id: #/components/schemas/InReplyTo/v2.0
+      $id: 'https://schema.beckn.io/InReplyTo/v2.0'
       title: In-Reply-To Reference
       description: |
         A cryptographic binding that ties an asynchronous `on_<action>` callback to the
@@ -2440,13 +2498,15 @@ components:
       additionalProperties: false
 
     MediaSearch:
-      $id: #/components/schemas/MediaSearch
+      $id: https://schema.beckn.io/MediaSearch/v2.0
       type: object
       properties:
         media:
           type: array
-          items: { $ref: '#/components/schemas/MediaInput' }
-        options: { $ref: '#/components/schemas/MediaSearchOptions' }
+          items:
+            $ref: '#/components/schemas/MediaInput'
+        options:
+          $ref: '#/components/schemas/MediaSearchOptions'
       additionalProperties: false
 
     MediaSearchOptions:
@@ -2581,7 +2641,7 @@ components:
               commitmentId:
                 $ref: '#/components/schemas/Commitment/properties/id'
               quantity:
-                $ref: '#/components/schemas/Commitment/properties/resource/properties/quantity'
+                $ref: '#/components/schemas/Quantity'
 
     ProcessingNotice:
       $id: https://schema.beckn.io/ProcessingNotice/v2.0
@@ -2620,7 +2680,7 @@ components:
           description: Physical locations where the provider operates
           type: array
           items:
-            $ref: "#components/schemas/Location"
+            $ref: "#/components/schemas/Location"
         policies:
           type: array
           items:
@@ -2751,7 +2811,7 @@ components:
           - common
 
     Resource:
-      $id: https://schema.beckn.io/Resource/v2.0
+      $id: 'https://schema.beckn.io/Resource/v2.0'
       type: object
       description: >
         A minimal, domain-neutral abstraction representing any discoverable,
@@ -2784,6 +2844,7 @@ components:
           $ref: '#/components/schemas/Attributes'
 
     Settlement:
+      $id: 'https://schema.beckn.io/Settlement/v2.0'
       type: object
       properties:
         "@context":
@@ -2828,6 +2889,7 @@ components:
 
 
     SettlementAction:
+      $id: 'https://schema.beckn.io/SettlementAction/v2.0'
       type: object
       properties:
         settlementTermId:
@@ -2844,6 +2906,7 @@ components:
           $ref: '#/components/schemas/SettlementInstrument'
 
     SettlementTerm:
+      $id: 'https://schema.beckn.io/SettlementTerm/v2.0'
       type: object
       properties:
         id:
@@ -2859,15 +2922,15 @@ components:
                   $ref: '#/components/schemas/Commitment/properties/id'
             required:
               - id
-        fulfillment:
+        performance:
           required:
             - id
           oneOf:
             - type: object
               properties:
                 id:
-                  $ref: '#/components/schemas/Fulfillment/properties/id'
-            - $ref: '#/components/schemas/Fulfillment'
+                  $ref: '#/components/schemas/Performance/properties/id'
+            - $ref: '#/components/schemas/Performance'
           type: string
         trigger:
           $ref: '#/components/schemas/Trigger'
@@ -2891,8 +2954,7 @@ components:
           $ref: '#/components/schemas/Participant'
 
     Schedule:
-      $id: #/components/schemas/Schedule
-      $schema: "https://json-schema.org/draft/2020-12/schema"
+      $id: 'https://schema.beckn.io/Schedule/v2.0'
       title: Schedule
       description: >
         A schedule defines a repeating time period used to describe a regularly
@@ -3155,6 +3217,81 @@ components:
             type: string
             default: beckn:Tracking
       required: ['@context', '@type']
+  
+    TimePeriod:
+      $id: "https://schema.beckn.io/TimePeriod/v2.1"
+      description: Time window with date-time precision for availability/validity
+      title: TimePeriod
+      x-tags: [common]
+      type: object
+      properties:
+        '@type':
+          description: JSON-LD type for a date-time period
+          type: string
+          example: TimePeriod
+        startDate:
+          description: Start instant (inclusive)
+          type: string
+          format: date-time
+          example: '2025-01-27T09:00:00Z'
+          x-jsonld:
+            '@id': schema:startDate
+        endDate:
+          description: End instant (exclusive or inclusive per domain semantics)
+          type: string
+          format: date-time
+          example: '2025-12-31T23:59:59Z'
+          x-jsonld:
+            '@id': schema:endDate
+        startTime:
+          description: Start time of the time period
+          type: string
+          format: time
+          example: 09:00:00
+          x-jsonld:
+            '@id': schema:startTime
+        endTime:
+          description: End time of the time period
+          type: string
+          format: time
+          example: '22:00:00'
+          x-jsonld:
+            '@id': schema:endTime
+      required:
+      - '@type'
+      anyOf:
+      - required:
+        - startDate
+      - required:
+        - endDate
+      - required:
+        - startTime
+        - endTime
+      additionalProperties: false
+
+  # ── Ack schema (shared by Ack, AckNoCallback, NackBadRequest, NackUnauthorized responses) ──
+    AckSchema:
+      $id: 'https://schema.beckn.io/Ack'
+      title: Ack
+      oneOf:
+        - $ref: 'https://schema.beckn.io/Ack/v2.0'
+        - type: object
+          properties:
+            status:
+              description: ACK if the request was accepted; NACK if rejected.
+              type: string
+              enum:
+                - ACK
+                - NACK
+            signature:
+              description: Counter-signature proving the receiver authenticated and processed the inbound request.
+              $ref: '#/components/schemas/CounterSignature'
+            error:
+              description: Optional error detail explaining why no callback will follow.
+              $ref: '#/components/schemas/Error'
+          required:
+            - status
+            - signature
 
   responses:
     Ack:
@@ -3162,27 +3299,7 @@ components:
       content:
         application/json:
           schema:
-            $id: 'https://schema.beckn.io/Ack'
-            title: Ack
-            oneOf:
-              - $ref: 'https://schema.beckn.io/Ack/v2.0'
-              - type: object
-                properties:
-                  status:
-                    description: ACK if the request was accepted; NACK if rejected.
-                    type: string
-                    enum:
-                      - ACK
-                      - NACK
-                  signature:
-                    description: Counter-signature proving the receiver authenticated and processed the inbound request.
-                    $ref: '#/components/schemas/CounterSignature'
-                  error:
-                    description: Optional error detail explaining why no callback will follow.
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - status
-                  - signature
+            $ref: '#/components/schemas/AckSchema'
 
     AckNoCallback:
       description: |
@@ -3192,7 +3309,7 @@ components:
         application/json:
           schema:
             allOf:
-              - $ref: '#/components/responses/Ack'
+              - $ref: '#/components/schemas/AckSchema'
               - required:
                   - status
                   - signature
@@ -3205,7 +3322,7 @@ components:
         application/json:
           schema:
             allOf:
-              - $ref: '#/components/responses/Ack'
+              - $ref: '#/components/schemas/AckSchema'
               - type: object
                 properties:
                   status:
@@ -3220,7 +3337,7 @@ components:
         application/json:
           schema:
             allOf:
-              - $ref: '#/components/responses/Ack'
+              - $ref: '#/components/schemas/AckSchema'
               - type: object
                 properties:
                   status:
