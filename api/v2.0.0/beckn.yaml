@@ -1246,7 +1246,7 @@ components:
         support:
           $ref: '#/components/schemas/Support'
       required:
-        - supportInfo
+        - support
 
 
     # ── Catalog Publishing Messages ─────────────────────────────────
@@ -1345,7 +1345,7 @@ components:
           properties:
             order:
               type: object
-              required: [id]
+              required: ['beckn:id']
               properties:
                 'beckn:id':
                   $ref: 'https://schema.beckn.io/Order/v2.0/properties/beckn:id'
@@ -1496,10 +1496,21 @@ components:
     # ─────────────────────────────────────────────────────────────────────
     # CORE DATA SCHEMAS — Reusable types, domain objects, and infrastructure
     # ─────────────────────────────────────────────────────────────────────
+    ActionTrigger:
+      description: Describes a trigger that initiates an action, like triggering a settlement on fulfillment completion. 
+      type: object
+      properties:
+        '@context':
+          type: string
+          format: uri
+        '@type':
+          type: string
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
 
     AddOn:
       type: object
-      description: Add-on to a catalog item
+      description: Add-on to a catalog resource
       properties:
         id:
           type: string
@@ -1667,9 +1678,6 @@ components:
         validity:
           description: The time period during which this catalog is valid
           $ref: "#/components/schemas/TimePeriod"
-      oneOf:
-        - required: [items]
-        - required: [resources]
       required:
       - id
       - descriptor
@@ -1749,7 +1757,7 @@ components:
         - Asset transfer
         - Service exchange
         - Compliance artifact
-      required: ["@context", "@type", beckn:type, beckn:status]
+      required: ["@context", "@type", "id", "status"]
       properties:
         "@context":
           type: string
@@ -1993,20 +2001,14 @@ components:
       additionalProperties: false
       x-tags:
       - common
-      oneOf:
-        - required: [items]
-          not:
-            required: [commitments]
-        - required: [commitments]
-          not:
-            required: [items]
+      required:
+        - commitments
 
     Commitment:
       type: object
       required:
         - status
-        - committed
-        - resource
+        - resources
         - offer
         - updatedAt
         - updatedBy
@@ -2536,7 +2538,7 @@ components:
 
         This mirrors the role of Offer in current Beckn (and schema.org patterns),
         but keeps the shape minimal and composable via `beckn:offerAttributes`.
-      required: ["@context", "@type", "beckn:id", "beckn:proposer", "beckn:status"]
+      required: ["@context", "@type", "id"]
       properties:
         "@context":
           type: string
@@ -2905,6 +2907,31 @@ components:
         instrument:
           $ref: '#/components/schemas/SettlementInstrument'
 
+    SettlementInstrument:
+      type: object
+      properties:
+        '@context':
+          type: string
+        '@type':
+          type: string
+        id:
+          type: string
+        descriptor:
+          '#/components/schemas/Descriptor'
+    
+    SettlementMethod:
+      type: object
+      properties:
+        '@context':
+          type: string
+        '@type':
+          type: string
+        id:
+          type: string
+        descriptor:
+          '#/components/schemas/Descriptor'
+
+
     SettlementTerm:
       $id: 'https://schema.beckn.io/SettlementTerm/v2.0'
       type: object
@@ -3195,7 +3222,7 @@ components:
       - '@context'
       - '@type'
       - url
-      - trackingStatus
+      - status
       x-jsonld:
         '@type': schema:TrackAction
         trackingStatus: $.trackingStatus
