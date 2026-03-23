@@ -1964,15 +1964,17 @@ components:
         id:
           type: string
         status:
-          descriptor:
-            allOf:
-              - $ref: '#/components/schemas/Descriptor'
-              - properties:
-                  code:
-                    enum:
-                      - DRAFT
-                      - ACTIVE
-                      - CLOSED
+          type: object
+          properties:
+            descriptor:
+              allOf:
+                - $ref: '#/components/schemas/Descriptor'
+                - properties:
+                    code:
+                      enum:
+                        - DRAFT
+                        - ACTIVE
+                        - CLOSED
         resources:
           type: array
           items:
@@ -2094,42 +2096,42 @@ components:
       - '@type'
       additionalProperties: false
 
-      Entitlement:
-        $id: https://schema.beckn.io/Entitlement/v2.0
-        description: A contractually granted, policy-governed right that allows a specific party to access, use, or claim a defined economic resource within stated scope and validity constraints. It represents the enforceable permission created by an order, independent of the credential used to exercise it.
-        title: Entitlement
-        type: object
-        properties:
-          '@context':
-            description: CPD
-            type: string
-            format: uri
-            default: https://schema.beckn.io/
-          '@type':
-            description: The domain-specific type of entitlement that allows domains to extend this schema
-            type: string
-            default: beckn:Entitlement
-          id:
-            description: A unique identifier for this entitlement within the entitlement provider's namespace
-            type: string
-          resource:
-            description: The resource being availed or accessed against this entitlement
-            $ref: '#/components/schemas/Resource/properties/id'
-          descriptor:
-            description: Human-readable information regarding the entitlement like QR-code images, attached documents containing terms and conditions, video or audio files instructing the user on how to use the entitlement
-            $ref: #/components/schemas/Descriptor
-          credentials:
-            type: array
-            items:
-              $ref: '#/components/schemas/Descriptor'
-        additionalProperties: true
-        required:
-        - '@context'
-        - '@type'
-        - id
-        - descriptor
-        x-tags:
-        - common
+    Entitlement:
+      $id: https://schema.beckn.io/Entitlement/v2.0
+      description: A contractually granted, policy-governed right that allows a specific party to access, use, or claim a defined economic resource within stated scope and validity constraints. It represents the enforceable permission created by an order, independent of the credential used to exercise it.
+      title: Entitlement
+      type: object
+      properties:
+        '@context':
+          description: CPD
+          type: string
+          format: uri
+          default: https://schema.beckn.io/
+        '@type':
+          description: The domain-specific type of entitlement that allows domains to extend this schema
+          type: string
+          default: beckn:Entitlement
+        id:
+          description: A unique identifier for this entitlement within the entitlement provider's namespace
+          type: string
+        resource:
+          description: The resource being availed or accessed against this entitlement
+          $ref: '#/components/schemas/Resource/properties/id'
+        descriptor:
+          description: Human-readable information regarding the entitlement like QR-code images, attached documents containing terms and conditions, video or audio files instructing the user on how to use the entitlement
+          $ref: '#/components/schemas/Descriptor'
+        credentials:
+          type: array
+          items:
+            $ref: '#/components/schemas/Descriptor'
+      additionalProperties: true
+      required:
+      - '@context'
+      - '@type'
+      - id
+      - descriptor
+      x-tags:
+      - common
 
     Error:
       $id: '#/components/schemas/Error/v2.0'
@@ -3156,28 +3158,31 @@ components:
 
   responses:
     Ack:
-      $id: 'https://schema.beckn.io/Ack'
-      title: Ack
       description: Synchronous receipt acknowledgement returned for every accepted Beckn request.
-      oneOf:
-        - $ref: 'https://schema.beckn.io/Ack/v2.0'
-        - type: object
-          properties:
-            status:
-              description: ACK if the request was accepted; NACK if rejected.
-              type: string
-              enum: 
-                - ACK
-                - NACK
-            signature:
-              description: Counter-signature proving the receiver authenticated and processed the inbound request.
-              $ref: '#/components/schemas/CounterSignature'
-            error:
-              description: Optional error detail explaining why no callback will follow.
-              $ref: '#/components/schemas/Error'
-          required:
-            - status
-            - signature
+      content:
+        application/json:
+          schema:
+            $id: 'https://schema.beckn.io/Ack'
+            title: Ack
+            oneOf:
+              - $ref: 'https://schema.beckn.io/Ack/v2.0'
+              - type: object
+                properties:
+                  status:
+                    description: ACK if the request was accepted; NACK if rejected.
+                    type: string
+                    enum:
+                      - ACK
+                      - NACK
+                  signature:
+                    description: Counter-signature proving the receiver authenticated and processed the inbound request.
+                    $ref: '#/components/schemas/CounterSignature'
+                  error:
+                    description: Optional error detail explaining why no callback will follow.
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - status
+                  - signature
 
     AckNoCallback:
       description: |
@@ -3195,8 +3200,7 @@ components:
 
 
     NackBadRequest:
-      title: NACK — Bad Request
-      description: Malformed or invalid request; the server could not parse or validate the payload.
+      description: 'NACK — Bad Request: Malformed or invalid request; the server could not parse or validate the payload.'
       content:
         application/json:
           schema:
